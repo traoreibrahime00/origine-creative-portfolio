@@ -27,10 +27,11 @@ export function PremiumReveal() {
             currentX += (targetX - currentX) * ease;
             currentY += (targetY - currentY) * ease;
 
-            // Update position variables for the blob
+            // Update position variables for the blob mask
             if (blob) {
-                blob.style.setProperty('--x', `${currentX}`);
-                blob.style.setProperty('--y', `${currentY}`);
+                // To keep it centered on mouse/screen, we apply the coordinates to the mask position
+                blob.style.setProperty('--x', `${currentX}px`);
+                blob.style.setProperty('--y', `${currentY}px`);
             }
 
             requestRef = requestAnimationFrame(animate);
@@ -112,36 +113,49 @@ export function PremiumReveal() {
             />
 
             {/* 
-        The pure CSS/JS Organic Reveal Blob 
-        Uses an immense box-shadow to cover the rest of the screen, while keeping the center transparent
+        The Optimized Mask Organic Reveal Blob for WebKit/Chrome
+        Replaces intense box-shadows with native GPU mask-image compositing
       */}
             <div
                 ref={blobRef}
-                className="fixed top-0 left-0 pointer-events-none z-[100]"
+                className="fixed inset-0 pointer-events-none z-[100]"
                 style={{
-                    width: 'var(--size, 0px)',
-                    height: 'var(--size, 0px)',
-                    background: 'transparent',
-                    // Hardware acceleration pushing the translation based on JS lerp
-                    transform: 'translate3d(calc(var(--x, 50vw) * 1px - 50%), calc(var(--y, 50vh) * 1px - 50%), 0)',
-                    willChange: 'transform, width, height, opacity',
-                    // Smooth natural growth out from 0 on page load
-                    // transition is set dynamically below
-                    // 1. Inward red bleed, 2. Outward red glow, 3. Soft gradient to black, 4. Infinite black solid fill
-                    boxShadow: `
-              inset 0 0 50px 10px rgba(229, 77, 53, 0.4),
-              0 0 90px 40px rgba(229, 77, 53, 0.5),
-              0 0 160px 110px rgba(0, 0, 0, 0.95),
-              0 0 0 9999px rgba(0, 0, 0, 1)
-            `,
-                    // Custom keyframe for liquid organic border deformation
-                    animation: 'blob-organic-shape 12s ease-in-out infinite alternate',
-                    transitionProperty: 'width, height, opacity',
-                    transitionDuration: '2.5s',
-                    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+                    backgroundColor: 'black',
+                    // The magic happens here: a reverse radial gradient mask that punches a hole in the black background
+                    WebkitMaskImage: 'radial-gradient(circle var(--size, 0px) at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%)',
+                    maskImage: 'radial-gradient(circle var(--size, 0px) at var(--x, 50vw) var(--y, 50vh), transparent 0%, transparent 60%, black 100%)',
+                    // Hardware compose
+                    willChange: 'mask-image, -webkit-mask-image, opacity',
+                    // Growth animation
+                    transition: 'opacity 2.5s cubic-bezier(0.16, 1, 0.3, 1), --size 2.5s cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
-            />
+            >
+                {/* 
+                  Inner glowing red element that exists *inside* the masked black layer,
+                  following the exact same Lerp coordinates to give the premium lighting effect
+                */}
+                <div
+                    className="absolute pointer-events-none rounded-full"
+                    style={{
+                        left: 'var(--x, 50vw)',
+                        top: 'var(--y, 50vh)',
+                        transform: 'translate(-50%, -50%)',
+                        width: 'calc(var(--size, 0px) * 1.5)',
+                        height: 'calc(var(--size, 0px) * 1.5)',
+                        backgroundColor: 'rgba(229, 77, 53, 0.15)',
+                        filter: 'blur(40px)',
+                        boxShadow: '0 0 100px 50px rgba(229, 77, 53, 0.2)',
+                        transition: 'width 2.5s cubic-bezier(0.16, 1, 0.3, 1), height 2.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                        animation: 'blob-organic-shape 12s ease-in-out infinite alternate',
+                    }}
+                />
+            </div>
             <style>{`
+        @property --size {
+          syntax: '<length> | <percentage>';
+          inherits: false;
+          initial-value: 0px;
+        }
         @keyframes blob-organic-shape {
           0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
           34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
