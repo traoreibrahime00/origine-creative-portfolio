@@ -1,10 +1,35 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Linkedin, Dribbble as Behance } from 'lucide-react'; // Behance icon mapped to Dribbble for now if missing
+import { Instagram, Linkedin, Dribbble as Behance } from 'lucide-react';
+import { useState, useRef } from 'react'; // Behance icon mapped to Dribbble for now if missing
 
 export function Footer() {
+    const [easterEggFound, setEasterEggFound] = useState(false);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    const handleEasterEgg = () => {
+        setEasterEggFound(true);
+        if (!audioRef.current) {
+            // Un petit son "swoosh" ou impact stylé
+            audioRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+        }
+        audioRef.current.play().catch(e => console.log(e));
+
+        setTimeout(() => setEasterEggFound(false), 3000);
+    };
+
     return (
-        <footer className="bg-black border-t border-white/10 pt-20 pb-10 px-7 md:px-12 lg:px-20 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12 relative z-10">
+        <footer className={`bg-black border-t border-white/10 pt-20 pb-10 px-7 md:px-12 lg:px-20 relative overflow-hidden transition-colors duration-1000 ${easterEggFound ? 'bg-[hsl(var(--accent-red))] text-white' : ''}`}>
+
+            {/* BIG Easter Egg O */}
+            <div
+                className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[40vw] font-serif italic font-bold select-none cursor-pointer transition-all duration-1000 z-0 ${easterEggFound ? 'text-white opacity-20 scale-110' : 'text-white/5 opacity-5 hover:text-[hsl(var(--accent-red))]/10'}`}
+                onClick={handleEasterEgg}
+                title="Secret de l'agence..."
+            >
+                O
+            </div>
+
+            <div className={`max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12 relative z-10 transition-opacity duration-500 ${easterEggFound ? 'opacity-0' : 'opacity-100'}`}>
 
                 {/* Brand */}
                 <div className="max-w-sm">

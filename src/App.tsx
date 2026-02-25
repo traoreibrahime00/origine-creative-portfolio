@@ -11,6 +11,7 @@ import { APropos } from './pages/APropos';
 import { Contact } from './pages/Contact';
 import { Admin } from './pages/Admin';
 import { CustomCursor } from './components/CustomCursor';
+import { Preloader } from './components/Preloader';
 
 let globalLenis: Lenis | null = null;
 
@@ -53,6 +54,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Preloader />
       <ScrollToTop />
       <CustomCursor />
 
