@@ -220,17 +220,7 @@ export function Projets() {
 
                                 {/* iframe or image area */}
                                 <div className="flex-1 w-full bg-[#0a0a0a] relative overflow-y-auto custom-scrollbar" data-lenis-prevent="true">
-                                    {(selectedProject.contentBlocks && selectedProject.contentBlocks.length > 0) ? (
-                                        <div className="flex flex-col w-full">
-                                            {selectedProject.contentBlocks.map((block) => (
-                                                <div key={block.id} className="w-full flex justify-center bg-[#0a0a0a]">
-                                                    {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl py-12 px-8">{block.content}</div>}
-                                                    {block.type === 'image' && block.content && <img src={block.content} alt="" className="w-full h-auto block" />}
-                                                    {block.type === 'video' && block.content && <video src={block.content} className="w-full h-auto block" autoPlay loop muted playsInline controls />}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : getEmbedUrl(selectedProject.link) ? (
+                                    {getEmbedUrl(selectedProject.link) ? (
                                         <iframe
                                             src={getEmbedUrl(selectedProject.link) || ''}
                                             className="absolute inset-0 w-full h-full"
@@ -239,21 +229,46 @@ export function Projets() {
                                             allow="autoplay; encrypted-media; fullscreen"
                                         />
                                     ) : (
-                                        <div className="flex w-full h-full bg-[#0a0a0a] min-h-[60vh] items-center justify-center overflow-hidden">
-                                            {(selectedProject.projectImages && selectedProject.projectImages.length > 0) ||
-                                                (selectedProject.contentBlocks && selectedProject.contentBlocks.filter(b => b.type === 'image' && b.content).length > 0) ? (
-                                                <Carousel3D
-                                                    images={selectedProject.projectImages?.length ? selectedProject.projectImages : selectedProject.contentBlocks?.filter(b => b.type === 'image' && b.content).map(b => b.content) || []}
-                                                    imageWidth={400}
-                                                    imageHeight={250}
-                                                    rotateSpeed={40}
-                                                />
-                                            ) : selectedProject.imageUrl ? (
-                                                <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
-                                            ) : (
-                                                <div className="p-20 text-white/50 text-center flex flex-col items-center">
-                                                    <p>Aucun contenu visuel importé.</p>
-                                                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="mt-4 px-6 py-2 bg-[hsl(var(--accent-red))] text-white font-medium rounded-full cursor-pointer hover:bg-white hover:text-black transition-colors">Voir le projet original</a>
+                                        <div className="flex flex-col w-full">
+                                            {(() => {
+                                                const allImages = [
+                                                    ...(selectedProject.projectImages || []),
+                                                    ...(selectedProject.contentBlocks?.filter(b => b.type === 'image' && b.content).map(b => b.content) || [])
+                                                ];
+
+                                                if (allImages.length > 0) {
+                                                    return (
+                                                        <div className="flex w-full min-h-[70vh] items-center justify-center overflow-hidden bg-[#0a0a0a]">
+                                                            <Carousel3D images={allImages} imageWidth={400} imageHeight={250} rotateSpeed={40} />
+                                                        </div>
+                                                    );
+                                                } else if (selectedProject.imageUrl) {
+                                                    return (
+                                                        <div className="flex w-full h-full min-h-[60vh] bg-[#0a0a0a] items-center justify-center">
+                                                            <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
+                                                        </div>
+                                                    );
+                                                } else {
+                                                    return (
+                                                        <div className="p-20 text-white/50 text-center flex flex-col items-center bg-[#0a0a0a] min-h-[60vh] justify-center">
+                                                            <p>Aucun contenu visuel importé.</p>
+                                                            {selectedProject.contentBlocks?.length === 0 && (
+                                                                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="mt-4 px-6 py-2 bg-[hsl(var(--accent-red))] text-white font-medium rounded-full cursor-pointer hover:bg-white hover:text-black transition-colors">Voir le projet original</a>
+                                                            )}
+                                                        </div>
+                                                    );
+                                                }
+                                            })()}
+
+                                            {/* Render Text and Videos below */}
+                                            {selectedProject.contentBlocks && selectedProject.contentBlocks.filter(b => b.type !== 'image').length > 0 && (
+                                                <div className="flex flex-col w-full bg-[#0a0a0a] pb-20">
+                                                    {selectedProject.contentBlocks.filter(b => b.type !== 'image').map((block) => (
+                                                        <div key={block.id} className="w-full flex justify-center mt-4">
+                                                            {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl px-8 py-8">{block.content}</div>}
+                                                            {block.type === 'video' && block.content && <video src={block.content} className="w-full max-w-5xl h-auto block rounded-lg mt-4 shadow-xl px-4" autoPlay loop muted playsInline controls />}
+                                                        </div>
+                                                    ))}
                                                 </div>
                                             )}
                                         </div>

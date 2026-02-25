@@ -181,6 +181,32 @@ export function Admin() {
         };
     };
 
+    const handleImageCoverUpload = async (projectId: number, file: File) => {
+        setStatus("Téléchargement de l'aperçu en cours...");
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = async () => {
+            const base64 = reader.result as string;
+            try {
+                const res = await fetch('/api/upload', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filename: 'cover_' + file.name, content: base64 })
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    handleChange(projectId, 'imageUrl', data.url);
+                    setStatus("Aperçu téléchargé !");
+                } else {
+                    setStatus("Erreur lors du téléchargement");
+                }
+            } catch (e) {
+                setStatus("Erreur lors du téléchargement");
+            }
+            setTimeout(() => setStatus(''), 3000);
+        };
+    };
+
     const handleMultipleFileUpload = async (projectId: number, files: FileList) => {
         setStatus("Téléchargement en cours...");
 
@@ -324,15 +350,33 @@ export function Admin() {
                                 </div>
 
                                 <div className="space-y-2 md:col-span-2">
-                                    <label className="text-xs text-white/50 font-medium uppercase tracking-wider">URL de l'image (facultatif)</label>
-                                    <input
-                                        type="text"
-                                        value={project.imageUrl || ''}
-                                        placeholder="/images/projet1.jpg ou https://..."
-                                        onChange={(e) => handleChange(project.id, 'imageUrl', e.target.value)}
-                                        className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none"
-                                    />
-                                    <p className="text-xs text-white/40">Mettez une URL commençant par /images/... et placez l'image dans le dossier public/images/</p>
+                                    <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Image d'Aperçu (Miniature du Projet)</label>
+                                    {project.imageUrl && (
+                                        <div className="mb-2 w-32 h-32 rounded-lg overflow-hidden border border-white/10">
+                                            <img src={project.imageUrl} alt="Aperçu" className="w-full h-full object-cover" />
+                                        </div>
+                                    )}
+                                    <div className="flex gap-4 items-center mt-2">
+                                        <label className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2 rounded cursor-pointer transition-colors text-sm w-fit border border-white/10 shrink-0">
+                                            <Upload size={16} />
+                                            Télécharger mon Aperçu
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                className="hidden"
+                                                onChange={(e) => e.target.files?.[0] && handleImageCoverUpload(project.id, e.target.files[0])}
+                                            />
+                                        </label>
+                                        <span className="text-xs text-white/40 whitespace-nowrap">ou URL :</span>
+                                        <input
+                                            type="text"
+                                            value={project.imageUrl || ''}
+                                            placeholder="https://..."
+                                            onChange={(e) => handleChange(project.id, 'imageUrl', e.target.value)}
+                                            className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none"
+                                        />
+                                    </div>
+                                    <p className="text-xs text-white/40 mt-1">C'est l'image qui s'affichera sur la carte du projet dans la galerie (page Projets & Accueil).</p>
                                 </div>
 
                             </div>
