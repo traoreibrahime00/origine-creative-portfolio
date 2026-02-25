@@ -200,17 +200,33 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-[100]">
+        <div className="fixed bottom-8 right-8 md:bottom-12 md:right-12 z-[100] flex flex-col items-end">
             {/* Toggle Button */}
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                whileHover={{ scale: 1.05 }}
+                animate={!isOpen ? {
+                    y: [0, -12, 0],
+                    boxShadow: [
+                        "0px 0px 20px rgba(229, 77, 53, 0.4)",
+                        "0px 15px 40px rgba(229, 77, 53, 0.7)",
+                        "0px 0px 20px rgba(229, 77, 53, 0.4)"
+                    ]
+                } : {
+                    y: 0,
+                    boxShadow: "0px 10px 30px rgba(0,0,0,0.5)"
+                }}
+                transition={{
+                    duration: 4,
+                    repeat: !isOpen ? Infinity : 0,
+                    ease: "easeInOut"
+                }}
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 50px rgba(229, 77, 53, 0.9)" }}
                 whileTap={{ scale: 0.95 }}
-                className="w-16 h-16 rounded-full bg-[hsl(var(--accent-red))] text-white shadow-2xl flex items-center justify-center relative overflow-hidden"
+                className="relative w-16 h-16 rounded-full bg-[hsl(var(--accent-red))] text-white flex items-center justify-center z-10"
                 data-cursor="CHAT"
             >
                 {/* Glow effect */}
-                <span className="absolute inset-0 bg-white/20 rounded-full blur-md opacity-0 hover:opacity-100 transition-opacity"></span>
+                <span className="absolute inset-0 bg-white/20 rounded-full blur-sm opacity-0 hover:opacity-100 transition-opacity"></span>
 
                 <AnimatePresence mode="wait">
                     {isOpen ? (
@@ -234,11 +250,11 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: "bottom right" }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute bottom-20 right-0 w-[350px] sm:w-[400px] h-[550px] max-h-[80vh] bg-zinc-950 border border-white/10 rounded-3xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
+                        className="absolute bottom-24 right-0 w-[350px] sm:w-[400px] h-[550px] max-h-[80vh] bg-zinc-950 border border-white/10 rounded-3xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
                     >
                         {/* Header */}
                         <div className="bg-zinc-900 border-b border-white/10 p-5 flex items-center gap-4">
