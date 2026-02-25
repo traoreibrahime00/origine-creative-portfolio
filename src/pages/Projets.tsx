@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, ExternalLink } from 'lucide-react';
 import { RevealLine, RevealWords } from '../components/TextReveal';
+import { Carousel3D } from '../components/Carousel3D';
 import { useState, useEffect } from 'react';
 
 const categories = ['Tous', 'Branding', 'Digital', 'Motion'];
@@ -238,11 +239,9 @@ export function Projets() {
                                             allow="autoplay; encrypted-media; fullscreen"
                                         />
                                     ) : (
-                                        <div className="flex flex-col w-full bg-[#0a0a0a]">
+                                        <div className="flex w-full h-full bg-[#0a0a0a] min-h-[60vh] items-center justify-center overflow-hidden">
                                             {selectedProject.projectImages && selectedProject.projectImages.length > 0 ? (
-                                                selectedProject.projectImages.map((imgUrl, idx) => (
-                                                    <img key={idx} src={imgUrl} alt={`Project ${idx}`} className="w-full h-auto block" />
-                                                ))
+                                                <Carousel3D images={selectedProject.projectImages} imageWidth={400} imageHeight={250} rotateSpeed={40} />
                                             ) : selectedProject.imageUrl ? (
                                                 <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
                                             ) : (
