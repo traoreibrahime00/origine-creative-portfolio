@@ -99,7 +99,7 @@ export function Contact() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 backdrop-blur-xl"
                         >
-                            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+                            <form className="flex flex-col gap-6" action="https://formspree.io/f/mdalyybw" method="POST">
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="flex flex-col gap-2">
@@ -107,6 +107,7 @@ export function Contact() {
                                         <input
                                             type="text"
                                             id="name"
+                                            name="nom"
                                             className="bg-black/40 border border-white/10 focus:border-[hsl(var(--accent-red))] outline-none rounded-full px-6 py-4 text-white transition-colors"
                                             placeholder="Jane Doe"
                                             required
@@ -117,6 +118,7 @@ export function Contact() {
                                         <input
                                             type="text"
                                             id="company"
+                                            name="entreprise"
                                             className="bg-black/40 border border-white/10 focus:border-[hsl(var(--accent-red))] outline-none rounded-full px-6 py-4 text-white transition-colors"
                                             placeholder="Mon Entreprise"
                                         />
@@ -128,6 +130,7 @@ export function Contact() {
                                     <input
                                         type="email"
                                         id="email"
+                                        name="email"
                                         className="bg-black/40 border border-white/10 focus:border-[hsl(var(--accent-red))] outline-none rounded-full px-6 py-4 text-white transition-colors"
                                         placeholder="hello@exemple.com"
                                         required
@@ -138,10 +141,12 @@ export function Contact() {
                                     <label htmlFor="subject" className="text-sm font-medium text-white/60 pl-4">Sujet du projet *</label>
                                     <select
                                         id="subject"
+                                        name="sujet"
                                         className="bg-black/40 border border-white/10 focus:border-[hsl(var(--accent-red))] outline-none rounded-full px-6 py-4 text-white appearance-none transition-colors"
                                         required
+                                        defaultValue=""
                                     >
-                                        <option value="" disabled selected>Sélectionnez un sujet</option>
+                                        <option value="" disabled>Sélectionnez un sujet</option>
                                         <option value="branding">Stratégie & Branding</option>
                                         <option value="digital">Digital & Web</option>
                                         <option value="motion">Motion Design</option>
@@ -153,6 +158,7 @@ export function Contact() {
                                     <label htmlFor="message" className="text-sm font-medium text-white/60 pl-4">Message *</label>
                                     <textarea
                                         id="message"
+                                        name="message"
                                         rows={5}
                                         className="bg-black/40 border border-white/10 focus:border-[hsl(var(--accent-red))] outline-none rounded-3xl px-6 py-4 text-white resize-none transition-colors"
                                         placeholder="Parlez-nous de votre projet..."
