@@ -240,8 +240,14 @@ export function Projets() {
                                         />
                                     ) : (
                                         <div className="flex w-full h-full bg-[#0a0a0a] min-h-[60vh] items-center justify-center overflow-hidden">
-                                            {selectedProject.projectImages && selectedProject.projectImages.length > 0 ? (
-                                                <Carousel3D images={selectedProject.projectImages} imageWidth={400} imageHeight={250} rotateSpeed={40} />
+                                            {(selectedProject.projectImages && selectedProject.projectImages.length > 0) ||
+                                                (selectedProject.contentBlocks && selectedProject.contentBlocks.filter(b => b.type === 'image' && b.content).length > 0) ? (
+                                                <Carousel3D
+                                                    images={selectedProject.projectImages?.length ? selectedProject.projectImages : selectedProject.contentBlocks?.filter(b => b.type === 'image' && b.content).map(b => b.content) || []}
+                                                    imageWidth={400}
+                                                    imageHeight={250}
+                                                    rotateSpeed={40}
+                                                />
                                             ) : selectedProject.imageUrl ? (
                                                 <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
                                             ) : (
