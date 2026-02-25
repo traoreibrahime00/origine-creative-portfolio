@@ -20,6 +20,7 @@ export function Chatbot() {
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [randomPos, setRandomPos] = useState({ x: 0, y: 0 });
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatSession = useRef<any>(null); // To store Gemini chat history
 
@@ -119,6 +120,31 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
         }
     }, []);
 
+    // Random floating movement
+    useEffect(() => {
+        if (isOpen) return;
+
+        const moveBot = () => {
+            // Keep it bounded to the bottom right quadrant
+            const rx = Math.floor(Math.random() * -150); // Move left up to 150px
+            const ry = Math.floor(Math.random() * -200); // Move up up to 200px
+            setRandomPos({ x: rx, y: ry });
+        };
+
+        // Move initially after a short delay
+        const initialTimer = setTimeout(moveBot, 2000);
+
+        // Then move every 4-6 seconds picking random spots
+        const interval = setInterval(() => {
+            moveBot();
+        }, 4000 + Math.random() * 2000);
+
+        return () => {
+            clearTimeout(initialTimer);
+            clearInterval(interval);
+        };
+    }, [isOpen]);
+
     const sendToFormspree = async (data: { nom: string, email: string, projet: string }) => {
         try {
             await fetch('https://formspree.io/f/mdalyybw', {
@@ -207,13 +233,14 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 animate={!isOpen ? {
-                    y: [0, -15, 0],
+                    x: randomPos.x,
+                    y: randomPos.y,
                 } : {
+                    x: 0,
                     y: 0,
                 }}
                 transition={{
-                    duration: 4,
-                    repeat: !isOpen ? Infinity : 0,
+                    duration: 5,
                     ease: "easeInOut"
                 }}
                 whileHover={{ scale: 1.1 }}
