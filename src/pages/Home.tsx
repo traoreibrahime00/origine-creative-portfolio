@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { PremiumReveal } from '../components/PremiumReveal';
 import { MagneticWrapper } from '../components/MagneticWrapper';
 import { RevealLine, RevealWords } from '../components/TextReveal';
+import { ReelCarousel } from '../components/ReelCarousel';
 
 const expertiseIcons = [
     { name: 'Branding', icon: PenTool },
@@ -212,33 +213,7 @@ export function Home() {
                         </div>
                     </div>
                     <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
-                        <div className="w-full max-w-md aspect-[4/5] rounded-[3rem] bg-zinc-900 border border-white/10 relative overflow-hidden shadow-2xl shadow-black">
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
-                            {/* Abstract shape placeholders instead of actual images */}
-                            <div className="absolute top-10 right-10 w-32 h-32 bg-[hsl(var(--accent-red))] rounded-full blur-[80px] opacity-30"></div>
-                            <div className="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full blur-[100px] opacity-10"></div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center p-8 text-center">
-                                {/* Elegant abstract agency symbol animation */}
-                                <div className="relative w-32 h-32 flex items-center justify-center">
-                                    <motion.div
-                                        animate={{ rotate: 360 }}
-                                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                        className="absolute inset-0 border border-white/10 rounded-full"
-                                    />
-                                    <motion.div
-                                        animate={{ rotate: -360 }}
-                                        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                                        className="absolute w-24 h-24 border border-[hsl(var(--accent-red))]/30 rounded-full"
-                                    />
-                                    <motion.div
-                                        animate={{ scale: [1, 1.1, 1] }}
-                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                        className="absolute w-16 h-16 bg-[hsl(var(--accent-red))]/10 rounded-full blur-md"
-                                    />
-                                    <span className="text-white font-serif italic text-4xl relative z-10 text-glow">O</span>
-                                </div>
-                            </div>
-                        </div>
+                        <ReelCarousel />
                     </div>
                 </div>
             </section>
