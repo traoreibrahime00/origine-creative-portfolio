@@ -34,18 +34,28 @@ export function Chatbot() {
         const initChat = async () => {
             const model = genAI.getGenerativeModel({
                 model: "gemini-2.5-flash",
-                systemInstruction: `Tu es l'assistant de l'agence créative africaine "Origine Creative". Ton rôle est d'accueillir les clients de manière chaleureuse, courte et très professionnelle. 
-                Ton objectif est de récupérer 3 informations : Le NOM du client, son EMAIL, et la DESCRIPTION de son PROJET.
-                NE POSE SURTOUT PAS TOUTES LES QUESTIONS EN MÊME TEMPS ! Pose-les une par une de manière conversationnelle. Sois très concis (2-3 phrases max).
+                systemInstruction: `Tu es l'assistant IA officiel de l'agence créative africaine "Origine Creative". Ton nom est "Origine Bot". 
+                Ton rôle est d'être extrêmement chaleureux, enthousiaste, et d'agir comme un véritable consultant créatif expert. 
+                Tu tutoyes ou vouvoyes selon comment le client te parle, mais garde toujours un ton professionnel et très accueillant, avec des emojis pertinents.
                 
-                DÈS QUE TU AS OBTENU CES 3 INFORMATIONS CLAIRES, arrête de discuter. Et réponds UNIQUEMENT et EXACTEMENT avec ce bloc de texte JSON strict (aucun autre mot, aucune salutation) :
+                Ton objectif est de comprendre en profondeur le besoin du client. Demande des détails intéressants ! 
+                Au lieu de demander bêtement "quel est ton projet ?", demande des choses comme : "Quels sont tes objectifs avec cette nouvelle marque ?" ou "As-tu une idée du budget et de la deadline idéale pour ce chef-d'œuvre ?"
+                
+                Les informations CLÉS que tu dois absolument obtenir (sans avoir l'air d'un robot interrogateur, fais le naturellement au cours de la discussion) :
+                1. Le NOM COMPLET du client ou de son entreprise.
+                2. Son adresse EMAIL pour qu'on puisse le recontacter.
+                3. Une DESCRIPTION DÉTAILLÉE de son projet (incluant si possible ce qu'il veut faire, son budget, ou toute info utile).
+                
+                NE POSE SURTOUT PAS TOUTES LES QUESTIONS EN MÊME TEMPS ! Pose une seule question à la fois, rebondis sur ce que dit le client, montre que tu trouves son projet génial.
+                
+                DÈS QUE tu as obtenu clairement ces 3 informations clés (Nom, Email, Projet détaillé), conclus gentiment la conversation et réponds UNIQUEMENT et EXACTEMENT avec ce bloc de texte JSON strict (AUCUN autre mot avant ou après le JSON) :
                 {
                     "nom": "nom_du_client",
                     "email": "email_du_client",
-                    "projet": "petit_resume_du_projet"
+                    "projet": "resume_detaille_du_projet_et_budget_si_donne"
                 }
 
-                Tant que tu n'as pas obtenu les 3 infos, continue la discussion normalement pour avoir ce qui manque.`,
+                Tant que tu n'as pas obtenu les 3 infos, continue la discussion chaleureusement.`,
             });
 
             // Start an empty chat session to keep context
@@ -56,11 +66,11 @@ export function Chatbot() {
                 history: [
                     {
                         role: "user",
-                        parts: [{ text: "Bonjour, j'aimerais vous contacter concernant mes futurs envies pour mon agence ou mon entreprise." }],
+                        parts: [{ text: "Bonjour, j'aimerais vous contacter concernant une collaboration avec l'agence." }],
                     },
                     {
                         role: "model",
-                        parts: [{ text: "Bonjour ! ✨ Je suis l'assistant IA d'Origine Creative. C'est un plaisir de vous accueillir ! \nPour commencer et bien vous orienter, pourriez-vous me donner votre nom ou celui de votre entreprise ?" }],
+                        parts: [{ text: "Bonjour et bienvenue chez Origine Creative ! ✨ Je suis ravi de vous accueillir. Notre équipe adore découvrir de nouvelles idées. \nPourriez-vous me dire avec qui j'ai le plaisir de discuter aujourd'hui ?" }],
                     }
                 ]
             });
@@ -68,7 +78,7 @@ export function Chatbot() {
             // Add the initial message to the UI
             setMessages([{
                 id: Date.now().toString(),
-                text: "Bonjour ! ✨ Je suis l'assistant virtuel d'Origine Creative. Pour commencer, avec qui ai-je l'honneur de discuter ?",
+                text: "Bonjour et bienvenue chez Origine Creative ! ✨ Je suis ravi de vous accueillir. Notre équipe adore découvrir de nouvelles idées. Pourriez-vous me dire avec qui j'ai le plaisir de discuter aujourd'hui ?",
                 sender: 'bot'
             }]);
         };
@@ -226,8 +236,8 @@ export function Chatbot() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.3, delay: idx === messages.length - 1 ? 0.1 : 0 }}
                                     className={`max-w-[85%] rounded-2xl p-4 text-sm leading-relaxed ${msg.sender === 'user'
-                                            ? 'bg-zinc-800 text-white self-end rounded-br-sm'
-                                            : 'bg-white/5 text-white/90 border border-white/5 self-start rounded-bl-sm'
+                                        ? 'bg-zinc-800 text-white self-end rounded-br-sm'
+                                        : 'bg-white/5 text-white/90 border border-white/5 self-start rounded-bl-sm'
                                         }`}
                                 >
                                     {msg.text}
