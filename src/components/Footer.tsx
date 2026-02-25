@@ -5,9 +5,13 @@ import { useState, useRef } from 'react'; // Behance icon mapped to Dribbble for
 export function Footer() {
     const [easterEggFound, setEasterEggFound] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    const heartbeatRef = useRef<HTMLAudioElement | null>(null);
 
     const handleEasterEgg = () => {
         setEasterEggFound(true);
+        if (heartbeatRef.current) {
+            heartbeatRef.current.pause();
+        }
         if (!audioRef.current) {
             // Un petit son "swoosh" ou impact stylé
             audioRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
@@ -17,14 +21,33 @@ export function Footer() {
         setTimeout(() => setEasterEggFound(false), 3000);
     };
 
+    const handleMouseEnter = () => {
+        if (easterEggFound) return;
+        if (!heartbeatRef.current) {
+            heartbeatRef.current = new Audio('https://actions.google.com/sounds/v1/human_voices/heartbeat.ogg');
+            heartbeatRef.current.loop = true;
+            heartbeatRef.current.volume = 0.5;
+        }
+        heartbeatRef.current.play().catch(e => console.log(e));
+    };
+
+    const handleMouseLeave = () => {
+        if (heartbeatRef.current) {
+            heartbeatRef.current.pause();
+            heartbeatRef.current.currentTime = 0;
+        }
+    };
+
     return (
         <footer className={`bg-black border-t border-white/10 pt-20 pb-10 px-7 md:px-12 lg:px-20 relative overflow-hidden transition-colors duration-1000 ${easterEggFound ? 'bg-[hsl(var(--accent-red))] text-white' : ''}`}>
 
             {/* BIG Easter Egg O */}
             <div
                 className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[40vw] font-serif italic font-bold select-none cursor-pointer transition-all duration-1000 z-10 
-                ${easterEggFound ? 'text-white opacity-40 scale-110' : 'text-white/20 opacity-20 hover:text-[hsl(var(--accent-red))] hover:opacity-50'}`}
+                ${easterEggFound ? 'text-white opacity-40 scale-110' : 'text-white/20 opacity-20 hover:text-[hsl(var(--accent-red))] hover:opacity-50 hover:scale-105'}`}
                 onClick={handleEasterEgg}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 title="Secret de l'agence..."
             >
                 O
