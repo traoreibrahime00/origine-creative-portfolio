@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -13,6 +13,7 @@ import { Admin } from './pages/Admin';
 import { CustomCursor } from './components/CustomCursor';
 import { Preloader } from './components/Preloader';
 import { Chatbot } from './components/Chatbot';
+import { PageTransition } from './components/PageTransition';
 
 let globalLenis: Lenis | null = null;
 
@@ -28,6 +29,23 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+        <Route path="/projets" element={<PageTransition><Projets /></PageTransition>} />
+        <Route path="/a-propos" element={<PageTransition><APropos /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </AnimatePresence>
+  );
 }
 
 function App() {
@@ -95,14 +113,7 @@ function App() {
       <div className="relative min-h-screen text-white flex flex-col font-sans z-10">
         <Navbar />
         <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projets" element={<Projets />} />
-            <Route path="/a-propos" element={<APropos />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<Admin />} />
-          </Routes>
+          <AnimatedRoutes />
         </div>
         <Footer />
       </div>
