@@ -3,6 +3,7 @@ import { ArrowUpRight, PenTool, Megaphone, Layout, Film, Globe, Camera } from 'l
 import { Link } from 'react-router-dom';
 import { PremiumReveal } from '../components/PremiumReveal';
 import { MagneticWrapper } from '../components/MagneticWrapper';
+import { RevealLine, RevealWords } from '../components/TextReveal';
 
 const expertiseIcons = [
     { name: 'Branding', icon: PenTool },
@@ -38,11 +39,17 @@ export function Home() {
                         </div>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6">
-                            Nous créons des marques qui <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">marquent.</span>
+                            <RevealWords text="Nous créons des marques qui" delayOffset={0.2} />{' '}
+                            <RevealLine delay={0.6}>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">marquent.</span>
+                            </RevealLine>
                         </h1>
 
                         <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
-                            Origine Creative. L'agence africaine spécialisée en stratégie de marque, identité visuelle, communication digitale et motion design.
+                            <RevealWords
+                                text="Origine Creative. L'agence africaine spécialisée en stratégie de marque, identité visuelle, communication digitale et motion design."
+                                delayOffset={0.4}
+                            />
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-10">
