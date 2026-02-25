@@ -3,6 +3,7 @@ import { ArrowUpRight, X, ExternalLink } from 'lucide-react';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { Carousel3D } from '../components/Carousel3D';
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const categories = ['Tous', 'Branding', 'Digital', 'Motion'];
 
@@ -185,99 +186,102 @@ export function Projets() {
                 </motion.div>
 
                 {/* Video / Behance Modal */}
-                <AnimatePresence>
-                    {selectedProject && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-md"
-                        >
-                            <div className="relative w-full max-w-6xl h-full flex flex-col bg-zinc-950 rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
-                                {/* Modal Header */}
-                                <div className="flex items-center justify-between p-4 md:px-8 border-b border-white/10 shrink-0">
-                                    <div>
-                                        <h3 className="text-xl font-bold">{selectedProject.title}</h3>
-                                        <p className="text-sm text-white/50">{selectedProject.category}</p>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <a
-                                            href={selectedProject.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-                                        >
-                                            <ExternalLink size={16} /> URL original
-                                        </a>
-                                        <button
-                                            onClick={() => setSelectedProject(null)}
-                                            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                                        >
-                                            <X size={20} />
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* iframe or image area */}
-                                <div className="flex-1 w-full bg-[#0a0a0a] relative overflow-y-auto custom-scrollbar" data-lenis-prevent="true">
-                                    {getEmbedUrl(selectedProject.link) ? (
-                                        <iframe
-                                            src={getEmbedUrl(selectedProject.link) || ''}
-                                            className="absolute inset-0 w-full h-full"
-                                            allowFullScreen
-                                            frameBorder="0"
-                                            allow="autoplay; encrypted-media; fullscreen"
-                                        />
-                                    ) : (
-                                        <div className="flex flex-col w-full">
-                                            {(() => {
-                                                const allImages = [
-                                                    ...(selectedProject.projectImages || []),
-                                                    ...(selectedProject.contentBlocks?.filter(b => b.type === 'image' && b.content).map(b => b.content) || [])
-                                                ];
-
-                                                if (allImages.length > 0) {
-                                                    return (
-                                                        <div className="flex w-full min-h-[70vh] items-center justify-center overflow-hidden bg-[#0a0a0a]">
-                                                            <Carousel3D images={allImages} imageWidth={400} imageHeight={250} rotateSpeed={40} />
-                                                        </div>
-                                                    );
-                                                } else if (selectedProject.imageUrl) {
-                                                    return (
-                                                        <div className="flex w-full h-full min-h-[60vh] bg-[#0a0a0a] items-center justify-center">
-                                                            <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
-                                                        </div>
-                                                    );
-                                                } else {
-                                                    return (
-                                                        <div className="p-20 text-white/50 text-center flex flex-col items-center bg-[#0a0a0a] min-h-[60vh] justify-center">
-                                                            <p>Aucun contenu visuel importé.</p>
-                                                            {selectedProject.contentBlocks?.length === 0 && (
-                                                                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="mt-4 px-6 py-2 bg-[hsl(var(--accent-red))] text-white font-medium rounded-full cursor-pointer hover:bg-white hover:text-black transition-colors">Voir le projet original</a>
-                                                            )}
-                                                        </div>
-                                                    );
-                                                }
-                                            })()}
-
-                                            {/* Render Text and Videos below */}
-                                            {selectedProject.contentBlocks && selectedProject.contentBlocks.filter(b => b.type !== 'image').length > 0 && (
-                                                <div className="flex flex-col w-full bg-[#0a0a0a] pb-20">
-                                                    {selectedProject.contentBlocks.filter(b => b.type !== 'image').map((block) => (
-                                                        <div key={block.id} className="w-full flex justify-center mt-4">
-                                                            {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl px-8 py-8">{block.content}</div>}
-                                                            {block.type === 'video' && block.content && <video src={block.content} className="w-full max-w-5xl h-auto block rounded-lg mt-4 shadow-xl px-4" autoPlay loop muted playsInline controls />}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
+                {createPortal(
+                    <AnimatePresence>
+                        {selectedProject && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 z-[99999] flex items-center justify-center p-0 sm:p-4 md:p-10 bg-black/90 backdrop-blur-md"
+                            >
+                                <div className="relative w-full max-w-7xl h-full flex flex-col bg-zinc-950 sm:rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+                                    {/* Modal Header */}
+                                    <div className="flex items-center justify-between p-4 md:px-8 border-b border-white/10 shrink-0">
+                                        <div>
+                                            <h3 className="text-xl font-bold">{selectedProject.title}</h3>
+                                            <p className="text-sm text-white/50">{selectedProject.category}</p>
                                         </div>
-                                    )}
+                                        <div className="flex items-center gap-4">
+                                            <a
+                                                href={selectedProject.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                                            >
+                                                <ExternalLink size={16} /> URL original
+                                            </a>
+                                            <button
+                                                onClick={() => setSelectedProject(null)}
+                                                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                            >
+                                                <X size={20} />
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* iframe or image area */}
+                                    <div className="flex-1 w-full bg-[#0a0a0a] relative overflow-y-auto custom-scrollbar" data-lenis-prevent="true">
+                                        {getEmbedUrl(selectedProject.link) ? (
+                                            <iframe
+                                                src={getEmbedUrl(selectedProject.link) || ''}
+                                                className="absolute inset-0 w-full h-full"
+                                                allowFullScreen
+                                                frameBorder="0"
+                                                allow="autoplay; encrypted-media; fullscreen"
+                                            />
+                                        ) : (
+                                            <div className="flex flex-col w-full">
+                                                {(() => {
+                                                    const allImages = [
+                                                        ...(selectedProject.projectImages || []),
+                                                        ...(selectedProject.contentBlocks?.filter(b => b.type === 'image' && b.content).map(b => b.content) || [])
+                                                    ];
+
+                                                    if (allImages.length > 0) {
+                                                        return (
+                                                            <div className="flex w-full min-h-[80vh] items-center justify-center overflow-hidden bg-[#0a0a0a] py-10">
+                                                                <Carousel3D images={allImages} />
+                                                            </div>
+                                                        );
+                                                    } else if (selectedProject.imageUrl) {
+                                                        return (
+                                                            <div className="flex w-full h-full min-h-[60vh] bg-[#0a0a0a] items-center justify-center">
+                                                                <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
+                                                            </div>
+                                                        );
+                                                    } else {
+                                                        return (
+                                                            <div className="p-20 text-white/50 text-center flex flex-col items-center bg-[#0a0a0a] min-h-[60vh] justify-center">
+                                                                <p>Aucun contenu visuel importé.</p>
+                                                                {selectedProject.contentBlocks?.length === 0 && (
+                                                                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="mt-4 px-6 py-2 bg-[hsl(var(--accent-red))] text-white font-medium rounded-full cursor-pointer hover:bg-white hover:text-black transition-colors">Voir le projet original</a>
+                                                                )}
+                                                            </div>
+                                                        );
+                                                    }
+                                                })()}
+
+                                                {/* Render Text and Videos below */}
+                                                {selectedProject.contentBlocks && selectedProject.contentBlocks.filter(b => b.type !== 'image').length > 0 && (
+                                                    <div className="flex flex-col w-full bg-[#0a0a0a] pb-20">
+                                                        {selectedProject.contentBlocks.filter(b => b.type !== 'image').map((block) => (
+                                                            <div key={block.id} className="w-full flex justify-center mt-4">
+                                                                {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl px-8 py-8">{block.content}</div>}
+                                                                {block.type === 'video' && block.content && <video src={block.content} className="w-full max-w-5xl h-auto block rounded-lg mt-4 shadow-xl px-4" autoPlay loop muted playsInline controls />}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>,
+                    document.body
+                )}
 
             </div>
         </main>
