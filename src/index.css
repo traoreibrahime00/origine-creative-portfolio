@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 12%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 12%;
+    --accent-red: 0 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 12%;
+    --accent-red: 0 100% 50%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-[hsl(var(--primary))] font-sans antialiased overflow-x-hidden;
+  }
+
+  /* Custom scrollbar to match dark cinematic feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 5%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 20%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 30%);
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--accent-red));
+  }
+
+  .box-glow {
+    box-shadow: 0 0 15px hsl(var(--accent-red) / 0.5);
+  }
+}
