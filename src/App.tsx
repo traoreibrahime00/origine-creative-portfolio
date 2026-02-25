@@ -12,6 +12,7 @@ import { Contact } from './pages/Contact';
 import { Admin } from './pages/Admin';
 import { CustomCursor } from './components/CustomCursor';
 import { Preloader } from './components/Preloader';
+import { Chatbot } from './components/Chatbot';
 
 let globalLenis: Lenis | null = null;
 
@@ -57,6 +58,7 @@ function App() {
       <Preloader />
       <ScrollToTop />
       <CustomCursor />
+      <Chatbot />
 
       {/* Custom Global Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-zinc-950">
