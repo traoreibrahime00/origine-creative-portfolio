@@ -217,11 +217,26 @@ export function Home() {
                             {/* Abstract shape placeholders instead of actual images */}
                             <div className="absolute top-10 right-10 w-32 h-32 bg-[hsl(var(--accent-red))] rounded-full blur-[80px] opacity-30"></div>
                             <div className="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full blur-[100px] opacity-10"></div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center text-white/20 p-8 text-center">
-                                <div className="w-24 h-24 border border-white/20 rounded-full flex items-center justify-center mb-6">
-                                    <span className="text-[hsl(var(--accent-red))] font-serif italic text-4xl">O</span>
+                            <div className="absolute inset-0 flex flex-col justify-center items-center p-8 text-center">
+                                {/* Elegant abstract agency symbol animation */}
+                                <div className="relative w-32 h-32 flex items-center justify-center">
+                                    <motion.div
+                                        animate={{ rotate: 360 }}
+                                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                                        className="absolute inset-0 border border-white/10 rounded-full"
+                                    />
+                                    <motion.div
+                                        animate={{ rotate: -360 }}
+                                        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                        className="absolute w-24 h-24 border border-[hsl(var(--accent-red))]/30 rounded-full"
+                                    />
+                                    <motion.div
+                                        animate={{ scale: [1, 1.1, 1] }}
+                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                        className="absolute w-16 h-16 bg-[hsl(var(--accent-red))]/10 rounded-full blur-md"
+                                    />
+                                    <span className="text-white font-serif italic text-4xl relative z-10 text-glow">O</span>
                                 </div>
-                                <p className="tracking-widest uppercase text-xs">shape-1.png / shape-2.png / shape-3.png</p>
                             </div>
                         </div>
                     </div>
