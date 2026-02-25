@@ -22,17 +22,18 @@ export function Footer() {
 
             {/* BIG Easter Egg O */}
             <div
-                className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[40vw] font-serif italic font-bold select-none cursor-pointer transition-all duration-1000 z-0 ${easterEggFound ? 'text-white opacity-20 scale-110' : 'text-white/5 opacity-5 hover:text-[hsl(var(--accent-red))]/10'}`}
+                className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[40vw] font-serif italic font-bold select-none cursor-pointer transition-all duration-1000 z-10 
+                ${easterEggFound ? 'text-white opacity-40 scale-110' : 'text-white/20 opacity-20 hover:text-[hsl(var(--accent-red))] hover:opacity-50'}`}
                 onClick={handleEasterEgg}
                 title="Secret de l'agence..."
             >
                 O
             </div>
 
-            <div className={`max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12 relative z-10 transition-opacity duration-500 ${easterEggFound ? 'opacity-0' : 'opacity-100'}`}>
+            <div className={`max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12 relative z-20 pointer-events-none transition-opacity duration-500 ${easterEggFound ? 'opacity-0' : 'opacity-100'}`}>
 
                 {/* Brand */}
-                <div className="max-w-sm">
+                <div className="max-w-sm pointer-events-auto">
                     <Link to="/" className="flex items-center gap-1 mb-6">
                         <img src="/logo.png" alt="Origine Creative" className="h-10 object-contain" />
                     </Link>
@@ -42,7 +43,7 @@ export function Footer() {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-16">
+                <div className="flex gap-16 pointer-events-auto">
                     <div className="flex flex-col gap-4">
                         <h4 className="text-white font-medium mb-2 uppercase tracking-widest text-xs">Navigation</h4>
                         <Link to="/services" className="text-white/60 hover:text-white transition-colors text-sm">Services</Link>
@@ -68,7 +69,7 @@ export function Footer() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-white/40 text-xs">
+            <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-white/40 text-xs relative z-20 pointer-events-auto">
                 <p>© 2026 Origine Creative. Tous droits réservés.</p>
                 <div className="flex gap-6 mt-4 md:mt-0">
                     <Link to="#" className="hover:text-white transition-colors">Politique de confidentialité</Link>
