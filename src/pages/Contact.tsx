@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Mail, MapPin, Phone, Instagram, Linkedin, Dribbble as Behance, MessageCircle } from 'lucide-react';
+import { RevealLine, RevealWords } from '../components/TextReveal';
+import { MagneticWrapper } from '../components/MagneticWrapper';
 
 export function Contact() {
     return (
@@ -20,11 +22,11 @@ export function Contact() {
                             </div>
 
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
-                                Prêt à <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">créer?</span>
+                                <RevealWords text="Prêt à" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">créer?</span></RevealLine>
                             </h1>
 
                             <p className="text-xl text-white/60 mb-12">
-                                Discutons de votre projet, de vos objectifs et voyons comment nous pouvons collaborer.
+                                <RevealWords text="Discutons de votre projet, de vos objectifs et voyons comment nous pouvons collaborer." delayOffset={0.6} />
                             </p>
 
                             <div className="space-y-8 mb-16">
@@ -77,15 +79,21 @@ export function Contact() {
                             <div>
                                 <h4 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">Réseaux Sociaux</h4>
                                 <div className="flex gap-4">
-                                    <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                                        <Instagram size={20} />
-                                    </a>
-                                    <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                                        <Linkedin size={20} />
-                                    </a>
-                                    <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                                        <Behance size={20} />
-                                    </a>
+                                    <MagneticWrapper>
+                                        <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                            <Instagram size={20} />
+                                        </a>
+                                    </MagneticWrapper>
+                                    <MagneticWrapper>
+                                        <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                            <Linkedin size={20} />
+                                        </a>
+                                    </MagneticWrapper>
+                                    <MagneticWrapper>
+                                        <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                            <Behance size={20} />
+                                        </a>
+                                    </MagneticWrapper>
                                 </div>
                             </div>
                         </motion.div>
