@@ -11,9 +11,9 @@ type Carousel3DProps = {
 export function Carousel3D({
     images,
     radius = 400,
-    imageWidth = 600, // Bigger default size
-    imageHeight = 400,
-    rotateSpeed = 40
+    imageWidth = 800, // Bigger default size
+    imageHeight = 450,
+    rotateSpeed = 90
 }: Carousel3DProps) {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -26,8 +26,8 @@ export function Carousel3D({
     let finalWidth = imageWidth;
     let finalHeight = imageHeight;
     if (count > 20) {
-        finalWidth = 400;
-        finalHeight = 280;
+        finalWidth = 600;
+        finalHeight = 337;
     }
 
     const spreadAngle = 360 / count;

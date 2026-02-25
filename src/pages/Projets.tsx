@@ -55,6 +55,18 @@ export function Projets() {
     useEffect(() => {
         if (selectedProject) {
             document.body.style.overflow = 'hidden';
+
+            const handleEsc = (e: KeyboardEvent) => {
+                if (e.key === 'Escape') {
+                    setSelectedProject(null);
+                }
+            };
+            window.addEventListener('keydown', handleEsc);
+
+            return () => {
+                document.body.style.overflow = '';
+                window.removeEventListener('keydown', handleEsc);
+            };
         } else {
             document.body.style.overflow = '';
         }
@@ -194,6 +206,11 @@ export function Projets() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 className="fixed inset-0 z-[99999] flex items-center justify-center p-0 sm:p-4 md:p-10 bg-black/90 backdrop-blur-md"
+                                onClick={(e) => {
+                                    if (e.target === e.currentTarget) {
+                                        setSelectedProject(null);
+                                    }
+                                }}
                             >
                                 <div className="relative w-full max-w-7xl h-full flex flex-col bg-zinc-950 sm:rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
                                     {/* Modal Header */}
@@ -240,7 +257,7 @@ export function Projets() {
 
                                                     if (allImages.length > 0) {
                                                         return (
-                                                            <div className="flex w-full min-h-[80vh] items-center justify-center overflow-hidden bg-[#0a0a0a] py-10">
+                                                            <div className="flex w-full h-[500px] md:h-[600px] my-4 items-center justify-center overflow-hidden bg-[#0a0a0a] py-4">
                                                                 <Carousel3D images={allImages} />
                                                             </div>
                                                         );
