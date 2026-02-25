@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, PenTool, Megaphone, Layout, Film, Globe, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PremiumReveal } from '../components/PremiumReveal';
+import { MagneticWrapper } from '../components/MagneticWrapper';
 
 const expertiseIcons = [
     { name: 'Branding', icon: PenTool },
@@ -44,16 +45,20 @@ export function Home() {
                             Origine Creative. L'agence africaine spécialisée en stratégie de marque, identité visuelle, communication digitale et motion design.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-                            <Link to="/projets" className="group rounded-full bg-white text-black px-8 py-4 flex items-center gap-4 w-full sm:w-auto justify-center transition-all hover:bg-[hsl(var(--accent-red))] hover:text-white hover:shadow-[0_0_30px_hsl(var(--accent-red)/0.5)]">
-                                <span className="font-semibold">Voir nos projets</span>
-                                <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center transition-colors">
-                                    <ArrowUpRight size={18} />
-                                </div>
-                            </Link>
-                            <Link to="/a-propos" className="group rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white px-8 py-4 w-full sm:w-auto text-center transition-colors hover:bg-white/10 hover:border-white/40">
-                                Découvrir l'agence
-                            </Link>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-10">
+                            <MagneticWrapper>
+                                <Link to="/projets" className="group rounded-full bg-white text-black px-8 py-4 flex items-center gap-4 w-full sm:w-auto justify-center transition-all hover:bg-[hsl(var(--accent-red))] hover:text-white hover:shadow-[0_0_30px_hsl(var(--accent-red)/0.5)]">
+                                    <span className="font-semibold">Voir nos projets</span>
+                                    <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center transition-colors">
+                                        <ArrowUpRight size={18} />
+                                    </div>
+                                </Link>
+                            </MagneticWrapper>
+                            <MagneticWrapper>
+                                <Link to="/a-propos" className="group rounded-full border border-white/20 bg-white/5 text-white px-8 py-4 w-full sm:w-auto text-center transition-colors hover:bg-white/10 hover:border-white/40">
+                                    Découvrir l'agence
+                                </Link>
+                            </MagneticWrapper>
                         </div>
                     </motion.div>
                 </div>
@@ -115,11 +120,18 @@ export function Home() {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center">
-                    <Link to="/services" className="inline-flex rounded-full border border-white/20 px-8 py-3 text-sm font-medium hover:bg-white hover:text-black transition-colors">
-                        Explorer nos services
-                    </Link>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-16 text-center"
+                >
+                    <MagneticWrapper>
+                        <Link to="/services" className="inline-flex rounded-full border border-white/20 px-8 py-3 text-sm font-medium hover:bg-white hover:text-black transition-colors">
+                            Explorer nos services
+                        </Link>
+                    </MagneticWrapper>
+                </motion.div>
             </section>
 
             {/* Featured Projects Preview */}
@@ -216,18 +228,37 @@ export function Home() {
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-7 text-center">
-                    <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-5xl md:text-7xl font-bold tracking-tight mb-8"
+                    >
                         Prêt à donner vie à votre <span className="text-[hsl(var(--accent-red))] text-glow">vision ?</span>
-                    </h2>
-                    <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="text-xl text-white/60 mb-12 max-w-2xl mx-auto"
+                    >
                         Contactez-nous pour discuter de votre prochain projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs.
-                    </p>
-                    <Link to="/contact" className="inline-flex items-center gap-4 bg-[hsl(var(--accent-red))] text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-[0_0_40px_hsl(var(--accent-red)/0.6)] hover:scale-105 transition-all w-fit mx-auto">
-                        Démarrer un projet
-                        <div className="bg-white text-[hsl(var(--accent-red))] w-10 h-10 rounded-full flex items-center justify-center pl-0.5 pt-0.5">
-                            <ArrowUpRight strokeWidth={3} />
-                        </div>
-                    </Link>
+                    </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="flex justify-center"
+                    >
+                        <MagneticWrapper>
+                            <Link to="/contact" className="inline-flex items-center gap-4 bg-[hsl(var(--accent-red))] text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-[0_0_40px_hsl(var(--accent-red)/0.6)] hover:scale-105 transition-all">
+                                Démarrer un projet
+                                <div className="bg-white text-[hsl(var(--accent-red))] w-10 h-10 rounded-full flex items-center justify-center pl-0.5 pt-0.5">
+                                    <ArrowUpRight strokeWidth={3} />
+                                </div>
+                            </Link>
+                        </MagneticWrapper>
+                    </motion.div>
                 </div>
             </section>
         </main>
