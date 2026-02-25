@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { RevealLine, RevealWords } from '../components/TextReveal';
 
 export function APropos() {
     return (
@@ -15,7 +16,8 @@ export function APropos() {
                         </div>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight mb-8">
-                            L'origine des <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">grandes marques</span> commence ici.
+                            <RevealWords text="L'origine des" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">grandes marques</span></RevealLine><br />
+                            <RevealWords text="commence ici." delayOffset={0.6} />
                         </h1>
                     </motion.div>
                 </div>
@@ -40,11 +42,13 @@ export function APropos() {
 
                     {/* Text Side */}
                     <div className="w-full lg:w-1/2">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-8">Notre Vision</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-8">
+                            <RevealWords text="Notre Vision" delayOffset={0.2} />
+                        </h2>
 
                         <div className="space-y-6 text-lg text-white/70 leading-relaxed font-light">
                             <p>
-                                Née de la volonté de repenser la communication sur le continent africain, Origine Creative s'impose comme le partenaire stratégique des marques ambitieuses.
+                                <RevealWords text="Née de la volonté de repenser la communication sur le continent africain, Origine Creative s'impose comme le partenaire stratégique des marques ambitieuses." delayOffset={0.4} />
                             </p>
                             <p>
                                 <strong className="text-white font-medium">Nous croyons fermement que chaque marque a une histoire unique à raconter.</strong> Notre mission est de déceler cette essence subtile — cette origine — et de la traduire en expériences visuelles et narratives mémorables.

@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, ExternalLink } from 'lucide-react';
+import { RevealLine, RevealWords } from '../components/TextReveal';
 import { useState, useEffect } from 'react';
 
 const categories = ['Tous', 'Branding', 'Digital', 'Motion'];
@@ -78,7 +79,7 @@ export function Projets() {
                             <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Portfolio</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
-                            Réalisations <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Récents</span>
+                            <RevealWords text="Réalisations" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Récents</span></RevealLine>
                         </h1>
                     </div>
 

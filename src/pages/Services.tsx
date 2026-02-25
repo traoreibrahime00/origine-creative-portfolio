@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { PenTool, Megaphone, Laptop, Film, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { MagneticWrapper } from '../components/MagneticWrapper';
+import { RevealLine, RevealWords } from '../components/TextReveal';
 
 const services = [
     {
@@ -48,10 +50,10 @@ export function Services() {
                             <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Expertise</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
-                            Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Services</span>
+                            <RevealWords text="Nos" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Services</span></RevealLine>
                         </h1>
                         <p className="text-xl text-white/60 leading-relaxed">
-                            Nous accompagnons nos clients à chaque étape de leur développement en déployant un savoir-faire pluridisciplinaire.
+                            <RevealWords text="Nous accompagnons nos clients à chaque étape de leur développement en déployant un savoir-faire pluridisciplinaire." delayOffset={0.6} />
                         </p>
                     </motion.div>
                 </div>
@@ -99,10 +101,12 @@ export function Services() {
                                     </ul>
 
                                     <div className="mt-12">
-                                        <Link to="/contact" className="inline-flex items-center gap-2 group text-sm font-medium uppercase tracking-widest text-white/60 hover:text-white transition-colors">
-                                            Discuter de ce service
-                                            <span className="w-8 h-px bg-white/20 group-hover:bg-white group-hover:w-12 transition-all duration-300"></span>
-                                        </Link>
+                                        <MagneticWrapper>
+                                            <Link to="/contact" className="inline-flex items-center gap-2 group text-sm font-medium uppercase tracking-widest text-white/60 hover:text-white transition-colors">
+                                                Discuter de ce service
+                                                <span className="w-8 h-px bg-white/20 group-hover:bg-white group-hover:w-12 transition-all duration-300"></span>
+                                            </Link>
+                                        </MagneticWrapper>
                                     </div>
                                 </div>
                             </motion.div>
