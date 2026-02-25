@@ -108,7 +108,7 @@ export function Projets() {
                     layout
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-                    {filteredProjects.map((project) => (
+                    {filteredProjects.map((project, idx) => (
                         <motion.button
                             onClick={(e) => {
                                 const embed = getEmbedUrl(project.link);
@@ -128,15 +128,24 @@ export function Projets() {
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.4 }}
                             key={project.id}
-                            className="group relative rounded-3xl overflow-hidden aspect-[4/5] bg-zinc-900 border border-white/5 cursor-pointer block text-left w-full"
+                            data-cursor="VOIR"
+                            className={`group relative rounded-3xl overflow-hidden aspect-[4/5] bg-zinc-900 border border-white/5 cursor-pointer block text-left w-full ${idx % 3 === 1 ? 'lg:translate-y-12' : idx % 3 === 2 ? 'lg:translate-y-24' : ''
+                                }`}
                         >
                             {/* Image Placeholder or Actual Image */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
 
                             {project.imageUrl ? (
-                                <img src={project.imageUrl} alt={project.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <motion.img
+                                    src={project.imageUrl}
+                                    alt={project.title}
+                                    initial={{ scale: 1.2 }}
+                                    whileInView={{ scale: 1.05 }}
+                                    transition={{ duration: 1.5, ease: "easeOut" }}
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                                />
                             ) : (
-                                <div className="absolute inset-0 flex items-center justify-center bg-zinc-800 transition-transform duration-700 group-hover:scale-105">
+                                <div className="absolute inset-0 flex items-center justify-center bg-zinc-800 transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110">
                                     <span className="text-white/5 font-bold text-4xl transform -rotate-12 select-none">{project.category}</span>
                                 </div>
                             )}
