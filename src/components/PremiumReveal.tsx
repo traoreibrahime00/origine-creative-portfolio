@@ -2,12 +2,14 @@ import { useEffect, useRef } from 'react';
 
 export function PremiumReveal() {
     const blobRef = useRef<HTMLDivElement>(null);
+    const noiseRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         // Basic check for mobile/tablet environments
         const isMob = window.innerWidth <= 768;
 
         const blob = blobRef.current;
+        const noise = noiseRef.current;
         if (!blob) return;
 
         // Start in the center of the screen
@@ -44,6 +46,14 @@ export function PremiumReveal() {
                 // Fade out softly
                 setTimeout(() => {
                     blob.style.opacity = '0';
+                    if (noise) noise.style.opacity = '0';
+
+                    // Completely disable rendering to free CPU/GPU
+                    setTimeout(() => {
+                        blob.style.display = 'none';
+                        if (noise) noise.style.display = 'none';
+                        cancelAnimationFrame(requestRef);
+                    }, 2500);
                 }, 1000);
             }
         };
@@ -92,11 +102,12 @@ export function PremiumReveal() {
 
     return (
         <>
-            {/* Subtle premium cinematic grain texture */}
+            {/* Subtle premium cinematic grain texture - Optimized to octaves=1 for performance */}
             <div
-                className="fixed inset-0 pointer-events-none z-[110] opacity-[0.06] mix-blend-screen"
+                ref={noiseRef}
+                className="fixed inset-0 pointer-events-none z-[110] opacity-[0.06] mix-blend-screen transition-opacity duration-1000"
                 style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
                 }}
             />
 
