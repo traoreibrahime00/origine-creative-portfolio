@@ -49,6 +49,18 @@ export function Projets() {
     const [loading, setLoading] = useState(true);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+    // Lock background scrolling and UI when modal is open
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [selectedProject]);
+
     // Load from local API
     useEffect(() => {
         fetch('/api/projects')
@@ -206,18 +218,16 @@ export function Projets() {
                                 </div>
 
                                 {/* iframe or image area */}
-                                <div className="flex-1 w-full bg-black relative overflow-y-auto custom-scrollbar">
+                                <div className="flex-1 w-full bg-[#0a0a0a] relative overflow-y-auto custom-scrollbar" data-lenis-prevent="true">
                                     {(selectedProject.contentBlocks && selectedProject.contentBlocks.length > 0) ? (
-                                        <div className="flex flex-col items-center">
-                                            <div className="w-full max-w-5xl flex flex-col gap-8 py-10 px-4">
-                                                {selectedProject.contentBlocks.map((block) => (
-                                                    <div key={block.id} className="w-full flex flex-col items-center">
-                                                        {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl">{block.content}</div>}
-                                                        {block.type === 'image' && block.content && <img src={block.content} alt="" className="w-full h-auto rounded" />}
-                                                        {block.type === 'video' && block.content && <video src={block.content} className="w-full h-auto rounded" autoPlay loop muted playsInline controls />}
-                                                    </div>
-                                                ))}
-                                            </div>
+                                        <div className="flex flex-col w-full">
+                                            {selectedProject.contentBlocks.map((block) => (
+                                                <div key={block.id} className="w-full flex justify-center bg-[#0a0a0a]">
+                                                    {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl py-12 px-8">{block.content}</div>}
+                                                    {block.type === 'image' && block.content && <img src={block.content} alt="" className="w-full h-auto block" />}
+                                                    {block.type === 'video' && block.content && <video src={block.content} className="w-full h-auto block" autoPlay loop muted playsInline controls />}
+                                                </div>
+                                            ))}
                                         </div>
                                     ) : getEmbedUrl(selectedProject.link) ? (
                                         <iframe
@@ -228,13 +238,13 @@ export function Projets() {
                                             allow="autoplay; encrypted-media; fullscreen"
                                         />
                                     ) : (
-                                        <div className="flex flex-col items-center">
+                                        <div className="flex flex-col w-full bg-[#0a0a0a]">
                                             {selectedProject.projectImages && selectedProject.projectImages.length > 0 ? (
                                                 selectedProject.projectImages.map((imgUrl, idx) => (
-                                                    <img key={idx} src={imgUrl} alt={`Project ${idx}`} className="w-full max-w-5xl h-auto" />
+                                                    <img key={idx} src={imgUrl} alt={`Project ${idx}`} className="w-full h-auto block" />
                                                 ))
                                             ) : selectedProject.imageUrl ? (
-                                                <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full max-w-5xl h-auto" />
+                                                <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
                                             ) : (
                                                 <div className="p-20 text-white/50 text-center flex flex-col items-center">
                                                     <p>Aucun contenu visuel importé.</p>
