@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Sparkles, Loader2 } from 'lucide-react';
+import { X, Send, Sparkles, Loader2 } from 'lucide-react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import Lottie from 'lottie-react';
+import aiRobotAnimation from '../assets/ai-robot.json';
 
 // Initialize the API (Ensure VITE_GEMINI_API_KEY is in your .env / Vercel secrets)
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || "dummy_key_to_prevent_crash_if_missing");
@@ -234,8 +236,8 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
                             <X size={28} />
                         </motion.div>
                     ) : (
-                        <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                            <MessageSquare size={28} />
+                        <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }} className="w-12 h-12 flex items-center justify-center">
+                            <Lottie animationData={aiRobotAnimation} loop={true} className="w-full h-full object-contain" />
                         </motion.div>
                     )}
                 </AnimatePresence>
