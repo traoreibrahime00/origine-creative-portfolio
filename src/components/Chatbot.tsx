@@ -207,28 +207,22 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 animate={!isOpen ? {
-                    y: [0, -12, 0],
-                    boxShadow: [
-                        "0px 0px 20px rgba(229, 77, 53, 0.4)",
-                        "0px 15px 40px rgba(229, 77, 53, 0.7)",
-                        "0px 0px 20px rgba(229, 77, 53, 0.4)"
-                    ]
+                    y: [0, -15, 0],
                 } : {
                     y: 0,
-                    boxShadow: "0px 10px 30px rgba(0,0,0,0.5)"
                 }}
                 transition={{
                     duration: 4,
                     repeat: !isOpen ? Infinity : 0,
                     ease: "easeInOut"
                 }}
-                whileHover={{ scale: 1.05, boxShadow: "0px 0px 50px rgba(229, 77, 53, 0.9)" }}
-                whileTap={{ scale: 0.95 }}
-                className="relative w-16 h-16 rounded-full bg-[hsl(var(--accent-red))] text-white flex items-center justify-center z-10"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className={`relative flex items-center justify-center z-10 transition-all duration-300 ${isOpen ? 'w-14 h-14 rounded-full bg-[hsl(var(--accent-red))] text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'w-24 h-24 sm:w-32 sm:h-32 drop-shadow-[0_0_15px_rgba(229,77,53,0.3)] hover:drop-shadow-[0_0_30px_rgba(229,77,53,0.6)]'}`}
                 data-cursor="CHAT"
             >
-                {/* Glow effect */}
-                <span className="absolute inset-0 bg-white/20 rounded-full blur-sm opacity-0 hover:opacity-100 transition-opacity"></span>
+                {/* Glow effect for the close button */}
+                {isOpen && <span className="absolute inset-0 bg-white/20 rounded-full blur-sm opacity-0 hover:opacity-100 transition-opacity"></span>}
 
                 <AnimatePresence mode="wait">
                     {isOpen ? (
@@ -236,7 +230,7 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
                             <X size={28} />
                         </motion.div>
                     ) : (
-                        <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }} className="w-12 h-12 flex items-center justify-center">
+                        <motion.div key="open" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.5, opacity: 0 }} transition={{ duration: 0.2 }} className="w-full h-full flex items-center justify-center pointer-events-none">
                             <Lottie animationData={aiRobotAnimation} loop={true} className="w-full h-full object-contain" />
                         </motion.div>
                     )}
@@ -244,7 +238,7 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
 
                 {/* Micro notification dot */}
                 {!isOpen && !isSubmitted && messages.length > 1 && (
-                    <span className="absolute top-4 right-4 w-3 h-3 rounded-full bg-white border-2 border-[hsl(var(--accent-red))] animate-pulse"></span>
+                    <span className="absolute top-0 right-0 sm:top-4 sm:right-4 w-4 h-4 rounded-full bg-[hsl(var(--accent-red))] border-2 border-zinc-950 animate-pulse"></span>
                 )}
             </motion.button>
 
