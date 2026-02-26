@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { ArrowUpRight, PenTool, Megaphone, Layout, Film, Globe, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PremiumReveal } from '../components/PremiumReveal';
@@ -67,7 +68,7 @@ export function Home() {
                             <span className="uppercase text-xs tracking-[0.2em] font-medium text-[hsl(var(--accent-red))] text-glow">Agence créative africaine</span>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6">
                             <RevealWords text={content.heroHeadlineLine1} delayOffset={0.2} />{' '}
                             <RevealLine delay={0.6}>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">{content.heroHeadlineLine2}</span>
@@ -123,13 +124,13 @@ export function Home() {
                     <div className="inline-flex rounded-full border border-[hsl(var(--accent-red))]/30 bg-[hsl(var(--accent-red))]/10 px-4 py-1.5 uppercase tracking-widest text-[10px] sm:text-xs font-semibold text-[hsl(var(--accent-red))] mb-8">
                         Notre Expertise
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Stratégie. Design. Impact.</h2>
-                    <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-6">Stratégie. Design. Impact.</h2>
+                    <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg">
                         Nous analysons votre marché pour définir un positionnement unique et construisons des marques mémorables qui résonnent avec leur époque.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">
                     {expertiseIcons.map((item, idx) => {
                         const Icon = item.icon;
                         return (
@@ -160,9 +161,9 @@ export function Home() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
                         >
-                            <Link to="/services" className="group flex items-center justify-between border-b border-white/10 pb-8 hover:border-[hsl(var(--accent-red))]/50 transition-colors">
-                                <h3 className="text-4xl md:text-6xl font-medium text-white/50 group-hover:text-white transition-colors tracking-tight">
-                                    <span className="text-sm align-top mr-4 text-white/30 group-hover:text-[hsl(var(--accent-red))]">0{idx + 1}</span>
+                            <Link to="/services" className="group flex items-center justify-between border-b border-white/10 pb-6 sm:pb-8 hover:border-[hsl(var(--accent-red))]/50 transition-colors">
+                                <h3 className="text-2xl sm:text-4xl md:text-6xl font-medium text-white/50 group-hover:text-white transition-colors tracking-tight">
+                                    <span className="text-xs sm:text-sm align-top mr-2 sm:mr-4 text-white/30 group-hover:text-[hsl(var(--accent-red))]">0{idx + 1}</span>
                                     {category}
                                 </h3>
                                 <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-[hsl(var(--accent-red))] border-none text-white">
@@ -229,36 +230,7 @@ export function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.slice(0, 2).map((project) => (
-                        <motion.div
-                            key={project.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="group relative rounded-3xl overflow-hidden aspect-[4/3] bg-zinc-900 border border-white/10"
-                        >
-                            <Link to="/projets" className="absolute inset-0 z-30"></Link>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity group-hover:opacity-70"></div>
-
-                            {project.imageUrl ? (
-                                <img src={project.imageUrl} alt={project.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                            ) : (
-                                <div className="absolute inset-0 bg-[hsl(var(--accent-red))]/5 transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
-                                    <Layout size={64} className="text-white/10 group-hover:text-[hsl(var(--accent-red))]/30 transition-colors" />
-                                </div>
-                            )}
-
-                            <div className="absolute bottom-0 left-0 right-0 p-8 z-20 flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform">
-                                <div>
-                                    <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-medium mb-3 border border-white/10 text-[hsl(var(--accent-red))]">
-                                        {project.category}
-                                    </div>
-                                    <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
-                                </div>
-                                <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <ArrowUpRight />
-                                </div>
-                            </div>
-                        </motion.div>
+                        <FeaturedProjectCard key={project.id} project={project} />
                     ))}
                 </div>
             </section >
@@ -274,10 +246,10 @@ export function Home() {
                                 <div className="h-px w-8 bg-white/40"></div>
                                 <span className="uppercase text-xs tracking-widest font-medium text-white/60">Notre Philosophie</span>
                             </div>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
                                 Nous créons à <br /> l'intersection de <br /> <span className="text-[hsl(var(--accent-red))] text-glow italic font-serif">l'art</span> et de la <span className="text-white/50">stratégie.</span>
                             </h2>
-                            <p className="text-lg text-white/60 max-w-md leading-relaxed">
+                            <p className="text-base sm:text-lg text-white/60 max-w-md leading-relaxed">
                                 Origine Creative puise son inspiration dans l'authenticité de la culture africaine tout en appliquant les standards de design internationaux les plus exigeants.
                             </p>
                             <Link to="/a-propos" className="inline-flex items-center gap-2 group text-sm font-medium uppercase tracking-widest hover:text-[hsl(var(--accent-red))] transition-colors">
@@ -286,7 +258,7 @@ export function Home() {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
+                    <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative" data-cursor="Glisser">
                         <ReelCarousel />
                     </div>
                 </div>
@@ -303,7 +275,7 @@ export function Home() {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-5xl md:text-7xl font-bold tracking-tight mb-8"
+                        className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 sm:mb-8"
                     >
                         Prêt à donner vie à votre <span className="text-[hsl(var(--accent-red))] text-glow">vision ?</span>
                     </motion.h2>
@@ -333,5 +305,55 @@ export function Home() {
                 </div>
             </section >
         </main >
+    );
+}
+
+function FeaturedProjectCard({ project }: { project: any }) {
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+
+    // Create a subtle parallax effect on the Y axis for the image
+    const yParallax = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="group relative rounded-3xl overflow-hidden aspect-[4/3] bg-zinc-900 border border-white/10"
+            data-cursor="Découvrir"
+        >
+            <Link to="/projets" className="absolute inset-0 z-30"></Link>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity group-hover:opacity-70"></div>
+
+            {project.imageUrl ? (
+                <motion.img
+                    style={{ y: yParallax, scale: 1.15 }} // Extra scale to prevent seeing edges when parallaxing
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover origin-center"
+                />
+            ) : (
+                <div className="absolute inset-0 bg-[hsl(var(--accent-red))]/5 flex items-center justify-center">
+                    <Layout size={64} className="text-white/10 group-hover:text-[hsl(var(--accent-red))]/30 transition-colors" />
+                </div>
+            )}
+
+            <div className="absolute bottom-0 left-0 right-0 p-8 z-20 flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform">
+                <div>
+                    <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-medium mb-3 border border-white/10 text-[hsl(var(--accent-red))]">
+                        {project.category}
+                    </div>
+                    <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
+                </div>
+                <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowUpRight />
+                </div>
+            </div>
+        </motion.div>
     );
 }

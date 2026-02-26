@@ -21,7 +21,7 @@ export function Contact() {
                                 <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Contact</span>
                             </div>
 
-                            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
+                            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6 sm:mb-8">
                                 <RevealWords text="Prêt à" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">créer?</span></RevealLine>
                             </h1>
 

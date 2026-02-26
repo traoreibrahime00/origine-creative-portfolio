@@ -7,14 +7,14 @@ export function CustomCursor() {
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
 
-    const springConfig = { damping: 25, stiffness: 400, mass: 0.1 };
+    const springConfig = { damping: 20, stiffness: 800, mass: 0.05 };
     const cursorXSpring = useSpring(cursorX, springConfig);
     const cursorYSpring = useSpring(cursorY, springConfig);
 
     useEffect(() => {
         const moveCursor = (e: MouseEvent) => {
-            cursorX.set(e.clientX - 16);
-            cursorY.set(e.clientY - 16);
+            cursorX.set(e.clientX);
+            cursorY.set(e.clientY);
         };
 
         const handleMouseOver = (e: MouseEvent) => {
@@ -55,14 +55,13 @@ export function CustomCursor() {
     return (
         <>
             <motion.div
-                className={`fixed top-0 left-0 rounded-full border border-[hsl(var(--accent-red))] pointer-events-none z-[9999] mix-blend-screen hidden md:flex items-center justify-center transition-colors duration-300 font-bold tracking-widest text-[10px] ${cursorText ? 'w-20 h-20 text-white bg-[hsl(var(--accent-red))] border-transparent shadow-[0_0_30px_hsl(var(--accent-red)/0.5)]' : 'w-8 h-8'}`}
+                className={`fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[hsl(var(--accent-red))] pointer-events-none z-[9999] mix-blend-screen hidden md:flex items-center justify-center transition-[width,height,background-color,border-color,box-shadow,color] duration-300 font-bold tracking-widest text-[10px] ${cursorText ? 'w-24 h-24 text-white bg-[hsl(var(--accent-red))] border-transparent shadow-[0_0_30px_hsl(var(--accent-red)/0.5)]' : 'w-8 h-8'}`}
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,
                     scale: isHovered && !cursorText ? 1.8 : 1, // Only scale if it's a normal hover without text
                     backgroundColor: isHovered && !cursorText ? 'rgba(229, 77, 53, 0.4)' : (cursorText ? 'rgba(229, 77, 53, 0.9)' : 'transparent'),
                     boxShadow: isHovered && !cursorText ? '0 0 20px 5px rgba(229, 77, 53, 0.3)' : 'none',
-                    margin: cursorText ? '-32px 0 0 -32px' : 0 // offset the expanded size
                 }}
             >
                 {cursorText ? (

@@ -113,7 +113,7 @@ export function Projets() {
                             <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
                             <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Portfolio</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight">
                             <RevealWords text="Réalisations" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Stratégiques</span></RevealLine>
                         </h1>
                     </div>
@@ -247,7 +247,7 @@ export function Projets() {
                                     </div>
 
                                     {/* iframe or image area */}
-                                    <div className="flex-1 w-full bg-[#0a0a0a] relative overflow-y-auto custom-scrollbar" data-lenis-prevent="true">
+                                    <div className="flex-1 w-full bg-[#0a0a0a] relative overflow-y-auto custom-scrollbar" data-lenis-prevent="true" onWheelCapture={(e) => e.stopPropagation()}>
                                         {getEmbedUrl(selectedProject.link) ? (
                                             <iframe
                                                 src={getEmbedUrl(selectedProject.link) || ''}

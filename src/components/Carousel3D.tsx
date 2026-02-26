@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type Carousel3DProps = {
     images: string[];
@@ -16,23 +16,41 @@ export function Carousel3D({
     rotateSpeed = 90
 }: Carousel3DProps) {
     const [isHovered, setIsHovered] = useState(false);
+    const [dimensions, setDimensions] = useState({ width: imageWidth, height: imageHeight, adjustedRadius: radius });
 
     const validImages = images.filter(Boolean);
-    if (validImages.length === 0) return null;
-
     const count = validImages.length;
 
-    // Auto-adjust size slightly if there are a massive number of images to prevent insane radius values
-    let finalWidth = imageWidth;
-    let finalHeight = imageHeight;
-    if (count > 20) {
-        finalWidth = 600;
-        finalHeight = 337;
-    }
+    useEffect(() => {
+        if (count === 0) return;
+
+        const handleResize = () => {
+            const isMobile = window.innerWidth < 768;
+            // Scale based on screen size
+            let baseW = isMobile ? window.innerWidth * 0.7 : imageWidth;
+            let baseH = isMobile ? baseW * (imageHeight / imageWidth) : imageHeight;
+
+            // Reduce further if massive amount of images
+            if (count > 20) {
+                baseW = baseW * 0.75;
+                baseH = baseH * 0.75;
+            }
+
+            // Calculate precise radius so images attach edge-to-edge + buffer
+            const calcRadius = Math.max(isMobile ? 150 : radius, (baseW / 2) / Math.tan(Math.PI / count) + (isMobile ? 20 : 50));
+
+            setDimensions({ width: baseW, height: baseH, adjustedRadius: calcRadius });
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [imageWidth, imageHeight, radius, count]);
+
+    if (validImages.length === 0) return null;
 
     const spreadAngle = 360 / count;
-    // Calculate exact radius needed to form a gapless polygon (plus a 50px buffer)
-    const calculatedRadius = Math.max(radius, (finalWidth / 2) / Math.tan(Math.PI / count) + 50);
+    const { width: finalWidth, height: finalHeight, adjustedRadius: calculatedRadius } = dimensions;
 
     return (
         <div className="relative w-full h-full flex items-center justify-center overflow-hidden"

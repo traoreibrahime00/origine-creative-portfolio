@@ -49,7 +49,7 @@ export function Services() {
                             <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
                             <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Expertise</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6 sm:mb-8">
                             <RevealWords text="Notre" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Expertise</span></RevealLine>
                         </h1>
                         <p className="text-xl text-white/60 leading-relaxed">
@@ -72,10 +72,10 @@ export function Services() {
                                 className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center`}
                             >
                                 {/* Visual Placeholder */}
-                                <div className="w-full lg:w-1/2 aspect-square md:aspect-[4/3] rounded-3xl bg-zinc-900 border border-white/10 relative overflow-hidden group">
+                                <div className="w-full lg:w-1/2 aspect-[3/2] sm:aspect-square md:aspect-[4/3] rounded-3xl bg-zinc-900 border border-white/10 relative overflow-hidden group">
                                     <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent-red))]/10 to-transparent mix-blend-overlay"></div>
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <Icon className="w-32 h-32 text-white/5 transition-transform duration-700 group-hover:scale-110 group-hover:text-white/10 group-hover:rotate-6" strokeWidth={1} />
+                                        <Icon className="w-24 h-24 sm:w-32 sm:h-32 text-white/5 transition-transform duration-700 group-hover:scale-110 group-hover:text-white/10 group-hover:rotate-6" strokeWidth={1} />
                                     </div>
                                     {/* Subtle red glow on hover */}
                                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[hsl(var(--accent-red))] rounded-full blur-[120px] opacity-0 group-hover:opacity-20 transition-opacity duration-700"></div>

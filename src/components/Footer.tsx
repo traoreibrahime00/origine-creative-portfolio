@@ -66,7 +66,7 @@ export function Footer() {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-16 pointer-events-auto">
+                <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 pointer-events-auto">
                     <div className="flex flex-col gap-4">
                         <h4 className="text-white font-medium mb-2 uppercase tracking-widest text-xs">Navigation</h4>
                         <Link to="/services" className="text-white/60 hover:text-white transition-colors text-sm">Services</Link>

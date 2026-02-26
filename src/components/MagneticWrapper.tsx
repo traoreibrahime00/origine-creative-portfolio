@@ -25,8 +25,8 @@ export function MagneticWrapper({ children, className = '', strength = 0.2 }: { 
             onMouseLeave={reset}
             animate={{ x: position.x, y: position.y }}
             transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
-            className={`w-fit h-fit ${className}`}
-            style={{ position: 'relative', display: 'inline-block' }}
+            className={`w-full sm:w-fit h-fit ${className}`}
+            style={{ position: 'relative', display: 'flex' }}
         >
             {children}
         </motion.div>

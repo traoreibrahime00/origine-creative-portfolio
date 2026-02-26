@@ -29,6 +29,16 @@ export function Navbar() {
         setMobileMenuOpen(false);
     }, [location.pathname]);
 
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && mobileMenuOpen) {
+                setMobileMenuOpen(false);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [mobileMenuOpen]);
+
     return (
         <>
             <header
@@ -97,7 +107,8 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-4 z-40 bg-black/95 backdrop-blur-2xl border border-white/10 rounded-3xl flex flex-col items-center justify-center gap-8"
+                        className="fixed inset-4 z-40 bg-black/95 backdrop-blur-2xl border border-white/10 rounded-3xl flex flex-col items-center justify-center gap-8 overflow-y-auto"
+                        onWheelCapture={(e) => e.stopPropagation()}
                     >
                         {navLinks.map((link) => (
                             <NavLink
