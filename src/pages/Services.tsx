@@ -50,7 +50,7 @@ export function Services() {
                             <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Expertise</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
-                            <RevealWords text="Nos" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Services</span></RevealLine>
+                            <RevealWords text="Notre" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Expertise</span></RevealLine>
                         </h1>
                         <p className="text-xl text-white/60 leading-relaxed">
                             <RevealWords text="Nous accompagnons nos clients à chaque étape de leur développement en déployant un savoir-faire pluridisciplinaire." delayOffset={0.6} />

@@ -155,9 +155,9 @@ export function Contact() {
                                         defaultValue=""
                                     >
                                         <option value="" disabled>Sélectionnez un sujet</option>
-                                        <option value="branding">Stratégie & Branding</option>
-                                        <option value="digital">Digital & Web</option>
-                                        <option value="motion">Motion Design</option>
+                                        <option value="branding">Identité & Stratégie de Marque</option>
+                                        <option value="digital">Communication Digitale</option>
+                                        <option value="motion">Production Audiovisuelle Premium</option>
                                         <option value="autre">Autre demande</option>
                                     </select>
                                 </div>

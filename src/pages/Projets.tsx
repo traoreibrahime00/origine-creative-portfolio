@@ -114,7 +114,7 @@ export function Projets() {
                             <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Portfolio</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
-                            <RevealWords text="Réalisations" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Récents</span></RevealLine>
+                            <RevealWords text="Réalisations" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Stratégiques</span></RevealLine>
                         </h1>
                     </div>
 

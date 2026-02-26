@@ -7,6 +7,7 @@ import { MagneticWrapper } from '../components/MagneticWrapper';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { ReelCarousel } from '../components/ReelCarousel';
 import staticContent from '../data/content.json';
+import staticProjects from '../data/projects.json';
 
 const expertiseIcons = [
     { name: 'Branding', icon: PenTool },
@@ -19,6 +20,7 @@ const expertiseIcons = [
 
 export function Home() {
     const [content, setContent] = useState(staticContent.home);
+    const [projects, setProjects] = useState<any[]>(staticProjects);
 
     useEffect(() => {
         fetch('/api/content')
@@ -27,6 +29,19 @@ export function Home() {
                 if (data.home) setContent(data.home);
             })
             .catch(err => console.log('Using static content', err));
+
+        fetch('/api/projects')
+            .then(res => {
+                const contentType = res.headers.get("content-type");
+                if (res.ok && contentType && contentType.includes("application/json")) {
+                    return res.json();
+                }
+                throw new Error("No JSON");
+            })
+            .then(data => {
+                if (Array.isArray(data)) setProjects(data);
+            })
+            .catch(err => console.log('Using static projects', err));
     }, []);
 
     return (
@@ -213,26 +228,31 @@ export function Home() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {[1, 2].map((item) => (
+                    {projects.slice(0, 2).map((project) => (
                         <motion.div
-                            key={item}
+                            key={project.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="group relative rounded-3xl overflow-hidden aspect-[4/3] bg-zinc-900 border border-white/10"
                         >
+                            <Link to="/projets" className="absolute inset-0 z-30"></Link>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity group-hover:opacity-70"></div>
-                            {/* Optional image placeholder */}
-                            <div className="absolute inset-0 bg-[hsl(var(--accent-red))]/5 transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
-                                <Layout size={64} className="text-white/10 group-hover:text-[hsl(var(--accent-red))]/30 transition-colors" />
-                            </div>
+
+                            {project.imageUrl ? (
+                                <img src={project.imageUrl} alt={project.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                            ) : (
+                                <div className="absolute inset-0 bg-[hsl(var(--accent-red))]/5 transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
+                                    <Layout size={64} className="text-white/10 group-hover:text-[hsl(var(--accent-red))]/30 transition-colors" />
+                                </div>
+                            )}
 
                             <div className="absolute bottom-0 left-0 right-0 p-8 z-20 flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform">
                                 <div>
                                     <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-medium mb-3 border border-white/10 text-[hsl(var(--accent-red))]">
-                                        Identité
+                                        {project.category}
                                     </div>
-                                    <h3 className="text-2xl font-bold tracking-tight">Projet Équinoxe</h3>
+                                    <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
                                 </div>
                                 <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                     <ArrowUpRight />
