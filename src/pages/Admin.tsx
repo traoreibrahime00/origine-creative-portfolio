@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Trash2, Plus, Save, ArrowUp, ArrowDown, Upload, Type, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
+import staticProjects from '../data/projects.json';
 
 export type ContentBlock = {
     id: string;
@@ -20,16 +21,28 @@ type Project = {
 };
 
 export function Admin() {
-    const [projects, setProjects] = useState<Project[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [projects, setProjects] = useState<Project[]>(staticProjects as Project[]);
+    const [loading, setLoading] = useState(false);
     const [saving, setSaving] = useState(false);
     const [status, setStatus] = useState('');
 
     useEffect(() => {
         fetch('/api/projects')
-            .then(res => res.json())
+            .then(res => {
+                const contentType = res.headers.get("content-type");
+                if (!res.ok || !contentType || !contentType.includes("application/json")) {
+                    throw new Error("API route not available or didn't return JSON");
+                }
+                return res.json();
+            })
             .then(data => {
-                setProjects(data);
+                if (Array.isArray(data)) {
+                    setProjects(data);
+                }
+                setLoading(false);
+            })
+            .catch(err => {
+                console.log("Using static projects data (fallback)", err);
                 setLoading(false);
             });
     }, []);

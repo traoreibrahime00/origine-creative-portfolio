@@ -4,6 +4,7 @@ import { RevealLine, RevealWords } from '../components/TextReveal';
 import { Carousel3D } from '../components/Carousel3D';
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import staticProjects from '../data/projects.json';
 
 const categories = ['Tous', 'Branding', 'Digital', 'Motion'];
 
@@ -47,8 +48,8 @@ const getEmbedUrl = (url?: string) => {
 
 export function Projets() {
     const [activeCategory, setActiveCategory] = useState('Tous');
-    const [projects, setProjects] = useState<Project[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [projects, setProjects] = useState<Project[]>(staticProjects as Project[]);
+    const [loading, setLoading] = useState(false);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     // Lock background scrolling and UI when modal is open
@@ -78,13 +79,21 @@ export function Projets() {
     // Load from local API
     useEffect(() => {
         fetch('/api/projects')
-            .then(res => res.json())
+            .then(res => {
+                const contentType = res.headers.get("content-type");
+                if (!res.ok || !contentType || !contentType.includes("application/json")) {
+                    throw new Error("API route not available or didn't return JSON");
+                }
+                return res.json();
+            })
             .then(data => {
-                setProjects(data);
+                if (Array.isArray(data)) {
+                    setProjects(data);
+                }
                 setLoading(false);
             })
             .catch(err => {
-                console.error("Failed to load projects", err);
+                console.log("Using static projects data (fallback)", err);
                 setLoading(false);
             });
     }, []);

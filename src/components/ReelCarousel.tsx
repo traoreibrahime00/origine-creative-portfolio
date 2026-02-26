@@ -40,7 +40,7 @@ function Column({ images, direction, speed }: { images: string[], direction: num
 
     useAnimationFrame((_, delta) => {
         // We calculate movement based on time for pure smoothness
-        let moveBy = direction * speed * (delta / 16);
+        const moveBy = direction * speed * (delta / 16);
 
         setY((prevY) => {
             let nextY = prevY + moveBy;
