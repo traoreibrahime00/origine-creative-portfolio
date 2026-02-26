@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import staticProjects from '../data/projects.json';
 
-const categories = ['Tous', 'Branding', 'Digital', 'Motion'];
+const categories = ['Tous', 'Identité & Stratégie de Marque', 'Communication Digitale', 'Production Audiovisuelle Premium'];
 
 export type ContentBlock = {
     id: string;

@@ -73,7 +73,7 @@ export function Admin() {
         const newProject: Project = {
             id: Date.now(),
             title: "Nouveau Projet",
-            category: "Branding",
+            category: "Identité & Stratégie de Marque",
             desc: "Description du projet...",
             type: "photo",
             link: "",
@@ -322,9 +322,9 @@ export function Admin() {
                                         onChange={(e) => handleChange(project.id, 'category', e.target.value)}
                                         className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none appearance-none"
                                     >
-                                        <option value="Branding">Branding</option>
-                                        <option value="Digital">Digital</option>
-                                        <option value="Motion">Motion</option>
+                                        <option value="Identité & Stratégie de Marque">Identité & Stratégie de Marque</option>
+                                        <option value="Communication Digitale">Communication Digitale</option>
+                                        <option value="Production Audiovisuelle Premium">Production Audiovisuelle Premium</option>
                                     </select>
                                 </div>
 
