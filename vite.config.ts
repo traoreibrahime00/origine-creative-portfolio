@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
@@ -25,11 +26,11 @@ function localProjectsApi() {
                 if (targetUrl.includes('behance.net')) {
                   const anyImages = html.match(/https:\\?\/\\?\/mir-s3-cdn-cf\.behance\.net\\?\/project_modules\\?\/[^"'\s\\]+\.(?:jpg|png|gif|webp|jpeg)/ig);
                   if (anyImages) {
-                    let cleaned = anyImages.map((url: string) => url.replace(/\\/g, ''));
-                    let files: Record<string, string> = {};
-                    for (let url of cleaned) {
-                      let filename = url.split('/').pop() || "";
-                      let isHighRes = url.includes('/max_1200/') || url.includes('/1400/') || url.includes('/fs/') || url.includes('/max_3840/') || url.includes('/source/');
+                    const cleaned = anyImages.map((url: string) => url.replace(/\\/g, ''));
+                    const files: Record<string, string> = {};
+                    for (const url of cleaned) {
+                      const filename = url.split('/').pop() || "";
+                      const isHighRes = url.includes('/max_1200/') || url.includes('/1400/') || url.includes('/fs/') || url.includes('/max_3840/') || url.includes('/source/');
                       if (isHighRes || !files[filename]) {
                         files[filename] = url;
                       }
@@ -77,7 +78,7 @@ function localProjectsApi() {
               fs.writeFileSync(filePath, body)
               res.setHeader('Content-Type', 'application/json')
               res.end(JSON.stringify({ success: true }))
-            } catch (err) {
+            } catch {
               res.statusCode = 500
               res.end(JSON.stringify({ error: 'Failed to write data' }))
             }
@@ -101,7 +102,7 @@ function localProjectsApi() {
 
               // content is a base64 string, so we need to extract the actual base64 data
               // It looks like: data:image/png;base64,iVBORw0KGgo...
-              const matches = content.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+              const matches = content.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
               if (!matches || matches.length !== 3) {
                 res.statusCode = 400;
                 res.end(JSON.stringify({ error: 'Invalid base64 format' }));
@@ -109,7 +110,7 @@ function localProjectsApi() {
               }
 
               const buffer = Buffer.from(matches[2], 'base64');
-              const uniqueFilename = `${Date.now()}-${filename.replace(/[^a-zA-Z0-9.\-]/g, '_')}`;
+              const uniqueFilename = `${Date.now()}-${filename.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
 
               const uploadsDir = path.resolve(__dirname, './public/uploads');
               if (!fs.existsSync(uploadsDir)) {
@@ -121,7 +122,7 @@ function localProjectsApi() {
 
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({ url: `/uploads/${uniqueFilename}` }));
-            } catch (err) {
+            } catch {
               res.statusCode = 500;
               res.end(JSON.stringify({ error: 'Failed to upload' }));
             }

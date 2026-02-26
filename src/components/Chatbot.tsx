@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Sparkles, Loader2 } from 'lucide-react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI, ChatSession } from '@google/generative-ai';
 import Lottie from 'lottie-react';
 import aiRobotAnimation from '../assets/ai-robot.json';
 
@@ -22,7 +22,7 @@ export function Chatbot() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [randomPos, setRandomPos] = useState({ x: 0, y: 0 });
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const chatSession = useRef<any>(null); // To store Gemini chat history
+    const chatSession = useRef<ChatSession | null>(null); // To store Gemini chat history
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -167,7 +167,7 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
 
     const handleSendMessage = async (e?: React.FormEvent) => {
         if (e) e.preventDefault();
-        if (!inputValue.trim() || isTyping || isSubmitted) return;
+        if (!inputValue.trim() || isTyping || isSubmitted || !chatSession.current) return;
 
         const userText = inputValue.trim();
         setInputValue('');
@@ -198,7 +198,7 @@ Tant que tu n'as pas obtenu ces 3 infos vitales, continue la discussion !`,
                     // Send data to Formspree silently in background
                     await sendToFormspree(parsedData);
 
-                } catch (parseError) {
+                } catch {
                     // Fallback if JSON parsing fails but it looked like JSON
                     setMessages(prev => [...prev, {
                         id: Date.now().toString(),

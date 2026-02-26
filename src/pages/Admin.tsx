@@ -174,7 +174,7 @@ export function Admin() {
                 } else {
                     setStatus("Erreur lors du téléchargement");
                 }
-            } catch (e) {
+            } catch {
                 setStatus("Erreur lors du téléchargement");
             }
             setTimeout(() => setStatus(''), 3000);
@@ -200,7 +200,7 @@ export function Admin() {
                 } else {
                     setStatus("Erreur lors du téléchargement");
                 }
-            } catch (e) {
+            } catch {
                 setStatus("Erreur lors du téléchargement");
             }
             setTimeout(() => setStatus(''), 3000);
