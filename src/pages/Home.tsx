@@ -40,47 +40,64 @@ export function Home() {
                         </div>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6">
-                            <RevealWords text="Nous créons des marques qui" delayOffset={0.2} />{' '}
+                            <RevealWords text="Des identités conçues pour" delayOffset={0.2} />{' '}
                             <RevealLine delay={0.6}>
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">marquent.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">dominer.</span>
                             </RevealLine>
+                            <br />
+                            <RevealWords text="Pensées pour durer." delayOffset={0.8} />
                         </h1>
 
                         <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
                             <RevealWords
-                                text="Origine Creative. L'agence africaine spécialisée en stratégie de marque, identité visuelle, communication digitale et motion design."
+                                text="Origine Creative est le partenaire des entreprises exigeantes. Nous allions réflexion stratégique et design de pointe pour transformer votre vision en un avantage concurrentiel indéniable."
                                 delayOffset={0.4}
                             />
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-10">
                             <MagneticWrapper>
-                                <Link to="/projets" className="group rounded-full bg-white text-black px-8 py-4 flex items-center gap-4 w-full sm:w-auto justify-center transition-all hover:bg-[hsl(var(--accent-red))] hover:text-white hover:shadow-[0_0_30px_hsl(var(--accent-red)/0.5)]">
-                                    <span className="font-semibold">Voir nos projets</span>
-                                    <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center transition-colors">
+                                <Link to="/contact" className="group rounded-full bg-[hsl(var(--accent-red))] text-white px-8 py-4 flex items-center gap-4 w-full sm:w-auto justify-center transition-all hover:bg-red-600 hover:shadow-[0_0_30px_hsl(var(--accent-red)/0.5)]">
+                                    <span className="font-semibold">Discuter de vos ambitions</span>
+                                    <div className="w-8 h-8 rounded-full bg-white text-[hsl(var(--accent-red))] flex items-center justify-center transition-colors">
                                         <ArrowUpRight size={18} />
                                     </div>
                                 </Link>
                             </MagneticWrapper>
                             <MagneticWrapper>
-                                <Link to="/a-propos" className="group rounded-full border border-white/20 bg-white/5 text-white px-8 py-4 w-full sm:w-auto text-center transition-colors hover:bg-white/10 hover:border-white/40">
-                                    Découvrir l'agence
+                                <Link to="/projets" className="group rounded-full border border-white/20 bg-white/5 text-white px-8 py-4 w-full sm:w-auto text-center transition-colors hover:bg-white/10 hover:border-white/40">
+                                    Explorer nos cas clients
                                 </Link>
                             </MagneticWrapper>
                         </div>
                     </motion.div>
                 </div>
-            </section>
+
+                {/* Trust Banner (Silent) */}
+                <div className="absolute bottom-10 left-0 right-0 w-full flex flex-col items-center opacity-30 select-none hidden md:flex">
+                    <p className="text-[10px] tracking-[0.3em] uppercase mb-4 text-white/70">Ils nous ont confié leur vision</p>
+                    <div className="flex items-center gap-12 font-serif text-2xl">
+                        {/* Placeholder aesthetic logos/names */}
+                        <span>AGRI BUILD</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/50"></span>
+                        <span>ÉQUINOXE</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/50"></span>
+                        <span>VANGUARD</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/50"></span>
+                        <span>OMNIPRESENCE</span>
+                    </div>
+                </div>
+            </section >
 
             {/* Expertise Section */}
-            <section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto">
+            < section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto" >
                 <div className="flex flex-col items-center text-center mb-20">
                     <div className="inline-flex rounded-full border border-[hsl(var(--accent-red))]/30 bg-[hsl(var(--accent-red))]/10 px-4 py-1.5 uppercase tracking-widest text-[10px] sm:text-xs font-semibold text-[hsl(var(--accent-red))] mb-8">
                         Notre Expertise
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Stratégie. Design. Impact.</h2>
                     <p className="text-white/60 max-w-2xl mx-auto text-lg">
-                        Nous allions réflexion stratégique et excellence créative pour construire des identités mémorables qui résonnent avec leur époque.
+                        Nous analysons votre marché pour définir un positionnement unique et construisons des marques mémorables qui résonnent avec leur époque.
                     </p>
                 </div>
 
@@ -107,7 +124,7 @@ export function Home() {
                 </div>
 
                 <div className="flex flex-col gap-6">
-                    {['Branding', 'Communication Digitale', 'Direction Artistique'].map((category, idx) => (
+                    {['Identité & Stratégie de Marque', 'Communication Digitale', 'Production Audiovisuelle Premium'].map((category, idx) => (
                         <motion.div
                             key={category}
                             initial={{ opacity: 0, x: -20 }}
@@ -140,17 +157,41 @@ export function Home() {
                         </Link>
                     </MagneticWrapper>
                 </motion.div>
-            </section>
+            </section >
+
+            {/* Process Section */}
+            < section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto border-t border-white/10" >
+                <div className="flex flex-col items-center text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Notre Méthodologie</h2>
+                    <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                        Une approche rigoureuse pour garantir l'impact et le ROI de chaque initiative créative.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        { title: '1. Immersion & Stratégie', desc: "Analyse de votre écosystème, identification des leviers de croissance et définition d'un positionnement sur-mesure." },
+                        { title: '2. Conception Créative', desc: "Traduction de la stratégie en identités visuelles fortes, narratives immersives et design d'expérience." },
+                        { title: '3. Déploiement & Impact', desc: "Lancement, amplification digitale et suivi pour assurer une résonance maximale auprès de votre cible premium." },
+                    ].map((step, idx) => (
+                        <div key={idx} className="p-8 rounded-2xl border border-white/5 bg-zinc-900/50 backdrop-blur-sm relative overflow-hidden group hover:border-[hsl(var(--accent-red))]/30 transition-colors cursor-pointer">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-white/5 group-hover:bg-[hsl(var(--accent-red))] transition-colors"></div>
+                            <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                            <p className="text-white/60 leading-relaxed text-sm">{step.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section >
 
             {/* Featured Projects Preview */}
-            <section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto relative">
+            < section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto relative" >
                 <div className="flex items-end justify-between mb-16">
                     <div>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="h-px w-8 bg-white/40"></div>
-                            <span className="uppercase text-xs tracking-widest font-medium text-white/60">Sélection</span>
+                            <span className="uppercase text-xs tracking-widest font-medium text-white/60">Nos succès</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Derniers projets</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Réalisations stratégiques</h2>
                     </div>
                     <Link to="/projets" className="hidden md:flex items-center gap-2 group text-sm font-medium uppercase tracking-widest hover:text-[hsl(var(--accent-red))] transition-colors">
                         Voir tout
@@ -187,10 +228,10 @@ export function Home() {
                         </motion.div>
                     ))}
                 </div>
-            </section>
+            </section >
 
             {/* About Preview */}
-            <section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto relative overflow-hidden">
+            < section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto relative overflow-hidden" >
                 <div className="flex flex-col lg:flex-row gap-16 items-center">
                     <div className="w-full lg:w-1/2 relative">
                         <div className="aspect-square rounded-full border border-white/5 absolute -top-10 -left-10 w-64 h-64"></div>
@@ -216,10 +257,10 @@ export function Home() {
                         <ReelCarousel />
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* CTA Section */}
-            <section className="py-32 relative overflow-hidden flex items-center justify-center min-h-[60vh]">
+            < section className="py-32 relative overflow-hidden flex items-center justify-center min-h-[60vh]" >
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
@@ -257,7 +298,7 @@ export function Home() {
                         </MagneticWrapper>
                     </motion.div>
                 </div>
-            </section>
-        </main>
+            </section >
+        </main >
     );
 }

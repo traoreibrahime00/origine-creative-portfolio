@@ -51,11 +51,15 @@ export function APropos() {
                                 <RevealWords text="Née de la volonté de repenser la communication sur le continent africain, Origine Creative s'impose comme le partenaire stratégique des marques ambitieuses." delayOffset={0.4} />
                             </p>
                             <p>
-                                <strong className="text-white font-medium">Nous croyons fermement que chaque marque a une histoire unique à raconter.</strong> Notre mission est de déceler cette essence subtile — cette origine — et de la traduire en expériences visuelles et narratives mémorables.
+                                <strong className="text-white font-medium">Le design n'est pas qu'une question d'esthétique, c'est un levier de croissance économique.</strong> Notre mission va au-delà de l'image de marque : nous construisons des avantages concurrentiels, de l'engagement et du leadership pour nos clients.
                             </p>
                             <p>
-                                Alliant une compréhension profonde des contextes culturels locaux à une exigence qualitative internationale, notre approche pluridisciplinaire fusionne stratégie pointue, design d'avant-garde et technologies de pointe.
+                                Alliant une compréhension profonde des contextes culturels locaux à une exigence qualitative internationale, notre démarche repose sur une logique implacable : l'excellence créative doit toujours servir une vision d'affaires tranchante.
                             </p>
+                            <blockquote className="border-l-2 border-[hsl(var(--accent-red))] pl-6 mt-10 mb-4 py-2 opacity-90">
+                                <p className="text-xl md:text-2xl font-serif italic text-white/90 mb-4">"Nos clients n'achètent pas de simples identités visuelles. Ils investissent dans l'augmentation de leurs parts de marché et l'élargissement de leur influence culturelle."</p>
+                                <footer className="text-xs font-medium uppercase tracking-[0.2em] text-[hsl(var(--accent-red))]">— La Direction</footer>
+                            </blockquote>
                         </div>
 
                         <div className="mt-16 pt-16 border-t border-white/10">

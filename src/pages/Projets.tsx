@@ -290,7 +290,7 @@ export function Projets() {
 
                                                 {/* Render Text and Videos below */}
                                                 {selectedProject.contentBlocks && selectedProject.contentBlocks.filter(b => b.type !== 'image').length > 0 && (
-                                                    <div className="flex flex-col w-full bg-[#0a0a0a] pb-20">
+                                                    <div className="flex flex-col w-full bg-[#0a0a0a]">
                                                         {selectedProject.contentBlocks.filter(b => b.type !== 'image').map((block) => (
                                                             <div key={block.id} className="w-full flex justify-center mt-4">
                                                                 {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl px-8 py-8">{block.content}</div>}
@@ -299,6 +299,18 @@ export function Projets() {
                                                         ))}
                                                     </div>
                                                 )}
+
+                                                {/* Strategic Contextual CTA (Shown at bottom of every project) */}
+                                                <div className="w-full bg-[#0a0a0a] py-24 flex justify-center items-center mt-4 relative">
+                                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-[hsl(var(--accent-red))] to-transparent opacity-50"></div>
+                                                    <div className="text-center px-4 max-w-xl">
+                                                        <h4 className="text-3xl font-bold mb-4 tracking-tight">Vous visez ce niveau d'exigence ?</h4>
+                                                        <p className="text-white/60 mb-8 max-w-md mx-auto leading-relaxed">Nous accompagnons les acteurs ambitieux pour structurer leur stratégie et déployer une image implacable sur le marché.</p>
+                                                        <a href="/contact" className="inline-flex items-center gap-3 bg-[hsl(var(--accent-red))] text-white px-8 py-4 rounded-full font-medium hover:bg-white hover:text-black transition-all group">
+                                                            Initier un projet <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         )}
                                     </div>
