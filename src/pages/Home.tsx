@@ -2,9 +2,11 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, PenTool, Megaphone, Layout, Film, Globe, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PremiumReveal } from '../components/PremiumReveal';
+import { useState, useEffect } from 'react';
 import { MagneticWrapper } from '../components/MagneticWrapper';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { ReelCarousel } from '../components/ReelCarousel';
+import staticContent from '../data/content.json';
 
 const expertiseIcons = [
     { name: 'Branding', icon: PenTool },
@@ -16,6 +18,17 @@ const expertiseIcons = [
 ];
 
 export function Home() {
+    const [content, setContent] = useState(staticContent.home);
+
+    useEffect(() => {
+        fetch('/api/content')
+            .then(res => res.json())
+            .then(data => {
+                if (data.home) setContent(data.home);
+            })
+            .catch(err => console.log('Using static content', err));
+    }, []);
+
     return (
         <main className="min-h-screen text-white selection:bg-[hsl(var(--accent-red))] selection:text-white relative">
             <PremiumReveal />
@@ -40,17 +53,17 @@ export function Home() {
                         </div>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6">
-                            <RevealWords text="Des identités conçues pour" delayOffset={0.2} />{' '}
+                            <RevealWords text={content.heroHeadlineLine1} delayOffset={0.2} />{' '}
                             <RevealLine delay={0.6}>
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">dominer.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">{content.heroHeadlineLine2}</span>
                             </RevealLine>
                             <br />
-                            <RevealWords text="Pensées pour durer." delayOffset={0.8} />
+                            <RevealWords text={content.heroHeadlineLine3} delayOffset={0.8} />
                         </h1>
 
                         <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
                             <RevealWords
-                                text="Origine Creative est le partenaire des entreprises exigeantes. Nous allions réflexion stratégique et design de pointe pour transformer votre vision en un avantage concurrentiel indéniable."
+                                text={content.heroSubheadline}
                                 delayOffset={0.4}
                             />
                         </p>

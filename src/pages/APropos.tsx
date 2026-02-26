@@ -1,7 +1,20 @@
 import { motion } from 'framer-motion';
 import { RevealLine, RevealWords } from '../components/TextReveal';
+import { useState, useEffect } from 'react';
+import staticContent from '../data/content.json';
 
 export function APropos() {
+    const [content, setContent] = useState(staticContent.apropos);
+
+    useEffect(() => {
+        fetch('/api/content')
+            .then(res => res.json())
+            .then(data => {
+                if (data.apropos) setContent(data.apropos);
+            })
+            .catch(err => console.log('Using static content', err));
+    }, []);
+
     return (
         <main className="min-h-screen pt-32 pb-24">
             <div className="max-w-7xl mx-auto px-7 md:px-12 lg:px-20">
@@ -48,17 +61,17 @@ export function APropos() {
 
                         <div className="space-y-6 text-lg text-white/70 leading-relaxed font-light">
                             <p>
-                                <RevealWords text="Née de la volonté de repenser la communication sur le continent africain, Origine Creative s'impose comme le partenaire stratégique des marques ambitieuses." delayOffset={0.4} />
+                                <RevealWords text={content.visionText1} delayOffset={0.4} />
                             </p>
                             <p>
-                                <strong className="text-white font-medium">Le design n'est pas qu'une question d'esthétique, c'est un levier de croissance économique.</strong> Notre mission va au-delà de l'image de marque : nous construisons des avantages concurrentiels, de l'engagement et du leadership pour nos clients.
+                                <strong className="text-white font-medium">{content.visionText2Bold}</strong>{content.visionText2}
                             </p>
                             <p>
-                                Alliant une compréhension profonde des contextes culturels locaux à une exigence qualitative internationale, notre démarche repose sur une logique implacable : l'excellence créative doit toujours servir une vision d'affaires tranchante.
+                                {content.visionText3}
                             </p>
                             <blockquote className="border-l-2 border-[hsl(var(--accent-red))] pl-6 mt-10 mb-4 py-2 opacity-90">
-                                <p className="text-xl md:text-2xl font-serif italic text-white/90 mb-4">"Nos clients n'achètent pas de simples identités visuelles. Ils investissent dans l'augmentation de leurs parts de marché et l'élargissement de leur influence culturelle."</p>
-                                <footer className="text-xs font-medium uppercase tracking-[0.2em] text-[hsl(var(--accent-red))]">— La Direction</footer>
+                                <p className="text-xl md:text-2xl font-serif italic text-white/90 mb-4">{content.quoteText}</p>
+                                <footer className="text-xs font-medium uppercase tracking-[0.2em] text-[hsl(var(--accent-red))]">{content.quoteAuthor}</footer>
                             </blockquote>
                         </div>
 

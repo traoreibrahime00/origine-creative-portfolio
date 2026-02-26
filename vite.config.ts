@@ -66,6 +66,19 @@ function localProjectsApi() {
           return
         }
 
+        if (req.url === '/api/content' && req.method === 'GET') {
+          const filePath = path.resolve(__dirname, './src/data/content.json')
+          if (fs.existsSync(filePath)) {
+            const data = fs.readFileSync(filePath, 'utf-8')
+            res.setHeader('Content-Type', 'application/json')
+            res.end(data)
+          } else {
+            res.setHeader('Content-Type', 'application/json')
+            res.end('{}')
+          }
+          return
+        }
+
         if (req.url === '/api/projects' && (req.method === 'POST' || req.method === 'PUT')) {
           let body = ''
           req.on('data', (chunk: any) => {
@@ -81,6 +94,25 @@ function localProjectsApi() {
             } catch {
               res.statusCode = 500
               res.end(JSON.stringify({ error: 'Failed to write data' }))
+            }
+          })
+          return
+        }
+
+        if (req.url === '/api/content' && (req.method === 'POST' || req.method === 'PUT')) {
+          let body = ''
+          req.on('data', (chunk: any) => {
+            body += chunk.toString()
+          })
+          req.on('end', () => {
+            const filePath = path.resolve(__dirname, './src/data/content.json')
+            try {
+              fs.writeFileSync(filePath, body)
+              res.setHeader('Content-Type', 'application/json')
+              res.end(JSON.stringify({ success: true }))
+            } catch {
+              res.statusCode = 500
+              res.end(JSON.stringify({ error: 'Failed to write content data' }))
             }
           })
           return
