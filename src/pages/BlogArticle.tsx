@@ -1,7 +1,10 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, Clock, Calendar, User } from 'lucide-react';
-import articles from '../data/blog.json';
+import { useState, useEffect } from 'react';
+import staticArticles from '../data/blog.json';
+
+type Article = typeof staticArticles[0];
 
 // Simple markdown-to-JSX renderer for blog content
 function renderMarkdown(md: string) {
@@ -92,13 +95,27 @@ function formatInline(text: string): string {
 
 export function BlogArticle() {
     const { slug } = useParams<{ slug: string }>();
-    const article = articles.find(a => a.slug === slug);
+    const [articles, setArticles] = useState<Article[]>(staticArticles);
+
+    useEffect(() => {
+        fetch('/api/blog')
+            .then(res => {
+                if (!res.ok) throw new Error('API not available');
+                return res.json();
+            })
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) setArticles(data);
+            })
+            .catch(() => { });
+    }, []);
+
+    const article = articles.find((a: Article) => a.slug === slug);
 
     if (!article) {
         return <Navigate to="/blog" replace />;
     }
 
-    const relatedArticles = articles.filter(a => a.id !== article.id).slice(0, 2);
+    const relatedArticles = articles.filter((a: Article) => a.id !== article.id).slice(0, 2);
 
     const formatDate = (dateStr: string) => {
         return new Date(dateStr).toLocaleDateString('fr-FR', {

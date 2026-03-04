@@ -2,13 +2,28 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Clock, Calendar } from 'lucide-react';
 import { RevealLine, RevealWords } from '../components/TextReveal';
-import { useState } from 'react';
-import articles from '../data/blog.json';
+import { useState, useEffect } from 'react';
+import staticArticles from '../data/blog.json';
 
-const categories = ['Tous', ...Array.from(new Set(articles.map(a => a.category)))];
+type Article = typeof staticArticles[0];
 
 export function Blog() {
     const [activeCategory, setActiveCategory] = useState('Tous');
+    const [articles, setArticles] = useState<Article[]>(staticArticles);
+
+    useEffect(() => {
+        fetch('/api/blog')
+            .then(res => {
+                if (!res.ok) throw new Error('API not available');
+                return res.json();
+            })
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) setArticles(data);
+            })
+            .catch(() => { });
+    }, []);
+
+    const categories = ['Tous', ...Array.from(new Set(articles.map(a => a.category)))];
 
     const sortedArticles = [...articles].sort(
         (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()

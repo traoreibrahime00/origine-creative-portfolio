@@ -118,6 +118,38 @@ function localProjectsApi() {
           return
         }
 
+        if (req.url === '/api/blog' && req.method === 'GET') {
+          const filePath = path.resolve(__dirname, './src/data/blog.json')
+          if (fs.existsSync(filePath)) {
+            const data = fs.readFileSync(filePath, 'utf-8')
+            res.setHeader('Content-Type', 'application/json')
+            res.end(data)
+          } else {
+            res.setHeader('Content-Type', 'application/json')
+            res.end('[]')
+          }
+          return
+        }
+
+        if (req.url === '/api/blog' && (req.method === 'POST' || req.method === 'PUT')) {
+          let body = ''
+          req.on('data', (chunk: any) => {
+            body += chunk.toString()
+          })
+          req.on('end', () => {
+            const filePath = path.resolve(__dirname, './src/data/blog.json')
+            try {
+              fs.writeFileSync(filePath, body)
+              res.setHeader('Content-Type', 'application/json')
+              res.end(JSON.stringify({ success: true }))
+            } catch {
+              res.statusCode = 500
+              res.end(JSON.stringify({ error: 'Failed to write blog data' }))
+            }
+          })
+          return
+        }
+
         if (req.url === '/api/chat' && req.method === 'POST') {
           let body = ''
           req.on('data', (chunk: any) => { body += chunk.toString() })

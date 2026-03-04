@@ -77,6 +77,22 @@ export function Admin() {
             .then(res => res.json())
             .then(data => setContent(data))
             .catch(err => console.log("Using static content data (fallback)", err));
+
+        // Fetch blog articles
+        fetch('/api/blog')
+            .then(res => {
+                const contentType = res.headers.get("content-type");
+                if (!res.ok || !contentType || !contentType.includes("application/json")) {
+                    throw new Error("Blog API not available");
+                }
+                return res.json();
+            })
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) {
+                    setArticles(data);
+                }
+            })
+            .catch(err => console.log("Using static blog data (fallback)", err));
     }, []);
     const saveProjects = async (newProjects: Project[]) => {
         setSaving(true);
@@ -114,6 +130,26 @@ export function Admin() {
         } catch (err) {
             console.error(err);
             setStatus("Erreur lors de la sauvegarde du contenu.");
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const saveArticles = async (newArticles: BlogArticle[]) => {
+        setSaving(true);
+        setStatus('Sauvegarde des articles...');
+        try {
+            await fetch('/api/blog', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newArticles),
+            });
+            setStatus('Articles sauvegardés avec succès !');
+            setTimeout(() => setStatus(''), 3000);
+            setArticles(newArticles);
+        } catch (err) {
+            console.error(err);
+            setStatus("Erreur lors de la sauvegarde des articles.");
         } finally {
             setSaving(false);
         }
@@ -315,9 +351,7 @@ export function Admin() {
         if (activeTab === 'projects') {
             saveProjects(projects);
         } else if (activeTab === 'blog') {
-            // Blog save — in a real app this would persist to API
-            setStatus('Articles sauvegardés !');
-            setTimeout(() => setStatus(''), 3000);
+            saveArticles(articles);
         } else {
             saveContent();
         }
