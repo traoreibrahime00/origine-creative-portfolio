@@ -1,5 +1,6 @@
 {
     "nav": {
+        "home": "Home",
         "projects": "Projects",
         "services": "Services",
         "blog": "Blog",

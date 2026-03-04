@@ -13,6 +13,7 @@ export function Navbar() {
     const { t } = useTranslation();
 
     const navLinks = [
+        { name: t('nav.home'), path: '/' },
         { name: t('nav.projects'), path: '/projets' },
         { name: t('nav.services'), path: '/services' },
         { name: t('nav.blog'), path: '/blog' },
