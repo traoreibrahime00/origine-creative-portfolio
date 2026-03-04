@@ -105,7 +105,7 @@ export function Home() {
                 {/* Trust Banner (Silent) */}
                 <div className="absolute bottom-10 left-0 right-0 w-full flex flex-col items-center opacity-30 select-none hidden md:flex">
                     <p className="text-[10px] tracking-[0.3em] uppercase mb-4 text-white/70">Ils nous ont confié leur vision</p>
-                    <div className="flex items-center gap-12 font-serif text-2xl">
+                    <div className="flex items-center gap-12 font-display text-2xl">
                         {/* Placeholder aesthetic logos/names */}
                         <span>AGRI BUILD</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-white/50"></span>
@@ -247,7 +247,7 @@ export function Home() {
                                 <span className="uppercase text-xs tracking-widest font-medium text-white/60">Notre Philosophie</span>
                             </div>
                             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
-                                Nous créons à <br /> l'intersection de <br /> <span className="text-[hsl(var(--accent-red))] text-glow italic font-serif">l'art</span> et de la <span className="text-white/50">stratégie.</span>
+                                Nous créons à <br /> l'intersection de <br /> <span className="text-[hsl(var(--accent-red))] text-glow italic font-display">l'art</span> et de la <span className="text-white/50">stratégie.</span>
                             </h2>
                             <p className="text-base sm:text-lg text-white/60 max-w-md leading-relaxed">
                                 Origine Creative puise son inspiration dans l'authenticité de la culture africaine tout en appliquant les standards de design internationaux les plus exigeants.

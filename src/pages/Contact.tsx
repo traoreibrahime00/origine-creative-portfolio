@@ -80,17 +80,17 @@ export function Contact() {
                                 <h4 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">Réseaux Sociaux</h4>
                                 <div className="flex gap-4">
                                     <MagneticWrapper>
-                                        <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                        <a href="#" aria-label="Suivez-nous sur Instagram" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                                             <Instagram size={20} />
                                         </a>
                                     </MagneticWrapper>
                                     <MagneticWrapper>
-                                        <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                        <a href="#" aria-label="Suivez-nous sur LinkedIn" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                                             <Linkedin size={20} />
                                         </a>
                                     </MagneticWrapper>
                                     <MagneticWrapper>
-                                        <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                        <a href="#" aria-label="Voir notre portfolio Behance" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                                             <Behance size={20} />
                                         </a>
                                     </MagneticWrapper>

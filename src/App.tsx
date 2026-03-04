@@ -1,19 +1,26 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { Home } from './pages/Home';
-import { Services } from './pages/Services';
-import { Projets } from './pages/Projets';
-import { APropos } from './pages/APropos';
-import { Contact } from './pages/Contact';
-import { Admin } from './pages/Admin';
 import { CustomCursor } from './components/CustomCursor';
 import { Preloader } from './components/Preloader';
-import { Chatbot } from './components/Chatbot';
 import { PageTransition } from './components/PageTransition';
+
+// Code-splitting: lazy-load pages for smaller initial bundle
+const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
+const Services = lazy(() => import('./pages/Services').then(m => ({ default: m.Services })));
+const Projets = lazy(() => import('./pages/Projets').then(m => ({ default: m.Projets })));
+const APropos = lazy(() => import('./pages/APropos').then(m => ({ default: m.APropos })));
+const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
+const Admin = lazy(() => import('./pages/Admin').then(m => ({ default: m.Admin })));
+const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
+const MentionsLegales = lazy(() => import('./pages/MentionsLegales').then(m => ({ default: m.MentionsLegales })));
+const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite').then(m => ({ default: m.PolitiqueConfidentialite })));
+
+// Lazy-load heavy components
+const Chatbot = lazy(() => import('./components/Chatbot').then(m => ({ default: m.Chatbot })));
 
 let globalLenis: Lenis | null = null;
 
@@ -31,19 +38,33 @@ function ScrollToTop() {
   return null;
 }
 
+// Minimal loading fallback (matches the dark theme)
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-white/10 border-t-[hsl(var(--accent-red))] rounded-full animate-spin" />
+    </div>
+  );
+}
+
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
-        <Route path="/projets" element={<PageTransition><Projets /></PageTransition>} />
-        <Route path="/a-propos" element={<PageTransition><APropos /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+          <Route path="/projets" element={<PageTransition><Projets /></PageTransition>} />
+          <Route path="/a-propos" element={<PageTransition><APropos /></PageTransition>} />
+          <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+          <Route path="/mentions-legales" element={<PageTransition><MentionsLegales /></PageTransition>} />
+          <Route path="/politique-de-confidentialite" element={<PageTransition><PolitiqueConfidentialite /></PageTransition>} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 }
@@ -76,7 +97,9 @@ function App() {
       <Preloader />
       <ScrollToTop />
       <CustomCursor />
-      <Chatbot />
+      <Suspense fallback={null}>
+        <Chatbot />
+      </Suspense>
 
       {/* Custom Global Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-zinc-950">
@@ -112,7 +135,7 @@ function App() {
 
       <div className="relative min-h-screen text-white flex flex-col font-sans z-10">
         <Navbar />
-        <div className="flex-1">
+        <div className="flex-1" id="main-content">
           <AnimatedRoutes />
         </div>
         <Footer />

@@ -43,7 +43,7 @@ export function Footer() {
 
             {/* BIG Easter Egg O */}
             <div
-                className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[40vw] font-serif italic font-bold select-none cursor-pointer transition-all duration-1000 z-10 
+                className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[40vw] font-display italic font-bold select-none cursor-pointer transition-all duration-1000 z-10 
                 ${easterEggFound ? 'text-white opacity-40 scale-110' : 'text-white/20 opacity-20 hover:text-[hsl(var(--accent-red))] hover:opacity-50 hover:scale-105'}`}
                 onClick={handleEasterEgg}
                 onMouseEnter={handleMouseEnter}
@@ -76,15 +76,15 @@ export function Footer() {
                     </div>
                     <div className="flex flex-col gap-4">
                         <h4 className="text-white font-medium mb-2 uppercase tracking-widest text-xs">Social</h4>
-                        <a href="#" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm group">
+                        <a href="#" aria-label="Suivez-nous sur Instagram" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm group">
                             <Instagram size={16} className="group-hover:text-[hsl(var(--accent-red))] transition-colors" />
                             Instagram
                         </a>
-                        <a href="#" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm group">
+                        <a href="#" aria-label="Suivez-nous sur LinkedIn" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm group">
                             <Linkedin size={16} className="group-hover:text-[hsl(var(--accent-red))] transition-colors" />
                             LinkedIn
                         </a>
-                        <a href="#" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm group">
+                        <a href="#" aria-label="Voir notre portfolio Behance" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm group">
                             <Behance size={16} className="group-hover:text-[hsl(var(--accent-red))] transition-colors" />
                             Behance
                         </a>
@@ -95,8 +95,8 @@ export function Footer() {
             <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-white/40 text-xs relative z-20 pointer-events-auto">
                 <p>© 2026 Origine Creative. Tous droits réservés.</p>
                 <div className="flex gap-6 mt-4 md:mt-0">
-                    <Link to="#" className="hover:text-white transition-colors">Politique de confidentialité</Link>
-                    <Link to="#" className="hover:text-white transition-colors">Mentions légales</Link>
+                    <Link to="/politique-de-confidentialite" className="hover:text-white transition-colors">Politique de confidentialité</Link>
+                    <Link to="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link>
                 </div>
             </div>
         </footer>

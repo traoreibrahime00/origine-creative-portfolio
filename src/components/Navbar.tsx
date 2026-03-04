@@ -41,6 +41,13 @@ export function Navbar() {
 
     return (
         <>
+            {/* Skip to content link for keyboard users */}
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[hsl(var(--accent-red))] focus:text-white focus:px-4 focus:py-2 focus:rounded-full focus:text-sm focus:font-medium"
+            >
+                Aller au contenu principal
+            </a>
             <header
                 className={cn(
                     'fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 transition-all duration-300 rounded-full px-6 py-4 flex items-center justify-between',
@@ -54,7 +61,7 @@ export function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-1 backdrop-blur-md rounded-full px-2 py-1">
+                <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-1 backdrop-blur-md rounded-full px-2 py-1">
                     {navLinks.map((link) => (
                         <NavLink
                             key={link.path}
@@ -94,6 +101,8 @@ export function Navbar() {
                 <button
                     className="lg:hidden text-white z-50 p-2"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+                    aria-expanded={mobileMenuOpen}
                 >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>

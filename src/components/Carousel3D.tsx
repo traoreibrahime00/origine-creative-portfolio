@@ -85,6 +85,7 @@ export function Carousel3D({
                             <img
                                 src={src}
                                 alt={`Sliding 3D item ${idx}`}
+                                loading="lazy"
                                 className="w-full h-full object-cover rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10"
                             />
                         </div>

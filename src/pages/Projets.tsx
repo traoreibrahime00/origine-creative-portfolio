@@ -273,7 +273,7 @@ export function Projets() {
                                                     } else if (selectedProject.imageUrl) {
                                                         return (
                                                             <div className="flex w-full h-full min-h-[60vh] bg-[#0a0a0a] items-center justify-center">
-                                                                <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-auto block" />
+                                                                <img src={selectedProject.imageUrl} alt={selectedProject.title} loading="lazy" className="w-full h-auto block" />
                                                             </div>
                                                         );
                                                     } else {

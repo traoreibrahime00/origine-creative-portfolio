@@ -76,6 +76,7 @@ function Column({ images, direction, speed }: { images: string[], direction: num
                         <img
                             src={src}
                             alt={`Reel image ${idx}`}
+                            loading="lazy"
                             className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700 hover:scale-110"
                         />
                     </div>

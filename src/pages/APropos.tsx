@@ -70,7 +70,7 @@ export function APropos() {
                                 {content.visionText3}
                             </p>
                             <blockquote className="border-l-2 border-[hsl(var(--accent-red))] pl-6 mt-10 mb-4 py-2 opacity-90">
-                                <p className="text-xl md:text-2xl font-serif italic text-white/90 mb-4">{content.quoteText}</p>
+                                <p className="text-xl md:text-2xl font-display italic text-white/90 mb-4">{content.quoteText}</p>
                                 <footer className="text-xs font-medium uppercase tracking-[0.2em] text-[hsl(var(--accent-red))]">{content.quoteAuthor}</footer>
                             </blockquote>
                         </div>
