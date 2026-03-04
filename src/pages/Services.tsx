@@ -5,41 +5,11 @@ import { MagneticWrapper } from '../components/MagneticWrapper';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { useTranslation } from 'react-i18next';
 
-const services = [
-    {
-        title: 'Stratégie de Marque',
-        description: "Nous définissons le positionnement, l'architecture et la voix de votre marque pour créer un socle solide et différenciant sur votre marché.",
-        icon: Megaphone,
-        points: ['Audit & Analyse', 'Positionnement', 'Plateforme de marque', 'Naming'],
-    },
-    {
-        title: 'Identité Visuelle',
-        description: 'Création de systèmes graphiques uniques et mémorables qui traduisent visuellement l\'essence de votre marque sur tous les supports.',
-        icon: PenTool,
-        points: ['Création de logo', 'Charte graphique', 'Typographie & Couleurs', 'Brand Guidelines'],
-    },
-    {
-        title: 'Communication Digitale',
-        description: 'Une présence en ligne performante avec des expériences digitales sur mesure, pensées pour vos utilisateurs et vos objectifs.',
-        icon: Laptop,
-        points: ['Sites Web sur-mesure', 'UI/UX Design', 'Stratégie Social Media', 'Content Management'],
-    },
-    {
-        title: 'Motion Design',
-        description: 'Donnez vie à votre marque à travers l\'animation. Des vidéos explicatives aux contenus sociaux engageants.',
-        icon: Film,
-        points: ['Animation 2D/3D', 'Vidéos promotionnelles', 'Brand Intro', 'Lottie Animations'],
-    },
-    {
-        title: 'Direction Artistique',
-        description: 'La garantie d\'une cohérence visuelle absolue sur l\'ensemble de vos campagnes et de vos supports de communication.',
-        icon: Palette,
-        points: ['Shooting Photo', 'Campagnes Publicitaires', 'Scénographie', 'Édition & Print'],
-    }
-];
+const icons = [Megaphone, PenTool, Laptop, Film, Palette];
 
 export function Services() {
     const { t } = useTranslation();
+    const servicesList = t('services.list', { returnObjects: true }) as any[];
 
     return (
         <main className="min-h-screen pt-32 pb-24">
@@ -63,8 +33,8 @@ export function Services() {
 
                 {/* Services List */}
                 <div className="flex flex-col gap-12 lg:gap-24">
-                    {services.map((service, idx) => {
-                        const Icon = service.icon;
+                    {servicesList.map((service, idx) => {
+                        const Icon = icons[idx] || Megaphone;
                         const isEven = idx % 2 === 0;
                         return (
                             <motion.div
@@ -95,7 +65,7 @@ export function Services() {
                                     </p>
 
                                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        {service.points.map((point) => (
+                                        {service.points.map((point: string) => (
                                             <li key={point} className="flex items-center gap-3 text-white/80">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></div>
                                                 <span>{point}</span>
@@ -106,7 +76,7 @@ export function Services() {
                                     <div className="mt-12">
                                         <MagneticWrapper>
                                             <Link to="/contact" className="inline-flex items-center gap-2 group text-sm font-medium uppercase tracking-widest text-white/60 hover:text-white transition-colors">
-                                                Discuter de ce service
+                                                {t('services.discussService')}
                                                 <span className="w-8 h-px bg-white/20 group-hover:bg-white group-hover:w-12 transition-all duration-300"></span>
                                             </Link>
                                         </MagneticWrapper>

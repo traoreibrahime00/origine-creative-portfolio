@@ -175,7 +175,7 @@ export function Home() {
                 >
                     <MagneticWrapper>
                         <Link to="/services" className="inline-flex rounded-full border border-white/20 px-8 py-3 text-sm font-medium hover:bg-white hover:text-black transition-colors">
-                            Explorer nos services
+                            {t('home.exploreServices')}
                         </Link>
                     </MagneticWrapper>
                 </motion.div>
@@ -184,17 +184,17 @@ export function Home() {
             {/* Process Section */}
             < section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto border-t border-white/10" >
                 <div className="flex flex-col items-center text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Notre Méthodologie</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{t('home.methodologySubtitle')}</h2>
                     <p className="text-white/60 max-w-2xl mx-auto text-lg">
-                        Une approche rigoureuse pour garantir l'impact et le ROI de chaque initiative créative.
+                        {t('home.methodologyDesc')}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {[
-                        { title: '1. Immersion & Stratégie', desc: "Analyse de votre écosystème, identification des leviers de croissance et définition d'un positionnement sur-mesure." },
-                        { title: '2. Conception Créative', desc: "Traduction de la stratégie en identités visuelles fortes, narratives immersives et design d'expérience." },
-                        { title: '3. Déploiement & Impact', desc: "Lancement, amplification digitale et suivi pour assurer une résonance maximale auprès de votre cible premium." },
+                        { title: t('home.step1Title'), desc: t('home.step1Desc') },
+                        { title: t('home.step2Title'), desc: t('home.step2Desc') },
+                        { title: t('home.step3Title'), desc: t('home.step3Desc') },
                     ].map((step, idx) => (
                         <div key={idx} className="p-8 rounded-2xl border border-white/5 bg-zinc-900/50 backdrop-blur-sm relative overflow-hidden group hover:border-[hsl(var(--accent-red))]/30 transition-colors cursor-pointer">
                             <div className="absolute top-0 left-0 w-1 h-full bg-white/5 group-hover:bg-[hsl(var(--accent-red))] transition-colors"></div>
@@ -237,16 +237,16 @@ export function Home() {
                         <div className="relative z-10 space-y-8">
                             <div className="flex items-center gap-3">
                                 <div className="h-px w-8 bg-white/40"></div>
-                                <span className="uppercase text-xs tracking-widest font-medium text-white/60">Notre Philosophie</span>
+                                <span className="uppercase text-xs tracking-widest font-medium text-white/60">{t('home.philosophySubtitle')}</span>
                             </div>
                             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
-                                Nous créons à <br /> l'intersection de <br /> <span className="text-[hsl(var(--accent-red))] text-glow italic font-display">l'art</span> et de la <span className="text-white/50">stratégie.</span>
+                                {t('home.philosophyTitle1')} <br /> {t('home.philosophyTitle2')} <br /> <span className="text-[hsl(var(--accent-red))] text-glow italic font-display">{t('home.philosophyTitleArt')}</span> {t('home.philosophyTitle3')} <span className="text-white/50">{t('home.philosophyTitleStrategy')}</span>
                             </h2>
                             <p className="text-base sm:text-lg text-white/60 max-w-md leading-relaxed">
-                                Origine Creative puise son inspiration dans l'authenticité de la culture africaine tout en appliquant les standards de design internationaux les plus exigeants.
+                                {t('home.philosophyDesc')}
                             </p>
                             <Link to="/a-propos" className="inline-flex items-center gap-2 group text-sm font-medium uppercase tracking-widest hover:text-[hsl(var(--accent-red))] transition-colors">
-                                Découvrir notre approche
+                                {t('home.philosophyCta')}
                                 <ArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                             </Link>
                         </div>
@@ -270,7 +270,8 @@ export function Home() {
                         transition={{ duration: 0.5 }}
                         className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 sm:mb-8"
                     >
-                        Prêt à donner vie à votre <span className="text-[hsl(var(--accent-red))] text-glow">vision ?</span>
+                        <span className="text-white/40 block mb-2 text-2xl sm:text-3xl md:text-4xl">{t('home.ctaSubtitle')}</span>
+                        {t('home.ctaTitle')}
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -278,7 +279,7 @@ export function Home() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl text-white/60 mb-12 max-w-2xl mx-auto"
                     >
-                        Contactez-nous pour discuter de votre prochain projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs.
+                        {t('home.ctaDesc')}
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -288,7 +289,7 @@ export function Home() {
                     >
                         <MagneticWrapper>
                             <Link to="/contact" className="inline-flex items-center gap-4 bg-[hsl(var(--accent-red))] text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-[0_0_40px_hsl(var(--accent-red)/0.6)] hover:scale-105 transition-all">
-                                Démarrer un projet
+                                {t('home.ctaButton')}
                                 <div className="bg-white text-[hsl(var(--accent-red))] w-10 h-10 rounded-full flex items-center justify-center pl-0.5 pt-0.5">
                                     <ArrowUpRight strokeWidth={3} />
                                 </div>
@@ -302,6 +303,7 @@ export function Home() {
 }
 
 function FeaturedProjectCard({ project }: { project: any }) {
+    const { i18n } = useTranslation();
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -339,9 +341,11 @@ function FeaturedProjectCard({ project }: { project: any }) {
             <div className="absolute bottom-0 left-0 right-0 p-8 z-20 flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform">
                 <div>
                     <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-medium mb-3 border border-white/10 text-[hsl(var(--accent-red))]">
-                        {project.category}
+                        {project.category_en ? project[`category_${i18n.language.split('-')[0]}`] || project.category : project.category}
                     </div>
-                    <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
+                    <h3 className="text-2xl font-bold tracking-tight">
+                        {project.title_en ? project[`title_${i18n.language.split('-')[0]}`] || project.title : project.title}
+                    </h3>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <ArrowUpRight />

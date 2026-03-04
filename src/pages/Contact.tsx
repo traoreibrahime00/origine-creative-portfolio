@@ -58,10 +58,10 @@ export function Contact() {
                                         <MapPin size={20} className="text-white/60" />
                                     </div>
                                     <div>
-                                        <h4 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-1">Studio</h4>
+                                        <h4 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-1">{t('contact.studioLabel')}</h4>
                                         <p className="text-xl font-medium leading-relaxed">
                                             Abidjan, Cote d'ivoire<br />
-                                            <span className="text-base text-white/60">Disponible géographiquement sur tout le continent.</span>
+                                            <span className="text-base text-white/60">{t('contact.studioAvailability')}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -74,13 +74,13 @@ export function Contact() {
                                         className="group inline-flex items-center gap-4 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#25D366] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all"
                                     >
                                         <MessageCircle size={24} />
-                                        Discuter sur WhatsApp
+                                        {t('contact.whatsappCta')}
                                     </a>
                                 </div>
                             </div>
 
                             <div>
-                                <h4 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">Réseaux Sociaux</h4>
+                                <h4 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">{t('contact.socialTitle')}</h4>
                                 <div className="flex gap-4">
                                     <MagneticWrapper>
                                         <a href="#" aria-label="Suivez-nous sur Instagram" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
@@ -114,7 +114,7 @@ export function Contact() {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="flex flex-col gap-2">
-                                        <label htmlFor="name" className="text-sm font-medium text-white/60 pl-4">Nom complet *</label>
+                                        <label htmlFor="name" className="text-sm font-medium text-white/60 pl-4">{t('contact.formNameLabel')}</label>
                                         <input
                                             type="text"
                                             id="name"
@@ -125,19 +125,19 @@ export function Contact() {
                                         />
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <label htmlFor="company" className="text-sm font-medium text-white/60 pl-4">Entreprise</label>
+                                        <label htmlFor="company" className="text-sm font-medium text-white/60 pl-4">{t('contact.formCompanyLabel')}</label>
                                         <input
                                             type="text"
                                             id="company"
                                             name="entreprise"
                                             className="bg-black/40 border border-white/10 focus:border-[hsl(var(--accent-red))] outline-none rounded-full px-6 py-4 text-white transition-colors"
-                                            placeholder="Mon Entreprise"
+                                            placeholder="Mon {t('contact.formCompanyLabel')}"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="email" className="text-sm font-medium text-white/60 pl-4">Adresse Email *</label>
+                                    <label htmlFor="email" className="text-sm font-medium text-white/60 pl-4">{t('contact.formEmailLabel')}</label>
                                     <input
                                         type="email"
                                         id="email"
@@ -149,7 +149,7 @@ export function Contact() {
                                 </div>
 
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="subject" className="text-sm font-medium text-white/60 pl-4">Sujet du projet *</label>
+                                    <label htmlFor="subject" className="text-sm font-medium text-white/60 pl-4">{t('contact.formSubjectLabel')}</label>
                                     <select
                                         id="subject"
                                         name="sujet"
@@ -157,28 +157,28 @@ export function Contact() {
                                         required
                                         defaultValue=""
                                     >
-                                        <option value="" disabled>Sélectionnez un sujet</option>
-                                        <option value="branding">Identité & Stratégie de Marque</option>
-                                        <option value="digital">Communication Digitale</option>
-                                        <option value="motion">Production Audiovisuelle Premium</option>
-                                        <option value="autre">Autre demande</option>
+                                        <option value="" disabled>{t('contact.formSubjectPlaceholder')}</option>
+                                        <option value="branding">{t('contact.formSubjectBranding')}</option>
+                                        <option value="digital">{t('contact.formSubjectDigital')}</option>
+                                        <option value="motion">{t('contact.formSubjectMotion')}</option>
+                                        <option value="autre">{t('contact.formSubjectOther')}</option>
                                     </select>
                                 </div>
 
                                 <div className="flex flex-col gap-2 mb-4">
-                                    <label htmlFor="message" className="text-sm font-medium text-white/60 pl-4">Message *</label>
+                                    <label htmlFor="message" className="text-sm font-medium text-white/60 pl-4">{t('contact.formMessageLabel')}</label>
                                     <textarea
                                         id="message"
                                         name="message"
                                         rows={5}
                                         className="bg-black/40 border border-white/10 focus:border-[hsl(var(--accent-red))] outline-none rounded-3xl px-6 py-4 text-white resize-none transition-colors"
-                                        placeholder="Parlez-nous de votre projet..."
+                                        placeholder="{t('contact.formMessagePlaceholder')}"
                                         required
                                     ></textarea>
                                 </div>
 
                                 <button type="submit" className="group flex items-center justify-center gap-4 bg-white text-black px-8 py-5 rounded-full font-bold text-lg hover:bg-[hsl(var(--accent-red))] hover:text-white transition-all w-full md:w-auto self-start">
-                                    Envoyer le message
+                                    {t('contact.formSubmit')}
                                     <div className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors">
                                         <ArrowUpRight strokeWidth={2} size={16} />
                                     </div>

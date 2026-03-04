@@ -1,21 +1,9 @@
 import { motion } from 'framer-motion';
 import { RevealLine, RevealWords } from '../components/TextReveal';
-import { useState, useEffect } from 'react';
-import staticContent from '../data/content.json';
 import { useTranslation } from 'react-i18next';
 
 export function APropos() {
     const { t } = useTranslation();
-    const [content, setContent] = useState(staticContent.apropos);
-
-    useEffect(() => {
-        fetch('/api/content')
-            .then(res => res.json())
-            .then(data => {
-                if (data.apropos) setContent(data.apropos);
-            })
-            .catch(err => console.log('Using static content', err));
-    }, []);
 
     return (
         <main className="min-h-screen pt-32 pb-24">
@@ -63,47 +51,47 @@ export function APropos() {
 
                         <div className="space-y-6 text-lg text-white/70 leading-relaxed font-light">
                             <p>
-                                <RevealWords text={content.visionText1} delayOffset={0.4} />
+                                <RevealWords text={t('about.visionText1')} delayOffset={0.4} />
                             </p>
                             <p>
-                                <strong className="text-white font-medium">{content.visionText2Bold}</strong>{content.visionText2}
+                                <strong className="text-white font-medium">{t('about.visionText2Bold')}</strong>{t('about.visionText2')}
                             </p>
                             <p>
-                                {content.visionText3}
+                                {t('about.visionText3')}
                             </p>
                             <blockquote className="border-l-2 border-[hsl(var(--accent-red))] pl-6 mt-10 mb-4 py-2 opacity-90">
-                                <p className="text-xl md:text-2xl font-display italic text-white/90 mb-4">{content.quoteText}</p>
-                                <footer className="text-xs font-medium uppercase tracking-[0.2em] text-[hsl(var(--accent-red))]">{content.quoteAuthor}</footer>
+                                <p className="text-xl md:text-2xl font-display italic text-white/90 mb-4">{t('about.quoteText')}</p>
+                                <footer className="text-xs font-medium uppercase tracking-[0.2em] text-[hsl(var(--accent-red))]">{t('about.quoteAuthor')}</footer>
                             </blockquote>
                         </div>
 
                         <div className="mt-16 pt-16 border-t border-white/10">
-                            <h3 className="text-xl font-medium mb-8 uppercase tracking-widest text-white/40 text-sm">Nos Valeurs</h3>
+                            <h3 className="text-xl font-medium mb-8 uppercase tracking-widest text-white/40 text-sm">{t('about.valuesTitle')}</h3>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                 <div>
                                     <h4 className="text-xl font-bold mb-2 flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> Excellence
+                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> {t('about.value1Title')}
                                     </h4>
-                                    <p className="text-white/60 text-sm">Une exigence absolue dans chaque détail, de la réflexion stratégique au livrable final.</p>
+                                    <p className="text-white/60 text-sm">{t('about.value1Desc')}</p>
                                 </div>
                                 <div>
                                     <h4 className="text-xl font-bold mb-2 flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> Audace
+                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> {t('about.value2Title')}
                                     </h4>
-                                    <p className="text-white/60 text-sm">Oser bousculer les codes établis pour créer des concepts véritablement innovants.</p>
+                                    <p className="text-white/60 text-sm">{t('about.value2Desc')}</p>
                                 </div>
                                 <div>
                                     <h4 className="text-xl font-bold mb-2 flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> Impact
+                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> {t('about.value3Title')}
                                     </h4>
-                                    <p className="text-white/60 text-sm">Des solutions conçues pour générer des résultats tangibles et durables.</p>
+                                    <p className="text-white/60 text-sm">{t('about.value3Desc')}</p>
                                 </div>
                                 <div>
                                     <h4 className="text-xl font-bold mb-2 flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> Authenticité
+                                        <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-red))] text-glow"></span> {t('about.value4Title')}
                                     </h4>
-                                    <p className="text-white/60 text-sm">Des marques ancrées dans la réalité, qui communiquent avec sincérité.</p>
+                                    <p className="text-white/60 text-sm">{t('about.value4Desc')}</p>
                                 </div>
                             </div>
                         </div>

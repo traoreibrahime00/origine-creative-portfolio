@@ -25,7 +25,31 @@
         "expertiseSubtitle": "Notre Expertise",
         "expertiseTitle": "De l'idée à la réalité, nous maîtrisons chaque étape créative.",
         "projectsSubtitle": "Projets Récents",
-        "projectsTitle": "Découvrez comment nous aidons nos clients à atteindre leurs objectifs créatifs et commerciaux."
+        "projectsTitle": "Cas Clients Mémorables",
+        "exploreCases": "Explorer nos cas clients",
+        "services": "Nos Services",
+        "exploreServices": "Explorer nos services",
+        "methodologySubtitle": "Notre Méthodologie",
+        "methodologyDesc": "Une approche rigoureuse pour garantir l'impact et le ROI de chaque initiative créative.",
+        "step1Title": "1. Immersion & Stratégie",
+        "step1Desc": "Analyse de votre écosystème, identification des leviers de croissance et définition d'un positionnement sur-mesure.",
+        "step2Title": "2. Conception Créative",
+        "step2Desc": "Traduction de la stratégie en identités visuelles fortes, narratives immersives et design d'expérience.",
+        "step3Title": "3. Déploiement & Impact",
+        "step3Desc": "Lancement, amplification digitale et suivi pour assurer une résonance maximale auprès de votre cible premium.",
+        "philosophySubtitle": "Notre Philosophie",
+        "philosophyTitle1": "Nous créons à",
+        "philosophyTitle2": "l'intersection de",
+        "philosophyTitleArt": "l'art",
+        "philosophyTitle3": "et de la",
+        "philosophyTitleStrategy": "stratégie.",
+        "philosophyDesc": "Origine Creative puise son inspiration dans l'authenticité de la culture africaine tout en appliquant les standards de design internationaux les plus exigeants.",
+        "philosophyCta": "Découvrir notre approche",
+        "ctaSubtitle": "Prêt pour le prochain niveau ?",
+        "ctaTitle": "Repoussez les limites de votre industrie",
+        "ctaDesc": "Nos équipes sont prêtes à vous accompagner pour faire de votre vision une référence incontournable de votre marché.",
+        "ctaPlaceholder": "Parlez-nous de votre vision...",
+        "ctaButton": "Envoyer"
     },
     "cookie": {
         "title": "Respect de votre vie privée",
@@ -45,20 +69,104 @@
         "headerSubtitle": "Expertise",
         "headerTitle1": "Notre",
         "headerTitle2": "Expertise",
-        "headerDesc": "Nous accompagnons nos clients à chaque étape de leur développement en déployant un savoir-faire pluridisciplinaire."
+        "headerDesc": "Nous accompagnons nos clients à chaque étape de leur développement en déployant un savoir-faire pluridisciplinaire.",
+        "discussService": "Discuter de ce service",
+        "list": [
+            {
+                "title": "Stratégie de Marque",
+                "description": "Nous définissons le positionnement, l'architecture et la voix de votre marque pour créer un socle solide et différenciant sur votre marché.",
+                "points": [
+                    "Audit & Analyse",
+                    "Positionnement",
+                    "Plateforme de marque",
+                    "Naming"
+                ]
+            },
+            {
+                "title": "Identité Visuelle",
+                "description": "Création de systèmes graphiques uniques et mémorables qui traduisent visuellement l'essence de votre marque sur tous les supports.",
+                "points": [
+                    "Création de logo",
+                    "Charte graphique",
+                    "Typographie & Couleurs",
+                    "Brand Guidelines"
+                ]
+            },
+            {
+                "title": "Communication Digitale",
+                "description": "Une présence en ligne performante avec des expériences digitales sur mesure, pensées pour vos utilisateurs et vos objectifs.",
+                "points": [
+                    "Sites Web sur-mesure",
+                    "UI/UX Design",
+                    "Stratégie Social Media",
+                    "Content Management"
+                ]
+            },
+            {
+                "title": "Motion Design",
+                "description": "Donnez vie à votre marque à travers l'animation. Des vidéos explicatives aux contenus sociaux engageants.",
+                "points": [
+                    "Animation 2D/3D",
+                    "Vidéos promotionnelles",
+                    "Brand Intro",
+                    "Lottie Animations"
+                ]
+            },
+            {
+                "title": "Direction Artistique",
+                "description": "La garantie d'une cohérence visuelle absolue sur l'ensemble de vos campagnes et de vos supports de communication.",
+                "points": [
+                    "Shooting Photo",
+                    "Campagnes Publicitaires",
+                    "Scénographie",
+                    "Édition & Print"
+                ]
+            }
+        ]
     },
     "about": {
         "headerSubtitle": "Notre ADN",
         "headerTitle1": "L'origine des",
         "headerTitle2": "grandes marques",
         "headerTitle3": "commence ici.",
-        "visionTitle": "Notre Vision"
+        "visionTitle": "Notre Vision",
+        "visionText1": "Née de la volonté de repenser la communication sur le continent africain, Origine Creative s'impose comme le partenaire stratégique des marques ambitieuses.",
+        "visionText2Bold": "Le design n'est pas qu'une question d'esthétique, c'est un levier de croissance économique.",
+        "visionText2": " Notre mission va au-delà de l'image de marque : nous construisons des avantages concurrentiels, de l'engagement et du leadership pour nos clients.",
+        "visionText3": "Alliant une compréhension profonde des contextes culturels locaux à une exigence qualitative internationale, notre démarche repose sur une logique implacable : l'excellence créative doit toujours servir une vision d'affaires tranchante.",
+        "quoteText": "\"Nos clients n'achètent pas de simples identités visuelles. Ils investissent dans l'augmentation de leurs parts de marché et l'élargissement de leur influence culturelle.\"",
+        "quoteAuthor": "— La Direction",
+        "valuesTitle": "Nos Valeurs",
+        "value1Title": "Excellence",
+        "value1Desc": "Une exigence absolue dans chaque détail, de la réflexion stratégique au livrable final.",
+        "value2Title": "Audace",
+        "value2Desc": "Oser bousculer les codes établis pour créer des concepts véritablement innovants.",
+        "value3Title": "Impact",
+        "value3Desc": "Des solutions conçues pour générer des résultats tangibles et durables.",
+        "value4Title": "Authenticité",
+        "value4Desc": "Des marques ancrées dans la réalité, qui communiquent avec sincérité."
     },
     "contact": {
         "headerSubtitle": "Contact",
         "headerTitle1": "Prêt à",
         "headerTitle2": "créer?",
-        "headerDesc": "Discutons de votre projet, de vos objectifs et voyons comment nous pouvons collaborer."
+        "headerDesc": "Discutons de votre projet, de vos objectifs et voyons comment nous pouvons collaborer.",
+        "studioLabel": "Studio",
+        "studioAvailability": "Disponible géographiquement sur tout le continent.",
+        "whatsappCta": "Discuter sur WhatsApp",
+        "socialTitle": "Réseaux Sociaux",
+        "formNameLabel": "Nom complet *",
+        "formCompanyLabel": "Entreprise",
+        "formEmailLabel": "Adresse Email *",
+        "formSubjectLabel": "Sujet du projet *",
+        "formSubjectPlaceholder": "Sélectionnez un sujet",
+        "formSubjectBranding": "Identité & Stratégie de Marque",
+        "formSubjectDigital": "Communication Digitale",
+        "formSubjectMotion": "Production Audiovisuelle Premium",
+        "formSubjectOther": "Autre demande",
+        "formMessageLabel": "Message *",
+        "formMessagePlaceholder": "Parlez-nous de votre projet...",
+        "formSubmit": "Envoyer le message"
     },
     "projets": {
         "headerSubtitle": "Nos réalisations",
