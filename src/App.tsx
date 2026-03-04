@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -18,6 +19,8 @@ const Admin = lazy(() => import('./pages/Admin').then(m => ({ default: m.Admin }
 const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales').then(m => ({ default: m.MentionsLegales })));
 const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite').then(m => ({ default: m.PolitiqueConfidentialite })));
+const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
+const BlogArticle = lazy(() => import('./pages/BlogArticle').then(m => ({ default: m.BlogArticle })));
 
 // Lazy-load heavy components
 const Chatbot = lazy(() => import('./components/Chatbot').then(m => ({ default: m.Chatbot })));
@@ -57,6 +60,8 @@ function AnimatedRoutes() {
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
           <Route path="/projets" element={<PageTransition><Projets /></PageTransition>} />
+          <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+          <Route path="/blog/:slug" element={<PageTransition><BlogArticle /></PageTransition>} />
           <Route path="/a-propos" element={<PageTransition><APropos /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
           <Route path="/mentions-legales" element={<PageTransition><MentionsLegales /></PageTransition>} />
@@ -100,6 +105,7 @@ function App() {
       <Suspense fallback={null}>
         <Chatbot />
       </Suspense>
+      <Analytics />
 
       {/* Custom Global Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-zinc-950">

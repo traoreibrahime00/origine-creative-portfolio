@@ -24,6 +24,12 @@ type Project = {
     imageUrl?: string;
     projectImages?: string[];
     contentBlocks?: ContentBlock[];
+    caseStudy?: {
+        challenge: string;
+        strategy: string;
+        result: string;
+        testimonial?: string;
+    };
 };
 
 // Helper: Extract ID and return embed URL if it's Behance or YouTube
@@ -297,6 +303,57 @@ export function Projets() {
                                                                 {block.type === 'video' && block.content && <video src={block.content} className="w-full max-w-5xl h-auto block rounded-lg mt-4 shadow-xl px-4" autoPlay loop muted playsInline controls />}
                                                             </div>
                                                         ))}
+                                                    </div>
+                                                )}
+
+                                                {/* Case Study Section */}
+                                                {selectedProject.caseStudy && (
+                                                    <div className="w-full bg-[#0a0a0a] py-16 px-4 md:px-8">
+                                                        <div className="max-w-5xl mx-auto">
+                                                            <div className="flex items-center gap-3 mb-10">
+                                                                <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
+                                                                <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Étude de Cas</span>
+                                                            </div>
+
+                                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                                {/* Challenge */}
+                                                                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                                                                    <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-red))]/10 flex items-center justify-center mb-4">
+                                                                        <span className="text-[hsl(var(--accent-red))] text-lg font-bold">!</span>
+                                                                    </div>
+                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">Le Défi</h4>
+                                                                    <p className="text-white/70 leading-relaxed text-sm">{selectedProject.caseStudy.challenge}</p>
+                                                                </div>
+
+                                                                {/* Strategy */}
+                                                                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                                                                    <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-red))]/10 flex items-center justify-center mb-4">
+                                                                        <span className="text-[hsl(var(--accent-red))] text-lg font-bold">→</span>
+                                                                    </div>
+                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">Notre Stratégie</h4>
+                                                                    <p className="text-white/70 leading-relaxed text-sm">{selectedProject.caseStudy.strategy}</p>
+                                                                </div>
+
+                                                                {/* Result */}
+                                                                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                                                                    <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-red))]/10 flex items-center justify-center mb-4">
+                                                                        <span className="text-[hsl(var(--accent-red))] text-lg font-bold">✓</span>
+                                                                    </div>
+                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">Le Résultat</h4>
+                                                                    <p className="text-white/70 leading-relaxed text-sm">{selectedProject.caseStudy.result}</p>
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Testimonial */}
+                                                            {selectedProject.caseStudy.testimonial && (
+                                                                <div className="mt-8 p-6 border-l-2 border-[hsl(var(--accent-red))] bg-white/[0.02] rounded-r-xl">
+                                                                    <p className="text-white/80 italic font-display text-lg leading-relaxed">
+                                                                        "{selectedProject.caseStudy.testimonial}"
+                                                                    </p>
+                                                                    <p className="text-[hsl(var(--accent-red))] text-sm mt-3 font-medium">— Client</p>
+                                                                </div>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 )}
 

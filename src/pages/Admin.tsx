@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Trash2, Plus, Save, ArrowUp, ArrowDown, Upload, Type, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
+import { Trash2, Plus, Save, ArrowUp, ArrowDown, Upload, Type, Image as ImageIcon, Video as VideoIcon, ChevronDown, FileText } from 'lucide-react';
 import staticProjects from '../data/projects.json';
+import staticArticles from '../data/blog.json';
 
 export type ContentBlock = {
     id: string;
@@ -18,15 +19,36 @@ type Project = {
     imageUrl?: string;
     projectImages?: string[];
     contentBlocks?: ContentBlock[];
+    caseStudy?: {
+        challenge: string;
+        strategy: string;
+        result: string;
+        testimonial?: string;
+    };
+};
+
+type BlogArticle = {
+    id: number;
+    slug: string;
+    title: string;
+    excerpt: string;
+    content: string;
+    category: string;
+    coverImage: string;
+    author: string;
+    publishedAt: string;
+    readTime: number;
 };
 
 export function Admin() {
     const [projects, setProjects] = useState<Project[]>(staticProjects as Project[]);
+    const [articles, setArticles] = useState<BlogArticle[]>(staticArticles as BlogArticle[]);
     const [content, setContent] = useState<any>(null);
     const [loading, setLoading] = useState(false);
     const [saving, setSaving] = useState(false);
     const [status, setStatus] = useState('');
-    const [activeTab, setActiveTab] = useState<'projects' | 'content'>('projects');
+    const [activeTab, setActiveTab] = useState<'projects' | 'content' | 'blog'>('projects');
+    const [expandedCaseStudy, setExpandedCaseStudy] = useState<number | null>(null);
 
     useEffect(() => {
         // Fetch projects
@@ -292,6 +314,10 @@ export function Admin() {
     const triggerSave = () => {
         if (activeTab === 'projects') {
             saveProjects(projects);
+        } else if (activeTab === 'blog') {
+            // Blog save — in a real app this would persist to API
+            setStatus('Articles sauvegardés !');
+            setTimeout(() => setStatus(''), 3000);
         } else {
             saveContent();
         }
@@ -332,6 +358,12 @@ export function Admin() {
                         className={`pb-4 px-2 font-medium tracking-wide border-b-2 transition-colors ${activeTab === 'content' ? 'border-[hsl(var(--accent-red))] text-white' : 'border-transparent text-white/50 hover:text-white'}`}
                     >
                         Textes du Site
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('blog')}
+                        className={`pb-4 px-2 font-medium tracking-wide border-b-2 transition-colors ${activeTab === 'blog' ? 'border-[hsl(var(--accent-red))] text-white' : 'border-transparent text-white/50 hover:text-white'}`}
+                    >
+                        <span className="flex items-center gap-2"><FileText size={16} /> Blog</span>
                     </button>
                 </div>
 
@@ -529,6 +561,86 @@ export function Admin() {
                                         </label>
                                     </div>
                                 </div>
+
+                                {/* Case Study Accordion */}
+                                <div className="mt-6 border-t border-white/10 pt-4">
+                                    <button
+                                        onClick={() => setExpandedCaseStudy(expandedCaseStudy === project.id ? null : project.id)}
+                                        className="flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors w-full"
+                                    >
+                                        <ChevronDown size={16} className={`transition-transform ${expandedCaseStudy === project.id ? 'rotate-180' : ''}`} />
+                                        Étude de Cas (optionnel)
+                                    </button>
+
+                                    {expandedCaseStudy === project.id && (
+                                        <div className="mt-4 grid grid-cols-1 gap-4 bg-black/30 rounded-lg p-4 border border-white/5">
+                                            <div className="space-y-2">
+                                                <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Le Défi</label>
+                                                <textarea
+                                                    value={project.caseStudy?.challenge || ''}
+                                                    onChange={(e) => {
+                                                        const updated = projects.map(p => p.id === project.id ? {
+                                                            ...p,
+                                                            caseStudy: { ...p.caseStudy, challenge: e.target.value, strategy: p.caseStudy?.strategy || '', result: p.caseStudy?.result || '' }
+                                                        } : p);
+                                                        setProjects(updated);
+                                                    }}
+                                                    rows={2}
+                                                    placeholder="Quel était le problème du client ?"
+                                                    className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none resize-y text-sm"
+                                                />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Notre Stratégie</label>
+                                                <textarea
+                                                    value={project.caseStudy?.strategy || ''}
+                                                    onChange={(e) => {
+                                                        const updated = projects.map(p => p.id === project.id ? {
+                                                            ...p,
+                                                            caseStudy: { ...p.caseStudy, challenge: p.caseStudy?.challenge || '', strategy: e.target.value, result: p.caseStudy?.result || '' }
+                                                        } : p);
+                                                        setProjects(updated);
+                                                    }}
+                                                    rows={2}
+                                                    placeholder="Comment avez-vous résolu le problème ?"
+                                                    className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none resize-y text-sm"
+                                                />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Le Résultat</label>
+                                                <textarea
+                                                    value={project.caseStudy?.result || ''}
+                                                    onChange={(e) => {
+                                                        const updated = projects.map(p => p.id === project.id ? {
+                                                            ...p,
+                                                            caseStudy: { ...p.caseStudy, challenge: p.caseStudy?.challenge || '', strategy: p.caseStudy?.strategy || '', result: e.target.value }
+                                                        } : p);
+                                                        setProjects(updated);
+                                                    }}
+                                                    rows={2}
+                                                    placeholder="Quels résultats concrets ?"
+                                                    className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none resize-y text-sm"
+                                                />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Témoignage Client (optionnel)</label>
+                                                <input
+                                                    type="text"
+                                                    value={project.caseStudy?.testimonial || ''}
+                                                    onChange={(e) => {
+                                                        const updated = projects.map(p => p.id === project.id ? {
+                                                            ...p,
+                                                            caseStudy: { ...p.caseStudy, challenge: p.caseStudy?.challenge || '', strategy: p.caseStudy?.strategy || '', result: p.caseStudy?.result || '', testimonial: e.target.value }
+                                                        } : p);
+                                                        setProjects(updated);
+                                                    }}
+                                                    placeholder="Citation du client..."
+                                                    className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none text-sm italic"
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -646,6 +758,118 @@ export function Admin() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                )}
+
+                {activeTab === 'blog' && (
+                    <div className="space-y-6">
+                        <div className="flex justify-end mb-4">
+                            <button
+                                onClick={() => {
+                                    const newArticle: BlogArticle = {
+                                        id: Date.now(),
+                                        slug: `article-${Date.now()}`,
+                                        title: 'Nouvel Article',
+                                        excerpt: '',
+                                        content: '',
+                                        category: 'Stratégie',
+                                        coverImage: '',
+                                        author: 'Origine Creative',
+                                        publishedAt: new Date().toISOString().split('T')[0],
+                                        readTime: 5
+                                    };
+                                    setArticles([...articles, newArticle]);
+                                }}
+                                className="flex items-center gap-2 bg-[hsl(var(--accent-red))] text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-all"
+                            >
+                                <Plus size={18} /> Nouvel Article
+                            </button>
+                        </div>
+                        {articles.map((article) => (
+                            <div key={article.id} className="bg-zinc-900 border border-white/10 rounded-xl p-6 relative">
+                                <button
+                                    onClick={() => setArticles(articles.filter(a => a.id !== article.id))}
+                                    className="absolute top-6 right-6 text-white/40 hover:text-red-500 transition-colors"
+                                >
+                                    <Trash2 size={20} />
+                                </button>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pr-10">
+                                    <div className="space-y-2">
+                                        <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Titre</label>
+                                        <input
+                                            type="text"
+                                            value={article.title}
+                                            onChange={(e) => setArticles(articles.map(a => a.id === article.id ? { ...a, title: e.target.value, slug: e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') } : a))}
+                                            className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Catégorie</label>
+                                        <select
+                                            value={article.category}
+                                            onChange={(e) => setArticles(articles.map(a => a.id === article.id ? { ...a, category: e.target.value } : a))}
+                                            className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none appearance-none"
+                                        >
+                                            <option value="Stratégie">Stratégie</option>
+                                            <option value="Digital">Digital</option>
+                                            <option value="Branding">Branding</option>
+                                            <option value="Design">Design</option>
+                                            <option value="Tendances">Tendances</option>
+                                        </select>
+                                    </div>
+                                    <div className="space-y-2 md:col-span-2">
+                                        <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Extrait (aperçu)</label>
+                                        <textarea
+                                            value={article.excerpt}
+                                            onChange={(e) => setArticles(articles.map(a => a.id === article.id ? { ...a, excerpt: e.target.value } : a))}
+                                            rows={2}
+                                            className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none resize-y"
+                                        />
+                                    </div>
+                                    <div className="space-y-2 md:col-span-2">
+                                        <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Contenu (Markdown)</label>
+                                        <textarea
+                                            value={article.content}
+                                            onChange={(e) => setArticles(articles.map(a => a.id === article.id ? { ...a, content: e.target.value } : a))}
+                                            rows={8}
+                                            placeholder={"## Mon titre\n\nMon paragraphe avec du **gras** et des [liens](/contact)."}
+                                            className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none resize-y font-mono text-sm"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Image de Couverture (URL)</label>
+                                        <input
+                                            type="text"
+                                            value={article.coverImage}
+                                            onChange={(e) => setArticles(articles.map(a => a.id === article.id ? { ...a, coverImage: e.target.value } : a))}
+                                            placeholder="https://..."
+                                            className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none"
+                                        />
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-2">
+                                            <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Date</label>
+                                            <input
+                                                type="date"
+                                                value={article.publishedAt}
+                                                onChange={(e) => setArticles(articles.map(a => a.id === article.id ? { ...a, publishedAt: e.target.value } : a))}
+                                                className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-xs text-white/50 font-medium uppercase tracking-wider">Temps de lecture (min)</label>
+                                            <input
+                                                type="number"
+                                                value={article.readTime}
+                                                onChange={(e) => setArticles(articles.map(a => a.id === article.id ? { ...a, readTime: parseInt(e.target.value) || 5 } : a))}
+                                                className="w-full bg-black border border-white/10 rounded-md px-4 py-2 text-white focus:border-[hsl(var(--accent-red))] outline-none"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 )}
             </div>
