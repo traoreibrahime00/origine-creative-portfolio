@@ -5,6 +5,7 @@ export function RevealLine({ children, delay = 0 }: { children: React.ReactNode,
         <span className="inline-block overflow-hidden" style={{ verticalAlign: 'top' }}>
             <motion.span
                 className="inline-block"
+                key={typeof children === 'string' ? children : 'line'}
                 initial={{ y: '100%', opacity: 0, rotate: 2 }}
                 whileInView={{ y: '0%', opacity: 1, rotate: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
@@ -26,7 +27,7 @@ export function RevealWords({ text, className = "", delayOffset = 0 }: { text: s
     return (
         <span className={`inline-flex flex-wrap gap-x-[0.25em] ${className}`}>
             {words.map((word, idx) => (
-                <span key={idx} className="inline-block overflow-hidden pb-1" style={{ verticalAlign: 'top' }}>
+                <span key={`${idx}-${word}`} className="inline-block overflow-hidden pb-1" style={{ verticalAlign: 'top' }}>
                     <motion.span
                         className="inline-block"
                         initial={{ y: '100%', opacity: 0 }}
