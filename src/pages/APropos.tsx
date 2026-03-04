@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { useState, useEffect } from 'react';
 import staticContent from '../data/content.json';
+import { useTranslation } from 'react-i18next';
 
 export function APropos() {
+    const { t } = useTranslation();
     const [content, setContent] = useState(staticContent.apropos);
 
     useEffect(() => {
@@ -24,13 +26,13 @@ export function APropos() {
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                         <div className="inline-flex items-center gap-3 mb-6">
                             <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
-                            <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Notre ADN</span>
+                            <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">{t('about.headerSubtitle')}</span>
                             <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight mb-6 sm:mb-8">
-                            <RevealWords text="L'origine des" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">grandes marques</span></RevealLine><br />
-                            <RevealWords text="commence ici." delayOffset={0.6} />
+                            <RevealWords text={t('about.headerTitle1')} delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">{t('about.headerTitle2')}</span></RevealLine><br />
+                            <RevealWords text={t('about.headerTitle3')} delayOffset={0.6} />
                         </h1>
                     </motion.div>
                 </div>
@@ -56,7 +58,7 @@ export function APropos() {
                     {/* Text Side */}
                     <div className="w-full lg:w-1/2">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">
-                            <RevealWords text="Notre Vision" delayOffset={0.2} />
+                            <RevealWords text={t('about.visionTitle')} delayOffset={0.2} />
                         </h2>
 
                         <div className="space-y-6 text-lg text-white/70 leading-relaxed font-light">

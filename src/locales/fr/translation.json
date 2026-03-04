@@ -1,0 +1,86 @@
+{
+    "nav": {
+        "projects": "Projets",
+        "services": "Services",
+        "blog": "Blog",
+        "about": "À propos",
+        "contact": "Contact"
+    },
+    "footer": {
+        "contactTitle": "Nous contacter",
+        "linksTitle": "Liens rapides",
+        "socialTitle": "Réseaux",
+        "legalTitle": "Légal",
+        "legalMentions": "Mentions Légales",
+        "privacyPolicy": "Politique de Confidentialité",
+        "rights": "Tous droits réservés."
+    },
+    "home": {
+        "heroSubtitle": "Agence créative africaine",
+        "heroTitle1": "Le Branding",
+        "heroTitle2": "qui marque",
+        "heroTitle3": "les esprits.",
+        "heroDesc": "Origine Creative est l'agence spécialisée dans la création de marques fortes, de sites web immersifs et de stratégies digitales impactantes pour les entreprises africaines ambitieuses.",
+        "heroCta": "Démarrer un projet",
+        "expertiseSubtitle": "Notre Expertise",
+        "expertiseTitle": "De l'idée à la réalité, nous maîtrisons chaque étape créative.",
+        "projectsSubtitle": "Projets Récents",
+        "projectsTitle": "Découvrez comment nous aidons nos clients à atteindre leurs objectifs créatifs et commerciaux."
+    },
+    "cookie": {
+        "title": "Respect de votre vie privée",
+        "desc": "Nous utilisons des cookies pour améliorer votre expérience, analyser notre trafic et vous proposer des contenus pertinents. Vous pouvez choisir d'accepter ou de personnaliser vos préférences.",
+        "acceptAll": "Accepter tout",
+        "declineAll": "Rejeter",
+        "customize": "Personnaliser mes choix",
+        "save": "Enregistrer mes préférences",
+        "necessaryTitle": "Strictement nécessaires",
+        "necessaryDesc": "Essentiels au fonctionnement du site. Ne peuvent pas être désactivés.",
+        "analyticsTitle": "Statistiques (Vercel Analytics)",
+        "analyticsDesc": "Nous aide à comprendre comment les visiteurs interagissent avec le site.",
+        "marketingTitle": "Marketing",
+        "marketingDesc": "Permet d'afficher des publicités ou du contenu personnalisé."
+    },
+    "services": {
+        "headerSubtitle": "Expertise",
+        "headerTitle1": "Notre",
+        "headerTitle2": "Expertise",
+        "headerDesc": "Nous accompagnons nos clients à chaque étape de leur développement en déployant un savoir-faire pluridisciplinaire."
+    },
+    "about": {
+        "headerSubtitle": "Notre ADN",
+        "headerTitle1": "L'origine des",
+        "headerTitle2": "grandes marques",
+        "headerTitle3": "commence ici.",
+        "visionTitle": "Notre Vision"
+    },
+    "contact": {
+        "headerSubtitle": "Contact",
+        "headerTitle1": "Prêt à",
+        "headerTitle2": "créer?",
+        "headerDesc": "Discutons de votre projet, de vos objectifs et voyons comment nous pouvons collaborer."
+    },
+    "projets": {
+        "headerSubtitle": "Nos réalisations",
+        "headerTitle1": "Des marques",
+        "headerTitle2": "qui marquent.",
+        "headerDesc": "Découvrez une sélection de projets où la stratégie rencontre l'excellence créative.",
+        "filterAll": "Tous",
+        "challenge": "Le Défi",
+        "strategy": "Notre Stratégie",
+        "result": "Le Résultat",
+        "testimonial": "Mot du client",
+        "noVisualContent": "Aucun contenu visuel importé.",
+        "viewOriginal": "Voir le projet original",
+        "ctaTitle": "Vous visez ce niveau d'exigence ?",
+        "ctaDesc": "Nous accompagnons les acteurs ambitieux pour structurer leur stratégie et déployer une image implacable sur le marché.",
+        "ctaBtn": "Initier un projet"
+    },
+    "blog": {
+        "headerSubtitle": "Insights & Vision",
+        "headerTitle1": "Plongez dans notre",
+        "headerTitle2": "univers créatif.",
+        "headerDesc": "Analyses, tendances et réflexions sur la stratégie de marque et le design.",
+        "readTime": "min de lecture"
+    }
+}

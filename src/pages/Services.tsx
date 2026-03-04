@@ -3,6 +3,7 @@ import { PenTool, Megaphone, Laptop, Film, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MagneticWrapper } from '../components/MagneticWrapper';
 import { RevealLine, RevealWords } from '../components/TextReveal';
+import { useTranslation } from 'react-i18next';
 
 const services = [
     {
@@ -38,6 +39,8 @@ const services = [
 ];
 
 export function Services() {
+    const { t } = useTranslation();
+
     return (
         <main className="min-h-screen pt-32 pb-24">
             <div className="max-w-7xl mx-auto px-7 md:px-12 lg:px-20">
@@ -47,13 +50,13 @@ export function Services() {
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                         <div className="flex items-center gap-3 mb-6">
                             <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
-                            <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Expertise</span>
+                            <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">{t('services.headerSubtitle')}</span>
                         </div>
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6 sm:mb-8">
-                            <RevealWords text="Notre" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">Expertise</span></RevealLine>
+                            <RevealWords text={t('services.headerTitle1')} delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">{t('services.headerTitle2')}</span></RevealLine>
                         </h1>
                         <p className="text-xl text-white/60 leading-relaxed">
-                            <RevealWords text="Nous accompagnons nos clients à chaque étape de leur développement en déployant un savoir-faire pluridisciplinaire." delayOffset={0.6} />
+                            <RevealWords text={t('services.headerDesc')} delayOffset={0.6} />
                         </p>
                     </motion.div>
                 </div>

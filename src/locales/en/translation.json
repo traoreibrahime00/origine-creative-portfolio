@@ -1,0 +1,86 @@
+{
+    "nav": {
+        "projects": "Projects",
+        "services": "Services",
+        "blog": "Blog",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "footer": {
+        "contactTitle": "Contact us",
+        "linksTitle": "Quick links",
+        "socialTitle": "Socials",
+        "legalTitle": "Legal",
+        "legalMentions": "Legal Notice",
+        "privacyPolicy": "Privacy Policy",
+        "rights": "All rights reserved."
+    },
+    "home": {
+        "heroSubtitle": "African creative agency",
+        "heroTitle1": "Branding",
+        "heroTitle2": "that leaves",
+        "heroTitle3": "a mark.",
+        "heroDesc": "Origine Creative is the agency specialized in creating strong brands, immersive websites, and impactful digital strategies for ambitious African businesses.",
+        "heroCta": "Start a project",
+        "expertiseSubtitle": "Our Expertise",
+        "expertiseTitle": "From idea to reality, we master every creative step.",
+        "projectsSubtitle": "Recent Projects",
+        "projectsTitle": "Discover how we help our clients achieve their creative and business goals."
+    },
+    "cookie": {
+        "title": "Respecting your privacy",
+        "desc": "We use cookies to improve your experience, analyze our traffic, and provide relevant content. You can choose to accept or customize your preferences.",
+        "acceptAll": "Accept all",
+        "declineAll": "Reject",
+        "customize": "Customize choices",
+        "save": "Save my preferences",
+        "necessaryTitle": "Strictly necessary",
+        "necessaryDesc": "Essential for the site to function. Cannot be disabled.",
+        "analyticsTitle": "Analytics (Vercel Analytics)",
+        "analyticsDesc": "Helps us understand how visitors interact with the site.",
+        "marketingTitle": "Marketing",
+        "marketingDesc": "Allows displaying ads or personalized content."
+    },
+    "services": {
+        "headerSubtitle": "Expertise",
+        "headerTitle1": "Our",
+        "headerTitle2": "Expertise",
+        "headerDesc": "We support our clients at every stage of their development by deploying multidisciplinary know-how."
+    },
+    "about": {
+        "headerSubtitle": "Our DNA",
+        "headerTitle1": "The origin of",
+        "headerTitle2": "great brands",
+        "headerTitle3": "starts here.",
+        "visionTitle": "Our Vision"
+    },
+    "contact": {
+        "headerSubtitle": "Contact",
+        "headerTitle1": "Ready to",
+        "headerTitle2": "create?",
+        "headerDesc": "Let's discuss your project, your goals, and see how we can collaborate."
+    },
+    "blog": {
+        "headerSubtitle": "Insights & Vision",
+        "headerTitle1": "Dive into our",
+        "headerTitle2": "creative universe.",
+        "headerDesc": "Analysis, trends, and thoughts on brand strategy and design.",
+        "readTime": "min read"
+    },
+    "projets": {
+        "headerSubtitle": "Our work",
+        "headerTitle1": "Brands that",
+        "headerTitle2": "leave a mark.",
+        "headerDesc": "Discover a selection of projects where strategy meets creative excellence.",
+        "filterAll": "All",
+        "challenge": "The Challenge",
+        "strategy": "Our Strategy",
+        "result": "The Result",
+        "testimonial": "Client Testimonial",
+        "noVisualContent": "No visual content has been imported.",
+        "viewOriginal": "View the original project",
+        "ctaTitle": "Are you aiming for this level of excellence?",
+        "ctaDesc": "We accompany ambitious actors to structure their strategy and deploy a relentless image on the market.",
+        "ctaBtn": "Initiate a project"
+    }
+}

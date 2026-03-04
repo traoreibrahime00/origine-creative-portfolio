@@ -7,9 +7,9 @@ import { useState, useEffect } from 'react';
 import { MagneticWrapper } from '../components/MagneticWrapper';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { ReelCarousel } from '../components/ReelCarousel';
-import staticContent from '../data/content.json';
 import staticProjects from '../data/projects.json';
 import { SEO } from '../components/SEO';
+import { useTranslation } from 'react-i18next';
 
 const expertiseIcons = [
     { name: 'Branding', icon: PenTool },
@@ -21,16 +21,10 @@ const expertiseIcons = [
 ];
 
 export function Home() {
-    const [content, setContent] = useState(staticContent.home);
+    const { t } = useTranslation();
     const [projects, setProjects] = useState<any[]>(staticProjects);
 
     useEffect(() => {
-        fetch('/api/content')
-            .then(res => res.json())
-            .then(data => {
-                if (data.home) setContent(data.home);
-            })
-            .catch(err => console.log('Using static content', err));
 
         fetch('/api/projects')
             .then(res => {
@@ -67,21 +61,21 @@ export function Home() {
                     >
                         <div className="flex items-center gap-3 mb-6">
                             <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
-                            <span className="uppercase text-xs tracking-[0.2em] font-medium text-[hsl(var(--accent-red))] text-glow">Agence créative africaine</span>
+                            <span className="uppercase text-xs tracking-[0.2em] font-medium text-[hsl(var(--accent-red))] text-glow">{t('home.heroSubtitle')}</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6">
-                            <RevealWords text={content.heroHeadlineLine1} delayOffset={0.2} />{' '}
+                            <RevealWords text={t('home.heroTitle1')} delayOffset={0.2} />{' '}
                             <RevealLine delay={0.6}>
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">{content.heroHeadlineLine2}</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">{t('home.heroTitle2')}</span>
                             </RevealLine>
                             <br />
-                            <RevealWords text={content.heroHeadlineLine3} delayOffset={0.8} />
+                            <RevealWords text={t('home.heroTitle3')} delayOffset={0.8} />
                         </h1>
 
                         <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
                             <RevealWords
-                                text={content.heroSubheadline}
+                                text={t('home.heroDesc')}
                                 delayOffset={0.4}
                             />
                         </p>
@@ -89,7 +83,7 @@ export function Home() {
                         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-10">
                             <MagneticWrapper>
                                 <Link to="/contact" className="group rounded-full bg-[hsl(var(--accent-red))] text-white px-8 py-4 flex items-center gap-4 w-full sm:w-auto justify-center transition-all hover:bg-red-600 hover:shadow-[0_0_30px_hsl(var(--accent-red)/0.5)]">
-                                    <span className="font-semibold">Discuter de vos ambitions</span>
+                                    <span className="font-semibold">{t('home.heroCta')}</span>
                                     <div className="w-8 h-8 rounded-full bg-white text-[hsl(var(--accent-red))] flex items-center justify-center transition-colors">
                                         <ArrowUpRight size={18} />
                                     </div>
@@ -124,12 +118,9 @@ export function Home() {
             < section className="py-24 px-7 md:px-12 lg:px-20 max-w-7xl mx-auto" >
                 <div className="flex flex-col items-center text-center mb-20">
                     <div className="inline-flex rounded-full border border-[hsl(var(--accent-red))]/30 bg-[hsl(var(--accent-red))]/10 px-4 py-1.5 uppercase tracking-widest text-[10px] sm:text-xs font-semibold text-[hsl(var(--accent-red))] mb-8">
-                        Notre Expertise
+                        {t('home.expertiseSubtitle')}
                     </div>
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-6">Stratégie. Design. Impact.</h2>
-                    <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg">
-                        Nous analysons votre marché pour définir un positionnement unique et construisons des marques mémorables qui résonnent avec leur époque.
-                    </p>
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-6">{t('home.expertiseTitle')}</h2>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">
@@ -220,12 +211,12 @@ export function Home() {
                     <div>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="h-px w-8 bg-white/40"></div>
-                            <span className="uppercase text-xs tracking-widest font-medium text-white/60">Nos succès</span>
+                            <span className="uppercase text-xs tracking-widest font-medium text-white/60">{t('home.projectsSubtitle')}</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Réalisations stratégiques</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">{t('home.projectsTitle')}</h2>
                     </div>
                     <Link to="/projets" className="hidden md:flex items-center gap-2 group text-sm font-medium uppercase tracking-widest hover:text-[hsl(var(--accent-red))] transition-colors">
-                        Voir tout
+                        {t('nav.projects')}
                         <ArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </Link>
                 </div>

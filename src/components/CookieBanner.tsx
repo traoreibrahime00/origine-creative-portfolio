@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function CookieBanner() {
+    const { t } = useTranslation();
     const [isVisible, setIsVisible] = useState(false);
     const [isCustomizing, setIsCustomizing] = useState(false);
 
@@ -67,9 +69,9 @@ export function CookieBanner() {
                                     <Cookie className="text-[hsl(var(--accent-red))]" size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold tracking-tight mb-2">Respect de votre vie privée</h3>
+                                    <h3 className="text-xl font-bold tracking-tight mb-2">{t('cookie.title')}</h3>
                                     <p className="text-white/60 text-sm leading-relaxed">
-                                        Nous utilisons des cookies pour améliorer votre expérience, analyser notre trafic et vous proposer des contenus pertinents. Vous pouvez choisir d'accepter ou de personnaliser vos préférences.
+                                        {t('cookie.desc')}
                                     </p>
                                 </div>
                             </div>
@@ -79,20 +81,20 @@ export function CookieBanner() {
                                     onClick={acceptAll}
                                     className="flex-1 bg-white text-black font-semibold py-3 px-6 rounded-full hover:bg-zinc-200 transition-colors text-sm"
                                 >
-                                    Accepter tout
+                                    {t('cookie.acceptAll')}
                                 </button>
                                 <button
                                     onClick={declineAll}
                                     className="sm:w-auto w-full bg-white/5 text-white font-medium py-3 px-6 rounded-full hover:bg-white/10 hover:text-white transition-colors border border-white/10 text-sm"
                                 >
-                                    Rejeter
+                                    {t('cookie.declineAll')}
                                 </button>
                             </div>
                             <button
                                 onClick={() => setIsCustomizing(true)}
                                 className="text-white/40 text-xs hover:text-white underline underline-offset-4 decoration-white/20 hover:decoration-white/50 transition-all text-center"
                             >
-                                Personnaliser mes choix
+                                {t('cookie.customize')}
                             </button>
                         </div>
                     ) : (
@@ -107,8 +109,8 @@ export function CookieBanner() {
                             <div className="space-y-4">
                                 <div className="flex items-start justify-between gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
                                     <div>
-                                        <h4 className="font-semibold text-sm mb-1">Strictement nécessaires</h4>
-                                        <p className="text-white/40 text-xs leading-relaxed">Essentiels au fonctionnement du site. Ne peuvent pas être désactivés.</p>
+                                        <h4 className="font-semibold text-sm mb-1">{t('cookie.necessaryTitle')}</h4>
+                                        <p className="text-white/40 text-xs leading-relaxed">{t('cookie.necessaryDesc')}</p>
                                     </div>
                                     <div className="w-10 h-6 shrink-0 rounded-full bg-[hsl(var(--accent-red))] relative opacity-50 cursor-not-allowed">
                                         <div className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white"></div>
@@ -117,8 +119,8 @@ export function CookieBanner() {
 
                                 <label className="flex items-start justify-between gap-4 p-4 rounded-xl bg-white/5 border border-white/5 cursor-pointer hover:bg-white/10 transition-colors">
                                     <div>
-                                        <h4 className="font-semibold text-sm mb-1">Statistiques (Vercel Analytics)</h4>
-                                        <p className="text-white/40 text-xs leading-relaxed">Nous aide à comprendre comment les visiteurs interagissent avec le site.</p>
+                                        <h4 className="font-semibold text-sm mb-1">{t('cookie.analyticsTitle')}</h4>
+                                        <p className="text-white/40 text-xs leading-relaxed">{t('cookie.analyticsDesc')}</p>
                                     </div>
                                     <div className={`w-10 h-6 shrink-0 rounded-full relative transition-colors duration-300 ${analyticsEnabled ? 'bg-[hsl(var(--accent-red))]' : 'bg-white/20'}`}>
                                         <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform duration-300 ${analyticsEnabled ? 'translate-x-5' : 'translate-x-1'}`}></div>
@@ -128,8 +130,8 @@ export function CookieBanner() {
 
                                 <label className="flex items-start justify-between gap-4 p-4 rounded-xl bg-white/5 border border-white/5 cursor-pointer hover:bg-white/10 transition-colors">
                                     <div>
-                                        <h4 className="font-semibold text-sm mb-1">Marketing</h4>
-                                        <p className="text-white/40 text-xs leading-relaxed">Permet d'afficher des publicités ou du contenu personnalisé.</p>
+                                        <h4 className="font-semibold text-sm mb-1">{t('cookie.marketingTitle')}</h4>
+                                        <p className="text-white/40 text-xs leading-relaxed">{t('cookie.marketingDesc')}</p>
                                     </div>
                                     <div className={`w-10 h-6 shrink-0 rounded-full relative transition-colors duration-300 ${marketingEnabled ? 'bg-[hsl(var(--accent-red))]' : 'bg-white/20'}`}>
                                         <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform duration-300 ${marketingEnabled ? 'translate-x-5' : 'translate-x-1'}`}></div>
@@ -142,7 +144,7 @@ export function CookieBanner() {
                                 onClick={savePreferences}
                                 className="w-full bg-white text-black font-semibold py-3 px-6 rounded-full hover:bg-zinc-200 transition-colors mt-2 text-sm"
                             >
-                                Enregistrer mes préférences
+                                {t('cookie.save')}
                             </button>
                         </div>
                     )}

@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, Clock, Calendar } from 'lucide-react';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import staticArticles from '../data/blog.json';
 
 type Article = typeof staticArticles[0];
 
 export function Blog() {
+    const { t, i18n } = useTranslation();
     const [activeCategory, setActiveCategory] = useState('Tous');
     const [articles, setArticles] = useState<Article[]>(staticArticles);
 
@@ -69,7 +71,7 @@ export function Blog() {
                                     : 'bg-transparent text-white/60 border-white/10 hover:border-white/30 hover:text-white'
                                     }`}
                             >
-                                {cat}
+                                {cat === 'Tous' ? t('projets.filterAll') : cat}
                             </button>
                         ))}
                     </div>
@@ -106,14 +108,14 @@ export function Blog() {
                                     </span>
                                 </div>
                                 <h2 className="text-2xl lg:text-3xl font-bold tracking-tight mb-4 group-hover:text-[hsl(var(--accent-red))] transition-colors leading-tight">
-                                    {filteredArticles[0].title}
+                                    {i18n.language.startsWith('en') && (filteredArticles[0] as any).title_en ? (filteredArticles[0] as any).title_en : filteredArticles[0].title}
                                 </h2>
                                 <p className="text-white/60 leading-relaxed mb-6 line-clamp-3">
-                                    {filteredArticles[0].excerpt}
+                                    {i18n.language.startsWith('en') && (filteredArticles[0] as any).excerpt_en ? (filteredArticles[0] as any).excerpt_en : filteredArticles[0].excerpt}
                                 </p>
                                 <div className="flex items-center justify-between">
                                     <span className="text-white/40 text-sm flex items-center gap-1.5">
-                                        <Clock size={14} /> {filteredArticles[0].readTime} min de lecture
+                                        <Clock size={14} /> {filteredArticles[0].readTime} {t('blog.readTime')}
                                     </span>
                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[hsl(var(--accent-red))] transition-colors">
                                         <ArrowUpRight size={18} />
@@ -154,10 +156,10 @@ export function Blog() {
                                         <span className="text-white/30 text-xs">{formatDate(article.publishedAt)}</span>
                                     </div>
                                     <h3 className="text-lg font-bold tracking-tight mb-3 group-hover:text-[hsl(var(--accent-red))] transition-colors leading-snug">
-                                        {article.title}
+                                        {i18n.language.startsWith('en') && (article as any).title_en ? (article as any).title_en : article.title}
                                     </h3>
                                     <p className="text-white/50 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
-                                        {article.excerpt}
+                                        {i18n.language.startsWith('en') && (article as any).excerpt_en ? (article as any).excerpt_en : article.excerpt}
                                     </p>
                                     <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
                                         <span className="text-white/30 text-xs flex items-center gap-1">
@@ -173,6 +175,7 @@ export function Blog() {
                     ))}
                 </div>
 
+                {/* Empty state etc */}
                 {filteredArticles.length === 0 && (
                     <div className="text-center py-20 text-white/40">
                         <p className="text-xl">Aucun article dans cette catégorie pour le moment.</p>

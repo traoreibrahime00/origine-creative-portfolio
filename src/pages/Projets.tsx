@@ -5,6 +5,7 @@ import { Carousel3D } from '../components/Carousel3D';
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import staticProjects from '../data/projects.json';
+import { useTranslation } from 'react-i18next';
 
 const categories = ['Tous', 'Identité & Stratégie de Marque', 'Communication Digitale', 'Production Audiovisuelle Premium'];
 
@@ -53,6 +54,7 @@ const getEmbedUrl = (url?: string) => {
 };
 
 export function Projets() {
+    const { t, i18n } = useTranslation();
     const [activeCategory, setActiveCategory] = useState('Tous');
     const [projects, setProjects] = useState<Project[]>(staticProjects as Project[]);
     const [loading, setLoading] = useState(false);
@@ -135,7 +137,7 @@ export function Projets() {
                                     : 'bg-transparent text-white/60 border-white/10 hover:border-white/30 hover:text-white'
                                     }`}
                             >
-                                {cat}
+                                {cat === 'Tous' ? t('projets.filterAll') : cat}
                             </button>
                         ))}
                     </div>
@@ -198,9 +200,11 @@ export function Projets() {
                                 </div>
 
                                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-[hsl(var(--accent-red))] transition-colors">{project.title}</h3>
+                                    <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-[hsl(var(--accent-red))] transition-colors">
+                                        {i18n.language.startsWith('en') && (project as any).title_en ? (project as any).title_en : project.title}
+                                    </h3>
                                     <p className="text-sm text-white/60 line-clamp-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                                        {project.desc}
+                                        {i18n.language.startsWith('en') && (project as any).desc_en ? (project as any).desc_en : project.desc}
                                     </p>
 
                                     <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -231,7 +235,9 @@ export function Projets() {
                                     {/* Modal Header */}
                                     <div className="flex items-center justify-between p-4 md:px-8 border-b border-white/10 shrink-0">
                                         <div>
-                                            <h3 className="text-xl font-bold">{selectedProject.title}</h3>
+                                            <h3 className="text-xl font-bold">
+                                                {i18n.language.startsWith('en') && (selectedProject as any).title_en ? (selectedProject as any).title_en : selectedProject.title}
+                                            </h3>
                                             <p className="text-sm text-white/50">{selectedProject.category}</p>
                                         </div>
                                         <div className="flex items-center gap-4">
@@ -285,9 +291,11 @@ export function Projets() {
                                                     } else {
                                                         return (
                                                             <div className="p-20 text-white/50 text-center flex flex-col items-center bg-[#0a0a0a] min-h-[60vh] justify-center">
-                                                                <p>Aucun contenu visuel importé.</p>
+                                                                <p>{t('projets.noVisualContent', 'Aucun contenu visuel importé.')}</p>
                                                                 {selectedProject.contentBlocks?.length === 0 && (
-                                                                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="mt-4 px-6 py-2 bg-[hsl(var(--accent-red))] text-white font-medium rounded-full cursor-pointer hover:bg-white hover:text-black transition-colors">Voir le projet original</a>
+                                                                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="mt-4 px-6 py-2 bg-[hsl(var(--accent-red))] text-white font-medium rounded-full cursor-pointer hover:bg-white hover:text-black transition-colors">
+                                                                        {t('projets.viewOriginal', 'Voir le projet original')}
+                                                                    </a>
                                                                 )}
                                                             </div>
                                                         );
@@ -299,7 +307,9 @@ export function Projets() {
                                                     <div className="flex flex-col w-full bg-[#0a0a0a]">
                                                         {selectedProject.contentBlocks.filter(b => b.type !== 'image').map((block) => (
                                                             <div key={block.id} className="w-full flex justify-center mt-4">
-                                                                {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl px-8 py-8">{block.content}</div>}
+                                                                {block.type === 'text' && <div className="w-full text-white/90 whitespace-pre-wrap text-lg font-light max-w-4xl px-8 py-8">
+                                                                    {i18n.language.startsWith('en') && (block as any).content_en ? (block as any).content_en : block.content}
+                                                                </div>}
                                                                 {block.type === 'video' && block.content && <video src={block.content} className="w-full max-w-5xl h-auto block rounded-lg mt-4 shadow-xl px-4" autoPlay loop muted playsInline controls />}
                                                             </div>
                                                         ))}
@@ -321,8 +331,10 @@ export function Projets() {
                                                                     <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-red))]/10 flex items-center justify-center mb-4">
                                                                         <span className="text-[hsl(var(--accent-red))] text-lg font-bold">!</span>
                                                                     </div>
-                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">Le Défi</h4>
-                                                                    <p className="text-white/70 leading-relaxed text-sm">{selectedProject.caseStudy.challenge}</p>
+                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">{t('projets.challenge')}</h4>
+                                                                    <p className="text-white/70 leading-relaxed text-sm">
+                                                                        {i18n.language.startsWith('en') && (selectedProject as any).caseStudy?.challenge_en ? (selectedProject as any).caseStudy.challenge_en : selectedProject.caseStudy?.challenge}
+                                                                    </p>
                                                                 </div>
 
                                                                 {/* Strategy */}
@@ -330,8 +342,10 @@ export function Projets() {
                                                                     <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-red))]/10 flex items-center justify-center mb-4">
                                                                         <span className="text-[hsl(var(--accent-red))] text-lg font-bold">→</span>
                                                                     </div>
-                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">Notre Stratégie</h4>
-                                                                    <p className="text-white/70 leading-relaxed text-sm">{selectedProject.caseStudy.strategy}</p>
+                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">{t('projets.strategy')}</h4>
+                                                                    <p className="text-white/70 leading-relaxed text-sm">
+                                                                        {i18n.language.startsWith('en') && (selectedProject as any).caseStudy?.strategy_en ? (selectedProject as any).caseStudy.strategy_en : selectedProject.caseStudy?.strategy}
+                                                                    </p>
                                                                 </div>
 
                                                                 {/* Result */}
@@ -339,8 +353,10 @@ export function Projets() {
                                                                     <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-red))]/10 flex items-center justify-center mb-4">
                                                                         <span className="text-[hsl(var(--accent-red))] text-lg font-bold">✓</span>
                                                                     </div>
-                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">Le Résultat</h4>
-                                                                    <p className="text-white/70 leading-relaxed text-sm">{selectedProject.caseStudy.result}</p>
+                                                                    <h4 className="text-sm uppercase tracking-widest text-white/40 mb-3">{t('projets.result')}</h4>
+                                                                    <p className="text-white/70 leading-relaxed text-sm">
+                                                                        {i18n.language.startsWith('en') && (selectedProject as any).caseStudy?.result_en ? (selectedProject as any).caseStudy.result_en : selectedProject.caseStudy?.result}
+                                                                    </p>
                                                                 </div>
                                                             </div>
 
@@ -348,7 +364,7 @@ export function Projets() {
                                                             {selectedProject.caseStudy.testimonial && (
                                                                 <div className="mt-8 p-6 border-l-2 border-[hsl(var(--accent-red))] bg-white/[0.02] rounded-r-xl">
                                                                     <p className="text-white/80 italic font-display text-lg leading-relaxed">
-                                                                        "{selectedProject.caseStudy.testimonial}"
+                                                                        "{i18n.language.startsWith('en') && (selectedProject as any).caseStudy?.testimonial_en ? (selectedProject as any).caseStudy.testimonial_en : selectedProject.caseStudy.testimonial}"
                                                                     </p>
                                                                     <p className="text-[hsl(var(--accent-red))] text-sm mt-3 font-medium">— Client</p>
                                                                 </div>
@@ -361,10 +377,10 @@ export function Projets() {
                                                 <div className="w-full bg-[#0a0a0a] py-24 flex justify-center items-center mt-4 relative">
                                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-[hsl(var(--accent-red))] to-transparent opacity-50"></div>
                                                     <div className="text-center px-4 max-w-xl">
-                                                        <h4 className="text-3xl font-bold mb-4 tracking-tight">Vous visez ce niveau d'exigence ?</h4>
-                                                        <p className="text-white/60 mb-8 max-w-md mx-auto leading-relaxed">Nous accompagnons les acteurs ambitieux pour structurer leur stratégie et déployer une image implacable sur le marché.</p>
+                                                        <h4 className="text-3xl font-bold mb-4 tracking-tight">{t('projets.ctaTitle', 'Vous visez ce niveau d\'exigence ?')}</h4>
+                                                        <p className="text-white/60 mb-8 max-w-md mx-auto leading-relaxed">{t('projets.ctaDesc', 'Nous accompagnons les acteurs ambitieux pour structurer leur stratégie et déployer une image implacable sur le marché.')}</p>
                                                         <a href="/contact" className="inline-flex items-center gap-3 bg-[hsl(var(--accent-red))] text-white px-8 py-4 rounded-full font-medium hover:bg-white hover:text-black transition-all group">
-                                                            Initier un projet <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                                            {t('projets.ctaBtn', 'Initier un projet')} <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                                                         </a>
                                                     </div>
                                                 </div>

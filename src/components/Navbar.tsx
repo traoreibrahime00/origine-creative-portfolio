@@ -3,20 +3,21 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const navLinks = [
-    { name: 'Accueil', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Projets', path: '/projets' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'À propos', path: '/a-propos' },
-    { name: 'Contact', path: '/contact' },
-];
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const { t } = useTranslation();
+
+    const navLinks = [
+        { name: t('nav.projects'), path: '/projets' },
+        { name: t('nav.services'), path: '/services' },
+        { name: t('nav.blog'), path: '/blog' },
+        { name: t('nav.about'), path: '/a-propos' },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,52 +62,59 @@ export function Navbar() {
                     <img src="/logo.png" alt="Origine Creative" className="h-8 object-contain" />
                 </Link>
 
-                {/* Desktop Nav */}
-                <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-1 backdrop-blur-md rounded-full px-2 py-1">
-                    {navLinks.map((link) => (
-                        <NavLink
-                            key={link.path}
-                            to={link.path}
-                            className={({ isActive }) =>
-                                cn(
-                                    'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105',
-                                    isActive
-                                        ? 'bg-white/10 text-white'
-                                        : 'text-white/70 hover:text-white hover:bg-white/5'
-                                )
-                            }
-                        >
-                            {link.name}
-                        </NavLink>
-                    ))}
-                </nav>
+                <div className="flex items-center gap-4 z-50">
+                    {/* Desktop Nav */}
+                    <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-1 backdrop-blur-md rounded-full px-2 py-1">
+                        {navLinks.map((link) => (
+                            <NavLink
+                                key={link.path}
+                                to={link.path}
+                                className={({ isActive }) =>
+                                    cn(
+                                        'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105',
+                                        isActive
+                                            ? 'bg-white/10 text-white'
+                                            : 'text-white/70 hover:text-white hover:bg-white/5'
+                                    )
+                                }
+                            >
+                                {link.name}
+                            </NavLink>
+                        ))}
+                    </nav>
 
-                {/* Desktop CTA */}
-                <Link
-                    to="/contact"
-                    className={cn(
-                        'hidden lg:flex items-center gap-3 pl-6 pr-2 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 group',
-                        scrolled ? 'bg-white text-black' : 'bg-transparent text-white border border-white/20 hover:bg-white hover:text-black'
-                    )}
-                >
-                    <span className="text-sm">Travaillons ensemble</span>
-                    <div className={cn(
-                        "w-8 h-8 rounded-full flex items-center justify-center transition-colors group-hover:bg-black group-hover:text-white",
-                        scrolled ? 'bg-black text-white' : 'bg-white text-black'
-                    )}>
-                        <ArrowUpRight strokeWidth={2} size={16} />
+                    {/* Desktop CTA */}
+                    <Link
+                        to="/contact"
+                        className={cn(
+                            'hidden lg:flex items-center gap-3 pl-6 pr-2 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 group',
+                            scrolled ? 'bg-white text-black' : 'bg-transparent text-white border border-white/20 hover:bg-white hover:text-black'
+                        )}
+                    >
+                        <span className="text-sm">Travaillons ensemble</span>
+                        <div className={cn(
+                            "w-8 h-8 rounded-full flex items-center justify-center transition-colors group-hover:bg-black group-hover:text-white",
+                            scrolled ? 'bg-black text-white' : 'bg-white text-black'
+                        )}>
+                            <ArrowUpRight strokeWidth={2} size={16} />
+                        </div>
+                    </Link>
+
+                    {/* Desktop Language Switcher */}
+                    <div className="hidden lg:block ml-2">
+                        <LanguageSwitcher />
                     </div>
-                </Link>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="lg:hidden text-white z-50 p-2"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-                    aria-expanded={mobileMenuOpen}
-                >
-                    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                    {/* Mobile Toggle */}
+                    <button
+                        className="lg:hidden text-white z-50 p-2"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+                        aria-expanded={mobileMenuOpen}
+                    >
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </header>
 
             {/* Mobile Menu Overlay */}
@@ -137,12 +145,17 @@ export function Navbar() {
                         <Link
                             to="/contact"
                             className="mt-8 flex items-center gap-3 px-6 py-3 rounded-full font-medium bg-white text-black"
+                            onClick={() => setMobileMenuOpen(false)}
                         >
-                            Travaillons ensemble
+                            {t('nav.contact')}
                             <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">
                                 <ArrowUpRight strokeWidth={2} size={16} />
                             </div>
                         </Link>
+
+                        <div className="mt-4">
+                            <LanguageSwitcher />
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

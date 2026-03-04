@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Dribbble as Behance } from 'lucide-react';
 import { useState, useRef } from 'react'; // Behance icon mapped to Dribbble for now if missing
+import { useTranslation } from 'react-i18next';
 
 export function Footer() {
+    const { t } = useTranslation();
     const [easterEggFound, setEasterEggFound] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const heartbeatRef = useRef<HTMLAudioElement | null>(null);
@@ -68,14 +70,14 @@ export function Footer() {
                 {/* Links */}
                 <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 pointer-events-auto">
                     <div className="flex flex-col gap-4">
-                        <h4 className="text-white font-medium mb-2 uppercase tracking-widest text-xs">Navigation</h4>
-                        <Link to="/services" className="text-white/60 hover:text-white transition-colors text-sm">Services</Link>
-                        <Link to="/projets" className="text-white/60 hover:text-white transition-colors text-sm">Projets</Link>
-                        <Link to="/a-propos" className="text-white/60 hover:text-white transition-colors text-sm">À propos</Link>
-                        <Link to="/contact" className="text-white/60 hover:text-white transition-colors text-sm">Contact</Link>
+                        <h4 className="text-white font-medium mb-2 uppercase tracking-widest text-xs">{t('footer.linksTitle')}</h4>
+                        <Link to="/services" className="text-white/60 hover:text-white transition-colors text-sm">{t('nav.services')}</Link>
+                        <Link to="/projets" className="text-white/60 hover:text-white transition-colors text-sm">{t('nav.projects')}</Link>
+                        <Link to="/a-propos" className="text-white/60 hover:text-white transition-colors text-sm">{t('nav.about')}</Link>
+                        <Link to="/contact" className="text-white/60 hover:text-white transition-colors text-sm">{t('nav.contact')}</Link>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h4 className="text-white font-medium mb-2 uppercase tracking-widest text-xs">Social</h4>
+                        <h4 className="text-white font-medium mb-2 uppercase tracking-widest text-xs">{t('footer.socialTitle')}</h4>
                         <a href="#" aria-label="Suivez-nous sur Instagram" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm group">
                             <Instagram size={16} className="group-hover:text-[hsl(var(--accent-red))] transition-colors" />
                             Instagram
@@ -93,10 +95,10 @@ export function Footer() {
             </div>
 
             <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-white/40 text-xs relative z-20 pointer-events-auto">
-                <p>© 2026 Origine Creative. Tous droits réservés.</p>
+                <p>© 2026 Origine Creative. {t('footer.rights')}</p>
                 <div className="flex gap-6 mt-4 md:mt-0">
-                    <Link to="/politique-de-confidentialite" className="hover:text-white transition-colors">Politique de confidentialité</Link>
-                    <Link to="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link>
+                    <Link to="/politique-de-confidentialite" className="hover:text-white transition-colors">{t('footer.privacyPolicy')}</Link>
+                    <Link to="/mentions-legales" className="hover:text-white transition-colors">{t('footer.legalMentions')}</Link>
                 </div>
             </div>
         </footer>

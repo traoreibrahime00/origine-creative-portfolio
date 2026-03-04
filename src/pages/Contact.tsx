@@ -2,8 +2,11 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Mail, MapPin, Phone, Instagram, Linkedin, Dribbble as Behance, MessageCircle } from 'lucide-react';
 import { RevealLine, RevealWords } from '../components/TextReveal';
 import { MagneticWrapper } from '../components/MagneticWrapper';
+import { useTranslation } from 'react-i18next';
 
 export function Contact() {
+    const { t } = useTranslation();
+
     return (
         <main className="min-h-screen pt-32 pb-24 relative overflow-hidden">
             {/* Background elements */}
@@ -18,15 +21,15 @@ export function Contact() {
                         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="h-px w-8 bg-[hsl(var(--accent-red))]"></div>
-                                <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">Contact</span>
+                                <span className="uppercase text-xs tracking-widest font-medium text-[hsl(var(--accent-red))]">{t('contact.headerSubtitle')}</span>
                             </div>
 
                             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6 sm:mb-8">
-                                <RevealWords text="Prêt à" delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">créer?</span></RevealLine>
+                                <RevealWords text={t('contact.headerTitle1')} delayOffset={0.2} /> <RevealLine delay={0.4}><span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-600">{t('contact.headerTitle2')}</span></RevealLine>
                             </h1>
 
                             <p className="text-xl text-white/60 mb-12">
-                                <RevealWords text="Discutons de votre projet, de vos objectifs et voyons comment nous pouvons collaborer." delayOffset={0.6} />
+                                <RevealWords text={t('contact.headerDesc')} delayOffset={0.6} />
                             </p>
 
                             <div className="space-y-8 mb-16">
