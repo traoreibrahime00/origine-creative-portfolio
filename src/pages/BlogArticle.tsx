@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, Clock, Calendar, User } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import staticArticles from '../data/blog.json';
+import { SEO } from '../components/SEO';
 
 type Article = typeof staticArticles[0];
 
@@ -125,6 +126,18 @@ export function BlogArticle() {
 
     return (
         <main className="min-h-screen pt-32 pb-24">
+            <SEO
+                title={`${article.title} | Origine Creative`}
+                description={article.excerpt}
+                url={`https://origine-creative.com/blog/${article.slug}`}
+                image={article.coverImage}
+                type="article"
+                article={{
+                    publishedTime: article.publishedAt,
+                    author: article.author,
+                    category: article.category
+                }}
+            />
             <div className="max-w-4xl mx-auto px-7 md:px-12 lg:px-20">
 
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>

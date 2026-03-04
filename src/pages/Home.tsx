@@ -9,6 +9,7 @@ import { RevealLine, RevealWords } from '../components/TextReveal';
 import { ReelCarousel } from '../components/ReelCarousel';
 import staticContent from '../data/content.json';
 import staticProjects from '../data/projects.json';
+import { SEO } from '../components/SEO';
 
 const expertiseIcons = [
     { name: 'Branding', icon: PenTool },
@@ -47,6 +48,7 @@ export function Home() {
 
     return (
         <main className="min-h-screen text-white selection:bg-[hsl(var(--accent-red))] selection:text-white relative">
+            <SEO />
             <PremiumReveal />
             {/* Hero Section */}
             <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">

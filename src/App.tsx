@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Analytics } from '@vercel/analytics/react';
+import { HelmetProvider } from 'react-helmet-async';
 import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -24,6 +25,7 @@ const BlogArticle = lazy(() => import('./pages/BlogArticle').then(m => ({ defaul
 
 // Lazy-load heavy components
 const Chatbot = lazy(() => import('./components/Chatbot').then(m => ({ default: m.Chatbot })));
+const CookieBanner = lazy(() => import('./components/CookieBanner').then(m => ({ default: m.CookieBanner })));
 
 let globalLenis: Lenis | null = null;
 
@@ -98,55 +100,60 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Preloader />
-      <ScrollToTop />
-      <CustomCursor />
-      <Suspense fallback={null}>
-        <Chatbot />
-      </Suspense>
-      <Analytics />
+    <HelmetProvider>
+      <BrowserRouter>
+        <Preloader />
+        <ScrollToTop />
+        <CustomCursor />
+        <Suspense fallback={null}>
+          <Chatbot />
+        </Suspense>
+        <Analytics />
 
-      {/* Custom Global Background */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-zinc-950">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen"
-          style={{ backgroundImage: `url('/background.gif')`, display: 'block' }}
-        />
+        {/* Custom Global Background */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-zinc-950">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen"
+            style={{ backgroundImage: `url('/background.gif')`, display: 'block' }}
+          />
 
-        {/* Optional fallback/additional red glow */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.1, 0.2, 0.1],
-            x: ['-10%', '10%', '-10%'],
-            y: ['0%', '10%', '0%']
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] right-[10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-red-600 rounded-full mix-blend-screen"
-          style={{ filter: 'blur(120px)' }}
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1],
-            x: ['10%', '-10%', '10%'],
-            y: ['10%', '-10%', '10%']
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[10%] left-[10%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-red-800 rounded-full mix-blend-screen"
-          style={{ filter: 'blur(150px)' }}
-        />
-      </div>
-
-      <div className="relative min-h-screen text-white flex flex-col font-sans z-10">
-        <Navbar />
-        <div className="flex-1" id="main-content">
-          <AnimatedRoutes />
+          {/* Optional fallback/additional red glow */}
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.1, 0.2, 0.1],
+              x: ['-10%', '10%', '-10%'],
+              y: ['0%', '10%', '0%']
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] right-[10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-red-600 rounded-full mix-blend-screen"
+            style={{ filter: 'blur(120px)' }}
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1],
+              x: ['10%', '-10%', '10%'],
+              y: ['10%', '-10%', '10%']
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-[10%] left-[10%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-red-800 rounded-full mix-blend-screen"
+            style={{ filter: 'blur(150px)' }}
+          />
         </div>
-        <Footer />
-      </div>
-    </BrowserRouter>
+
+        <div className="relative min-h-screen text-white flex flex-col font-sans z-10">
+          <Navbar />
+          <div className="flex-1" id="main-content">
+            <AnimatedRoutes />
+          </div>
+          <Footer />
+          <Suspense fallback={null}>
+            <CookieBanner />
+          </Suspense>
+        </div>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 
