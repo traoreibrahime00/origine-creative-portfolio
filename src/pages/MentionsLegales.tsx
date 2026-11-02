@@ -18,7 +18,7 @@ export function MentionsLegales() {
                             <ul className="space-y-1 mt-4 list-none pl-0">
                                 <li><strong className="text-white/90">Raison sociale :</strong> Origine Creative</li>
                                 <li><strong className="text-white/90">Siège social :</strong> Abidjan, Côte d'Ivoire</li>
-                                <li><strong className="text-white/90">Email :</strong> <a href="mailto:Traore@originecreative.com" className="text-[hsl(var(--accent-red))] hover:underline">Traore@originecreative.com</a></li>
+                                <li><strong className="text-white/90">Email :</strong> <a href="mailto:contact@originecreative.com" className="text-[hsl(var(--accent-red))] hover:underline">contact@originecreative.com</a></li>
                                 <li><strong className="text-white/90">Téléphone :</strong> +225 07 49 06 55 94</li>
                             </ul>
                         </section>

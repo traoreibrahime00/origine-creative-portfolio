@@ -58,7 +58,7 @@ export function PolitiqueConfidentialite() {
                                 Conformément à la réglementation en vigueur, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles. Pour exercer ces droits, contactez-nous à :
                             </p>
                             <p className="mt-4">
-                                <a href="mailto:Traore@originecreative.com" className="text-[hsl(var(--accent-red))] hover:underline font-medium">Traore@originecreative.com</a>
+                                <a href="mailto:contact@originecreative.com" className="text-[hsl(var(--accent-red))] hover:underline font-medium">contact@originecreative.com</a>
                             </p>
                         </section>
 
