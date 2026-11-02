@@ -355,6 +355,7 @@ export function OnePager() {
           </p>
           <p className="site-footer-links footer-in" style={style({ '--i': 4 })}>
             <Link to="/contact">{COPY.start[lang]}</Link>
+            <Link to="/agence-de-communication-abidjan">{lang === 'fr' ? 'Agence de communication à Abidjan' : 'Communication agency in Abidjan'}</Link>
             <a href="/a-propos" onClick={opener('/a-propos', 'sheet-studio')}>{STUDIO.title[lang]}</a>
             <Link to="/mentions-legales">{COPY.legal[lang]}</Link>
             <Link to="/politique-de-confidentialite">{COPY.privacy[lang]}</Link>
@@ -706,8 +707,8 @@ function template(
 // Title, description, address and structured data of the page being shown
 function metaFor(sheetId: string | null, pathname: string, lang: Lang) {
   const base = {
-    title: 'Origine Creative — Agence de branding & direction artistique à Abidjan',
-    description: 'Origine Creative bâtit des marques singulières à Abidjan, en Afrique et à l’international : stratégie de marque, identité visuelle, direction artistique, motion design et communication digitale.',
+    title: 'Origine Creative — Agence de branding et de communication à Abidjan',
+    description: 'Agence de branding et de communication à Abidjan : stratégie de marque, création de logo et d’identité visuelle, direction artistique, motion design et communication digitale.',
     path: '/',
   };
   // The sections' own addresses (/services, /projets…) are the home page

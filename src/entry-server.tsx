@@ -33,6 +33,7 @@ export async function render(url: string) {
 export const routes = [
   '/',
   '/contact',
+  '/agence-de-communication-abidjan',
   '/mentions-legales',
   '/politique-de-confidentialite',
   '/a-propos',

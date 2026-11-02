@@ -2277,6 +2277,40 @@ body.oc[data-focus] .quick-whatsapp {
   border-color: var(--color-border);
 }
 
+/* ---- Search landing pages ---- */
+.landing-body {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.landing-body section > p {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-muted);
+}
+
+.landing-services {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.landing-services li {
+  display: grid;
+  gap: 0.25rem;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.landing-services a {
+  color: var(--color-text);
+}
+
+.landing-services span {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
 .contact-actions {
   display: flex;
   flex-wrap: wrap;

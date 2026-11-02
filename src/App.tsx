@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { OnePager } from './site/OnePager';
 import { ContactPage, PlainPage } from './site/PlainPage';
+import { LandingCommunication } from './site/LandingPage';
 import { MentionsLegales } from './pages/MentionsLegales';
 import { PolitiqueConfidentialite } from './pages/PolitiqueConfidentialite';
 import './site/site.css';
@@ -22,6 +23,7 @@ export function AppRoutes() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/agence-de-communication-abidjan" element={<LandingCommunication />} />
           <Route
             path="/mentions-legales"
             element={<PlainPage className="text-page" seo={{ title: 'Mentions légales — Origine Creative', path: '/mentions-legales' }}><MentionsLegales /></PlainPage>}
