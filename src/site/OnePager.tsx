@@ -12,6 +12,7 @@ import {
   type Block, type Fact, type Img, type Lang,
 } from './content';
 import { Logo } from './Logo';
+import { BackLink } from './BackLink';
 import { ThemeSwitch } from './ThemeSwitch';
 import {
   copyText, initFooter, initHeroPeek, initInputModality, initPullToClose, initRail,
@@ -543,14 +544,13 @@ function Sheet({ id, title, meta, path, fill, lang, onClose, children }: {
     <article id={id} className="sheet" data-title={title} style={style({ '--fill': fill })}>
       <div className="sheet-scroll" id={`${id}-panel`}>
         <div className="sheet-inner content-width">
-          <a className="back-link" href="/" onClick={(e) => { e.preventDefault(); onClose(); }}>
-            <span aria-hidden="true">←</span> {COPY.back[lang]}
-          </a>
+          <BackLink label={COPY.back[lang]} onBack={onClose} className="is-inline" />
           <h2 className="sheet-title" tabIndex={-1}>{title}</h2>
           {meta && <p className="sheet-meta">{meta}</p>}
           {children}
         </div>
       </div>
+      <BackLink label={COPY.back[lang]} onBack={onClose} className="is-pinned" />
       <a
         className="sheet-close"
         href={path}

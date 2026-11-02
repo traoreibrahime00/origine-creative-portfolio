@@ -2111,29 +2111,34 @@ body.oc[data-focus] .quick-whatsapp {
 }
 
 /* ---- Plain pages (contact, legal) ---- */
-/* Stays pinned at the top while a long page or sheet scrolls under it */
+/* Round back button. Wide screens pin it in the empty left margin, level
+   with the title, so it never sits over the text; phones have no margin,
+   so it sits above the title and scrolls away (the closer stays below). */
 .back-link {
-  position: sticky;
-  top: calc(1rem + env(safe-area-inset-top));
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  width: fit-content;
-  min-height: 2.5rem;
-  margin-bottom: var(--space-lg);
-  padding: 0 1.1rem 0 0.95rem;
-  border-radius: 999px;
-  font-size: 0.875rem;
-  line-height: 1;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
   color: var(--color-text);
-  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 35%, transparent);
   -webkit-backdrop-filter: blur(24px) saturate(1.8);
   backdrop-filter: blur(24px) saturate(1.8);
   box-shadow:
     inset 0 0 0 2px color-mix(in srgb, var(--color-text) 6%, transparent),
     0 4px 16px rgb(0 0 0 / 0.05);
   transition: background-color 200ms ease, box-shadow 200ms ease, transform 200ms var(--ease-out);
+}
+
+.back-link svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 200ms var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2144,23 +2149,60 @@ body.oc[data-focus] .quick-whatsapp {
       0 8px 22px rgb(0 0 0 / 0.1);
   }
 
-  .back-link:hover span {
+  .back-link:hover svg {
     transform: translateX(-2px);
   }
 }
 
-.back-link span {
-  transition: transform 200ms var(--ease-out);
-}
-
 .back-link:active {
-  transform: scale(0.96);
+  transform: scale(0.92);
 }
 
-/* Sticky offsets count from inside the sheet's top padding, so step back over it */
-.sheet-scroll .back-link {
-  top: calc(1rem - var(--space-xl));
-  margin-top: calc(var(--space-lg) * -0.5);
+.back-link.is-inline {
+  margin: 0 0 var(--space-md) -0.5rem;
+}
+
+.sheet-scroll .back-link.is-inline {
+  margin-top: calc(var(--space-lg) * -1);
+}
+
+.back-link.is-pinned {
+  display: none;
+}
+
+@media (min-width: 760px) {
+  .back-link.is-inline {
+    display: none;
+  }
+
+  .back-link.is-pinned {
+    display: grid;
+    position: fixed;
+    z-index: 2;
+    top: calc(var(--space-xl) - 0.35rem);
+    left: max(1rem, calc(50% - var(--column) / 2 - 4.5rem));
+  }
+
+  .sheet .back-link.is-pinned {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(6px);
+    transition: opacity 200ms ease, transform 200ms var(--ease-out);
+  }
+
+  .sheet.is-open:not(.is-from-card) .back-link.is-pinned {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 400ms ease 380ms,
+      transform 500ms var(--ease-out) 380ms,
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .sheet.is-pulling .back-link.is-pinned {
+    opacity: calc(1 - var(--pull, 0) * 0.65);
+  }
 }
 
 .page-title {
