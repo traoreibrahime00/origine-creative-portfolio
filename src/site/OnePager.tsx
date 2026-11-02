@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { SEO, SITE_URL } from '../components/SEO';
 import {
-  COPY, EMAIL, GALLERY, METHOD, POSTS, PROJECTS, SERVICES, SITE, STUDIO, WHATSAPP,
+  COPY, EMAIL, GALLERY, METHOD, POSTS, PROJECTS, SERVICES, SITE, STUDIO, whatsappLink,
   type Block, type Fact, type Img, type Lang,
 } from './content';
 import { Logo } from './Logo';
@@ -153,6 +153,8 @@ export function OnePager() {
   };
 
   const meta = metaFor(sheetId, location.pathname, lang);
+  const whatsapp = whatsappLink(SITE.contact.whatsappMessage[lang]);
+  const booking = SITE.contact.booking;
   const projectBySlug = Object.fromEntries(PROJECTS.map((p) => [p.slug, p]));
   const linkFor = (links: typeof SITE.hero.links, key: string) => links.find((l) => l.key === key);
 
@@ -165,11 +167,11 @@ export function OnePager() {
           <div className="home-hero content-width">
             <div className="hero-identity">
               <div>
-                <h1>
-                  <button className="name-open" type="button" data-controls="sheet-studio" aria-expanded="false" onClick={opener('/a-propos', 'sheet-studio')}>
+                <div className="hero-name">
+                  <button className="name-open" type="button" data-controls="sheet-studio" aria-expanded="false" aria-label="Origine Creative" onClick={opener('/a-propos', 'sheet-studio')}>
                     <Logo className="hero-logo" />
                   </button>
-                </h1>
+                </div>
                 <span className="title">{SITE.identity.title[lang]}</span>
               </div>
               <div className="hero-tools">
@@ -186,7 +188,8 @@ export function OnePager() {
               </div>
             </div>
             <section className="hero-statement" key={lang}>
-              <p>{template(SITE.hero.text[lang], (key) => key, true)}</p>
+              <p className="hero-eyebrow">{SITE.hero.eyebrow[lang]}</p>
+              <h1>{template(SITE.hero.text[lang], (key) => key, true)}</h1>
               <p className="hero-sub">
                 {template(SITE.hero.sub[lang], (key, words) => {
                   const link = linkFor(SITE.hero.links, key);
@@ -240,6 +243,19 @@ export function OnePager() {
                 </a>
               ))}
             </p>
+          </div>
+        </section>
+
+        {/* ---- Manifesto ---- */}
+        <section id="manifeste" className="site-section content-width">
+          <header className="section-header">
+            <h2 className="section-title">{COPY.manifesto[lang]}</h2>
+          </header>
+          <div className="manifesto prose-col">
+            <p className="manifesto-title reveal">{SITE.manifesto.title[lang]}</p>
+            {SITE.manifesto.paragraphs.map((t, i) => (
+              <p key={i} className="reveal" style={style({ '--reveal-delay': `${(i + 1) * 90}ms` })}>{t[lang]}</p>
+            ))}
           </div>
         </section>
 
@@ -329,17 +345,20 @@ export function OnePager() {
               <path pathLength={1} d="M3 8.5 C 46 4.2, 92 3.4, 132 5.6 S 205 9.8, 237 4.2" />
             </svg>
           </p>
-          <p className="footer-in" style={style({ '--i': 2 })}>
+          <p className="footer-actions footer-in" style={style({ '--i': 2 })}>
+            <a className="pill-button" href={whatsapp} target="_blank" rel="noopener">{COPY.whatsappCta[lang]}</a>
+            {booking && <a className="hand-link" href={booking} target="_blank" rel="noopener">{COPY.booking[lang]} ↗</a>}
+          </p>
+          <p className="footer-in" style={style({ '--i': 3 })}>
             <button className="copy-email" type="button" onClick={copyEmail}>{EMAIL}</button>
           </p>
-          <p className="site-footer-links footer-in" style={style({ '--i': 3 })}>
-            <Link to="/contact">{COPY.contact[lang]}</Link>
-            <a href={WHATSAPP} target="_blank" rel="noopener">WhatsApp</a>
+          <p className="site-footer-links footer-in" style={style({ '--i': 4 })}>
+            <Link to="/contact">{COPY.start[lang]}</Link>
             <a href="/a-propos" onClick={opener('/a-propos', 'sheet-studio')}>{STUDIO.title[lang]}</a>
             <Link to="/mentions-legales">{COPY.legal[lang]}</Link>
             <Link to="/politique-de-confidentialite">{COPY.privacy[lang]}</Link>
           </p>
-          <p className="site-footer-links footer-in" style={style({ '--i': 4 })}>
+          <p className="site-footer-links footer-in" style={style({ '--i': 5 })}>
             <span>{SITE.contact.location[lang]}</span>
             <span>© {new Date().getFullYear()}</span>
           </p>
@@ -369,6 +388,7 @@ export function OnePager() {
       {SERVICES.map((sv) => (
         <Sheet key={sv.slug} id={`service-${sv.slug}`} title={sv.title[lang]} meta={sv.desc[lang]} path={`/services/${sv.slug}`} fill="var(--tile-fill)" lang={lang} onClose={closeSheet}>
           <div className="case">
+            <p className="case-lead">{sv.benefit[lang]}</p>
             <div className="post-content">
               {sv.intro.map((t, i) => <p key={i}>{t[lang]}</p>)}
             </div>
@@ -419,7 +439,7 @@ export function OnePager() {
             )}
             <div className="hero-cta">
               <Link className="pill-button" to="/contact">{COPY.start[lang]}</Link>
-              <a className="hand-link" href={WHATSAPP} target="_blank" rel="noopener">WhatsApp ↗</a>
+              <a className="hand-link" href={whatsapp} target="_blank" rel="noopener">WhatsApp ↗</a>
             </div>
           </div>
         </Sheet>
@@ -452,6 +472,11 @@ export function OnePager() {
           </ol>
         </div>
       </Sheet>
+
+      <a className="quick-whatsapp" href={whatsapp} target="_blank" rel="noopener" aria-label={COPY.whatsappCta[lang]}>
+        <WhatsAppIcon />
+        <span>{COPY.whatsappCta[lang]}</span>
+      </a>
 
       <div className={'copy-toast' + (toast ? ' is-visible' : '')} role="status" aria-live="polite">
         {toast ? COPY.copied[lang] : ''}
@@ -489,7 +514,7 @@ function Services({ lang, onOpen }: { lang: Lang; onOpen: (el: HTMLElement, path
               <svg viewBox="0 0 16 16"><path d="M3.5 6 8 10.5 12.5 6" /></svg>
             </span>
             <p>
-              {s.desc[lang]}{' '}
+              {s.desc[lang]} <span className="work-benefit">{s.benefit[lang]}</span>{' '}
               <a
                 className="work-more"
                 href={`/services/${s.slug}`}
@@ -609,6 +634,17 @@ function BrandO({ className }: { className?: string }) {
   );
 }
 
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.2 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.7c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.1-.1Z"
+      />
+    </svg>
+  );
+}
+
 // Four steps, rising: audit, strategy, design, roll-out
 function StepsMark() {
   return (
@@ -667,8 +703,8 @@ function template(
 // Title, description, address and structured data of the page being shown
 function metaFor(sheetId: string | null, pathname: string, lang: Lang) {
   const base = {
-    title: 'Origine Creative — Studio créatif · Branding, design, digital',
-    description: 'Origine Creative est un studio créatif à Abidjan spécialisé dans la construction de marques fortes et la création d’expériences visuelles et digitales : stratégie et identité de marque, direction artistique, expériences digitales, motion et production créative.',
+    title: 'Origine Creative — Agence de branding & direction artistique à Abidjan',
+    description: 'Origine Creative bâtit des marques singulières à Abidjan, en Afrique et à l’international : stratégie de marque, identité visuelle, direction artistique, motion design et communication digitale.',
     path: '/',
   };
   // The sections' own addresses (/services, /projets…) are the home page
