@@ -1,9 +1,10 @@
 // Pages outside the one-pager (contact, legal) in the same quiet column.
-import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { COPY, EMAIL, PHONE_DISPLAY, SITE, whatsappLink, type Lang } from './content';
 import { initInputModality } from './behaviors';
+import { BackLink } from './BackLink';
 import { SEO } from '../components/SEO';
 
 function useLang(): Lang {
@@ -18,8 +19,7 @@ export function PlainPage({ children, className = '', seo }: {
   const navigate = useNavigate();
   const location = useLocation();
   // Back to where the visitor came from on the site, or home when they landed here directly
-  const back = (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const back = () => {
     if (location.key !== 'default') navigate(-1);
     else navigate('/');
   };
@@ -30,8 +30,9 @@ export function PlainPage({ children, className = '', seo }: {
   return (
     <main className={'oc-main ' + className}>
       {seo && <SEO {...seo} />}
+      <BackLink label={COPY.back[lang]} onBack={back} className="is-pinned enter" />
       <div className="content-width">
-        <a href="/" className="back-link enter" onClick={back}><span aria-hidden="true">←</span> {COPY.back[lang]}</a>
+        <BackLink label={COPY.back[lang]} onBack={back} className="is-inline enter" />
         <div className="enter" style={{ animationDelay: '0.08s' }}>{children}</div>
       </div>
     </main>
