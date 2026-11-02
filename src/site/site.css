@@ -444,6 +444,43 @@ body.oc[data-focus] .hero-statement .word {
   }
 }
 
+/* Under the headline: what the studio does, then the two ways in */
+.hero-statement p.hero-sub {
+  max-width: 32rem;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+  text-wrap: pretty;
+  color: var(--color-muted);
+}
+
+.hero-statement p.hero-sub a {
+  color: var(--color-text);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: var(--space-md);
+  animation: staggerFadeIn 0.6s var(--ease-enter) 1.5s both;
+}
+
+.hero-cta .pill-button {
+  margin: 0;
+}
+
+.hero-cta .hand-link {
+  font-size: 0.875rem;
+}
+
+body.oc[data-focus] .hero-cta {
+  animation-duration: 0s;
+  animation-delay: 0s;
+}
+
 .hero-statement .nowrap {
   white-space: nowrap;
 }
@@ -1899,6 +1936,7 @@ a.card.is-current:active {
 }
 
 .pill-button {
+  display: inline-block;
   justify-self: start;
   margin-top: var(--space-sm);
   padding: 0.6rem 1.1rem;
@@ -1914,6 +1952,51 @@ a.card.is-current:active {
 
 .pill-button:hover {
   opacity: 0.85;
+}
+
+.pill-button.is-quiet,
+.oc a.pill-button.is-quiet {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: var(--space-md);
+}
+
+.contact-actions .pill-button {
+  margin: 0;
+}
+
+.contact-lines {
+  margin: var(--space-md) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.contact-form .section-title {
+  margin-bottom: var(--space-xs);
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+@media (max-width: 520px) {
+  .contact-row { grid-template-columns: 1fr; }
+}
+
+.contact-note {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
 }
 
 .pill-button:active {
@@ -2348,4 +2431,8 @@ a.card.is-current:active {
 
 .adm-image-side .adm-bi {
   width: 100%;
+}
+
+.oc a.pill-button {
+  color: var(--color-bg);
 }

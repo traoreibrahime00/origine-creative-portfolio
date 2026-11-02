@@ -30,9 +30,10 @@ export type Project = {
 export type SlotLink = { key: string; label: T; project?: string };
 
 export type Site = {
-  contact: { email: string; phone: string; whatsapp: string; location: T };
+  contact: { email: string; phone: string; whatsapp: string; location: T; booking?: string };
   identity: { title: T };
-  hero: { text: T; links: SlotLink[] };
+  // text writes itself in word by word; sub carries the {slot} links
+  hero: { text: T; sub: T; links: SlotLink[]; ctaProjects: T; ctaContact: T };
   studio: { title: T; line: T; paragraphs: T[]; facts: Fact[] };
   method: { title: T; line: T; intro: T; steps: { label: T; text: T }[] };
   expertise: { text: T; links: SlotLink[] };

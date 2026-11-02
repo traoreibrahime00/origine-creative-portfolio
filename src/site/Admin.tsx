@@ -377,10 +377,13 @@ function TextsTab({ site, ctx }: { site: Site; ctx: Ctx }) {
   const { edit } = ctx;
   return (
     <>
-      <Section title="Intro" note="Les mots entre accolades, comme {identites}, deviennent des liens. Au survol, ils montrent la couverture du projet choisi.">
+      <Section title="Accueil" note="Dans le sous-titre, les mots entre accolades, comme {identites}, deviennent des liens. Au survol, ils montrent la couverture du projet choisi.">
         <Bi label="Sous le logo" value={site.identity.title} onChange={(v) => edit((s) => { s.identity.title = v; })} />
-        <Bi label="Texte d'intro" value={site.hero.text} onChange={(v) => edit((s) => { s.hero.text = v; })} multiline />
+        <Bi label="Accroche" value={site.hero.text} onChange={(v) => edit((s) => { s.hero.text = v; })} multiline />
+        <Bi label="Sous-titre" value={site.hero.sub} onChange={(v) => edit((s) => { s.hero.sub = v; })} multiline />
         <Links links={site.hero.links} projects={site.projects} onChange={(l) => edit((s) => { s.hero.links = l; })} />
+        <Bi label="Bouton vers la page Contact" value={site.hero.ctaContact} onChange={(v) => edit((s) => { s.hero.ctaContact = v; })} />
+        <Bi label="Lien vers les projets" value={site.hero.ctaProjects} onChange={(v) => edit((s) => { s.hero.ctaProjects = v; })} />
       </Section>
       <Section title="Ligne des expertises" note="Sous les tuiles Studio et Méthode. Les mots liés mènent aux services.">
         <Bi label="Texte" value={site.expertise.text} onChange={(v) => edit((s) => { s.expertise.text = v; })} multiline />
@@ -629,6 +632,7 @@ function ContactTab({ site, ctx }: { site: Site; ctx: Ctx }) {
       <Field label="Téléphone affiché" value={site.contact.phone} onChange={(v) => edit((s) => { s.contact.phone = v; })} />
       <Field label="Lien WhatsApp" value={site.contact.whatsapp} onChange={(v) => edit((s) => { s.contact.whatsapp = v; })} hint="https://wa.me/225…" />
       <Bi label="Lieu" value={site.contact.location} onChange={(v) => edit((s) => { s.contact.location = v; })} />
+      <Field label="Lien de prise de rendez-vous (facultatif)" value={site.contact.booking || ''} onChange={(v) => edit((s) => { s.contact.booking = v; })} hint="Ex. https://calendly.com/… — le bouton « Prendre rendez-vous » n'apparaît que si ce champ est rempli." />
     </Section>
   );
 }

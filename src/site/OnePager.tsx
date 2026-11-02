@@ -159,8 +159,8 @@ export function OnePager() {
   return (
     <div className="oc-page" ref={pageRef}>
       <SEO
-        title={sheetTitle ? `${sheetTitle} — Origine Creative` : 'Origine Creative — Branding & Communication'}
-        description="Origine Creative est un studio de branding et de communication : stratégie de marque, identité visuelle, communication digitale, motion design et direction artistique."
+        title={sheetTitle ? `${sheetTitle} — Origine Creative` : 'Origine Creative — Studio créatif · Branding, design, digital'}
+        description="Origine Creative est un studio créatif spécialisé dans la construction de marques fortes et la création d’expériences visuelles et digitales : stratégie et identité de marque, direction artistique, expériences digitales, motion et production créative."
       />
       <main className="oc-main">
         {/* ---- Intro ---- */}
@@ -189,8 +189,9 @@ export function OnePager() {
               </div>
             </div>
             <section className="hero-statement" key={lang}>
-              <p>
-                {template(SITE.hero.text[lang], (key, words) => {
+              <p>{template(SITE.hero.text[lang], (key) => key, true)}</p>
+              <p className="hero-sub">
+                {template(SITE.hero.sub[lang], (key, words) => {
                   const link = linkFor(SITE.hero.links, key);
                   const p = link?.project ? projectBySlug[link.project] : undefined;
                   const label = words(link ? link.label[lang] : key);
@@ -207,8 +208,12 @@ export function OnePager() {
                       {label}
                     </a>
                   );
-                }, true)}
+                }, true, wordCount(SITE.hero.text[lang]))}
               </p>
+              <div className="hero-cta">
+                <Link className="pill-button" to="/contact">{SITE.hero.ctaContact[lang]}</Link>
+                <a className="hand-link" href="/projets" onClick={scrollTo('projects')}>{SITE.hero.ctaProjects[lang]} ↗</a>
+              </div>
             </section>
           </div>
         </section>
@@ -533,13 +538,14 @@ function BrandO({ className }: { className?: string }) {
   );
 }
 
-// Three steps, rising: immersion, design, roll-out
+// Four steps, rising: audit, strategy, design, roll-out
 function StepsMark() {
   return (
-    <svg viewBox="0 0 64 40" aria-hidden="true">
-      <rect x="0" y="24" width="16" height="16" fill="currentColor" />
-      <rect x="24" y="12" width="16" height="28" fill="currentColor" />
-      <rect x="48" y="0" width="16" height="40" fill="currentColor" />
+    <svg viewBox="0 0 88 40" aria-hidden="true">
+      <rect x="0" y="28" width="16" height="12" fill="currentColor" />
+      <rect x="24" y="19" width="16" height="21" fill="currentColor" />
+      <rect x="48" y="10" width="16" height="30" fill="currentColor" />
+      <rect x="72" y="0" width="16" height="40" fill="currentColor" />
     </svg>
   );
 }
@@ -551,8 +557,11 @@ function template(
   text: string,
   slot: (key: string, words: (s: string) => ReactNode) => ReactNode,
   animate = false,
+  from = 0,
 ): ReactNode[] {
-  let index = 0;
+  // `from` carries the word count of an earlier sentence, so a second one
+  // keeps writing where the first stopped.
+  let index = from;
   const words = (s: string): ReactNode =>
     !animate
       ? s
@@ -583,6 +592,8 @@ function template(
   }
   return out;
 }
+
+const wordCount = (text: string) => text.replace(/\{\w+\}/g, 'x').split(/\s+/).filter(Boolean).length;
 
 // Markdown to a plain preview for the paper cards
 function plain(md: string) {

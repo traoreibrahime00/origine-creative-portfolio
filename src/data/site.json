@@ -6,45 +6,50 @@
     "location": {
       "fr": "Abidjan, Côte d’Ivoire",
       "en": "Abidjan, Côte d’Ivoire"
-    }
+    },
+    "booking": ""
   },
   "identity": {
     "title": {
-      "fr": "Branding & Communication",
-      "en": "Branding & Communication"
+      "fr": "Branding · Design · Digital",
+      "en": "Branding · Design · Digital"
     }
   },
   "hero": {
     "text": {
-      "fr": "Origine Creative est un studio de branding et de communication. Nous concevons des {identites}, des {campagnes} et des {creations}.",
-      "en": "Origine Creative is a branding and communication studio. We design {identites}, {campagnes} and {creations}."
+      "fr": "Nous donnons forme aux marques qui veulent faire la différence.",
+      "en": "We shape brands that want to make a difference."
+    },
+    "sub": {
+      "fr": "Stratégie, branding, design et expériences digitales. Nous accompagnons les entreprises dans la construction d'{identites} et de {communications}.",
+      "en": "Strategy, branding, design and digital experiences. We help companies build {identites} and {communications}."
     },
     "links": [
       {
         "key": "identites",
         "label": {
-          "fr": "identités",
-          "en": "identities"
+          "fr": "identités fortes",
+          "en": "strong identities"
         },
         "project": "agri-build"
       },
       {
-        "key": "campagnes",
+        "key": "communications",
         "label": {
-          "fr": "campagnes",
-          "en": "campaigns"
+          "fr": "communications mémorables",
+          "en": "memorable communication"
         },
         "project": "katana"
-      },
-      {
-        "key": "creations",
-        "label": {
-          "fr": "créations artistiques",
-          "en": "artistic work"
-        },
-        "project": "dj-arafat"
       }
-    ]
+    ],
+    "ctaProjects": {
+      "fr": "Découvrir nos projets",
+      "en": "See our projects"
+    },
+    "ctaContact": {
+      "fr": "Parler de votre projet",
+      "en": "Tell us about your project"
+    }
   },
   "studio": {
     "title": {
@@ -52,10 +57,14 @@
       "en": "The studio"
     },
     "line": {
-      "fr": "Studio de branding & communication",
-      "en": "Branding & communication studio"
+      "fr": "Studio créatif, marques et expériences",
+      "en": "Creative studio, brands and experiences"
     },
     "paragraphs": [
+      {
+        "fr": "Origine Creative est un studio créatif spécialisé dans la construction de marques fortes et la création d'expériences visuelles et digitales.",
+        "en": "Origine Creative is a creative studio that builds strong brands and creates visual and digital experiences."
+      },
       {
         "fr": "Née de la volonté de repenser la communication sur le continent africain, Origine Creative accompagne les marques ambitieuses comme partenaire stratégique.",
         "en": "Born from the wish to rethink communication on the African continent, Origine Creative works with ambitious brands as a strategic partner."
@@ -119,32 +128,42 @@
       "en": "Method"
     },
     "line": {
-      "fr": "De l’immersion au déploiement",
-      "en": "From immersion to roll-out"
+      "fr": "Quatre étapes, de l'audit au déploiement",
+      "en": "Four steps, from audit to roll-out"
     },
     "intro": {
-      "fr": "Une approche rigoureuse, en trois temps, pour que chaque décision créative serve un objectif.",
-      "en": "A rigorous approach in three steps, so every creative decision serves a goal."
+      "fr": "Une démarche rigoureuse en quatre étapes, pour que chaque décision créative serve un objectif.",
+      "en": "A rigorous four-step process, so every creative decision serves a goal."
     },
     "steps": [
       {
         "label": {
-          "fr": "Immersion",
-          "en": "Immersion"
+          "fr": "Immersion & audit",
+          "en": "Immersion & audit"
         },
         "text": {
-          "fr": "Analyse de votre écosystème, identification des leviers de croissance et définition d’un positionnement sur mesure.",
-          "en": "We study your landscape, find the levers for growth and define a positioning that fits."
+          "fr": "Analyse de votre marché, de vos publics et de votre image actuelle pour identifier les leviers de croissance.",
+          "en": "We study your market, your audiences and your current image to find the levers for growth."
         }
       },
       {
         "label": {
-          "fr": "Conception",
-          "en": "Design"
+          "fr": "Stratégie",
+          "en": "Strategy"
         },
         "text": {
-          "fr": "La stratégie devient une identité visuelle forte, un récit et une expérience.",
-          "en": "Strategy becomes a strong visual identity, a story and an experience."
+          "fr": "Positionnement, plateforme de marque et plan de communication : les décisions qui guident la création.",
+          "en": "Positioning, brand platform and communication plan: the decisions that guide the creative work."
+        }
+      },
+      {
+        "label": {
+          "fr": "Création & design",
+          "en": "Creation & design"
+        },
+        "text": {
+          "fr": "La stratégie devient une identité visuelle, un récit et des supports concrets.",
+          "en": "Strategy becomes a visual identity, a story and real-world materials."
         }
       },
       {
@@ -153,51 +172,44 @@
           "en": "Roll-out"
         },
         "text": {
-          "fr": "Lancement, diffusion digitale et suivi pour une résonance maximale auprès de votre cible.",
-          "en": "Launch, digital reach and follow-up, so it lands with the people it is meant for."
+          "fr": "Lancement, déclinaisons sur tous les supports et suivi pour une résonance maximale auprès de votre cible.",
+          "en": "Launch, roll-out across every channel and follow-up, so it lands with the people it is meant for."
         }
       }
     ]
   },
   "expertise": {
     "text": {
-      "fr": "Nous intervenons en {strategy}, {identity}, {digital}, {motion} et {art}.",
-      "en": "We work across {strategy}, {identity}, {digital}, {motion} and {art}."
+      "fr": "Nous travaillons en quatre pôles : {strategy}, {art}, {digital} et {motion}.",
+      "en": "We work in four areas: {strategy}, {art}, {digital} and {motion}."
     },
     "links": [
       {
         "key": "strategy",
         "label": {
-          "fr": "stratégie de marque",
-          "en": "brand strategy"
-        }
-      },
-      {
-        "key": "identity",
-        "label": {
-          "fr": "identité visuelle",
-          "en": "visual identity"
-        }
-      },
-      {
-        "key": "digital",
-        "label": {
-          "fr": "communication digitale",
-          "en": "digital communication"
-        }
-      },
-      {
-        "key": "motion",
-        "label": {
-          "fr": "motion design",
-          "en": "motion design"
+          "fr": "stratégie & identité de marque",
+          "en": "brand strategy & identity"
         }
       },
       {
         "key": "art",
         "label": {
-          "fr": "direction artistique",
-          "en": "art direction"
+          "fr": "direction artistique & communication",
+          "en": "art direction & communication"
+        }
+      },
+      {
+        "key": "digital",
+        "label": {
+          "fr": "expériences digitales",
+          "en": "digital experiences"
+        }
+      },
+      {
+        "key": "motion",
+        "label": {
+          "fr": "motion & production créative",
+          "en": "motion & creative production"
         }
       }
     ]
@@ -210,52 +222,42 @@
     "items": [
       {
         "title": {
-          "fr": "Stratégie de marque",
-          "en": "Brand strategy"
+          "fr": "Brand Strategy & Identity",
+          "en": "Brand Strategy & Identity"
         },
         "desc": {
-          "fr": "Positionnement, architecture et voix de votre marque : un socle solide et différenciant. Audit, plateforme de marque, naming.",
-          "en": "Positioning, architecture and voice: a solid, distinctive foundation. Audit, brand platform, naming."
+          "fr": "Stratégie de marque, naming, plateforme de marque, identité visuelle et charte graphique.",
+          "en": "Brand strategy, naming, brand platform, visual identity and brand guidelines."
         }
       },
       {
         "title": {
-          "fr": "Identité visuelle",
-          "en": "Visual identity"
+          "fr": "Art Direction & Communication",
+          "en": "Art Direction & Communication"
         },
         "desc": {
-          "fr": "Des systèmes graphiques uniques et mémorables : logo, charte graphique, typographie, couleurs et guidelines.",
-          "en": "Distinct, memorable graphic systems: logo, brand guidelines, typography and colour."
+          "fr": "Direction artistique, campagnes publicitaires, supports de communication et design graphique.",
+          "en": "Art direction, advertising campaigns, communication materials and graphic design."
         }
       },
       {
         "title": {
-          "fr": "Communication digitale",
-          "en": "Digital communication"
+          "fr": "Digital Experiences",
+          "en": "Digital Experiences"
         },
         "desc": {
-          "fr": "Sites sur mesure, UI/UX, stratégie social media et gestion de contenus, pensés pour vos utilisateurs et vos objectifs.",
-          "en": "Custom websites, UI/UX, social media strategy and content, built around your users and your goals."
+          "fr": "UX/UI design, conception de sites web, interfaces digitales et expériences interactives.",
+          "en": "UX/UI design, websites, digital interfaces and interactive experiences."
         }
       },
       {
         "title": {
-          "fr": "Motion design",
-          "en": "Motion design"
+          "fr": "Motion & Creative Production",
+          "en": "Motion & Creative Production"
         },
         "desc": {
-          "fr": "Animation 2D/3D, vidéos promotionnelles et intros de marque pour donner du mouvement à votre identité.",
-          "en": "2D/3D animation, promotional films and brand intros that put your identity in motion."
-        }
-      },
-      {
-        "title": {
-          "fr": "Direction artistique",
-          "en": "Art direction"
-        },
-        "desc": {
-          "fr": "Shootings, campagnes, scénographie, édition et print : une cohérence visuelle sur tous vos supports.",
-          "en": "Shoots, campaigns, set design, editorial and print: one visual line across every channel."
+          "fr": "Motion design, vidéos publicitaires, contenus créatifs et production visuelle assistée par IA.",
+          "en": "Motion design, advertising films, creative content and AI-assisted visual production."
         }
       }
     ],
