@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://origine-creative-portfolio.vercel.app/sitemap.xml
+Sitemap: https://originecreative.com/sitemap.xml

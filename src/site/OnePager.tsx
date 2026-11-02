@@ -8,9 +8,11 @@ import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { SEO } from '../components/SEO';
 import {
-  COPY, EMAIL, GALLERY, METHOD, POSTS, PROJECTS, SERVICES, STUDIO, WHATSAPP,
+  COPY, EMAIL, GALLERY, METHOD, POSTS, PROJECTS, SERVICES, SITE, STUDIO, WHATSAPP,
   type Block, type Fact, type Img, type Lang,
 } from './content';
+import { Logo } from './Logo';
+import { ThemeSwitch } from './ThemeSwitch';
 import {
   copyText, initFooter, initHeroPeek, initInputModality, initPullToClose, initRail,
   initReveals, initTilt, reduceMotion, setSheetOpen,
@@ -24,8 +26,8 @@ function sheetFor(pathname: string) {
   const [section, slug] = pathname.replace(/^\/+|\/+$/g, '').split('/');
   if (section === 'projets' && slug) return 'projects-' + slug;
   if (section === 'blog' && slug) return 'journal-' + slug;
-  if (section === 'a-propos') return 'studio';
-  if (section === 'methode') return 'methode';
+  if (section === 'a-propos') return 'sheet-studio';
+  if (section === 'methode') return 'sheet-methode';
   return null;
 }
 
@@ -148,17 +150,17 @@ export function OnePager() {
   };
 
   const sheetTitle = sheetId
-    ? [...PROJECTS.map((p) => [`projects-${p.slug}`, p.title]), ...POSTS.map((p) => [`journal-${p.slug}`, p.title]), ['studio', STUDIO.title[lang]], ['methode', METHOD.title[lang]]]
+    ? [...PROJECTS.map((p) => [`projects-${p.slug}`, p.title]), ...POSTS.map((p) => [`journal-${p.slug}`, p.title]), ['sheet-studio', STUDIO.title[lang]], ['sheet-methode', METHOD.title[lang]]]
         .find(([id]) => id === sheetId)?.[1]
     : null;
   const projectBySlug = Object.fromEntries(PROJECTS.map((p) => [p.slug, p]));
-  const heroSlug = { agri: 'agri-build', katana: 'katana', arafat: 'dj-arafat' } as const;
+  const linkFor = (links: typeof SITE.hero.links, key: string) => links.find((l) => l.key === key);
 
   return (
     <div className="oc-page" ref={pageRef}>
       <SEO
-        title={sheetTitle ? `${sheetTitle} — Origine Creative` : 'Origine Creative — Branding & Communication, Abidjan'}
-        description="Origine Creative est un studio de branding et de communication à Abidjan : stratégie de marque, identité visuelle, communication digitale, motion design et direction artistique."
+        title={sheetTitle ? `${sheetTitle} — Origine Creative` : 'Origine Creative — Branding & Communication'}
+        description="Origine Creative est un studio de branding et de communication : stratégie de marque, identité visuelle, communication digitale, motion design et direction artistique."
       />
       <main className="oc-main">
         {/* ---- Intro ---- */}
@@ -167,27 +169,34 @@ export function OnePager() {
             <div className="hero-identity">
               <div>
                 <h1>
-                  <button className="name-open" type="button" data-controls="studio" aria-expanded="false" onClick={opener('/a-propos', 'studio')}>
-                    {COPY.name}
-                    <BrandO className="name-face" />
+                  <button className="name-open" type="button" data-controls="sheet-studio" aria-expanded="false" onClick={opener('/a-propos', 'sheet-studio')}>
+                    <Logo className="hero-logo" />
                   </button>
                 </h1>
-                <span className="title">{COPY.title[lang]}</span>
+                <span className="title">{SITE.identity.title[lang]}</span>
               </div>
-              <button
-                type="button"
-                className="lang-switch"
-                onClick={() => i18n.changeLanguage(lang === 'fr' ? 'en' : 'fr')}
-                aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}
-              >
-                <span aria-current={lang === 'fr'}>FR</span>
-                <span aria-current={lang === 'en'}>EN</span>
-              </button>
+              <div className="hero-tools">
+                <button
+                  type="button"
+                  className="lang-switch"
+                  onClick={() => i18n.changeLanguage(lang === 'fr' ? 'en' : 'fr')}
+                  aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}
+                >
+                  <span aria-current={lang === 'fr'}>FR</span>
+                  <span aria-current={lang === 'en'}>EN</span>
+                </button>
+                <ThemeSwitch label={COPY.theme[lang]} />
+              </div>
             </div>
             <section className="hero-statement" key={lang}>
               <p>
-                {template(COPY.hero[lang], (key, words) => {
-                  const p = projectBySlug[heroSlug[key as keyof typeof heroSlug]];
+                {template(SITE.hero.text[lang], (key, words) => {
+                  const link = linkFor(SITE.hero.links, key);
+                  const p = link?.project ? projectBySlug[link.project] : undefined;
+                  const label = words(link ? link.label[lang] : key);
+                  // A word tied to a project opens it and shows its cover on hover;
+                  // otherwise it leads to the projects.
+                  if (!p) return <a href="/projets" onClick={scrollTo('projects')}>{label}</a>;
                   return (
                     <a
                       href={`/projets/${p.slug}`}
@@ -195,7 +204,7 @@ export function OnePager() {
                       data-peek-r={p.cover.r}
                       onClick={opener(`/projets/${p.slug}`, `projects-${p.slug}`)}
                     >
-                      {words(COPY.heroLinks[key as keyof typeof COPY.heroLinks])}
+                      {label}
                     </a>
                   );
                 }, true)}
@@ -210,12 +219,12 @@ export function OnePager() {
             <h2 className="section-title">{COPY.studioTitle[lang]}</h2>
           </header>
           <div className="company-grid">
-            <a className="card company" href="/a-propos" data-controls="studio" aria-expanded="false" onClick={opener('/a-propos', 'studio')}>
+            <a className="card company" href="/a-propos" data-controls="sheet-studio" aria-expanded="false" onClick={opener('/a-propos', 'sheet-studio')}>
               <span className="company-mark" aria-hidden="true"><BrandO /></span>
               <span className="card-title">Origine Creative</span>
               <span className="company-line">{STUDIO.line[lang]}</span>
             </a>
-            <a className="card company" href="/methode" data-controls="methode" aria-expanded="false" onClick={opener('/methode', 'methode')}>
+            <a className="card company" href="/methode" data-controls="sheet-methode" aria-expanded="false" onClick={opener('/methode', 'sheet-methode')}>
               <span className="company-mark is-wide" aria-hidden="true"><StepsMark /></span>
               <span className="card-title">{METHOD.title[lang]}</span>
               <span className="company-line">{METHOD.line[lang]}</span>
@@ -223,9 +232,9 @@ export function OnePager() {
           </div>
           <div className="hero-statement products-statement">
             <p>
-              {template(COPY.expertise[lang], (key) => (
+              {template(SITE.expertise.text[lang], (key) => (
                 <a href="/services" onClick={scrollTo('services')}>
-                  {COPY.expertiseLinks[key as keyof typeof COPY.expertiseLinks][lang]}
+                  {linkFor(SITE.expertise.links, key)?.label[lang] ?? key}
                 </a>
               ))}
             </p>
@@ -257,12 +266,12 @@ export function OnePager() {
         {/* ---- Services ---- */}
         <section id="services" className="site-section">
           <div className="content-width prose-col">
-            <p className="reveal">{COPY.servicesIntro[lang]}</p>
+            <p className="reveal">{SITE.services.intro[lang]}</p>
             <Services lang={lang} />
-            <p className="reveal">{COPY.servicesOutro[lang]}</p>
+            <p className="reveal">{SITE.services.outro[lang]}</p>
             <p className="reveal">
-              {template(COPY.servicesCta[lang], () => (
-                <button className="copy-email" type="button" onClick={copyEmail}>{COPY.servicesCtaLink[lang]}</button>
+              {template(SITE.services.cta[lang], () => (
+                <button className="copy-email" type="button" onClick={copyEmail}>{SITE.services.ctaLink[lang]}</button>
               ))}
             </p>
           </div>
@@ -311,9 +320,9 @@ export function OnePager() {
 
         {/* ---- Footer ---- */}
         <footer className="site-footer content-width">
-          <img className="footer-logo footer-in" style={style({ '--i': 0 })} src="/logo.png" width={3209} height={979} alt="Origine Creative" loading="lazy" decoding="async" />
+          <Logo className="footer-logo footer-in" style={style({ '--i': 0 })} />
           <p className="footer-line footer-in" style={style({ '--i': 1 })}>
-            {COPY.footerLine[lang]}
+            {SITE.footerLine[lang]}
             <svg className="footer-stroke" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true">
               <path pathLength={1} d="M3 8.5 C 46 4.2, 92 3.4, 132 5.6 S 205 9.8, 237 4.2" />
             </svg>
@@ -324,12 +333,12 @@ export function OnePager() {
           <p className="site-footer-links footer-in" style={style({ '--i': 3 })}>
             <Link to="/contact">{COPY.contact[lang]}</Link>
             <a href={WHATSAPP} target="_blank" rel="noopener">WhatsApp</a>
-            <a href="/a-propos" onClick={opener('/a-propos', 'studio')}>{STUDIO.title[lang]}</a>
+            <a href="/a-propos" onClick={opener('/a-propos', 'sheet-studio')}>{STUDIO.title[lang]}</a>
             <Link to="/mentions-legales">{COPY.legal[lang]}</Link>
             <Link to="/politique-de-confidentialite">{COPY.privacy[lang]}</Link>
           </p>
           <p className="site-footer-links footer-in" style={style({ '--i': 4 })}>
-            <span>{COPY.location[lang]}</span>
+            <span>{SITE.contact.location[lang]}</span>
             <span>© {new Date().getFullYear()}</span>
           </p>
         </footer>
@@ -363,7 +372,7 @@ export function OnePager() {
         </Sheet>
       ))}
 
-      <Sheet id="studio" title={STUDIO.title[lang]} path="/a-propos" fill="var(--tile-fill)" lang={lang} onClose={closeSheet}>
+      <Sheet id="sheet-studio" title={STUDIO.title[lang]} path="/a-propos" fill="var(--tile-fill)" lang={lang} onClose={closeSheet}>
         <div className="case">
           <div className="post-content">
             {STUDIO.paragraphs.map((t, i) => <p key={i}>{t[lang]}</p>)}
@@ -372,7 +381,7 @@ export function OnePager() {
         </div>
       </Sheet>
 
-      <Sheet id="methode" title={METHOD.title[lang]} path="/methode" fill="var(--tile-fill)" lang={lang} onClose={closeSheet}>
+      <Sheet id="sheet-methode" title={METHOD.title[lang]} path="/methode" fill="var(--tile-fill)" lang={lang} onClose={closeSheet}>
         <div className="case">
           <div className="post-content"><p>{METHOD.intro[lang]}</p></div>
           <ol className="case-steps">

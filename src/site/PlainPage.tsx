@@ -2,8 +2,9 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { COPY, EMAIL, PHONE_DISPLAY, SERVICES, WHATSAPP, type Lang } from './content';
+import { COPY, EMAIL, PHONE_DISPLAY, SERVICES, SITE, WHATSAPP, type Lang } from './content';
 import { initInputModality } from './behaviors';
+import { Logo } from './Logo';
 
 function useLang(): Lang {
   const { i18n } = useTranslation();
@@ -18,7 +19,7 @@ export function PlainPage({ children, className = '' }: { children: ReactNode; c
   return (
     <main className={'oc-main ' + className}>
       <div className="content-width">
-        <Link to="/" className="page-back enter">← Origine Creative</Link>
+        <Link to="/" className="page-back enter" aria-label="Origine Creative">← <Logo /></Link>
         <div className="enter" style={{ animationDelay: '0.08s' }}>{children}</div>
       </div>
     </main>
@@ -69,7 +70,7 @@ export function ContactPage() {
         <p>
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a><br />
           <a href={WHATSAPP} target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · WhatsApp<br />
-          <span style={{ color: 'var(--color-muted)' }}>{COPY.location[lang]}</span>
+          <span style={{ color: 'var(--color-muted)' }}>{SITE.contact.location[lang]}</span>
         </p>
       </div>
       <form className="contact-form" onSubmit={submit}>
