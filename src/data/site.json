@@ -613,6 +613,130 @@
   },
   "projects": [
     {
+      "slug": "katana",
+      "title": "KATANA",
+      "meta": {
+        "fr": "Communication",
+        "en": "Communication"
+      },
+      "fill": "#f3e6e3",
+      "cover": {
+        "src": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04.jpg",
+        "small": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04-720.jpg",
+        "r": 1.1552,
+        "alt": {
+          "fr": "Flyers KATANA Prestation",
+          "en": "KATANA Prestation flyers"
+        }
+      },
+      "intro": [
+        {
+          "fr": "Katana Prestation vend des huiles, des pièces et des produits automobiles, aux particuliers comme aux professionnels. L’entreprise accompagne conducteurs, mécaniciens et entreprises dans l’entretien, la performance et la longévité de leurs engins.",
+          "en": "Katana Prestation sells oils, parts and car products to individuals and professionals alike, helping drivers, mechanics and companies keep their vehicles running well and for longer."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Client",
+            "en": "Client"
+          },
+          "value": {
+            "fr": "Katana Prestation",
+            "en": "Katana Prestation"
+          }
+        },
+        {
+          "label": {
+            "fr": "Secteur",
+            "en": "Sector"
+          },
+          "value": {
+            "fr": "Automobile",
+            "en": "Automotive"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Communication digitale, flyers",
+            "en": "Digital communication, flyers"
+          }
+        },
+        {
+          "label": {
+            "fr": "Lien",
+            "en": "Link"
+          },
+          "value": {
+            "fr": "Behance ↗",
+            "en": "Behance ↗"
+          },
+          "href": "https://www.behance.net/gallery/242359173/FLYER-DESIGN-KATANA-PRESTATION"
+        }
+      ],
+      "story": [
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8c84c1242359173.696b5b2922fd1.png",
+              "r": 0.7044,
+              "alt": {
+                "fr": "Flyer KATANA, recto",
+                "en": "KATANA flyer, front"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Le flyer principal.",
+            "en": "The main flyer."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/df2e03242359173.696b5b2923551.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyer KATANA en situation",
+                "en": "KATANA flyer in context"
+              }
+            },
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/86e611242359173.696b5b2924086.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyers KATANA, détail",
+                "en": "KATANA flyers, detail"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "En situation.",
+            "en": "In context."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0895b4242359173.696b5b2923b3d.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyers KATANA, série",
+                "en": "KATANA flyers, series"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "agri-build",
       "title": "AGRI BUILD",
       "meta": {
@@ -933,130 +1057,6 @@
             "fr": "« Origine Creative a su comprendre la complexité de notre activité multisectorielle et l’a traduite en une identité visuelle claire et puissante. »",
             "en": "“Origine Creative understood the complexity of our multi-sector business and turned it into a clear, powerful visual identity.”"
           }
-        }
-      ]
-    },
-    {
-      "slug": "katana",
-      "title": "KATANA",
-      "meta": {
-        "fr": "Communication",
-        "en": "Communication"
-      },
-      "fill": "#f3e6e3",
-      "cover": {
-        "src": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04.jpg",
-        "small": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04-720.jpg",
-        "r": 1.1552,
-        "alt": {
-          "fr": "Flyers KATANA Prestation",
-          "en": "KATANA Prestation flyers"
-        }
-      },
-      "intro": [
-        {
-          "fr": "Katana Prestation vend des huiles, des pièces et des produits automobiles, aux particuliers comme aux professionnels. L’entreprise accompagne conducteurs, mécaniciens et entreprises dans l’entretien, la performance et la longévité de leurs engins.",
-          "en": "Katana Prestation sells oils, parts and car products to individuals and professionals alike, helping drivers, mechanics and companies keep their vehicles running well and for longer."
-        }
-      ],
-      "facts": [
-        {
-          "label": {
-            "fr": "Client",
-            "en": "Client"
-          },
-          "value": {
-            "fr": "Katana Prestation",
-            "en": "Katana Prestation"
-          }
-        },
-        {
-          "label": {
-            "fr": "Secteur",
-            "en": "Sector"
-          },
-          "value": {
-            "fr": "Automobile",
-            "en": "Automotive"
-          }
-        },
-        {
-          "label": {
-            "fr": "Mission",
-            "en": "Scope"
-          },
-          "value": {
-            "fr": "Communication digitale, flyers",
-            "en": "Digital communication, flyers"
-          }
-        },
-        {
-          "label": {
-            "fr": "Lien",
-            "en": "Link"
-          },
-          "value": {
-            "fr": "Behance ↗",
-            "en": "Behance ↗"
-          },
-          "href": "https://www.behance.net/gallery/242359173/FLYER-DESIGN-KATANA-PRESTATION"
-        }
-      ],
-      "story": [
-        {
-          "kind": "figure",
-          "images": [
-            {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8c84c1242359173.696b5b2922fd1.png",
-              "r": 0.7044,
-              "alt": {
-                "fr": "Flyer KATANA, recto",
-                "en": "KATANA flyer, front"
-              }
-            }
-          ],
-          "caption": {
-            "fr": "Le flyer principal.",
-            "en": "The main flyer."
-          }
-        },
-        {
-          "kind": "figure",
-          "images": [
-            {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/df2e03242359173.696b5b2923551.png",
-              "r": 1.3333,
-              "alt": {
-                "fr": "Flyer KATANA en situation",
-                "en": "KATANA flyer in context"
-              }
-            },
-            {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/86e611242359173.696b5b2924086.png",
-              "r": 1.3333,
-              "alt": {
-                "fr": "Flyers KATANA, détail",
-                "en": "KATANA flyers, detail"
-              }
-            }
-          ],
-          "caption": {
-            "fr": "En situation.",
-            "en": "In context."
-          }
-        },
-        {
-          "kind": "figure",
-          "images": [
-            {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0895b4242359173.696b5b2923b3d.png",
-              "r": 1.3333,
-              "alt": {
-                "fr": "Flyers KATANA, série",
-                "en": "KATANA flyers, series"
-              }
-            }
-          ]
         }
       ]
     },
