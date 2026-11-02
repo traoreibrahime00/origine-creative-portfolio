@@ -6,6 +6,7 @@
 // Environment variables (Vercel → Project → Settings → Environment Variables):
 //   ADMIN_PASSWORD  the password asked by /admin
 //   GITHUB_TOKEN    a fine-grained token with "Contents: read and write" on the repo
+//                   (GITHUB_KEY is accepted too)
 //   GITHUB_REPO     optional, defaults to traoreibrahime00/origine-creative-portfolio
 //   GITHUB_BRANCH   optional, defaults to main
 import { timingSafeEqual } from 'crypto';
@@ -17,6 +18,7 @@ const FILES: Record<string, string> = {
 
 const REPO = process.env.GITHUB_REPO || 'traoreibrahime00/origine-creative-portfolio';
 const BRANCH = process.env.GITHUB_BRANCH || 'main';
+const TOKEN = process.env.GITHUB_TOKEN || process.env.GITHUB_KEY;
 
 function authorized(req: any) {
   const expected = process.env.ADMIN_PASSWORD || '';
@@ -29,7 +31,7 @@ async function gh(path: string, init: RequestInit = {}) {
   const res = await fetch(`https://api.github.com/repos/${REPO}${path}`, {
     ...init,
     headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      Authorization: `Bearer ${TOKEN}`,
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
       'Content-Type': 'application/json',
@@ -72,7 +74,7 @@ const b64 = (dataUrl: string) => {
 export default async function handler(req: any, res: any) {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
-  if (!process.env.ADMIN_PASSWORD || !process.env.GITHUB_TOKEN) {
+  if (!process.env.ADMIN_PASSWORD || !TOKEN) {
     return res.status(503).json({ error: 'Admin non configuré : ajoutez ADMIN_PASSWORD et GITHUB_TOKEN dans Vercel.' });
   }
   if (!authorized(req)) return res.status(401).json({ error: 'Mot de passe incorrect' });
