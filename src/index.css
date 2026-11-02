@@ -21,30 +21,6 @@
   }
 }
 
-@layer base {
-  body {
-    @apply bg-background text-[hsl(var(--primary))] font-sans antialiased overflow-x-hidden;
-  }
-
-  /* Custom scrollbar to match dark cinematic feel */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: hsl(0, 0%, 5%);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(0, 0%, 20%);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(0, 0%, 30%);
-  }
-}
-
 @layer utilities {
   .text-glow {
     text-shadow: 0 0 10px hsl(var(--accent-red));
