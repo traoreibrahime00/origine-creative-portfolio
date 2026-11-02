@@ -31,7 +31,9 @@ export type Project = {
 export type Service = {
   slug: string;
   title: T;
+  // desc is the one-line hook (list and page header); benefit says what the client gains
   desc: T;
+  benefit: T;
   seoTitle: T;
   seoDescription: T;
   intro: T[];
@@ -42,11 +44,17 @@ export type Service = {
 
 export type SlotLink = { key: string; label: T; project?: string };
 
+// The guided brief on /contact: one screen per choice step, then the contact details
+export type BriefStep = { question: T; multiple: boolean; options: T[] };
+export type Brief = { title: T; intro: T; steps: BriefStep[]; challenge: T; submit: T; reassurance: T[] };
+
 export type Site = {
-  contact: { email: string; phone: string; whatsapp: string; location: T; booking?: string };
+  contact: { email: string; phone: string; whatsapp: string; whatsappMessage: T; location: T; booking?: string };
+  brief: Brief;
   identity: { title: T };
   // text writes itself in word by word; sub carries the {slot} links
-  hero: { text: T; sub: T; links: SlotLink[]; ctaProjects: T; ctaContact: T };
+  hero: { eyebrow: T; text: T; sub: T; links: SlotLink[]; ctaProjects: T; ctaContact: T };
+  manifesto: { title: T; paragraphs: T[] };
   studio: { title: T; line: T; paragraphs: T[]; facts: Fact[] };
   method: { title: T; line: T; intro: T; steps: { label: T; text: T }[] };
   expertise: { text: T; links: SlotLink[] };
@@ -81,6 +89,9 @@ export const STUDIO = SITE.studio;
 export const METHOD = SITE.method;
 export const GALLERY = SITE.gallery;
 
+// WhatsApp link that opens with a first message already written
+export const whatsappLink = (text: string) => `${WHATSAPP}${WHATSAPP.includes('?') ? '&' : '?'}text=${encodeURIComponent(text)}`;
+
 // Interface labels
 export const COPY = {
   name: 'Origine Creative',
@@ -92,6 +103,7 @@ export const COPY = {
   galleryHint: { fr: 'Défilez pour plonger · Sélectionnez pour regarder de près', en: 'Scroll to dive · Select to look closer' },
   copied: { fr: 'Adresse copiée', en: 'Address copied' },
   close: { fr: 'Fermer', en: 'Close' },
+  back: { fr: 'Retour', en: 'Back' },
   prev: { fr: 'Précédent', en: 'Previous' },
   next: { fr: 'Suivant', en: 'Next' },
   contact: { fr: 'Contact', en: 'Contact' },
@@ -103,7 +115,10 @@ export const COPY = {
   method: { fr: 'Notre méthode', en: 'Our method' },
   related: { fr: 'Projets liés', en: 'Related projects' },
   faq: { fr: 'Questions fréquentes', en: 'Questions' },
-  start: { fr: 'Parler de votre projet', en: 'Tell us about your project' },
+  start: { fr: 'Démarrer un projet', en: 'Start a project' },
+  manifesto: { fr: 'Manifeste', en: 'Manifesto' },
+  whatsappCta: { fr: 'Discuter d’un projet sur WhatsApp', en: 'Talk about a project on WhatsApp' },
+  booking: { fr: 'Consultation stratégique · 20 min', en: 'Strategy call · 20 min' },
 };
 
 // ---- Journal ----

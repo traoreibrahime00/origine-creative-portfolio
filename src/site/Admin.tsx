@@ -384,11 +384,22 @@ function TextsTab({ site, ctx }: { site: Site; ctx: Ctx }) {
     <>
       <Section title="Accueil" note="Dans le sous-titre, les mots entre accolades, comme {identites}, deviennent des liens. Au survol, ils montrent la couverture du projet choisi.">
         <Bi label="Sous le logo" value={site.identity.title} onChange={(v) => edit((s) => { s.identity.title = v; })} />
-        <Bi label="Accroche" value={site.hero.text} onChange={(v) => edit((s) => { s.hero.text = v; })} multiline />
+        <Bi label="Surtitre" value={site.hero.eyebrow} onChange={(v) => edit((s) => { s.hero.eyebrow = v; })} />
+        <Bi label="Titre principal" value={site.hero.text} onChange={(v) => edit((s) => { s.hero.text = v; })} multiline />
         <Bi label="Sous-titre" value={site.hero.sub} onChange={(v) => edit((s) => { s.hero.sub = v; })} multiline />
         <Links links={site.hero.links} projects={site.projects} onChange={(l) => edit((s) => { s.hero.links = l; })} />
-        <Bi label="Bouton vers la page Contact" value={site.hero.ctaContact} onChange={(v) => edit((s) => { s.hero.ctaContact = v; })} />
+        <Bi label="Bouton vers le brief (page Contact)" value={site.hero.ctaContact} onChange={(v) => edit((s) => { s.hero.ctaContact = v; })} />
         <Bi label="Lien vers les projets" value={site.hero.ctaProjects} onChange={(v) => edit((s) => { s.hero.ctaProjects = v; })} />
+      </Section>
+      <Section title="Manifeste" note="Entre le studio et les projets.">
+        <Bi label="Titre" value={site.manifesto.title} onChange={(v) => edit((s) => { s.manifesto.title = v; })} multiline />
+        <List
+          items={site.manifesto.paragraphs}
+          onChange={(p) => edit((s) => { s.manifesto.paragraphs = p; })}
+          add={emptyT}
+          addLabel="Ajouter un paragraphe"
+          render={(p, i) => <Bi label="Paragraphe" value={p} multiline onChange={(v) => edit((s) => { s.manifesto.paragraphs[i] = v; })} />}
+        />
       </Section>
       <Section title="Ligne des expertises" note="Sous les tuiles Studio et Méthode. Les mots liés mènent aux services.">
         <Bi label="Texte" value={site.expertise.text} onChange={(v) => edit((s) => { s.expertise.text = v; })} multiline />
@@ -550,6 +561,7 @@ function newService(n: number): Service {
     slug: `nouveau-service-${n}`,
     title: emptyT(),
     desc: emptyT(),
+    benefit: emptyT(),
     seoTitle: emptyT(),
     seoDescription: emptyT(),
     intro: [emptyT()],
@@ -582,7 +594,8 @@ function ServicesTab({ site, ctx }: { site: Site; ctx: Ctx }) {
                   x.title = v;
                 })}
               />
-              <Bi label="Description courte (dans la liste)" value={it.desc} multiline onChange={(v) => set((x) => { x.desc = v; })} />
+              <Bi label="Accroche (dans la liste et sous le titre de la page)" value={it.desc} multiline onChange={(v) => set((x) => { x.desc = v; })} />
+              <Bi label="Bénéfice pour le client" value={it.benefit} multiline onChange={(v) => set((x) => { x.benefit = v; })} hint="Affiché sous l'accroche dans la liste, et en ouverture de la page du service." />
               <details className="adm-details">
                 <summary>Page du service</summary>
                 <Field label="Adresse" value={it.slug} onChange={(v) => set((x) => { x.slug = slugify(v); })} hint={`originecreative.com/services/${it.slug}`} />
@@ -707,13 +720,57 @@ function JournalTab({ blog, editBlog }: { blog: Post[]; editBlog: (fn: (b: Post[
 
 function ContactTab({ site, ctx }: { site: Site; ctx: Ctx }) {
   const { edit } = ctx;
+  const b = site.brief;
   return (
-    <Section title="Coordonnées" note="Utilisées dans le pied de page, la page Contact et la fiche du studio.">
-      <Field label="E-mail" type="email" value={site.contact.email} onChange={(v) => edit((s) => { s.contact.email = v; })} />
-      <Field label="Téléphone affiché" value={site.contact.phone} onChange={(v) => edit((s) => { s.contact.phone = v; })} />
-      <Field label="Lien WhatsApp" value={site.contact.whatsapp} onChange={(v) => edit((s) => { s.contact.whatsapp = v; })} hint="https://wa.me/225…" />
-      <Bi label="Lieu" value={site.contact.location} onChange={(v) => edit((s) => { s.contact.location = v; })} />
-      <Field label="Lien de prise de rendez-vous (facultatif)" value={site.contact.booking || ''} onChange={(v) => edit((s) => { s.contact.booking = v; })} hint="Ex. https://calendly.com/… — le bouton « Prendre rendez-vous » n'apparaît que si ce champ est rempli." />
-    </Section>
+    <>
+      <Section title="Coordonnées" note="Utilisées dans le pied de page, la page Contact et la fiche du studio.">
+        <Field label="E-mail" type="email" value={site.contact.email} onChange={(v) => edit((s) => { s.contact.email = v; })} />
+        <Field label="Téléphone affiché" value={site.contact.phone} onChange={(v) => edit((s) => { s.contact.phone = v; })} />
+        <Field label="Lien WhatsApp" value={site.contact.whatsapp} onChange={(v) => edit((s) => { s.contact.whatsapp = v; })} hint="https://wa.me/225…" />
+        <Bi label="Message WhatsApp pré-rempli" value={site.contact.whatsappMessage} multiline onChange={(v) => edit((s) => { s.contact.whatsappMessage = v; })} hint="Le premier message proposé par le bouton WhatsApp flottant et celui du pied de page." />
+        <Bi label="Lieu" value={site.contact.location} onChange={(v) => edit((s) => { s.contact.location = v; })} />
+        <Field label="Lien de consultation stratégique (facultatif)" value={site.contact.booking || ''} onChange={(v) => edit((s) => { s.contact.booking = v; })} hint="Ex. https://calendly.com/… ou https://cal.com/… — le bouton « Consultation stratégique · 20 min » n'apparaît que si ce champ est rempli." />
+      </Section>
+      <Section title="Brief" note="Le formulaire en plusieurs étapes de la page Contact. Chaque question à choix est une étape ; la dernière étape demande toujours les coordonnées.">
+        <Bi label="Titre" value={b.title} onChange={(v) => edit((s) => { s.brief.title = v; })} />
+        <Bi label="Introduction" value={b.intro} multiline onChange={(v) => edit((s) => { s.brief.intro = v; })} />
+        <List<Site['brief']['steps'][number]>
+          items={b.steps}
+          onChange={(v) => edit((s) => { s.brief.steps = v; })}
+          add={() => ({ question: emptyT(), multiple: false, options: [emptyT()] })}
+          addLabel="Ajouter une question"
+          title={(st, i) => st.question.fr || `Question ${i + 1}`}
+          render={(st, i) => (
+            <>
+              <Bi label="Question" value={st.question} onChange={(v) => edit((s) => { s.brief.steps[i].question = v; })} />
+              <div className="adm-checks">
+                <label>
+                  <input type="checkbox" checked={st.multiple} onChange={(e) => edit((s) => { s.brief.steps[i].multiple = e.target.checked; })} />
+                  Plusieurs réponses possibles
+                </label>
+              </div>
+              <List<T>
+                items={st.options}
+                onChange={(v) => edit((s) => { s.brief.steps[i].options = v; })}
+                add={emptyT}
+                addLabel="Ajouter une réponse"
+                title={(o, k) => o.fr || `Réponse ${k + 1}`}
+                render={(o, k) => <Bi label="Réponse" value={o} onChange={(v) => edit((s) => { s.brief.steps[i].options[k] = v; })} />}
+              />
+            </>
+          )}
+        />
+        <Bi label="Question ouverte (dernière étape)" value={b.challenge} multiline onChange={(v) => edit((s) => { s.brief.challenge = v; })} />
+        <Bi label="Bouton d'envoi" value={b.submit} onChange={(v) => edit((s) => { s.brief.submit = v; })} />
+        <List<T>
+          items={b.reassurance}
+          onChange={(v) => edit((s) => { s.brief.reassurance = v; })}
+          add={emptyT}
+          addLabel="Ajouter une garantie"
+          title={(r, k) => r.fr || `Garantie ${k + 1}`}
+          render={(r, k) => <Bi label="Sous le bouton" value={r} onChange={(v) => edit((s) => { s.brief.reassurance[k] = v; })} />}
+        />
+      </Section>
+    </>
   );
 }

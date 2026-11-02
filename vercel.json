@@ -1,6 +1,31 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/app" }
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/app"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/services/brand-strategy-identity",
+      "destination": "/services/identite-visuelle",
+      "permanent": true
+    },
+    {
+      "source": "/services/art-direction-communication",
+      "destination": "/services/direction-artistique",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-experiences",
+      "destination": "/services/communication-digitale",
+      "permanent": true
+    },
+    {
+      "source": "/services/motion-creative-production",
+      "destination": "/services/motion-design",
+      "permanent": true
+    }
   ]
 }
