@@ -1,10 +1,9 @@
 // Pages outside the one-pager (contact, legal) in the same quiet column.
-import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent, type ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { COPY, EMAIL, PHONE_DISPLAY, SITE, whatsappLink, type Lang } from './content';
 import { initInputModality } from './behaviors';
-import { Logo } from './Logo';
 import { SEO } from '../components/SEO';
 
 function useLang(): Lang {
@@ -15,6 +14,15 @@ function useLang(): Lang {
 export function PlainPage({ children, className = '', seo }: {
   children: ReactNode; className?: string; seo?: { title: string; description?: string; path: string };
 }) {
+  const lang = useLang();
+  const navigate = useNavigate();
+  const location = useLocation();
+  // Back to where the visitor came from on the site, or home when they landed here directly
+  const back = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.key !== 'default') navigate(-1);
+    else navigate('/');
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
     return initInputModality();
@@ -23,7 +31,7 @@ export function PlainPage({ children, className = '', seo }: {
     <main className={'oc-main ' + className}>
       {seo && <SEO {...seo} />}
       <div className="content-width">
-        <Link to="/" className="page-back enter" aria-label="Origine Creative">← <Logo /></Link>
+        <a href="/" className="back-link enter" onClick={back}><span aria-hidden="true">←</span> {COPY.back[lang]}</a>
         <div className="enter" style={{ animationDelay: '0.08s' }}>{children}</div>
       </div>
     </main>

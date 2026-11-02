@@ -103,6 +103,7 @@ export const COPY = {
   galleryHint: { fr: 'Défilez pour plonger · Sélectionnez pour regarder de près', en: 'Scroll to dive · Select to look closer' },
   copied: { fr: 'Adresse copiée', en: 'Address copied' },
   close: { fr: 'Fermer', en: 'Close' },
+  back: { fr: 'Retour', en: 'Back' },
   prev: { fr: 'Précédent', en: 'Previous' },
   next: { fr: 'Suivant', en: 'Next' },
   contact: { fr: 'Contact', en: 'Contact' },
