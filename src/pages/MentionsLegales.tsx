@@ -1,16 +1,10 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 
 export function MentionsLegales() {
     return (
         <main className="min-h-screen pt-32 pb-24">
             <div className="max-w-3xl mx-auto px-7 md:px-12 lg:px-20">
 
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                    <Link to="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-sm mb-8 transition-colors">
-                        <ArrowLeft size={16} /> Retour à l'accueil
-                    </Link>
+                <div>
 
                     <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-12">Mentions Légales</h1>
 
@@ -57,7 +51,7 @@ export function MentionsLegales() {
                             </p>
                         </section>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </main>
     );

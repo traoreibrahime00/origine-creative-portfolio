@@ -1,91 +1,65 @@
 import { Helmet } from 'react-helmet-async';
+import { SITE } from '../site/content';
+
+export const SITE_URL = 'https://originecreative.com';
 
 interface SEOProps {
     title?: string;
     description?: string;
-    url?: string;
+    // Path of the page, e.g. "/services/digital-experiences"
+    path?: string;
     image?: string;
     type?: 'website' | 'article';
-    article?: {
-        publishedTime: string;
-        author: string;
-        category: string;
-    };
+    // Extra schema.org objects for this page (a Service, an Article…)
+    schema?: object[];
 }
 
+// The studio itself, on every page
+const ORGANIZATION = {
+    '@type': 'ProfessionalService',
+    '@id': `${SITE_URL}/#organization`,
+    name: 'Origine Creative',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/og-image.png`,
+    email: SITE.contact.email,
+    telephone: SITE.contact.phone,
+    address: { '@type': 'PostalAddress', addressLocality: 'Abidjan', addressCountry: 'CI' },
+    areaServed: ['Côte d’Ivoire', 'Afrique de l’Ouest'],
+};
+
 export function SEO({
-    title = 'Origine Creative | L\'Agence Africaine',
-    description = 'Agence de communication globale, branding, et stratégie digitale basée en Afrique.',
-    url = 'https://originecreative.com',
-    image = 'https://originecreative.com/og-image.png',
+    title = 'Origine Creative — Studio créatif · Branding, design, digital',
+    description = 'Origine Creative est un studio créatif à Abidjan spécialisé dans la construction de marques fortes et la création d’expériences visuelles et digitales.',
+    path = '/',
+    image = `${SITE_URL}/og-image.png`,
     type = 'website',
-    article
+    schema = [],
 }: SEOProps) {
-
-    const schemaOrgJSONLD: any[] = [];
-
-    // Base Organization Schema (always present)
-    schemaOrgJSONLD.push({
-        '@context': 'http://schema.org',
-        '@type': 'Organization',
-        name: 'Origine Creative',
-        url: 'https://originecreative.com',
-        logo: 'https://originecreative.com/logo.png', // Or wherever the real logo is
-        sameAs: [
-            'https://www.linkedin.com/company/originecreative',
-            'https://www.instagram.com/origine.creative'
-        ]
-    });
-
-    // Article Schema for Blog Posts
-    if (type === 'article' && article) {
-        schemaOrgJSONLD.push({
-            '@context': 'http://schema.org',
-            '@type': 'Article',
-            headline: title,
-            image: [image],
-            datePublished: new Date(article.publishedTime).toISOString(),
-            dateModified: new Date(article.publishedTime).toISOString(),
-            author: [{
-                '@type': 'Person',
-                name: article.author
-            }],
-            publisher: {
-                '@type': 'Organization',
-                name: 'Origine Creative',
-                logo: {
-                    '@type': 'ImageObject',
-                    url: 'https://originecreative.com/logo.png'
-                }
-            },
-            description: description,
-        });
-    }
+    const url = SITE_URL + (path === '/' ? '/' : path.replace(/\/$/, ''));
+    const graph = { '@context': 'https://schema.org', '@graph': [ORGANIZATION, ...schema] };
 
     return (
         <Helmet>
-            {/* Standard Primary Meta Tags */}
             <title>{title}</title>
             <meta name="description" content={description} />
+            <link rel="canonical" href={url} />
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content={type} />
+            <meta property="og:site_name" content="Origine Creative" />
             <meta property="og:url" content={url} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
 
             {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={url} />
-            <meta property="twitter:title" content={title} />
-            <meta property="twitter:description" content={description} />
-            <meta property="twitter:image" content={image} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={image} />
 
-            {/* Schema.org JSON-LD */}
-            <script type="application/ld+json">
-                {JSON.stringify(schemaOrgJSONLD.length === 1 ? schemaOrgJSONLD[0] : schemaOrgJSONLD)}
-            </script>
+            <script type="application/ld+json">{JSON.stringify(graph)}</script>
         </Helmet>
     );
 }

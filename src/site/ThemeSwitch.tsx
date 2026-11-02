@@ -9,11 +9,14 @@ const dark = () => {
 };
 
 export function ThemeSwitch({ label }: { label: string }) {
-  const [isDark, setDark] = useState(dark);
+  // Starts light so the prerendered page and the first render agree; the
+  // real state is read once mounted.
+  const [isDark, setDark] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     const sync = () => setDark(dark());
+    sync();
     media.addEventListener('change', sync);
     return () => media.removeEventListener('change', sync);
   }, []);

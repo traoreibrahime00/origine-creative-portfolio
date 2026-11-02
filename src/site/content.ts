@@ -27,6 +27,19 @@ export type Project = {
   story: Block[];
 };
 
+// Each service has its own page at /services/:slug, written for search engines
+export type Service = {
+  slug: string;
+  title: T;
+  desc: T;
+  seoTitle: T;
+  seoDescription: T;
+  intro: T[];
+  deliverables: T[];
+  projects: string[];
+  faq: { q: T; a: T }[];
+};
+
 export type SlotLink = { key: string; label: T; project?: string };
 
 export type Site = {
@@ -37,7 +50,7 @@ export type Site = {
   studio: { title: T; line: T; paragraphs: T[]; facts: Fact[] };
   method: { title: T; line: T; intro: T; steps: { label: T; text: T }[] };
   expertise: { text: T; links: SlotLink[] };
-  services: { intro: T; items: { title: T; desc: T }[]; outro: T; cta: T; ctaLink: T };
+  services: { intro: T; items: Service[]; outro: T; cta: T; ctaLink: T };
   projects: Project[];
   gallery: { img: Img; title: string; meta: T }[];
   footerLine: T;
@@ -85,6 +98,12 @@ export const COPY = {
   legal: { fr: 'Mentions légales', en: 'Legal notice' },
   privacy: { fr: 'Confidentialité', en: 'Privacy' },
   theme: { fr: 'Mode sombre', en: 'Dark mode' },
+  more: { fr: 'Découvrir ce pôle', en: 'Explore this area' },
+  deliverables: { fr: 'Ce que nous livrons', en: 'What we deliver' },
+  method: { fr: 'Notre méthode', en: 'Our method' },
+  related: { fr: 'Projets liés', en: 'Related projects' },
+  faq: { fr: 'Questions fréquentes', en: 'Questions' },
+  start: { fr: 'Parler de votre projet', en: 'Tell us about your project' },
 };
 
 // ---- Journal ----
