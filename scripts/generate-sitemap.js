@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://origine-creative.com';
+const SITE_URL = 'https://originecreative.com';
 
 function generateSitemap() {
     const sitemapPath = path.resolve(process.cwd(), 'public', 'sitemap.xml');
@@ -13,6 +13,7 @@ function generateSitemap() {
         '/projets',
         '/blog',
         '/a-propos',
+        '/methode',
         '/contact',
         '/mentions-legales',
         '/politique-de-confidentialite'
@@ -31,17 +32,18 @@ function generateSitemap() {
   </url>`;
     });
 
-    // Add dynamic project routes
+    // Add project routes: each project opens at /projets/:slug
     try {
-        const projectsPath = path.resolve(process.cwd(), 'src', 'data', 'projects.json');
-        if (fs.existsSync(projectsPath)) {
-            const projects = JSON.parse(fs.readFileSync(projectsPath, 'utf8'));
-            projects.forEach((project) => {
-                // If the site had detailed project pages via slug, we would map them here. 
-                // Currently, projects are handled by modals on the /projets page.
-                // But for SEO, we should ensure the /projets page is indexed, which it is in staticRoutes.
-                // We'll skip individual project URLs for now since they are rendered via modals on /projets without unique URLs.
-                // *If* there are unique URLs for projects later, add them here.
+        const sitePath = path.resolve(process.cwd(), 'src', 'data', 'site.json');
+        if (fs.existsSync(sitePath)) {
+            const site = JSON.parse(fs.readFileSync(sitePath, 'utf8'));
+            (site.projects || []).forEach((project) => {
+                urls += `
+  <url>
+    <loc>${SITE_URL}/projets/${project.slug}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
             });
         }
     } catch (e) {

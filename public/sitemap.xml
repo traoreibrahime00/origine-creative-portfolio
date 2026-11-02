@@ -2,67 +2,88 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://origine-creative.com/</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/services</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/services</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/projets</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/projets</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/blog</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/blog</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/a-propos</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/a-propos</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/contact</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/methode</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/mentions-legales</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/contact</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/politique-de-confidentialite</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://originecreative.com/mentions-legales</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/blog/importance-identite-visuelle-afrique</loc>
+    <loc>https://originecreative.com/politique-de-confidentialite</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/projets/agri-build</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/projets/katana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/projets/dj-arafat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/blog/importance-identite-visuelle-afrique</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/blog/communication-digitale-tendances-2026</loc>
+    <loc>https://originecreative.com/blog/communication-digitale-tendances-2026</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://origine-creative.com/blog/rebranding-quand-changer-identite</loc>
+    <loc>https://originecreative.com/blog/rebranding-quand-changer-identite</loc>
     <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

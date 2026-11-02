@@ -335,8 +335,9 @@ function visibleOpener(article: Sheet) {
 
 export function setSheetOpen(article: Sheet, open: boolean, instant = false) {
   const animate = !instant && !reduceMotion();
-  const scroller = article.querySelector<HTMLElement>('.sheet-scroll')!;
-  const closer = article.querySelector<HTMLElement>('.sheet-close')!;
+  const scroller = article.querySelector<HTMLElement>('.sheet-scroll');
+  const closer = article.querySelector<HTMLElement>('.sheet-close');
+  if (!scroller || !closer) return;
   const closing = article.classList.contains('is-closing');
   if (open === (article.classList.contains('is-open') && !closing)) return;
   const card = visibleOpener(article) || article._opener || null;

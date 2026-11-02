@@ -16,8 +16,8 @@ interface SEOProps {
 export function SEO({
     title = 'Origine Creative | L\'Agence Africaine',
     description = 'Agence de communication globale, branding, et stratégie digitale basée en Afrique.',
-    url = 'https://origine-creative.com',
-    image = 'https://origine-creative.com/og-image.jpg',
+    url = 'https://originecreative.com',
+    image = 'https://originecreative.com/og-image.png',
     type = 'website',
     article
 }: SEOProps) {
@@ -29,8 +29,8 @@ export function SEO({
         '@context': 'http://schema.org',
         '@type': 'Organization',
         name: 'Origine Creative',
-        url: 'https://origine-creative.com',
-        logo: 'https://origine-creative.com/logo.png', // Or wherever the real logo is
+        url: 'https://originecreative.com',
+        logo: 'https://originecreative.com/logo.png', // Or wherever the real logo is
         sameAs: [
             'https://www.linkedin.com/company/originecreative',
             'https://www.instagram.com/origine.creative'
@@ -55,7 +55,7 @@ export function SEO({
                 name: 'Origine Creative',
                 logo: {
                     '@type': 'ImageObject',
-                    url: 'https://origine-creative.com/logo.png'
+                    url: 'https://originecreative.com/logo.png'
                 }
             },
             description: description,

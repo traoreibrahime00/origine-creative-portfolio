@@ -31,8 +31,13 @@
     <!-- Page colour before the styles load, light or dark like the system -->
     <style>
       html, body { background-color: #ffffff; }
-      @media (prefers-color-scheme: dark) { html, body { background-color: #111111; } }
+      @media (prefers-color-scheme: dark) { html:not([data-theme="light"]), html:not([data-theme="light"]) body { background-color: #111111; } }
+      html[data-theme="dark"], html[data-theme="dark"] body { background-color: #111111; }
     </style>
+    <!-- The light/dark choice from the switch, applied before first paint -->
+    <script>
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
 
     <!-- Google Fonts: Inter, one grotesk throughout -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

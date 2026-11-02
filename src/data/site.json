@@ -1,0 +1,1110 @@
+{
+  "contact": {
+    "email": "Traore@originecreative.com",
+    "phone": "+225 07 49 06 55 94",
+    "whatsapp": "https://wa.me/2250749065594",
+    "location": {
+      "fr": "Abidjan, Côte d’Ivoire",
+      "en": "Abidjan, Côte d’Ivoire"
+    },
+    "booking": ""
+  },
+  "identity": {
+    "title": {
+      "fr": "Branding · Design · Digital",
+      "en": "Branding · Design · Digital"
+    }
+  },
+  "hero": {
+    "text": {
+      "fr": "Nous donnons forme aux marques qui veulent faire la différence.",
+      "en": "We shape brands that want to make a difference."
+    },
+    "sub": {
+      "fr": "Stratégie, branding, design et expériences digitales. Nous accompagnons les entreprises dans la construction d'{identites} et de {communications}.",
+      "en": "Strategy, branding, design and digital experiences. We help companies build {identites} and {communications}."
+    },
+    "links": [
+      {
+        "key": "identites",
+        "label": {
+          "fr": "identités fortes",
+          "en": "strong identities"
+        },
+        "project": "agri-build"
+      },
+      {
+        "key": "communications",
+        "label": {
+          "fr": "communications mémorables",
+          "en": "memorable communication"
+        },
+        "project": "katana"
+      }
+    ],
+    "ctaProjects": {
+      "fr": "Découvrir nos projets",
+      "en": "See our projects"
+    },
+    "ctaContact": {
+      "fr": "Parler de votre projet",
+      "en": "Tell us about your project"
+    }
+  },
+  "studio": {
+    "title": {
+      "fr": "Le studio",
+      "en": "The studio"
+    },
+    "line": {
+      "fr": "Studio créatif, marques et expériences",
+      "en": "Creative studio, brands and experiences"
+    },
+    "paragraphs": [
+      {
+        "fr": "Origine Creative est un studio créatif spécialisé dans la construction de marques fortes et la création d'expériences visuelles et digitales.",
+        "en": "Origine Creative is a creative studio that builds strong brands and creates visual and digital experiences."
+      },
+      {
+        "fr": "Née de la volonté de repenser la communication sur le continent africain, Origine Creative accompagne les marques ambitieuses comme partenaire stratégique.",
+        "en": "Born from the wish to rethink communication on the African continent, Origine Creative works with ambitious brands as a strategic partner."
+      },
+      {
+        "fr": "Le design n’est pas qu’une question d’esthétique, c’est un levier de croissance. Nous construisons des avantages concurrentiels, de l’engagement et du leadership pour nos clients.",
+        "en": "Design is not only about looks, it is a lever for growth. We build competitive advantage, engagement and leadership for our clients."
+      },
+      {
+        "fr": "Nous allions une compréhension fine des contextes culturels locaux à une exigence internationale : l’excellence créative doit toujours servir une vision d’affaires claire.",
+        "en": "We pair a close understanding of local culture with international standards: creative excellence should always serve a clear business vision."
+      }
+    ],
+    "facts": [
+      {
+        "label": {
+          "fr": "Où",
+          "en": "Where"
+        },
+        "value": {
+          "fr": "Abidjan, Côte d’Ivoire",
+          "en": "Abidjan, Côte d’Ivoire"
+        }
+      },
+      {
+        "label": {
+          "fr": "Pour qui",
+          "en": "For"
+        },
+        "value": {
+          "fr": "Entreprises et marques ambitieuses, partout sur le continent",
+          "en": "Ambitious companies and brands across the continent"
+        }
+      },
+      {
+        "label": {
+          "fr": "Valeurs",
+          "en": "Values"
+        },
+        "value": {
+          "fr": "Excellence, audace, impact, authenticité",
+          "en": "Excellence, boldness, impact, authenticity"
+        }
+      },
+      {
+        "label": {
+          "fr": "Email",
+          "en": "Email"
+        },
+        "value": {
+          "fr": "Traore@originecreative.com",
+          "en": "Traore@originecreative.com"
+        },
+        "href": "mailto:Traore@originecreative.com"
+      }
+    ]
+  },
+  "method": {
+    "title": {
+      "fr": "Méthode",
+      "en": "Method"
+    },
+    "line": {
+      "fr": "Quatre étapes, de l'audit au déploiement",
+      "en": "Four steps, from audit to roll-out"
+    },
+    "intro": {
+      "fr": "Une démarche rigoureuse en quatre étapes, pour que chaque décision créative serve un objectif.",
+      "en": "A rigorous four-step process, so every creative decision serves a goal."
+    },
+    "steps": [
+      {
+        "label": {
+          "fr": "Immersion & audit",
+          "en": "Immersion & audit"
+        },
+        "text": {
+          "fr": "Analyse de votre marché, de vos publics et de votre image actuelle pour identifier les leviers de croissance.",
+          "en": "We study your market, your audiences and your current image to find the levers for growth."
+        }
+      },
+      {
+        "label": {
+          "fr": "Stratégie",
+          "en": "Strategy"
+        },
+        "text": {
+          "fr": "Positionnement, plateforme de marque et plan de communication : les décisions qui guident la création.",
+          "en": "Positioning, brand platform and communication plan: the decisions that guide the creative work."
+        }
+      },
+      {
+        "label": {
+          "fr": "Création & design",
+          "en": "Creation & design"
+        },
+        "text": {
+          "fr": "La stratégie devient une identité visuelle, un récit et des supports concrets.",
+          "en": "Strategy becomes a visual identity, a story and real-world materials."
+        }
+      },
+      {
+        "label": {
+          "fr": "Déploiement",
+          "en": "Roll-out"
+        },
+        "text": {
+          "fr": "Lancement, déclinaisons sur tous les supports et suivi pour une résonance maximale auprès de votre cible.",
+          "en": "Launch, roll-out across every channel and follow-up, so it lands with the people it is meant for."
+        }
+      }
+    ]
+  },
+  "expertise": {
+    "text": {
+      "fr": "Nous travaillons en quatre pôles : {strategy}, {art}, {digital} et {motion}.",
+      "en": "We work in four areas: {strategy}, {art}, {digital} and {motion}."
+    },
+    "links": [
+      {
+        "key": "strategy",
+        "label": {
+          "fr": "stratégie & identité de marque",
+          "en": "brand strategy & identity"
+        }
+      },
+      {
+        "key": "art",
+        "label": {
+          "fr": "direction artistique & communication",
+          "en": "art direction & communication"
+        }
+      },
+      {
+        "key": "digital",
+        "label": {
+          "fr": "expériences digitales",
+          "en": "digital experiences"
+        }
+      },
+      {
+        "key": "motion",
+        "label": {
+          "fr": "motion & production créative",
+          "en": "motion & creative production"
+        }
+      }
+    ]
+  },
+  "services": {
+    "intro": {
+      "fr": "Notre travail se situe à l’intersection de la stratégie, du design et de l’artisanat. Nous partons de votre marché, de votre culture et de vos objectifs, puis nous construisons une image qui tient sur chaque support, du logo au panneau de chantier.",
+      "en": "Our work sits at the intersection of strategy, design and craft. We start from your market, your culture and your goals, then build an image that holds on every surface, from the logo to the site hoarding."
+    },
+    "items": [
+      {
+        "title": {
+          "fr": "Brand Strategy & Identity",
+          "en": "Brand Strategy & Identity"
+        },
+        "desc": {
+          "fr": "Stratégie de marque, naming, plateforme de marque, identité visuelle et charte graphique.",
+          "en": "Brand strategy, naming, brand platform, visual identity and brand guidelines."
+        }
+      },
+      {
+        "title": {
+          "fr": "Art Direction & Communication",
+          "en": "Art Direction & Communication"
+        },
+        "desc": {
+          "fr": "Direction artistique, campagnes publicitaires, supports de communication et design graphique.",
+          "en": "Art direction, advertising campaigns, communication materials and graphic design."
+        }
+      },
+      {
+        "title": {
+          "fr": "Digital Experiences",
+          "en": "Digital Experiences"
+        },
+        "desc": {
+          "fr": "UX/UI design, conception de sites web, interfaces digitales et expériences interactives.",
+          "en": "UX/UI design, websites, digital interfaces and interactive experiences."
+        }
+      },
+      {
+        "title": {
+          "fr": "Motion & Creative Production",
+          "en": "Motion & Creative Production"
+        },
+        "desc": {
+          "fr": "Motion design, vidéos publicitaires, contenus créatifs et production visuelle assistée par IA.",
+          "en": "Motion design, advertising films, creative content and AI-assisted visual production."
+        }
+      }
+    ],
+    "outro": {
+      "fr": "Nous accompagnons les entreprises qui voient le design comme un levier de croissance, pas comme une décoration.",
+      "en": "We work with companies that see design as a lever for growth, not as decoration."
+    },
+    "cta": {
+      "fr": "Si vous cherchez un partenaire qui voit l’ensemble et soigne chaque détail, {cta}.",
+      "en": "If you are looking for a partner who sees the whole and still cares for every detail, {cta}."
+    },
+    "ctaLink": {
+      "fr": "écrivez-nous",
+      "en": "write to us"
+    }
+  },
+  "projects": [
+    {
+      "slug": "agri-build",
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Identité",
+        "en": "Identity"
+      },
+      "fill": "#e9eef8",
+      "cover": {
+        "src": "/media/1772109241630-cover_CHARTE_GRAPHIQUE_AGRI_BUILD_v256.jpg",
+        "small": "/media/1772109241630-cover_CHARTE_GRAPHIQUE_AGRI_BUILD_v256-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Casque de chantier aux couleurs AGRI BUILD",
+          "en": "A hard hat in the AGRI BUILD colours"
+        }
+      },
+      "intro": [
+        {
+          "fr": "AGRI BUILD est active dans plusieurs domaines clés : agriculture, élevage, commerce, immobilier et vente. Cette diversité reflète l’ampleur de son impact économique et social.",
+          "en": "AGRI BUILD works across several key fields: agriculture, livestock, trade, real estate and sales. That range reflects the size of its economic and social footprint."
+        },
+        {
+          "fr": "La charte graphique garantit une cohérence visuelle et une identité forte sur l’ensemble des supports de communication.",
+          "en": "The brand guidelines keep every communication surface consistent and the identity strong."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Client",
+            "en": "Client"
+          },
+          "value": {
+            "fr": "AGRI BUILD",
+            "en": "AGRI BUILD"
+          }
+        },
+        {
+          "label": {
+            "fr": "Secteurs",
+            "en": "Sectors"
+          },
+          "value": {
+            "fr": "Agriculture, élevage, commerce, immobilier, vente",
+            "en": "Agriculture, livestock, trade, real estate, sales"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Identité & stratégie de marque",
+            "en": "Identity & brand strategy"
+          }
+        },
+        {
+          "label": {
+            "fr": "Livrables",
+            "en": "Deliverables"
+          },
+          "value": {
+            "fr": "Logo, charte graphique, print, digital, signalétique",
+            "en": "Logo, guidelines, print, digital, signage"
+          }
+        }
+      ],
+      "story": [
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Le défi",
+            "en": "The challenge"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "AGRI BUILD opérait dans cinq secteurs sans identité visuelle unifiée. Chaque branche avait développé ses propres supports de son côté, ce qui brouillait le message auprès des clients et des partenaires.",
+            "en": "AGRI BUILD operated in five sectors without a unified visual identity. Each branch had made its own materials, which blurred the message for clients and partners."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/1772109301619-CHARTE_GRAPHIQUE_AGRI_BUILD_v2.jpg",
+              "small": "/media/1772109301619-CHARTE_GRAPHIQUE_AGRI_BUILD_v2-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Couverture de la charte graphique AGRI BUILD",
+                "en": "Cover of the AGRI BUILD brand guidelines"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "La charte graphique AGRI BUILD.",
+            "en": "The AGRI BUILD brand guidelines."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Notre stratégie",
+            "en": "Our approach"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Un audit complet de la marque, puis un système d’identité modulaire : un logo déclinable par secteur, une charte qui couvre le print, le digital et la signalétique, et un guide pour garder la cohérence dans le temps.",
+            "en": "A full brand audit, then a modular identity system: a logo that adapts per sector, guidelines covering print, digital and signage, and a guide that keeps it consistent over time."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/1772109301650-CHARTE_GRAPHIQUE_AGRI_BUILD_v25.jpg",
+              "small": "/media/1772109301650-CHARTE_GRAPHIQUE_AGRI_BUILD_v25-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Le logo AGRI BUILD et sa signature",
+                "en": "The AGRI BUILD logo and its tagline"
+              }
+            },
+            {
+              "src": "/media/1772109301679-CHARTE_GRAPHIQUE_AGRI_BUILD_v29.jpg",
+              "small": "/media/1772109301679-CHARTE_GRAPHIQUE_AGRI_BUILD_v29-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Construction du logo sur sa grille",
+                "en": "The logo built on its grid"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Le logo et sa construction.",
+            "en": "The logo and its construction."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/1772109301699-CHARTE_GRAPHIQUE_AGRI_BUILD_v212.jpg",
+              "small": "/media/1772109301699-CHARTE_GRAPHIQUE_AGRI_BUILD_v212-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "La palette : bleu, orange, noir et blanc",
+                "en": "The palette: blue, orange, black and white"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Bleu et orange : la terre et le chantier.",
+            "en": "Blue and orange: the land and the building site."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/1772109301746-CHARTE_GRAPHIQUE_AGRI_BUILD_v215.jpg",
+              "small": "/media/1772109301746-CHARTE_GRAPHIQUE_AGRI_BUILD_v215-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Typographie Intel One",
+                "en": "Intel One typeface"
+              }
+            },
+            {
+              "src": "/media/1772109301706-CHARTE_GRAPHIQUE_AGRI_BUILD_v221.jpg",
+              "small": "/media/1772109301706-CHARTE_GRAPHIQUE_AGRI_BUILD_v221-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Pictogrammes de la marque",
+                "en": "The brand icons"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Typographie et pictogrammes.",
+            "en": "Type and icons."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Le résultat",
+            "en": "The result"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Une identité professionnelle qui réunit les cinq branches sous une même vision. AGRI BUILD communique désormais d’une seule voix, du papier à en-tête au panneau de chantier.",
+            "en": "A professional identity that brings the five branches under one vision. AGRI BUILD now speaks with one voice, from the letterhead to the site hoarding."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/1772109302267-CHARTE_GRAPHIQUE_AGRI_BUILD_v250.jpg",
+              "small": "/media/1772109302267-CHARTE_GRAPHIQUE_AGRI_BUILD_v250-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Panneau d’affichage AGRI BUILD",
+                "en": "AGRI BUILD billboard"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "L’identité dans la rue.",
+            "en": "The identity on the street."
+          }
+        },
+        {
+          "kind": "strip",
+          "images": [
+            {
+              "src": "/media/1772109301795-CHARTE_GRAPHIQUE_AGRI_BUILD_v224.jpg",
+              "small": "/media/1772109301795-CHARTE_GRAPHIQUE_AGRI_BUILD_v224-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Papeterie AGRI BUILD",
+                "en": "AGRI BUILD stationery"
+              }
+            },
+            {
+              "src": "/media/1772109301933-CHARTE_GRAPHIQUE_AGRI_BUILD_v230.jpg",
+              "small": "/media/1772109301933-CHARTE_GRAPHIQUE_AGRI_BUILD_v230-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "T-shirts de l’équipe",
+                "en": "Team T-shirts"
+              }
+            },
+            {
+              "src": "/media/1772109302046-CHARTE_GRAPHIQUE_AGRI_BUILD_v235.jpg",
+              "small": "/media/1772109302046-CHARTE_GRAPHIQUE_AGRI_BUILD_v235-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Gilets de chantier orange",
+                "en": "Orange site vests"
+              }
+            },
+            {
+              "src": "/media/1772109302002-CHARTE_GRAPHIQUE_AGRI_BUILD_v232.jpg",
+              "small": "/media/1772109302002-CHARTE_GRAPHIQUE_AGRI_BUILD_v232-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Cartes de visite",
+                "en": "Business cards"
+              }
+            },
+            {
+              "src": "/media/1772109301872-CHARTE_GRAPHIQUE_AGRI_BUILD_v226.jpg",
+              "small": "/media/1772109301872-CHARTE_GRAPHIQUE_AGRI_BUILD_v226-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Chemise et documents imprimés",
+                "en": "Folder and printed documents"
+              }
+            },
+            {
+              "src": "/media/1772109302087-CHARTE_GRAPHIQUE_AGRI_BUILD_v236.jpg",
+              "small": "/media/1772109302087-CHARTE_GRAPHIQUE_AGRI_BUILD_v236-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Gilet de chantier, dos",
+                "en": "Site vest, back"
+              }
+            },
+            {
+              "src": "/media/1772109302147-CHARTE_GRAPHIQUE_AGRI_BUILD_v244.jpg",
+              "small": "/media/1772109302147-CHARTE_GRAPHIQUE_AGRI_BUILD_v244-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Enveloppe et carte",
+                "en": "Envelope and card"
+              }
+            },
+            {
+              "src": "/media/1772109302187-CHARTE_GRAPHIQUE_AGRI_BUILD_v245.jpg",
+              "small": "/media/1772109302187-CHARTE_GRAPHIQUE_AGRI_BUILD_v245-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Papier à en-tête",
+                "en": "Letterhead"
+              }
+            },
+            {
+              "src": "/media/1772109302345-CHARTE_GRAPHIQUE_AGRI_BUILD_v251.jpg",
+              "small": "/media/1772109302345-CHARTE_GRAPHIQUE_AGRI_BUILD_v251-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Panneau « À vendre »",
+                "en": "“For sale” sign"
+              }
+            },
+            {
+              "src": "/media/1772109302372-CHARTE_GRAPHIQUE_AGRI_BUILD_v255.jpg",
+              "small": "/media/1772109302372-CHARTE_GRAPHIQUE_AGRI_BUILD_v255-720.jpg",
+              "r": 1.5968,
+              "alt": {
+                "fr": "Casque orange",
+                "en": "Orange hard hat"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "quote",
+          "text": {
+            "fr": "« Origine Creative a su comprendre la complexité de notre activité multisectorielle et l’a traduite en une identité visuelle claire et puissante. »",
+            "en": "“Origine Creative understood the complexity of our multi-sector business and turned it into a clear, powerful visual identity.”"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "katana",
+      "title": "KATANA",
+      "meta": {
+        "fr": "Communication",
+        "en": "Communication"
+      },
+      "fill": "#f3e6e3",
+      "cover": {
+        "src": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04.jpg",
+        "small": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04-720.jpg",
+        "r": 1.1552,
+        "alt": {
+          "fr": "Flyers KATANA Prestation",
+          "en": "KATANA Prestation flyers"
+        }
+      },
+      "intro": [
+        {
+          "fr": "Katana Prestation vend des huiles, des pièces et des produits automobiles, aux particuliers comme aux professionnels. L’entreprise accompagne conducteurs, mécaniciens et entreprises dans l’entretien, la performance et la longévité de leurs engins.",
+          "en": "Katana Prestation sells oils, parts and car products to individuals and professionals alike, helping drivers, mechanics and companies keep their vehicles running well and for longer."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Client",
+            "en": "Client"
+          },
+          "value": {
+            "fr": "Katana Prestation",
+            "en": "Katana Prestation"
+          }
+        },
+        {
+          "label": {
+            "fr": "Secteur",
+            "en": "Sector"
+          },
+          "value": {
+            "fr": "Automobile",
+            "en": "Automotive"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Communication digitale, flyers",
+            "en": "Digital communication, flyers"
+          }
+        },
+        {
+          "label": {
+            "fr": "Lien",
+            "en": "Link"
+          },
+          "value": {
+            "fr": "Behance ↗",
+            "en": "Behance ↗"
+          },
+          "href": "https://www.behance.net/gallery/242359173/FLYER-DESIGN-KATANA-PRESTATION"
+        }
+      ],
+      "story": [
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8c84c1242359173.696b5b2922fd1.png",
+              "r": 0.7044,
+              "alt": {
+                "fr": "Flyer KATANA, recto",
+                "en": "KATANA flyer, front"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Le flyer principal.",
+            "en": "The main flyer."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/df2e03242359173.696b5b2923551.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyer KATANA en situation",
+                "en": "KATANA flyer in context"
+              }
+            },
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/86e611242359173.696b5b2924086.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyers KATANA, détail",
+                "en": "KATANA flyers, detail"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "En situation.",
+            "en": "In context."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0895b4242359173.696b5b2923b3d.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyers KATANA, série",
+                "en": "KATANA flyers, series"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dj-arafat",
+      "title": "DJ Arafat",
+      "meta": {
+        "fr": "Création artistique",
+        "en": "Artistic work"
+      },
+      "fill": "#ebe8e3",
+      "cover": {
+        "src": "/media/1772109817859-cover_Capture_d_e_cran_2026-02-26_a__12.43.27.jpg",
+        "small": "/media/1772109817859-cover_Capture_d_e_cran_2026-02-26_a__12.43.27-720.jpg",
+        "r": 1.6064,
+        "alt": {
+          "fr": "Pochette d’album en hommage à DJ Arafat",
+          "en": "Album cover in tribute to DJ Arafat"
+        }
+      },
+      "intro": [
+        {
+          "fr": "Un hommage artistique au légendaire DJ Arafat, icône du coupé-décalé ivoirien. Cette pochette d’album allie photographie et direction artistique pour saisir l’énergie et l’héritage d’un artiste qui a marqué toute une génération.",
+          "en": "An artistic tribute to the legendary DJ Arafat, icon of Ivorian coupé-décalé. This album cover brings photography and art direction together to capture the energy and legacy of an artist who marked a generation."
+        },
+        {
+          "fr": "Il s’agit d’une création personnelle du studio, en mémoire de l’artiste, et non d’une commande.",
+          "en": "It is a personal piece by the studio, in the artist’s memory, not a commission."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Nature",
+            "en": "Type"
+          },
+          "value": {
+            "fr": "Création personnelle, hommage",
+            "en": "Personal piece, tribute"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Direction artistique, pochette d’album",
+            "en": "Art direction, album cover"
+          }
+        },
+        {
+          "label": {
+            "fr": "Lien",
+            "en": "Link"
+          },
+          "value": {
+            "fr": "Behance ↗",
+            "en": "Behance ↗"
+          },
+          "href": "https://www.behance.net/gallery/230756873/DJ-ARAFAT-ALBUM-COVER-(In-Memory)"
+        }
+      ],
+      "story": [
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/ab6f7e230756873.687cee59097ec.png",
+              "r": 1.7305,
+              "alt": {
+                "fr": "Pochette hommage à DJ Arafat",
+                "en": "DJ Arafat tribute cover"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/97a64f230756873.687cee5908488.png",
+              "r": 1.7305,
+              "alt": {
+                "fr": "Pochette, déclinaison",
+                "en": "Cover, variation"
+              }
+            },
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d0c8e1230756873.687cee5908c9c.png",
+              "r": 1.7305,
+              "alt": {
+                "fr": "Pochette, mise en situation",
+                "en": "Cover, mock-up"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Déclinaisons.",
+            "en": "Variations."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/cecef9230756873.687cee59091a4.png",
+              "r": 1.7305,
+              "alt": {
+                "fr": "Pochette, vinyle",
+                "en": "Cover, vinyl"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/8accca230756873.687cee5909f82.png",
+              "r": 1.7305,
+              "alt": {
+                "fr": "Pochette, détail",
+                "en": "Cover, detail"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "img": {
+        "src": "/media/1772109241630-cover_CHARTE_GRAPHIQUE_AGRI_BUILD_v256.jpg",
+        "small": "/media/1772109241630-cover_CHARTE_GRAPHIQUE_AGRI_BUILD_v256-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Casque de chantier aux couleurs AGRI BUILD",
+          "en": "A hard hat in the AGRI BUILD colours"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Casque, identité",
+        "en": "Hard hat, identity"
+      }
+    },
+    {
+      "img": {
+        "src": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8c84c1242359173.696b5b2922fd1.png",
+        "r": 0.7044,
+        "alt": {
+          "fr": "Flyer KATANA, recto",
+          "en": "KATANA flyer, front"
+        }
+      },
+      "title": "KATANA",
+      "meta": {
+        "fr": "Flyer",
+        "en": "Flyer"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109301933-CHARTE_GRAPHIQUE_AGRI_BUILD_v230.jpg",
+        "small": "/media/1772109301933-CHARTE_GRAPHIQUE_AGRI_BUILD_v230-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "T-shirts de l’équipe",
+          "en": "Team T-shirts"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "T-shirts",
+        "en": "T-shirts"
+      }
+    },
+    {
+      "img": {
+        "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/ab6f7e230756873.687cee59097ec.png",
+        "r": 1.7305,
+        "alt": {
+          "fr": "Pochette hommage à DJ Arafat",
+          "en": "DJ Arafat tribute cover"
+        }
+      },
+      "title": "DJ Arafat",
+      "meta": {
+        "fr": "Pochette, hommage",
+        "en": "Cover, tribute"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109301746-CHARTE_GRAPHIQUE_AGRI_BUILD_v215.jpg",
+        "small": "/media/1772109301746-CHARTE_GRAPHIQUE_AGRI_BUILD_v215-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Typographie Intel One",
+          "en": "Intel One typeface"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Typographie",
+        "en": "Typography"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109302267-CHARTE_GRAPHIQUE_AGRI_BUILD_v250.jpg",
+        "small": "/media/1772109302267-CHARTE_GRAPHIQUE_AGRI_BUILD_v250-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Panneau d’affichage AGRI BUILD",
+          "en": "AGRI BUILD billboard"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Affichage",
+        "en": "Billboard"
+      }
+    },
+    {
+      "img": {
+        "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/df2e03242359173.696b5b2923551.png",
+        "r": 1.3333,
+        "alt": {
+          "fr": "Flyer KATANA en situation",
+          "en": "KATANA flyer in context"
+        }
+      },
+      "title": "KATANA",
+      "meta": {
+        "fr": "Flyer en situation",
+        "en": "Flyer in context"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109302046-CHARTE_GRAPHIQUE_AGRI_BUILD_v235.jpg",
+        "small": "/media/1772109302046-CHARTE_GRAPHIQUE_AGRI_BUILD_v235-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Gilets de chantier orange",
+          "en": "Orange site vests"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Gilets de chantier",
+        "en": "Site vests"
+      }
+    },
+    {
+      "img": {
+        "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d0c8e1230756873.687cee5908c9c.png",
+        "r": 1.7305,
+        "alt": {
+          "fr": "Pochette, mise en situation",
+          "en": "Cover, mock-up"
+        }
+      },
+      "title": "DJ Arafat",
+      "meta": {
+        "fr": "Mise en situation",
+        "en": "Mock-up"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109301650-CHARTE_GRAPHIQUE_AGRI_BUILD_v25.jpg",
+        "small": "/media/1772109301650-CHARTE_GRAPHIQUE_AGRI_BUILD_v25-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Le logo AGRI BUILD et sa signature",
+          "en": "The AGRI BUILD logo and its tagline"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Logo",
+        "en": "Logo"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109301795-CHARTE_GRAPHIQUE_AGRI_BUILD_v224.jpg",
+        "small": "/media/1772109301795-CHARTE_GRAPHIQUE_AGRI_BUILD_v224-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Papeterie AGRI BUILD",
+          "en": "AGRI BUILD stationery"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Papeterie",
+        "en": "Stationery"
+      }
+    },
+    {
+      "img": {
+        "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/86e611242359173.696b5b2924086.png",
+        "r": 1.3333,
+        "alt": {
+          "fr": "Flyers KATANA, détail",
+          "en": "KATANA flyers, detail"
+        }
+      },
+      "title": "KATANA",
+      "meta": {
+        "fr": "Détail",
+        "en": "Detail"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109302345-CHARTE_GRAPHIQUE_AGRI_BUILD_v251.jpg",
+        "small": "/media/1772109302345-CHARTE_GRAPHIQUE_AGRI_BUILD_v251-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Panneau « À vendre »",
+          "en": "“For sale” sign"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Signalétique",
+        "en": "Signage"
+      }
+    },
+    {
+      "img": {
+        "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/cecef9230756873.687cee59091a4.png",
+        "r": 1.7305,
+        "alt": {
+          "fr": "Pochette, vinyle",
+          "en": "Cover, vinyl"
+        }
+      },
+      "title": "DJ Arafat",
+      "meta": {
+        "fr": "Vinyle",
+        "en": "Vinyl"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109301699-CHARTE_GRAPHIQUE_AGRI_BUILD_v212.jpg",
+        "small": "/media/1772109301699-CHARTE_GRAPHIQUE_AGRI_BUILD_v212-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "La palette : bleu, orange, noir et blanc",
+          "en": "The palette: blue, orange, black and white"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Couleurs",
+        "en": "Colours"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/1772109302372-CHARTE_GRAPHIQUE_AGRI_BUILD_v255.jpg",
+        "small": "/media/1772109302372-CHARTE_GRAPHIQUE_AGRI_BUILD_v255-720.jpg",
+        "r": 1.5968,
+        "alt": {
+          "fr": "Casque orange",
+          "en": "Orange hard hat"
+        }
+      },
+      "title": "AGRI BUILD",
+      "meta": {
+        "fr": "Casque orange",
+        "en": "Orange hard hat"
+      }
+    }
+  ],
+  "footerLine": {
+    "fr": "Des marques qui marquent.",
+    "en": "Brands that leave a mark."
+  }
+}

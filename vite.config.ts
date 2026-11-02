@@ -307,6 +307,53 @@ ${systemContext || "Portefeuille: Agri Build, Equinoxe, Katana..."}`;
           })
           return;
         }
+        // Local stand-in for api/admin.ts: same actions, written to disk, no password
+        if (req.url === '/api/admin' && req.method === 'POST') {
+          let body = ''
+          req.on('data', (chunk: any) => { body += chunk.toString() })
+          req.on('end', () => {
+            const send = (status: number, data: any) => {
+              res.statusCode = status
+              res.setHeader('Content-Type', 'application/json')
+              res.end(JSON.stringify(data))
+            }
+            try {
+              const input = JSON.parse(body || '{}')
+              const files: Record<string, string> = {
+                site: path.resolve(__dirname, './src/data/site.json'),
+                blog: path.resolve(__dirname, './src/data/blog.json'),
+              }
+              if (input.action === 'load') {
+                return send(200, {
+                  site: JSON.parse(fs.readFileSync(files.site, 'utf-8')),
+                  blog: JSON.parse(fs.readFileSync(files.blog, 'utf-8')),
+                  mode: 'local',
+                })
+              }
+              if (input.action === 'save') {
+                if (!files[input.file]) return send(400, { error: 'Fichier inconnu' })
+                fs.writeFileSync(files[input.file], JSON.stringify(input.data, null, 2) + '\n')
+                return send(200, { ok: true })
+              }
+              if (input.action === 'upload') {
+                const name = String(input.name || 'image').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48) || 'image'
+                const base = `/media/${Date.now()}-${name}`
+                const write = (file: string, dataUrl: string) => {
+                  const m = /^data:image\/(jpeg|png|webp);base64,(.+)$/.exec(dataUrl || '')
+                  if (!m) throw new Error('Image invalide')
+                  fs.writeFileSync(path.resolve(__dirname, './public' + file), Buffer.from(m[2], 'base64'))
+                }
+                write(`${base}.jpg`, input.full)
+                if (input.small) write(`${base}-720.jpg`, input.small)
+                return send(200, { src: `${base}.jpg`, small: input.small ? `${base}-720.jpg` : undefined })
+              }
+              send(400, { error: 'Action inconnue' })
+            } catch (error: any) {
+              send(500, { error: error.message })
+            }
+          })
+          return
+        }
         next()
       })
     }
