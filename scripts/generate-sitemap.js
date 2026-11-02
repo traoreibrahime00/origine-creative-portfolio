@@ -9,9 +9,6 @@ function generateSitemap() {
     // Static Routes
     const staticRoutes = [
         '/',
-        '/services',
-        '/projets',
-        '/blog',
         '/a-propos',
         '/methode',
         '/contact',
@@ -37,6 +34,14 @@ function generateSitemap() {
         const sitePath = path.resolve(process.cwd(), 'src', 'data', 'site.json');
         if (fs.existsSync(sitePath)) {
             const site = JSON.parse(fs.readFileSync(sitePath, 'utf8'));
+            (site.services?.items || []).forEach((service) => {
+                urls += `
+  <url>
+    <loc>${SITE_URL}/services/${service.slug}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>`;
+            });
             (site.projects || []).forEach((project) => {
                 urls += `
   <url>

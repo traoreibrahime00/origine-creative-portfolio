@@ -5,19 +5,23 @@ import { useTranslation } from 'react-i18next';
 import { COPY, EMAIL, PHONE_DISPLAY, SERVICES, SITE, WHATSAPP, type Lang } from './content';
 import { initInputModality } from './behaviors';
 import { Logo } from './Logo';
+import { SEO } from '../components/SEO';
 
 function useLang(): Lang {
   const { i18n } = useTranslation();
   return i18n.language?.startsWith('en') ? 'en' : 'fr';
 }
 
-export function PlainPage({ children, className = '' }: { children: ReactNode; className?: string }) {
+export function PlainPage({ children, className = '', seo }: {
+  children: ReactNode; className?: string; seo?: { title: string; description?: string; path: string };
+}) {
   useEffect(() => {
     window.scrollTo(0, 0);
     return initInputModality();
   }, []);
   return (
     <main className={'oc-main ' + className}>
+      {seo && <SEO {...seo} />}
       <div className="content-width">
         <Link to="/" className="page-back enter" aria-label="Origine Creative">← <Logo /></Link>
         <div className="enter" style={{ animationDelay: '0.08s' }}>{children}</div>
@@ -88,12 +92,16 @@ export function ContactPage() {
     }
   };
 
-  useEffect(() => {
-    document.title = `${COPY.contact[lang]} — Origine Creative`;
-  }, [lang]);
-
   return (
-    <PlainPage>
+    <PlainPage
+      seo={{
+        title: `${COPY.contact[lang]} — Origine Creative, studio créatif à Abidjan`,
+        description: lang === 'fr'
+          ? 'Parlez-nous de votre projet de marque, de communication ou de site web : brief en une minute, WhatsApp ou e-mail. Origine Creative, studio créatif à Abidjan.'
+          : 'Tell us about your brand, communication or website project: one-minute brief, WhatsApp or email. Origine Creative, creative studio in Abidjan.',
+        path: '/contact',
+      }}
+    >
       <h1 className="page-title">{TEXT.title[lang]}</h1>
       <div className="prose-col">
         <p>{TEXT.intro[lang]}</p>

@@ -992,6 +992,7 @@ a.card.is-current:active {
 }
 
 .sheet-title + .case,
+.sheet-meta + .case,
 .sheet-meta + .post-content {
   margin-top: var(--space-md);
 }
@@ -1289,6 +1290,114 @@ a.card.is-current:active {
   margin: 0;
 }
 
+/* Service pages */
+.case-heading {
+  margin: var(--space-md) 0 var(--space-sm);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.case-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.case-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.case .case-steps {
+  margin: 0;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.related-card {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.related-media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--tile-fill);
+  overflow: hidden;
+}
+
+.related-media img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 10px 30px -12px rgb(0 0 0 / 0.18);
+  transition: transform 600ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .related-card:hover .related-media img { transform: translateY(-2px) scale(1.02); }
+}
+
+@media (max-width: 520px) {
+  .related-grid { grid-template-columns: 1fr; }
+}
+
+.faq {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq summary {
+  position: relative;
+  padding: 0.85rem 2rem 0.85rem 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0.8rem;
+  color: var(--color-muted);
+  transition: transform 300ms var(--ease-out);
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq details p {
+  margin: 0 0 1rem;
+  padding-right: 2rem;
+  color: var(--color-muted);
+}
+
+.case .hero-cta {
+  animation: none;
+}
+
+.work-card .work-more {
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
 /* Steps and timelines: a muted label hanging in the left column */
 .case-steps {
   margin: var(--space-md) 0;
@@ -1300,13 +1409,14 @@ a.card.is-current:active {
 .case-steps li {
   position: relative;
   margin: 0;
-  padding: var(--space-sm) 0 var(--space-sm) calc(8rem + var(--space-sm));
+  padding: var(--space-sm) 0 var(--space-sm) calc(10.5rem + var(--space-sm));
   border-bottom: 1px solid var(--color-border);
 }
 
 .case-steps li > strong:first-child {
   position: absolute;
   left: 0;
+  width: 10.5rem;
   font-weight: inherit;
   color: var(--color-muted);
 }
@@ -1464,7 +1574,7 @@ a.card.is-current:active {
 
 .work-card.is-open p {
   opacity: 1;
-  max-height: 6rem;
+  max-height: 9rem;
   margin-top: 0.5rem;
   transform: none;
   filter: none;
@@ -2019,10 +2129,6 @@ a.card.is-current:active {
   padding: 0 !important;
 }
 
-.text-page main > div > div > a:first-child {
-  display: none;
-}
-
 .text-page h1 {
   margin: 0 0 var(--space-lg) !important;
   font-size: 1.65rem !important;
@@ -2435,4 +2541,19 @@ a.card.is-current:active {
 
 .oc a.pill-button {
   color: var(--color-bg);
+}
+
+.adm-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.adm-checks label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
 }

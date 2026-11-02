@@ -6,7 +6,7 @@ import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, ty
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
-import { SEO } from '../components/SEO';
+import { SEO, SITE_URL } from '../components/SEO';
 import {
   COPY, EMAIL, GALLERY, METHOD, POSTS, PROJECTS, SERVICES, SITE, STUDIO, WHATSAPP,
   type Block, type Fact, type Img, type Lang,
@@ -25,6 +25,7 @@ type Opener = HTMLElement & { _opener?: HTMLElement | null };
 function sheetFor(pathname: string) {
   const [section, slug] = pathname.replace(/^\/+|\/+$/g, '').split('/');
   if (section === 'projets' && slug) return 'projects-' + slug;
+  if (section === 'services' && slug) return 'service-' + slug;
   if (section === 'blog' && slug) return 'journal-' + slug;
   if (section === 'a-propos') return 'sheet-studio';
   if (section === 'methode') return 'sheet-methode';
@@ -37,6 +38,8 @@ function sectionFor(pathname: string) {
 }
 
 const style = (vars: Record<string, string | number>) => vars as CSSProperties;
+// Layout effects only run in the browser; the build-time render skips them quietly.
+const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 export function OnePager() {
   const { i18n } = useTranslation();
@@ -50,7 +53,7 @@ export function OnePager() {
   // ---- Sheets follow the address ----
   const firstRun = useRef(true);
   const openId = useRef<string | null>(null);
-  useLayoutEffect(() => {
+  useBrowserLayoutEffect(() => {
     const first = firstRun.current;
     firstRun.current = false;
     if (first) {
@@ -149,19 +152,13 @@ export function OnePager() {
     document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' });
   };
 
-  const sheetTitle = sheetId
-    ? [...PROJECTS.map((p) => [`projects-${p.slug}`, p.title]), ...POSTS.map((p) => [`journal-${p.slug}`, p.title]), ['sheet-studio', STUDIO.title[lang]], ['sheet-methode', METHOD.title[lang]]]
-        .find(([id]) => id === sheetId)?.[1]
-    : null;
+  const meta = metaFor(sheetId, location.pathname, lang);
   const projectBySlug = Object.fromEntries(PROJECTS.map((p) => [p.slug, p]));
   const linkFor = (links: typeof SITE.hero.links, key: string) => links.find((l) => l.key === key);
 
   return (
     <div className="oc-page" ref={pageRef}>
-      <SEO
-        title={sheetTitle ? `${sheetTitle} — Origine Creative` : 'Origine Creative — Studio créatif · Branding, design, digital'}
-        description="Origine Creative est un studio créatif spécialisé dans la construction de marques fortes et la création d’expériences visuelles et digitales : stratégie et identité de marque, direction artistique, expériences digitales, motion et production créative."
-      />
+      <SEO {...meta} />
       <main className="oc-main">
         {/* ---- Intro ---- */}
         <section id="about" className="site-section">
@@ -272,7 +269,7 @@ export function OnePager() {
         <section id="services" className="site-section">
           <div className="content-width prose-col">
             <p className="reveal">{SITE.services.intro[lang]}</p>
-            <Services lang={lang} />
+            <Services lang={lang} onOpen={openFrom} />
             <p className="reveal">{SITE.services.outro[lang]}</p>
             <p className="reveal">
               {template(SITE.services.cta[lang], () => (
@@ -369,6 +366,65 @@ export function OnePager() {
         </Sheet>
       ))}
 
+      {SERVICES.map((sv) => (
+        <Sheet key={sv.slug} id={`service-${sv.slug}`} title={sv.title[lang]} meta={sv.desc[lang]} path={`/services/${sv.slug}`} fill="var(--tile-fill)" lang={lang} onClose={closeSheet}>
+          <div className="case">
+            <div className="post-content">
+              {sv.intro.map((t, i) => <p key={i}>{t[lang]}</p>)}
+            </div>
+            <section>
+              <h3 className="case-heading">{COPY.deliverables[lang]}</h3>
+              <ul className="case-list">
+                {sv.deliverables.map((d, i) => <li key={i}>{d[lang]}</li>)}
+              </ul>
+            </section>
+            <section>
+              <h3 className="case-heading">{COPY.method[lang]}</h3>
+              <ol className="case-steps">
+                {METHOD.steps.map((st, i) => (
+                  <li key={i}><strong>{String(i + 1).padStart(2, '0')} {st.label[lang]}</strong>{st.text[lang]}</li>
+                ))}
+              </ol>
+            </section>
+            {sv.projects.some((slug) => projectBySlug[slug]) && (
+              <section>
+                <h3 className="case-heading">{COPY.related[lang]}</h3>
+                <div className="related-grid">
+                  {sv.projects.map((slug) => projectBySlug[slug]).filter(Boolean).map((p) => (
+                    <a key={p.slug} className="related-card" href={`/projets/${p.slug}`} onClick={opener(`/projets/${p.slug}`, `projects-${p.slug}`)}>
+                      <span className="related-media" style={style({ '--fill': p.fill })}>
+                        <img src={p.cover.small || p.cover.src} alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="card-foot">
+                        <span className="card-title">{p.title}</span>
+                        <span className="card-meta">{p.meta[lang]}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
+            {sv.faq.length > 0 && (
+              <section>
+                <h3 className="case-heading">{COPY.faq[lang]}</h3>
+                <div className="faq">
+                  {sv.faq.map((f, i) => (
+                    <details key={i}>
+                      <summary>{f.q[lang]}</summary>
+                      <p>{f.a[lang]}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )}
+            <div className="hero-cta">
+              <Link className="pill-button" to="/contact">{COPY.start[lang]}</Link>
+              <a className="hand-link" href={WHATSAPP} target="_blank" rel="noopener">WhatsApp ↗</a>
+            </div>
+          </div>
+        </Sheet>
+      ))}
+
       {POSTS.map((post) => (
         <Sheet key={post.slug} id={`journal-${post.slug}`} title={post.title} meta={post.date} path={`/blog/${post.slug}`} fill={post.fill} lang={lang} onClose={closeSheet}>
           <div className="post-content">
@@ -406,7 +462,7 @@ export function OnePager() {
 
 // ---- Pieces ----
 
-function Services({ lang }: { lang: Lang }) {
+function Services({ lang, onOpen }: { lang: Lang; onOpen: (el: HTMLElement, path: string, controls: string) => void }) {
   const [open, setOpen] = useState<number | null>(null);
   const toggle = (i: number) => setOpen(open === i ? null : i);
   return (
@@ -432,7 +488,22 @@ function Services({ lang }: { lang: Lang }) {
             <span className="work-indicator" aria-hidden="true">
               <svg viewBox="0 0 16 16"><path d="M3.5 6 8 10.5 12.5 6" /></svg>
             </span>
-            <p>{s.desc[lang]}</p>
+            <p>
+              {s.desc[lang]}{' '}
+              <a
+                className="work-more"
+                href={`/services/${s.slug}`}
+                tabIndex={open === i ? 0 : -1}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+                  e.preventDefault();
+                  onOpen(e.currentTarget, `/services/${s.slug}`, `service-${s.slug}`);
+                }}
+              >
+                {COPY.more[lang]} →
+              </a>
+            </p>
           </div>
         ))}
       </div>
@@ -447,7 +518,7 @@ function Sheet({ id, title, meta, path, fill, lang, onClose, children }: {
     <article id={id} className="sheet" data-title={title} style={style({ '--fill': fill })}>
       <div className="sheet-scroll" id={`${id}-panel`}>
         <div className="sheet-inner content-width">
-          <h3 className="sheet-title" tabIndex={-1}>{title}</h3>
+          <h2 className="sheet-title" tabIndex={-1}>{title}</h2>
           {meta && <p className="sheet-meta">{meta}</p>}
           {children}
         </div>
@@ -591,6 +662,72 @@ function template(
     );
   }
   return out;
+}
+
+// Title, description, address and structured data of the page being shown
+function metaFor(sheetId: string | null, pathname: string, lang: Lang) {
+  const base = {
+    title: 'Origine Creative — Studio créatif · Branding, design, digital',
+    description: 'Origine Creative est un studio créatif à Abidjan spécialisé dans la construction de marques fortes et la création d’expériences visuelles et digitales : stratégie et identité de marque, direction artistique, expériences digitales, motion et production créative.',
+    path: '/',
+  };
+  // The sections' own addresses (/services, /projets…) are the home page
+  if (!sheetId) return base;
+  const path = pathname.replace(/\/$/, '');
+  const service = SERVICES.find((s) => `service-${s.slug}` === sheetId);
+  if (service) {
+    const url = SITE_URL + path;
+    return {
+      title: service.seoTitle[lang],
+      description: service.seoDescription[lang],
+      path,
+      schema: [
+        {
+          '@type': 'Service',
+          '@id': `${url}#service`,
+          name: service.title[lang],
+          description: service.seoDescription[lang],
+          url,
+          provider: { '@id': `${SITE_URL}/#organization` },
+          areaServed: [{ '@type': 'City', name: 'Abidjan' }, { '@type': 'Country', name: 'Côte d’Ivoire' }],
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: service.title[lang],
+            itemListElement: service.deliverables.map((d) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: d[lang] } })),
+          },
+        },
+        ...(service.faq.length
+          ? [{
+              '@type': 'FAQPage',
+              mainEntity: service.faq.map((f) => ({ '@type': 'Question', name: f.q[lang], acceptedAnswer: { '@type': 'Answer', text: f.a[lang] } })),
+            }]
+          : []),
+      ],
+    };
+  }
+  const project = PROJECTS.find((p) => `projects-${p.slug}` === sheetId);
+  if (project) {
+    return {
+      title: `${project.title} — ${project.meta[lang]} | Origine Creative`,
+      description: project.intro[0]?.[lang] || base.description,
+      path,
+      image: SITE_URL + project.cover.src,
+      schema: [{ '@type': 'CreativeWork', name: project.title, url: SITE_URL + path, creator: { '@id': `${SITE_URL}/#organization` } }],
+    };
+  }
+  const post = POSTS.find((p) => `journal-${p.slug}` === sheetId);
+  if (post) {
+    return {
+      title: `${post.title} | Origine Creative`,
+      description: post.excerpt,
+      path,
+      type: 'article' as const,
+      schema: [{ '@type': 'Article', headline: post.title, description: post.excerpt, url: SITE_URL + path, publisher: { '@id': `${SITE_URL}/#organization` } }],
+    };
+  }
+  if (sheetId === 'sheet-studio') return { title: `${STUDIO.title[lang]} — Origine Creative`, description: STUDIO.paragraphs[0]?.[lang] || base.description, path };
+  if (sheetId === 'sheet-methode') return { title: `${METHOD.title[lang]} — Origine Creative`, description: METHOD.intro[lang], path };
+  return base;
 }
 
 const wordCount = (text: string) => text.replace(/\{\w+\}/g, 'x').split(/\s+/).filter(Boolean).length;

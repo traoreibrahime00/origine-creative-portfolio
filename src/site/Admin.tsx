@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
 import { ThemeSwitch } from './ThemeSwitch';
-import type { Block, Fact, Img, Post, Project, Site, SlotLink, T } from './content';
+import type { Block, Fact, Img, Post, Project, Service, Site, SlotLink, T } from './content';
 
 type Tab = 'textes' | 'projets' | 'services' | 'galerie' | 'journal' | 'contact';
 const TABS: [Tab, string][] = [
@@ -110,6 +110,11 @@ export function AdminPage() {
       if (!p.cover.src) list.push(`Projet ${p.title || i + 1} : image de couverture manquante`);
     });
     s.gallery.forEach((g, i) => { if (!g.img.src) list.push(`Galerie, image ${i + 1} manquante`); });
+    const serviceSlugs = new Set<string>();
+    s.services.items.forEach((sv, i) => {
+      if (!sv.slug.trim() || serviceSlugs.has(sv.slug)) list.push(`Service ${sv.title.fr || i + 1} : adresse manquante ou en double`);
+      serviceSlugs.add(sv.slug);
+    });
     const postSlugs = new Set<string>();
     blog.forEach((p, i) => {
       if (!p.slug.trim() || postSlugs.has(p.slug)) list.push(`Article ${p.title || i + 1} : adresse manquante ou en double`);
@@ -540,23 +545,99 @@ function Story({ blocks, onChange, ctx, name }: { blocks: Block[]; onChange: (b:
   );
 }
 
+function newService(n: number): Service {
+  return {
+    slug: `nouveau-service-${n}`,
+    title: emptyT(),
+    desc: emptyT(),
+    seoTitle: emptyT(),
+    seoDescription: emptyT(),
+    intro: [emptyT()],
+    deliverables: [],
+    projects: [],
+    faq: [],
+  };
+}
+
 function ServicesTab({ site, ctx }: { site: Site; ctx: Ctx }) {
   const { edit } = ctx;
   return (
-    <Section title="Services">
+    <Section title="Services" note="Chaque service a sa propre page, à l'adresse /services/adresse, pensée pour Google : soignez le titre et la description pour Google.">
       <Bi label="Paragraphe avant la liste" value={site.services.intro} multiline onChange={(v) => edit((s) => { s.services.intro = v; })} />
-      <List<Site['services']['items'][number]>
+      <List<Service>
         items={site.services.items}
         onChange={(v) => edit((s) => { s.services.items = v; })}
-        add={() => ({ title: emptyT(), desc: emptyT() })}
+        add={() => newService(site.services.items.length + 1)}
         addLabel="Ajouter un service"
         title={(it) => it.title.fr || 'Nouveau service'}
-        render={(it, i) => (
-          <>
-            <Bi label="Nom" value={it.title} onChange={(v) => edit((s) => { s.services.items[i].title = v; })} />
-            <Bi label="Description (ouverte au clic)" value={it.desc} multiline onChange={(v) => edit((s) => { s.services.items[i].desc = v; })} />
-          </>
-        )}
+        render={(it, i) => {
+          const set = (fn: (x: Service) => void) => edit((s) => fn(s.services.items[i]));
+          return (
+            <>
+              <Bi
+                label="Nom"
+                value={it.title}
+                onChange={(v) => set((x) => {
+                  if (x.slug.startsWith('nouveau-service') || x.slug === slugify(x.title.fr)) x.slug = slugify(v.fr);
+                  x.title = v;
+                })}
+              />
+              <Bi label="Description courte (dans la liste)" value={it.desc} multiline onChange={(v) => set((x) => { x.desc = v; })} />
+              <details className="adm-details">
+                <summary>Page du service</summary>
+                <Field label="Adresse" value={it.slug} onChange={(v) => set((x) => { x.slug = slugify(v); })} hint={`originecreative.com/services/${it.slug}`} />
+                <Bi label="Titre pour Google" value={it.seoTitle} onChange={(v) => set((x) => { x.seoTitle = v; })} hint="Environ 60 caractères, avec le métier et la ville. Ex. Agence de branding à Abidjan — …" />
+                <Bi label="Description pour Google" value={it.seoDescription} multiline onChange={(v) => set((x) => { x.seoDescription = v; })} hint="Environ 155 caractères : ce que vous faites, pour qui, où." />
+                <h3 className="adm-sub">Texte de la page</h3>
+                <List<T>
+                  items={it.intro}
+                  onChange={(v) => set((x) => { x.intro = v; })}
+                  add={emptyT}
+                  addLabel="Ajouter un paragraphe"
+                  render={(t, k) => <Bi label="Paragraphe" value={t} multiline onChange={(v) => set((x) => { x.intro[k] = v; })} />}
+                />
+                <h3 className="adm-sub">Ce que nous livrons</h3>
+                <List<T>
+                  items={it.deliverables}
+                  onChange={(v) => set((x) => { x.deliverables = v; })}
+                  add={emptyT}
+                  addLabel="Ajouter un livrable"
+                  title={(d, k) => d.fr || `Livrable ${k + 1}`}
+                  render={(d, k) => <Bi label="Livrable" value={d} onChange={(v) => set((x) => { x.deliverables[k] = v; })} />}
+                />
+                <h3 className="adm-sub">Projets liés</h3>
+                <div className="adm-checks">
+                  {site.projects.map((p) => (
+                    <label key={p.slug}>
+                      <input
+                        type="checkbox"
+                        checked={it.projects.includes(p.slug)}
+                        onChange={(e) => set((x) => {
+                          x.projects = e.target.checked ? [...x.projects, p.slug] : x.projects.filter((sl) => sl !== p.slug);
+                        })}
+                      />
+                      {p.title}
+                    </label>
+                  ))}
+                </div>
+                <h3 className="adm-sub">Questions fréquentes</h3>
+                <List<Service['faq'][number]>
+                  items={it.faq}
+                  onChange={(v) => set((x) => { x.faq = v; })}
+                  add={() => ({ q: emptyT(), a: emptyT() })}
+                  addLabel="Ajouter une question"
+                  title={(f, k) => f.q.fr || `Question ${k + 1}`}
+                  render={(f, k) => (
+                    <>
+                      <Bi label="Question" value={f.q} onChange={(v) => set((x) => { x.faq[k].q = v; })} />
+                      <Bi label="Réponse" value={f.a} multiline onChange={(v) => set((x) => { x.faq[k].a = v; })} />
+                    </>
+                  )}
+                />
+              </details>
+            </>
+          );
+        }}
       />
       <Bi label="Paragraphe après la liste" value={site.services.outro} multiline onChange={(v) => edit((s) => { s.services.outro = v; })} />
       <Bi label="Phrase d'appel" value={site.services.cta} multiline onChange={(v) => edit((s) => { s.services.cta = v; })} hint="{cta} marque le lien qui copie l'adresse e-mail." />
