@@ -11,6 +11,7 @@ function generateSitemap() {
         '/',
         '/a-propos',
         '/methode',
+        '/agence-de-communication-abidjan',
         '/contact',
         '/mentions-legales',
         '/politique-de-confidentialite'

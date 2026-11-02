@@ -13,7 +13,7 @@ function useLang(): Lang {
 }
 
 export function PlainPage({ children, className = '', seo }: {
-  children: ReactNode; className?: string; seo?: { title: string; description?: string; path: string };
+  children: ReactNode; className?: string; seo?: { title: string; description?: string; path: string; schema?: object[] };
 }) {
   const lang = useLang();
   const navigate = useNavigate();

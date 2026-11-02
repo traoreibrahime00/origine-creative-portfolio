@@ -1,0 +1,13 @@
+{
+  "name": "Origine Creative",
+  "short_name": "Origine",
+  "description": "Agence de branding et de communication à Abidjan",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

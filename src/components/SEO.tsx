@@ -19,25 +19,51 @@ const ORGANIZATION = {
     '@type': 'ProfessionalService',
     '@id': `${SITE_URL}/#organization`,
     name: 'Origine Creative',
+    alternateName: 'Origine Creative Agency',
+    description: 'Agence de branding et de communication à Abidjan : stratégie de marque, identité visuelle, direction artistique, motion design et communication digitale.',
+    slogan: SITE.hero.text.fr.replace(/[{}]/g, ''),
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,
     image: `${SITE_URL}/og-image.png`,
     email: SITE.contact.email,
     telephone: SITE.contact.phone,
     address: { '@type': 'PostalAddress', addressLocality: 'Abidjan', addressCountry: 'CI' },
-    areaServed: ['Côte d’Ivoire', 'Afrique de l’Ouest'],
+    areaServed: [
+        { '@type': 'City', name: 'Abidjan' },
+        { '@type': 'Country', name: 'Côte d’Ivoire' },
+        { '@type': 'Place', name: 'Afrique de l’Ouest' },
+    ],
+    knowsAbout: ['Branding', 'Stratégie de marque', 'Identité visuelle', 'Création de logo', 'Direction artistique', 'Motion design', 'Communication digitale', 'Agence de communication'],
+    hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Services',
+        itemListElement: SITE.services.items.map((s) => ({
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: s.title.fr, url: `${SITE_URL}/services/${s.slug}` },
+        })),
+    },
+};
+
+// The site, so search engines tie its pages to the studio
+const WEBSITE = {
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: 'Origine Creative',
+    url: SITE_URL,
+    inLanguage: 'fr',
+    publisher: { '@id': `${SITE_URL}/#organization` },
 };
 
 export function SEO({
-    title = 'Origine Creative — Studio créatif · Branding, design, digital',
-    description = 'Origine Creative est un studio créatif à Abidjan spécialisé dans la construction de marques fortes et la création d’expériences visuelles et digitales.',
+    title = 'Origine Creative — Agence de branding et de communication à Abidjan',
+    description = 'Agence de branding et de communication à Abidjan : stratégie de marque, création de logo et d’identité visuelle, direction artistique, motion design et communication digitale.',
     path = '/',
     image = `${SITE_URL}/og-image.png`,
     type = 'website',
     schema = [],
 }: SEOProps) {
     const url = SITE_URL + (path === '/' ? '/' : path.replace(/\/$/, ''));
-    const graph = { '@context': 'https://schema.org', '@graph': [ORGANIZATION, ...schema] };
+    const graph = { '@context': 'https://schema.org', '@graph': [ORGANIZATION, WEBSITE, ...schema] };
 
     return (
         <Helmet>
