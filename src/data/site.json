@@ -168,7 +168,15 @@
         "fr": "Ils nous ont fait confiance",
         "en": "They trusted us"
       },
-      "names": []
+      "names": [
+        "UTB",
+        "SODEPCI",
+        "GB Partners",
+        "AGRI BUILD",
+        "TANDEM",
+        "SIGC BTP",
+        "KATANA"
+      ]
     }
   },
   "manifesto": {
