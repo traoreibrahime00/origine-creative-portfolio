@@ -14,6 +14,13 @@ const app = (
   </StrictMode>
 )
 
+// Prerendered pages write their head tags without Helmet's data-rh mark (see
+// scripts/prerender.js); marking them again lets Helmet replace them as the
+// visitor moves between pages, instead of adding a second set.
+document.head
+  .querySelectorAll('title, meta[name="description"], meta[property^="og:"], meta[name^="twitter:"], link[rel="canonical"], script[type="application/ld+json"]')
+  .forEach((el) => el.setAttribute('data-rh', 'true'))
+
 // Prerendered pages arrive with their markup: take it over instead of redrawing.
 if (root.hasChildNodes()) hydrateRoot(root, app)
 else createRoot(root).render(app)
