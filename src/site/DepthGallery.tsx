@@ -9,7 +9,9 @@ import { reduceMotion } from './behaviors';
 type Item = { img: Img; title: string; meta: { fr: string; en: string } };
 
 const PERSPECTIVE = 900;  // px, how fast things shrink with depth
-const SPACING = 340;      // px of depth between pieces
+// px of depth between pieces: 340 for a small gallery, tighter as it grows
+// so the flight stays about as long (16 pieces fill the original 5440 px)
+const spacingFor = (count: number) => Math.max(230, Math.min(340, 5440 / Math.max(count, 1)));
 const VIEW_DEPTH = 2600;  // px, how far ahead pieces are visible
 const FOCAL = 700;        // px, the depth that is sharp
 const SPAN = 1.1;         // field size in viewports
@@ -53,6 +55,7 @@ function Field({ items, lang, hint, closeLabel }: { items: Item[]; lang: Lang; h
     const track = trackRef.current!;
     const stage = stageRef.current!;
     const els = Array.from(stage.querySelectorAll<HTMLButtonElement>('.play-item'));
+    const SPACING = spacingFor(items.length);
     const TRAVEL = LEAD + items.length * SPACING;
 
     const pieces = items.map((item, index) => {

@@ -1660,6 +1660,294 @@
         "fr": "Casque orange",
         "en": "Orange hard hat"
       }
+    },
+    {
+      "img": {
+        "src": "/media/behance-ifa-1.jpg",
+        "small": "/media/behance-ifa-1-720.jpg",
+        "r": 1.3333,
+        "alt": {
+          "fr": "Charte graphique de l’Infinity Football Academy",
+          "en": "Infinity Football Academy brand guidelines"
+        }
+      },
+      "title": "IFA",
+      "meta": {
+        "fr": "Charte graphique",
+        "en": "Brand guidelines"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-crocme-1.jpg",
+        "small": "/media/behance-crocme-1-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Logo Croc Me sur fond orange",
+          "en": "Croc Me logo on orange"
+        }
+      },
+      "title": "Croc Me",
+      "meta": {
+        "fr": "Logo",
+        "en": "Logo"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-miam-1.jpg",
+        "small": "/media/behance-miam-1-720.jpg",
+        "r": 1.75,
+        "alt": {
+          "fr": "Enseigne MIAM sur une façade",
+          "en": "MIAM sign on a storefront"
+        }
+      },
+      "title": "MIAM",
+      "meta": {
+        "fr": "Façade",
+        "en": "Storefront"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-tandem-1.jpg",
+        "small": "/media/behance-tandem-1-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Devanture aux couleurs TANDEM",
+          "en": "Shopfront in the TANDEM colours"
+        }
+      },
+      "title": "TANDEM",
+      "meta": {
+        "fr": "Devanture",
+        "en": "Shopfront"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-breezy-1.jpg",
+        "small": "/media/behance-breezy-1-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Logo Breezy sur fond rose",
+          "en": "Breezy logo on pink"
+        }
+      },
+      "title": "Breezy",
+      "meta": {
+        "fr": "Logo",
+        "en": "Logo"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-sigc-1.jpg",
+        "small": "/media/behance-sigc-1-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Couverture de la charte graphique SIGC BTP",
+          "en": "SIGC BTP brand guidelines cover"
+        }
+      },
+      "title": "SIGC BTP",
+      "meta": {
+        "fr": "Charte graphique",
+        "en": "Brand guidelines"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-zelivro-1.jpg",
+        "small": "/media/behance-zelivro-1-720.jpg",
+        "r": 1.5005,
+        "alt": {
+          "fr": "Publications Zelivro sur téléphones",
+          "en": "Zelivro posts on phones"
+        }
+      },
+      "title": "Zelivro",
+      "meta": {
+        "fr": "Réseaux sociaux",
+        "en": "Social media"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-bliss-1.jpg",
+        "small": "/media/behance-bliss-1-720.jpg",
+        "r": 0.8,
+        "alt": {
+          "fr": "Cartes de visite Bliss sur fond jaune",
+          "en": "Bliss business cards on yellow"
+        }
+      },
+      "title": "Bliss",
+      "meta": {
+        "fr": "Cartes de visite",
+        "en": "Business cards"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-camping-1.jpg",
+        "small": "/media/behance-camping-1-720.jpg",
+        "r": 0.7071,
+        "alt": {
+          "fr": "Badge et mug Camping à la ferme",
+          "en": "Camping à la ferme badge and mug"
+        }
+      },
+      "title": "Camping à la ferme",
+      "meta": {
+        "fr": "Goodies",
+        "en": "Merchandise"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-miam-2.jpg",
+        "small": "/media/behance-miam-2-720.jpg",
+        "r": 1.4184,
+        "alt": {
+          "fr": "Visuels de la campagne MIAM « Le goût qui parle »",
+          "en": "MIAM “Le goût qui parle” campaign visuals"
+        }
+      },
+      "title": "MIAM",
+      "meta": {
+        "fr": "Campagne",
+        "en": "Campaign"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-ifa-2.jpg",
+        "small": "/media/behance-ifa-2-720.jpg",
+        "r": 1.3333,
+        "alt": {
+          "fr": "Tenues de l’Infinity Football Academy",
+          "en": "Infinity Football Academy kits"
+        }
+      },
+      "title": "IFA",
+      "meta": {
+        "fr": "Tenues",
+        "en": "Kits"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-breezy-2.jpg",
+        "small": "/media/behance-breezy-2-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Bougie aux couleurs Breezy",
+          "en": "Candle in the Breezy colours"
+        }
+      },
+      "title": "Breezy",
+      "meta": {
+        "fr": "Bougie",
+        "en": "Candle"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-tandem-2.jpg",
+        "small": "/media/behance-tandem-2-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Voiture floquée TANDEM",
+          "en": "Car wrapped in the TANDEM identity"
+        }
+      },
+      "title": "TANDEM",
+      "meta": {
+        "fr": "Véhicule",
+        "en": "Vehicle"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-zelivro-2.jpg",
+        "small": "/media/behance-zelivro-2-720.jpg",
+        "r": 1.0,
+        "alt": {
+          "fr": "Publicité Zelivro, livraison à moto",
+          "en": "Zelivro ad, motorbike delivery"
+        }
+      },
+      "title": "Zelivro",
+      "meta": {
+        "fr": "Publicité",
+        "en": "Ad"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-crocme-2.jpg",
+        "small": "/media/behance-crocme-2-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Gobelet aux couleurs Croc Me",
+          "en": "Cup in the Croc Me colours"
+        }
+      },
+      "title": "Croc Me",
+      "meta": {
+        "fr": "Packaging",
+        "en": "Packaging"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-sigc-2.jpg",
+        "small": "/media/behance-sigc-2-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Panneau d’affichage SIGC BTP",
+          "en": "SIGC BTP billboard"
+        }
+      },
+      "title": "SIGC BTP",
+      "meta": {
+        "fr": "Affichage",
+        "en": "Billboard"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-bliss-2.jpg",
+        "small": "/media/behance-bliss-2-720.jpg",
+        "r": 0.8,
+        "alt": {
+          "fr": "Casque de chantier Bliss",
+          "en": "Bliss hard hat"
+        }
+      },
+      "title": "Bliss",
+      "meta": {
+        "fr": "Casque",
+        "en": "Hard hat"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/behance-camping-2.jpg",
+        "small": "/media/behance-camping-2-720.jpg",
+        "r": 0.7071,
+        "alt": {
+          "fr": "Polos Camping à la ferme",
+          "en": "Camping à la ferme polo shirts"
+        }
+      },
+      "title": "Camping à la ferme",
+      "meta": {
+        "fr": "Polos",
+        "en": "Polo shirts"
+      }
     }
   ],
   "footerLine": {
