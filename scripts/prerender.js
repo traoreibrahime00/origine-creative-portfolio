@@ -15,8 +15,12 @@ fs.writeFileSync(path.join(dist, 'app.html'), template);
 
 for (const url of routes) {
     const { html, head } = await render(url);
+    // Helmet marks its tags data-rh="true". Plain readers such as WhatsApp's
+    // link preview skip <title data-rh…> and <meta data-rh… property=…>, so the
+    // written page carries the tags without it (Helmet adds its own in the browser).
+    const plainHead = head.replace(/ data-rh="true"/g, '');
     const page = template
-        .replace('</head>', `    ${head}\n  </head>`)
+        .replace('</head>', `    ${plainHead}\n  </head>`)
         .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
     const file = url === '/' ? 'index.html' : `${url.slice(1)}.html`;
     fs.mkdirSync(path.dirname(path.join(dist, file)), { recursive: true });
