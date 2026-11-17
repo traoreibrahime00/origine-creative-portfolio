@@ -215,6 +215,12 @@ export function OnePager() {
                 <Link className="pill-button" to="/contact">{SITE.hero.ctaContact[lang]}</Link>
                 <a className="hand-link" href="/projets" onClick={scrollTo('projects')}>{SITE.hero.ctaProjects[lang]} ↗</a>
               </div>
+              {!!SITE.hero.clients?.names.length && (
+                <p className="hero-clients">
+                  <span>{SITE.hero.clients.label[lang]}</span>
+                  {SITE.hero.clients.names.join(' · ')}
+                </p>
+              )}
             </section>
           </div>
         </section>

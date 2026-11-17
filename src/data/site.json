@@ -162,6 +162,21 @@
     "ctaContact": {
       "fr": "Démarrer un projet",
       "en": "Start a project"
+    },
+    "clients": {
+      "label": {
+        "fr": "Ils nous ont fait confiance",
+        "en": "They trusted us"
+      },
+      "names": [
+        "UTB",
+        "SODEPCI",
+        "GB Partners",
+        "AGRI BUILD",
+        "TANDEM",
+        "SIGC BTP",
+        "KATANA"
+      ]
     }
   },
   "manifesto": {

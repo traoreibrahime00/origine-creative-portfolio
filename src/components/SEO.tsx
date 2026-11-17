@@ -3,6 +3,9 @@ import { SITE } from '../site/content';
 
 export const SITE_URL = 'https://originecreative.com';
 
+// Shown when a page is shared (WhatsApp, LinkedIn…), unless the page has its own
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+
 interface SEOProps {
     title?: string;
     description?: string;
@@ -24,7 +27,7 @@ const ORGANIZATION = {
     slogan: SITE.hero.text.fr.replace(/[{}]/g, ''),
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,
-    image: `${SITE_URL}/og-image.png`,
+    image: DEFAULT_IMAGE,
     email: SITE.contact.email,
     telephone: SITE.contact.phone,
     address: { '@type': 'PostalAddress', addressLocality: 'Abidjan', addressCountry: 'CI' },
@@ -58,7 +61,7 @@ export function SEO({
     title = 'Origine Creative — Agence de branding et de communication à Abidjan',
     description = 'Agence de branding et de communication à Abidjan : stratégie de marque, création de logo et d’identité visuelle, direction artistique, motion design et communication digitale.',
     path = '/',
-    image = `${SITE_URL}/og-image.png`,
+    image = DEFAULT_IMAGE,
     type = 'website',
     schema = [],
 }: SEOProps) {
@@ -78,6 +81,9 @@ export function SEO({
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
+            {image === DEFAULT_IMAGE && <meta property="og:image:width" content="1200" />}
+            {image === DEFAULT_IMAGE && <meta property="og:image:height" content="630" />}
+            {image === DEFAULT_IMAGE && <meta property="og:image:alt" content="Origine Creative, agence de branding et de communication à Abidjan" />}
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
