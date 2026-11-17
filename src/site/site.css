@@ -521,6 +521,23 @@ body.oc[data-focus] .hero-statement .word {
   font-size: 0.875rem;
 }
 
+.hero-statement p.hero-clients {
+  margin: 2.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: -0.006em;
+  text-wrap: pretty;
+  color: var(--color-text);
+  animation: staggerFadeIn 0.6s var(--ease-enter) 1.7s both;
+}
+
+.hero-statement p.hero-clients span {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--color-muted);
+}
+
+body.oc[data-focus] .hero-clients,
 body.oc[data-focus] .hero-cta {
   animation-duration: 0s;
   animation-delay: 0s;

@@ -53,7 +53,7 @@ export type Site = {
   brief: Brief;
   identity: { title: T };
   // text writes itself in word by word; sub carries the {slot} links
-  hero: { eyebrow: T; text: T; sub: T; links: SlotLink[]; ctaProjects: T; ctaContact: T };
+  hero: { eyebrow: T; text: T; sub: T; links: SlotLink[]; ctaProjects: T; ctaContact: T; clients?: { label: T; names: string[] } };
   manifesto: { title: T; paragraphs: T[] };
   studio: { title: T; line: T; paragraphs: T[]; facts: Fact[] };
   method: { title: T; line: T; intro: T; steps: { label: T; text: T }[] };

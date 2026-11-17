@@ -162,6 +162,13 @@
     "ctaContact": {
       "fr": "Démarrer un projet",
       "en": "Start a project"
+    },
+    "clients": {
+      "label": {
+        "fr": "Ils nous ont fait confiance",
+        "en": "They trusted us"
+      },
+      "names": []
     }
   },
   "manifesto": {

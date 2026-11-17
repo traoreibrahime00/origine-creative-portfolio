@@ -390,6 +390,13 @@ function TextsTab({ site, ctx }: { site: Site; ctx: Ctx }) {
         <Links links={site.hero.links} projects={site.projects} onChange={(l) => edit((s) => { s.hero.links = l; })} />
         <Bi label="Bouton vers le brief (page Contact)" value={site.hero.ctaContact} onChange={(v) => edit((s) => { s.hero.ctaContact = v; })} />
         <Bi label="Lien vers les projets" value={site.hero.ctaProjects} onChange={(v) => edit((s) => { s.hero.ctaProjects = v; })} />
+        <Bi label="Références clients : intitulé" value={site.hero.clients?.label} onChange={(v) => edit((s) => { s.hero.clients = { names: [], ...s.hero.clients, label: v }; })} />
+        <Field
+          label="Références clients : noms"
+          value={(site.hero.clients?.names || []).join(', ')}
+          onChange={(v) => edit((s) => { s.hero.clients = { label: emptyT(), ...s.hero.clients, names: v.split(',').map((n) => n.trim()).filter(Boolean) }; })}
+          hint="Séparés par des virgules. Laisser vide pour cacher la ligne."
+        />
       </Section>
       <Section title="Manifeste" note="Entre le studio et les projets.">
         <Bi label="Titre" value={site.manifesto.title} onChange={(v) => edit((s) => { s.manifesto.title = v; })} multiline />
