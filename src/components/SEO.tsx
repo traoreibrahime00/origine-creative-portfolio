@@ -4,7 +4,7 @@ import { SITE } from '../site/content';
 export const SITE_URL = 'https://originecreative.com';
 
 // Shown when a page is shared (WhatsApp, LinkedIn…), unless the page has its own
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/og-image-2.jpg`;
 
 interface SEOProps {
     title?: string;
