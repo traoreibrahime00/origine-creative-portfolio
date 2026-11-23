@@ -24,9 +24,12 @@ i18n
         resources,
         fallbackLng: 'fr', // French is our default base language
 
-        // We store the user's choice in localStorage under this key
+        // French unless the visitor picked English with the FR/EN switch
+        // (stored in localStorage). The browser's own language is not used:
+        // Google's crawler presents itself in English and would otherwise
+        // index every page in English for a French-speaking market.
         detection: {
-            order: ['localStorage', 'navigator'],
+            order: ['localStorage'],
             caches: ['localStorage'],
             lookupLocalStorage: 'origine-creative-lang',
         },
