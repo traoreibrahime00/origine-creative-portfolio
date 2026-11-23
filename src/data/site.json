@@ -532,7 +532,9 @@
           }
         ],
         "projects": [
-          "agri-build"
+          "agri-build",
+          "tandem",
+          "ifa"
         ],
         "faq": [
           {
@@ -623,7 +625,8 @@
         ],
         "projects": [
           "katana",
-          "dj-arafat"
+          "dj-arafat",
+          "miam"
         ],
         "faq": [
           {
@@ -800,7 +803,10 @@
             "en": "Marketing templates for your teams"
           }
         ],
-        "projects": [],
+        "projects": [
+          "maison-marnoa",
+          "miam"
+        ],
         "faq": [
           {
             "q": {
@@ -850,26 +856,30 @@
   },
   "projects": [
     {
-      "slug": "katana",
-      "title": "KATANA",
+      "slug": "maison-marnoa",
+      "title": "Maison Marnoa",
       "meta": {
-        "fr": "Communication",
-        "en": "Communication"
+        "fr": "Site e-commerce",
+        "en": "E-commerce website"
       },
-      "fill": "#f3e6e3",
+      "fill": "#efe7da",
       "cover": {
-        "src": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04.jpg",
-        "small": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04-720.jpg",
-        "r": 1.1552,
+        "src": "/media/case-marnoa-cover.jpg",
+        "small": "/media/case-marnoa-cover-720.jpg",
+        "r": 1.5385,
         "alt": {
-          "fr": "Flyers KATANA Prestation",
-          "en": "KATANA Prestation flyers"
+          "fr": "Le site Maison Marnoa sur ordinateur et sur téléphone",
+          "en": "The Maison Marnoa website on desktop and phone"
         }
       },
       "intro": [
         {
-          "fr": "Katana Prestation vend des huiles, des pièces et des produits automobiles, aux particuliers comme aux professionnels. L’entreprise accompagne conducteurs, mécaniciens et entreprises dans l’entretien, la performance et la longévité de leurs engins.",
-          "en": "Katana Prestation sells oils, parts and car products to individuals and professionals alike, helping drivers, mechanics and companies keep their vehicles running well and for longer."
+          "fr": "Maison Marnoa sélectionne des pièces de haute joaillerie auprès de créateurs et de maisons du monde entier, pour les proposer à Abidjan, dans son showroom comme en ligne.",
+          "en": "Maison Marnoa selects fine jewellery from designers and houses around the world and offers it in Abidjan, in its showroom and online."
+        },
+        {
+          "fr": "Nous avons conçu son site : une boutique en ligne pensée d’abord pour le téléphone, avec une collection filtrable, des fiches produit soignées, le prix sur demande et WhatsApp toujours à portée de main.",
+          "en": "We designed its website: an online boutique built for the phone first, with a filterable collection, carefully crafted product pages, prices on request and WhatsApp always within reach."
         }
       ],
       "facts": [
@@ -879,8 +889,8 @@
             "en": "Client"
           },
           "value": {
-            "fr": "Katana Prestation",
-            "en": "Katana Prestation"
+            "fr": "Maison Marnoa",
+            "en": "Maison Marnoa"
           }
         },
         {
@@ -889,8 +899,8 @@
             "en": "Sector"
           },
           "value": {
-            "fr": "Automobile",
-            "en": "Automotive"
+            "fr": "Haute joaillerie",
+            "en": "Fine jewellery"
           }
         },
         {
@@ -899,8 +909,8 @@
             "en": "Scope"
           },
           "value": {
-            "fr": "Communication digitale, flyers",
-            "en": "Digital communication, flyers"
+            "fr": "Conception du site e-commerce",
+            "en": "E-commerce website design"
           }
         },
         {
@@ -909,10 +919,10 @@
             "en": "Link"
           },
           "value": {
-            "fr": "Behance ↗",
-            "en": "Behance ↗"
+            "fr": "maisonmarnoa.com ↗",
+            "en": "maisonmarnoa.com ↗"
           },
-          "href": "https://www.behance.net/gallery/242359173/FLYER-DESIGN-KATANA-PRESTATION"
+          "href": "https://maisonmarnoa.com"
         }
       ],
       "story": [
@@ -920,56 +930,55 @@
           "kind": "figure",
           "images": [
             {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8c84c1242359173.696b5b2922fd1.png",
-              "r": 0.7044,
+              "src": "/media/case-marnoa-intro.jpg",
+              "small": "/media/case-marnoa-intro-720.jpg",
+              "r": 1.6,
               "alt": {
-                "fr": "Flyer KATANA, recto",
-                "en": "KATANA flyer, front"
+                "fr": "L'écran d'ouverture du site Maison Marnoa",
+                "en": "The Maison Marnoa opening screen"
               }
             }
           ],
           "caption": {
-            "fr": "Le flyer principal.",
-            "en": "The main flyer."
+            "fr": "L’écran d’ouverture, aux codes de la maison.",
+            "en": "The opening screen, in the house’s codes."
           }
         },
         {
           "kind": "figure",
           "images": [
             {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/df2e03242359173.696b5b2923551.png",
-              "r": 1.3333,
+              "src": "/media/case-marnoa-mobile.jpg",
+              "small": "/media/case-marnoa-mobile-720.jpg",
+              "r": 1.6,
               "alt": {
-                "fr": "Flyer KATANA en situation",
-                "en": "KATANA flyer in context"
-              }
-            },
-            {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/86e611242359173.696b5b2924086.png",
-              "r": 1.3333,
-              "alt": {
-                "fr": "Flyers KATANA, détail",
-                "en": "KATANA flyers, detail"
+                "fr": "Accueil, collection et fiche produit sur téléphone",
+                "en": "Home, collection and product page on a phone"
               }
             }
           ],
           "caption": {
-            "fr": "En situation.",
-            "en": "In context."
+            "fr": "Pensé d’abord pour le téléphone : accueil, collection, fiche produit.",
+            "en": "Built for the phone first: home, collection, product page."
           }
         },
         {
           "kind": "figure",
           "images": [
             {
-              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0895b4242359173.696b5b2923b3d.png",
-              "r": 1.3333,
+              "src": "/media/case-marnoa-desktop.jpg",
+              "small": "/media/case-marnoa-desktop-720.jpg",
+              "r": 1.6,
               "alt": {
-                "fr": "Flyers KATANA, série",
-                "en": "KATANA flyers, series"
+                "fr": "La collection et une fiche produit sur ordinateur",
+                "en": "The collection and a product page on desktop"
               }
             }
-          ]
+          ],
+          "caption": {
+            "fr": "La collection filtrable et la fiche produit, sur ordinateur.",
+            "en": "The filterable collection and a product page, on desktop."
+          }
         }
       ]
     },
@@ -1298,6 +1307,579 @@
       ]
     },
     {
+      "slug": "tandem",
+      "title": "TANDEM",
+      "meta": {
+        "fr": "Identité",
+        "en": "Identity"
+      },
+      "fill": "#eef3e2",
+      "cover": {
+        "src": "/media/case-tandem-cover.jpg",
+        "small": "/media/case-tandem-cover-720.jpg",
+        "r": 1.4141,
+        "alt": {
+          "fr": "Devanture TANDEM Construction & Immobilier",
+          "en": "TANDEM Construction & Immobilier shopfront"
+        }
+      },
+      "intro": [
+        {
+          "fr": "TANDEM est une entreprise de construction et d’immobilier.",
+          "en": "TANDEM is a construction and real-estate company."
+        },
+        {
+          "fr": "Nous avons conçu sa charte graphique : logo, couleurs, typographies, motifs et papeterie, puis leurs déclinaisons sur tous les supports de l’entreprise, de la devanture aux véhicules.",
+          "en": "We designed its brand guidelines: logo, colours, typefaces, patterns and stationery, then applied them to every company touchpoint, from the shopfront to the vehicles."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Client",
+            "en": "Client"
+          },
+          "value": {
+            "fr": "TANDEM",
+            "en": "TANDEM"
+          }
+        },
+        {
+          "label": {
+            "fr": "Secteur",
+            "en": "Sector"
+          },
+          "value": {
+            "fr": "Construction & immobilier",
+            "en": "Construction & real estate"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Identité visuelle, charte graphique",
+            "en": "Visual identity, brand guidelines"
+          }
+        },
+        {
+          "label": {
+            "fr": "Lien",
+            "en": "Link"
+          },
+          "value": {
+            "fr": "Behance ↗",
+            "en": "Behance ↗"
+          },
+          "href": "https://www.behance.net/gallery/188400895/CHARTE-GRAPHIQUE-TANDEM"
+        }
+      ],
+      "story": [
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-tandem-charte.jpg",
+              "small": "/media/case-tandem-charte-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Couverture de la charte graphique TANDEM",
+                "en": "TANDEM brand guidelines cover"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "La charte graphique.",
+            "en": "The brand guidelines."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-tandem-logo.jpg",
+              "small": "/media/case-tandem-logo-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Construction du logo TANDEM",
+                "en": "TANDEM logo construction"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "La construction du logo.",
+            "en": "The logo construction."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-tandem-car.jpg",
+              "small": "/media/case-tandem-car-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Voiture floquée TANDEM",
+                "en": "Car wrapped in the TANDEM identity"
+              }
+            },
+            {
+              "src": "/media/case-tandem-stand.jpg",
+              "small": "/media/case-tandem-stand-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Stand TANDEM",
+                "en": "TANDEM stand"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Sur les véhicules et les stands.",
+            "en": "On vehicles and stands."
+          }
+        },
+        {
+          "kind": "strip",
+          "images": [
+            {
+              "src": "/media/case-tandem-bag.jpg",
+              "small": "/media/case-tandem-bag-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Sac TANDEM",
+                "en": "TANDEM bag"
+              }
+            },
+            {
+              "src": "/media/case-tandem-umbrella.jpg",
+              "small": "/media/case-tandem-umbrella-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Parapluie TANDEM",
+                "en": "TANDEM umbrella"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "miam",
+      "title": "MIAM",
+      "meta": {
+        "fr": "Campagne",
+        "en": "Campaign"
+      },
+      "fill": "#f7e2cf",
+      "cover": {
+        "src": "/media/behance-miam-1.jpg",
+        "small": "/media/behance-miam-1-720.jpg",
+        "r": 1.75,
+        "alt": {
+          "fr": "Enseigne MIAM sur une façade",
+          "en": "MIAM sign on a storefront"
+        }
+      },
+      "intro": [
+        {
+          "fr": "MIAM est une marque de restauration rapide.",
+          "en": "MIAM is a fast-food brand."
+        },
+        {
+          "fr": "Nous avons construit son identité et sa campagne publicitaire, « Le goût qui parle », dont les visuels ont été produits avec l’IA, puis déclinés en affichage et sur les tenues.",
+          "en": "We built its identity and its advertising campaign, “Le goût qui parle”, whose visuals were produced with AI, then rolled out on posters and uniforms."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Client",
+            "en": "Client"
+          },
+          "value": {
+            "fr": "MIAM",
+            "en": "MIAM"
+          }
+        },
+        {
+          "label": {
+            "fr": "Secteur",
+            "en": "Sector"
+          },
+          "value": {
+            "fr": "Restauration rapide",
+            "en": "Fast food"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Identité, campagne publicitaire, visuels IA",
+            "en": "Identity, ad campaign, AI visuals"
+          }
+        },
+        {
+          "label": {
+            "fr": "Lien",
+            "en": "Link"
+          },
+          "value": {
+            "fr": "Behance ↗",
+            "en": "Behance ↗"
+          },
+          "href": "https://www.behance.net/gallery/223496075/MIAM-Brand-Campagne-ADS-IA"
+        }
+      ],
+      "story": [
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-miam-logos.jpg",
+              "small": "/media/case-miam-logos-720.jpg",
+              "r": 2.5455,
+              "alt": {
+                "fr": "Déclinaisons du logo MIAM",
+                "en": "MIAM logo variations"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Les déclinaisons du logo.",
+            "en": "The logo variations."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-miam-campaign-1.jpg",
+              "small": "/media/case-miam-campaign-1-720.jpg",
+              "r": 1.4184,
+              "alt": {
+                "fr": "Visuels de la campagne MIAM « Le goût qui parle »",
+                "en": "MIAM “Le goût qui parle” campaign visuals"
+              }
+            },
+            {
+              "src": "/media/case-miam-campaign-2.jpg",
+              "small": "/media/case-miam-campaign-2-720.jpg",
+              "r": 1.4184,
+              "alt": {
+                "fr": "Visuels de la campagne MIAM, enfants",
+                "en": "MIAM campaign visuals, children"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "La campagne « Le goût qui parle ».",
+            "en": "The “Le goût qui parle” campaign."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-miam-posters.jpg",
+              "small": "/media/case-miam-posters-720.jpg",
+              "r": 1.75,
+              "alt": {
+                "fr": "Affiches MIAM sur un mur",
+                "en": "MIAM posters on a wall"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "En affichage.",
+            "en": "On posters."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-miam-polo.jpg",
+              "small": "/media/case-miam-polo-720.jpg",
+              "r": 1.75,
+              "alt": {
+                "fr": "Polo aux couleurs MIAM",
+                "en": "Polo shirt in the MIAM colours"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Sur les tenues des équipes.",
+            "en": "On staff uniforms."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "katana",
+      "title": "KATANA",
+      "meta": {
+        "fr": "Communication",
+        "en": "Communication"
+      },
+      "fill": "#f3e6e3",
+      "cover": {
+        "src": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04.jpg",
+        "small": "/media/1772109564259-cover_Capture_d_e_cran_2026-02-26_a__12.39.04-720.jpg",
+        "r": 1.1552,
+        "alt": {
+          "fr": "Flyers KATANA Prestation",
+          "en": "KATANA Prestation flyers"
+        }
+      },
+      "intro": [
+        {
+          "fr": "Katana Prestation vend des huiles, des pièces et des produits automobiles, aux particuliers comme aux professionnels. L’entreprise accompagne conducteurs, mécaniciens et entreprises dans l’entretien, la performance et la longévité de leurs engins.",
+          "en": "Katana Prestation sells oils, parts and car products to individuals and professionals alike, helping drivers, mechanics and companies keep their vehicles running well and for longer."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Client",
+            "en": "Client"
+          },
+          "value": {
+            "fr": "Katana Prestation",
+            "en": "Katana Prestation"
+          }
+        },
+        {
+          "label": {
+            "fr": "Secteur",
+            "en": "Sector"
+          },
+          "value": {
+            "fr": "Automobile",
+            "en": "Automotive"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Communication digitale, flyers",
+            "en": "Digital communication, flyers"
+          }
+        },
+        {
+          "label": {
+            "fr": "Lien",
+            "en": "Link"
+          },
+          "value": {
+            "fr": "Behance ↗",
+            "en": "Behance ↗"
+          },
+          "href": "https://www.behance.net/gallery/242359173/FLYER-DESIGN-KATANA-PRESTATION"
+        }
+      ],
+      "story": [
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8c84c1242359173.696b5b2922fd1.png",
+              "r": 0.7044,
+              "alt": {
+                "fr": "Flyer KATANA, recto",
+                "en": "KATANA flyer, front"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Le flyer principal.",
+            "en": "The main flyer."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/df2e03242359173.696b5b2923551.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyer KATANA en situation",
+                "en": "KATANA flyer in context"
+              }
+            },
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/86e611242359173.696b5b2924086.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyers KATANA, détail",
+                "en": "KATANA flyers, detail"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "En situation.",
+            "en": "In context."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0895b4242359173.696b5b2923b3d.png",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Flyers KATANA, série",
+                "en": "KATANA flyers, series"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ifa",
+      "title": "IFA",
+      "meta": {
+        "fr": "Identité",
+        "en": "Identity"
+      },
+      "fill": "#efe8d4",
+      "cover": {
+        "src": "/media/behance-ifa-1.jpg",
+        "small": "/media/behance-ifa-1-720.jpg",
+        "r": 1.3333,
+        "alt": {
+          "fr": "Charte graphique de l’Infinity Football Academy",
+          "en": "Infinity Football Academy brand guidelines"
+        }
+      },
+      "intro": [
+        {
+          "fr": "L’Infinity Football Academy (IFA) est une académie de football.",
+          "en": "The Infinity Football Academy (IFA) is a football academy."
+        },
+        {
+          "fr": "Nous avons réalisé sa charte graphique : logo, couleurs, typographies et tenues, réunis dans un guide que l’académie applique sur tous ses supports.",
+          "en": "We created its brand guidelines: logo, colours, typefaces and kits, gathered in a guide the academy applies across all its media."
+        }
+      ],
+      "facts": [
+        {
+          "label": {
+            "fr": "Client",
+            "en": "Client"
+          },
+          "value": {
+            "fr": "Infinity Football Academy",
+            "en": "Infinity Football Academy"
+          }
+        },
+        {
+          "label": {
+            "fr": "Secteur",
+            "en": "Sector"
+          },
+          "value": {
+            "fr": "Sport, football",
+            "en": "Sport, football"
+          }
+        },
+        {
+          "label": {
+            "fr": "Mission",
+            "en": "Scope"
+          },
+          "value": {
+            "fr": "Identité visuelle, charte graphique, tenues",
+            "en": "Visual identity, brand guidelines, kits"
+          }
+        },
+        {
+          "label": {
+            "fr": "Lien",
+            "en": "Link"
+          },
+          "value": {
+            "fr": "Behance ↗",
+            "en": "Behance ↗"
+          },
+          "href": "https://www.behance.net/gallery/199228793/CHARTE-GRAPHIQUE-IFA-(INFINITY-FOOTBALL-ACADEMY)"
+        }
+      ],
+      "story": [
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-ifa-intro.jpg",
+              "small": "/media/case-ifa-intro-720.jpg",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Charte IFA ouverte sur la présentation de la marque",
+                "en": "IFA guidelines open on the brand introduction"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "La présentation de la marque.",
+            "en": "The brand introduction."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-ifa-logo.jpg",
+              "small": "/media/case-ifa-logo-720.jpg",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Page du logo dans la charte IFA",
+                "en": "Logo page in the IFA guidelines"
+              }
+            },
+            {
+              "src": "/media/case-ifa-pages.jpg",
+              "small": "/media/case-ifa-pages-720.jpg",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Pages de la charte IFA",
+                "en": "IFA guidelines pages"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Le logo et ses règles d’usage.",
+            "en": "The logo and its usage rules."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-ifa-kits.jpg",
+              "small": "/media/case-ifa-kits-720.jpg",
+              "r": 1.3333,
+              "alt": {
+                "fr": "Tenues de l’Infinity Football Academy",
+                "en": "Infinity Football Academy kits"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Les tenues.",
+            "en": "The kits."
+          }
+        }
+      ]
+    },
+    {
       "slug": "dj-arafat",
       "title": "DJ Arafat",
       "meta": {
@@ -1475,6 +2057,22 @@
     },
     {
       "img": {
+        "src": "/media/case-marnoa-cover.jpg",
+        "small": "/media/case-marnoa-cover-720.jpg",
+        "r": 1.5385,
+        "alt": {
+          "fr": "Le site Maison Marnoa sur ordinateur et sur téléphone",
+          "en": "The Maison Marnoa website on desktop and phone"
+        }
+      },
+      "title": "Maison Marnoa",
+      "meta": {
+        "fr": "Site e-commerce",
+        "en": "E-commerce website"
+      }
+    },
+    {
+      "img": {
         "src": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/ab6f7e230756873.687cee59097ec.png",
         "r": 1.7305,
         "alt": {
@@ -1596,6 +2194,22 @@
       "meta": {
         "fr": "Papeterie",
         "en": "Stationery"
+      }
+    },
+    {
+      "img": {
+        "src": "/media/case-marnoa-mobile.jpg",
+        "small": "/media/case-marnoa-mobile-720.jpg",
+        "r": 1.6,
+        "alt": {
+          "fr": "Accueil, collection et fiche produit sur téléphone",
+          "en": "Home, collection and product page on a phone"
+        }
+      },
+      "title": "Maison Marnoa",
+      "meta": {
+        "fr": "Version mobile",
+        "en": "Mobile version"
       }
     },
     {

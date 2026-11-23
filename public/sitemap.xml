@@ -3,43 +3,43 @@
 
   <url>
     <loc>https://originecreative.com/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://originecreative.com/a-propos</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://originecreative.com/methode</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://originecreative.com/agence-de-communication-abidjan</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://originecreative.com/contact</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://originecreative.com/mentions-legales</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://originecreative.com/politique-de-confidentialite</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -69,12 +69,32 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://originecreative.com/projets/katana</loc>
+    <loc>https://originecreative.com/projets/maison-marnoa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://originecreative.com/projets/agri-build</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/projets/tandem</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/projets/miam</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/projets/katana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://originecreative.com/projets/ifa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

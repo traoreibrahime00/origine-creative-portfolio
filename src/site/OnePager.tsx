@@ -1,4 +1,4 @@
-// The whole site on one page: intro, studio, projects, services, journal,
+// The whole site on one page: intro, studio, projects, services,
 // gallery and a footer that turns the page over. Projects, articles and the
 // studio open as full-screen sheets that grow out of the card you picked;
 // each sheet has its own address, so links and the back button keep working.
@@ -35,7 +35,7 @@ function sheetFor(pathname: string) {
 
 function sectionFor(pathname: string) {
   const section = pathname.replace(/^\/+|\/+$/g, '').split('/')[0];
-  return ({ projets: 'projects', services: 'services', blog: 'journal', galerie: 'gallery', 'a-propos': 'studio', methode: 'studio' } as Record<string, string>)[section] || null;
+  return ({ projets: 'projects', services: 'services', galerie: 'gallery', 'a-propos': 'studio', methode: 'studio' } as Record<string, string>)[section] || null;
 }
 
 const style = (vars: Record<string, string | number>) => vars as CSSProperties;
@@ -299,32 +299,6 @@ export function OnePager() {
                 <button className="copy-email" type="button" onClick={copyEmail}>{SITE.services.ctaLink[lang]}</button>
               ))}
             </p>
-          </div>
-        </section>
-
-        {/* ---- Journal ---- */}
-        <section id="journal" className="site-section content-width">
-          <header className="section-header">
-            <h2 className="section-title">{COPY.journalTitle[lang]}</h2>
-          </header>
-          <div className="reveal">
-            <div className="card-rail is-docs" role="region" aria-label={COPY.journalTitle[lang]}>
-              {POSTS.map((post) => (
-                <a key={post.slug} className="card" href={`/blog/${post.slug}`} data-controls={`journal-${post.slug}`} aria-expanded="false" style={style({ '--fill': post.fill })} draggable={false}>
-                  <span className="card-doc" aria-hidden="true">
-                    <span className="card-doc-page">
-                      <span className="doc-title">{post.title}</span>
-                      <span className="doc-meta">{post.date}</span>
-                      <span className="doc-body">{plain(post.content).split('\n').slice(0, 8).map((line, i) => <span key={i}>{line}</span>)}</span>
-                    </span>
-                  </span>
-                  <span className="card-foot">
-                    <span className="card-title">{post.title}</span>
-                    <span className="card-meta">{post.date}</span>
-                  </span>
-                </a>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -777,14 +751,3 @@ function metaFor(sheetId: string | null, pathname: string, lang: Lang) {
 }
 
 const wordCount = (text: string) => text.replace(/\{\w+\}/g, 'x').split(/\s+/).filter(Boolean).length;
-
-// Markdown to a plain preview for the paper cards
-function plain(md: string) {
-  return md
-    .replace(/^#+\s*/gm, '')
-    .replace(/\*\*|__|\*|_|`/g, '')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/^\s*[-*>]\s+/gm, '')
-    .replace(/\n{2,}/g, '\n')
-    .trim();
-}
