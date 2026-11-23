@@ -9,13 +9,13 @@ import ReactMarkdown from 'react-markdown';
 import { SEO, SITE_URL } from '../components/SEO';
 import {
   COPY, EMAIL, GALLERY, METHOD, POSTS, PROJECTS, SERVICES, SITE, STUDIO, whatsappLink,
-  type Block, type Fact, type Img, type Lang,
+  type Block, type Fact, type Img, type Lang, type T,
 } from './content';
 import { Logo } from './Logo';
 import { BackLink } from './BackLink';
 import { ThemeSwitch } from './ThemeSwitch';
 import {
-  copyText, initFooter, initHeroPeek, initInputModality, initPullToClose, initRail,
+  copyText, initCaseMotion, initFooter, initHeroPeek, initInputModality, initPullToClose, initRail,
   initReveals, initTilt, reduceMotion, setSheetOpen,
 } from './behaviors';
 import { DepthGallery } from './DepthGallery';
@@ -113,6 +113,7 @@ export function OnePager() {
     page.querySelectorAll<HTMLElement>('.sheet').forEach((sheet) => {
       if (!sheet.classList.contains('is-open')) sheet.querySelector('.sheet-scroll')?.setAttribute('inert', '');
       offs.push(initPullToClose(sheet, () => closeRef.current()));
+      if (sheet.classList.contains('is-case')) offs.push(initCaseMotion(sheet));
     });
     const footer = page.querySelector<HTMLElement>('.site-footer');
     if (footer) offs.push(initFooter(footer));
@@ -349,14 +350,23 @@ export function OnePager() {
 
       {/* ---- Sheets ---- */}
       {PROJECTS.map((p) => (
-        <Sheet key={p.slug} id={`projects-${p.slug}`} title={p.title} path={`/projets/${p.slug}`} fill={p.fill} lang={lang} onClose={closeSheet}>
+        <Sheet key={p.slug} id={`projects-${p.slug}`} title={p.title} path={`/projets/${p.slug}`} fill={p.fill} lang={lang} onClose={closeSheet} isCase>
           <div className="case">
-            <div className={'case-wide case-cover' + (p.cover.r < 1 ? ' is-portrait' : '')}>
-              <img src={p.cover.src} alt={p.cover.alt[lang]} style={style({ '--r': p.cover.r })} loading="lazy" decoding="async" />
+            {p.intro[0] && <p className="case-statement"><Words text={p.intro[0][lang]} from={p.title.split(/\s+/).length} /></p>}
+            <div className="case-wide case-stage" data-depth="">
+              <span className="case-glow" aria-hidden="true" style={style({ backgroundImage: `url("${p.cover.small || p.cover.src}")` })} />
+              <div className={'case-cover' + (p.cover.r < 1 ? ' is-portrait' : '')}>
+                <img src={p.cover.src} alt={p.cover.alt[lang]} style={style({ '--r': p.cover.r })} loading="lazy" decoding="async" />
+              </div>
+              {caseLabels(p, lang).map((label, i) => (
+                <span key={i} className={`case-label is-${i ? 'end' : 'start'}`} aria-hidden="true">{label}</span>
+              ))}
             </div>
-            <div className="post-content">
-              {p.intro.map((t, i) => <p key={i}>{t[lang]}</p>)}
-            </div>
+            {p.intro.length > 1 && (
+              <div className="post-content">
+                {p.intro.slice(1).map((t, i) => <p key={i}>{t[lang]}</p>)}
+              </div>
+            )}
             <Facts facts={p.facts} lang={lang} />
             {p.story.length > 0 && (
               <div className="case-story post-content">
@@ -518,15 +528,18 @@ function Services({ lang, onOpen }: { lang: Lang; onOpen: (el: HTMLElement, path
   );
 }
 
-function Sheet({ id, title, meta, path, fill, lang, onClose, children }: {
+function Sheet({ id, title, meta, path, fill, lang, onClose, children, isCase }: {
   id: string; title: string; meta?: string; path: string; fill: string; lang: Lang; onClose: () => void; children: ReactNode;
+  // A case study: its title and opening line write themselves in, and its
+  // pictures rise into focus as the reader scrolls (initCaseMotion)
+  isCase?: boolean;
 }) {
   return (
-    <article id={id} className="sheet" data-title={title} style={style({ '--fill': fill })}>
+    <article id={id} className={'sheet' + (isCase ? ' is-case' : '')} data-title={title} style={style({ '--fill': fill })}>
       <div className="sheet-scroll" id={`${id}-panel`}>
         <div className="sheet-inner content-width">
           <BackLink label={COPY.back[lang]} onBack={onClose} className="is-inline" />
-          <h2 className="sheet-title" tabIndex={-1}>{title}</h2>
+          <h2 className="sheet-title" tabIndex={-1}>{isCase ? <Words text={title} /> : title}</h2>
           {meta && <p className="sheet-meta">{meta}</p>}
           {children}
         </div>
@@ -580,15 +593,15 @@ function Picture({ img, lang }: { img: Img; lang: Lang }) {
 function StoryBlock({ block, lang }: { block: Block; lang: Lang }) {
   switch (block.kind) {
     case 'h':
-      return <h4>{block.text[lang]}</h4>;
+      return <h4 className="motion">{block.text[lang]}</h4>;
     case 'p':
-      return <p>{block.text[lang]}</p>;
+      return <p className="motion">{block.text[lang]}</p>;
     case 'quote':
-      return <blockquote><p>{block.text[lang]}</p></blockquote>;
+      return <blockquote className="motion"><p>{block.text[lang]}</p></blockquote>;
     case 'figure': {
       const portrait = block.images.length === 1 && block.images[0].r < 1;
       return (
-        <figure className={'figure' + (portrait ? ' is-portrait' : '')}>
+        <figure className={'figure motion' + (portrait ? ' is-portrait' : '')} data-depth="">
           {block.images.map((img, i) => <Picture key={i} img={img} lang={lang} />)}
           {block.caption && <figcaption>{block.caption[lang]}</figcaption>}
         </figure>
@@ -596,13 +609,32 @@ function StoryBlock({ block, lang }: { block: Block; lang: Lang }) {
     }
     case 'strip':
       return (
-        <div className="case-strip" tabIndex={0}>
+        <div className="case-strip motion" tabIndex={0}>
           {block.images.map((img, i) => (
             <img key={i} src={img.small || img.src} alt={img.alt[lang]} loading="lazy" decoding="async" style={style({ '--r': img.r })} />
           ))}
         </div>
       );
   }
+}
+
+// A line split into words that appear one after another (CSS staggers them
+// by --w); `from` continues the count of a line written just before.
+function Words({ text, from = 0 }: { text: string; from?: number }) {
+  return (
+    <>
+      {text.split(/(\s+)/).map((w, i) => (/^\s+$/.test(w) || !w ? w : (
+        <span key={i} className="w" style={style({ '--w': from + i / 2 })}>{w}</span>
+      )))}
+    </>
+  );
+}
+
+// The two small labels floating by a case study's cover: what it is, and the
+// client's field when the facts give one
+function caseLabels(p: { meta: T; facts: Fact[] }, lang: Lang) {
+  const sector = p.facts.find((f) => /^(secteur|sector)$/i.test(f.label.fr));
+  return [p.meta[lang], sector?.value[lang]].filter((l): l is string => !!l);
 }
 
 // The brand's O, drawn as a ring so it can sit on any background

@@ -412,6 +412,65 @@ export function setSheetOpen(article: Sheet, open: boolean, instant = false) {
   setTimeout(end, 900);
 }
 
+// ---- Case study motion ----
+// Inside an open case study, each .motion block rises into focus the first
+// time it comes up the sheet, and every [data-depth] element carries --v, its
+// distance from the middle of the screen (-1 above … 0 centred … 1 below),
+// which the styles turn into parallax and a fade on the way out. Closing the
+// sheet resets the blocks so the story plays again next time.
+export function initCaseMotion(article: HTMLElement) {
+  const scroller = article.querySelector<HTMLElement>('.sheet-scroll')!;
+  const blocks = Array.from(article.querySelectorAll<HTMLElement>('.motion'));
+  const depths = Array.from(article.querySelectorAll<HTMLElement>('[data-depth]'));
+  if (reduceMotion()) {
+    blocks.forEach((el) => el.classList.add('is-in'));
+    return () => {};
+  }
+
+  let raf = 0;
+  let opening = true;
+  const isOpen = () => article.classList.contains('is-open')
+    && !article.classList.contains('is-from-card') && !article.classList.contains('is-closing');
+
+  const update = () => {
+    raf = 0;
+    if (!isOpen()) return;
+    const h = scroller.clientHeight;
+    let batch = 0;
+    for (const el of blocks) {
+      if (el.classList.contains('is-in')) continue;
+      const top = el.getBoundingClientRect().top;
+      if (top > h * 0.9) continue;
+      // What is already on screen as the sheet opens follows its title in
+      el.style.setProperty('--d', (opening ? 520 : 0) + Math.min(batch++, 4) * 90 + 'ms');
+      el.classList.add('is-in');
+    }
+    opening = false;
+    for (const el of depths) {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--v', ((r.top + r.height / 2 - h / 2) / h).toFixed(3));
+    }
+  };
+  const schedule = () => { if (!raf) raf = requestAnimationFrame(update); };
+
+  const watch = new MutationObserver(() => {
+    if (article.classList.contains('is-open')) return schedule();
+    opening = true;
+    blocks.forEach((el) => { el.classList.remove('is-in'); el.style.removeProperty('--d'); });
+  });
+  watch.observe(article, { attributes: true, attributeFilter: ['class'] });
+  scroller.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  schedule();
+
+  return () => {
+    watch.disconnect();
+    scroller.removeEventListener('scroll', schedule);
+    window.removeEventListener('resize', schedule);
+    cancelAnimationFrame(raf);
+  };
+}
+
 // ---- Pull to close ----
 // Pulling past the end of an open sheet closes it, like a page you let go.
 // The ring around the closer fills on the way; letting go short of it brings
