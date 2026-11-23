@@ -1232,6 +1232,192 @@ a.card.is-current:active {
   width: auto;
 }
 
+/* ---- Case studies in motion ----
+   The title and the opening line write themselves in, word by word, out of a
+   blur; the cover rises into focus over a soft glow of its own colours, with
+   two labels floating at other depths; further down, each picture rises in
+   as it arrives and fades as it leaves (--v, set by initCaseMotion). */
+.sheet.is-case .w {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(0.35em);
+  transition: opacity 200ms ease, filter 200ms ease, transform 200ms ease;
+}
+
+.sheet.is-case.is-open:not(.is-from-card) .w {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition:
+    opacity 700ms var(--ease-out) calc(240ms + var(--w) * 55ms),
+    filter 700ms var(--ease-out) calc(240ms + var(--w) * 55ms),
+    transform 900ms var(--ease-out) calc(240ms + var(--w) * 55ms);
+}
+
+.case-statement {
+  margin: 0;
+  font-size: 1.65rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  color: var(--color-muted);
+}
+
+.case-stage {
+  position: relative;
+  isolation: isolate;
+  margin-top: var(--space-md);
+}
+
+.sheet.is-case .case > .case-stage {
+  transform: translateY(48px) scale(0.97);
+  filter: blur(14px);
+}
+
+.sheet.is-case.is-open:not(.is-from-card) .case > .case-stage {
+  transform: none;
+  filter: none;
+  transition:
+    opacity 900ms var(--ease-out) 480ms,
+    transform 1200ms var(--ease-out) 480ms,
+    filter 900ms var(--ease-out) 480ms;
+}
+
+.case-glow {
+  position: absolute;
+  inset: 6% 4%;
+  z-index: -1;
+  background: center / cover no-repeat;
+  border-radius: 2rem;
+  filter: blur(64px) saturate(1.5);
+  opacity: 0.5;
+  transform: translateY(calc(var(--v, 0) * 48px)) scale(1.04);
+  pointer-events: none;
+}
+
+.case-stage .case-cover img {
+  transform: translateY(calc(var(--v, 0) * -16px));
+}
+
+.case-label {
+  position: absolute;
+  z-index: 1;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  backdrop-filter: blur(16px) saturate(1.6);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--color-text) 8%, transparent),
+    0 12px 30px -12px rgb(0 0 0 / 0.3);
+  opacity: 0;
+  translate: 0 calc(var(--v, 0) * -72px);
+  transition: opacity 300ms ease;
+}
+
+.case-label.is-start {
+  top: 9%;
+  left: -0.75rem;
+}
+
+.case-label.is-end {
+  right: -0.75rem;
+  bottom: 11%;
+  translate: 0 calc(var(--v, 0) * -36px);
+}
+
+.sheet.is-case.is-open:not(.is-from-card) .case-label {
+  opacity: 1;
+  transition: opacity 700ms var(--ease-out) 1150ms;
+  animation: caseFloat 5s ease-in-out 1.2s infinite alternate;
+}
+
+.sheet.is-case.is-open:not(.is-from-card) .case-label.is-end {
+  transition-delay: 1300ms;
+  animation-delay: 1.9s;
+}
+
+@keyframes caseFloat {
+  to { transform: translateY(-7px); }
+}
+
+@media (max-width: 600px) {
+  .case-label {
+    font-size: 0.75rem;
+  }
+
+  .case-label.is-start {
+    left: 0.5rem;
+  }
+
+  .case-label.is-end {
+    right: 0.5rem;
+  }
+}
+
+.sheet.is-case .motion {
+  opacity: 0;
+  transform: translateY(48px) scale(0.98);
+  filter: blur(12px);
+  transition: opacity 250ms ease, transform 250ms ease, filter 250ms ease;
+}
+
+.sheet.is-case .motion.is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity 900ms var(--ease-out) var(--d, 0ms),
+    transform 1100ms var(--ease-out) var(--d, 0ms),
+    filter 900ms var(--ease-out) var(--d, 0ms);
+}
+
+.sheet.is-case .figure img {
+  transform: translateY(calc(var(--v, 0) * -20px));
+  opacity: clamp(0.25, calc(1.6 + var(--v, 0) * 1.6), 1);
+}
+
+.sheet.is-case .figure figcaption {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.sheet.is-case .figure.is-in figcaption {
+  opacity: 1;
+  transition: opacity 700ms var(--ease-out) calc(var(--d, 0ms) + 450ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet.is-case .w,
+  .sheet.is-case .motion,
+  .sheet.is-case .case > .case-stage,
+  .sheet.is-case .case-label,
+  .sheet.is-case .figure figcaption {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .case-glow,
+  .case-stage .case-cover img,
+  .sheet.is-case .figure img {
+    opacity: 1;
+    transform: none;
+  }
+
+  .case-glow {
+    opacity: 0.5;
+  }
+}
+
 .post-content p {
   margin: 0 0 var(--space-md);
 }
