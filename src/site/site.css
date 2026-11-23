@@ -1255,19 +1255,78 @@ a.card.is-current:active {
     transform 900ms var(--ease-out) calc(240ms + var(--w) * 55ms);
 }
 
+/* Four levels, as on a product page: the name, dark and large; the opening
+   line just under it, large and grey; the account, in body text; the facts,
+   small. Text and pictures keep a wide breath between them. */
+.sheet.is-case .sheet-title {
+  font-size: clamp(2rem, 1.35rem + 2.6vw, 3rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.sheet.is-case .sheet-title + .case {
+  margin-top: 0.75rem;
+}
+
 .case-statement {
   margin: 0;
-  font-size: 1.65rem;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  text-wrap: balance;
+  font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.1rem);
+  line-height: 1.22;
+  letter-spacing: -0.028em;
+  text-wrap: pretty;
   color: var(--color-muted);
 }
 
 .case-stage {
   position: relative;
   isolation: isolate;
-  margin-top: var(--space-md);
+  margin-top: clamp(2.5rem, 6vw, var(--space-lg));
+}
+
+.sheet.is-case .case > .case-stage + .post-content {
+  margin-top: clamp(3rem, 8vw, 5rem);
+}
+
+.sheet.is-case .case > .case-stage + .post-content p {
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+}
+
+/* Each step of the story: a short dark heading, a grey line that explains
+   it, then the picture, well apart from the step before */
+.sheet.is-case .case-story h4,
+.sheet.is-case .case-story .figure + h4,
+.sheet.is-case .case-story .case-strip + h4 {
+  margin: clamp(4.5rem, 12vw, var(--space-xl)) 0 0;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+  color: var(--color-text);
+}
+
+.sheet.is-case .case-story h4 + p {
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.2rem, 1.02rem + 0.85vw, 1.6rem);
+  line-height: 1.3;
+  letter-spacing: -0.022em;
+  text-wrap: pretty;
+  color: var(--color-muted);
+}
+
+.sheet.is-case .case-story p + .figure,
+.sheet.is-case .case-story p + .case-strip {
+  margin-top: clamp(2.5rem, 6vw, var(--space-lg));
+}
+
+.sheet.is-case .case-story .figure + .figure {
+  margin-top: var(--space-sm);
+}
+
+.sheet.is-case .figure figcaption {
+  margin-top: 0.25rem;
 }
 
 .sheet.is-case .case > .case-stage {

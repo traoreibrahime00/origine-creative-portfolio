@@ -927,6 +927,20 @@
       ],
       "story": [
         {
+          "kind": "h",
+          "text": {
+            "fr": "Le point de départ",
+            "en": "The starting point"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Vendre de la haute joaillerie en ligne, c’est d’abord inspirer confiance. Le site devait donner la même impression qu’une visite au showroom : calme, précieuse, rassurante.",
+            "en": "Selling fine jewellery online starts with trust. The site had to feel like a visit to the showroom: calm, precious, reassuring."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -945,21 +959,17 @@
           }
         },
         {
-          "kind": "figure",
-          "images": [
-            {
-              "src": "/media/case-marnoa-mobile.jpg",
-              "small": "/media/case-marnoa-mobile-720.jpg",
-              "r": 1.6,
-              "alt": {
-                "fr": "Accueil, collection et fiche produit sur téléphone",
-                "en": "Home, collection and product page on a phone"
-              }
-            }
-          ],
-          "caption": {
-            "fr": "Pensé d’abord pour le téléphone : accueil, collection, fiche produit.",
-            "en": "Built for the phone first: home, collection, product page."
+          "kind": "h",
+          "text": {
+            "fr": "Le parti pris",
+            "en": "The approach"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Une palette crème et or, de grandes photos portées et beaucoup d’espace. Les garanties, or 18 carats certifié, livraison sécurisée, paiement en trois fois, sont visibles dès l’arrivée, avant même la collection.",
+            "en": "A cream and gold palette, large worn shots and plenty of space. The guarantees, certified 18-carat gold, secure delivery, payment in three instalments, show from the first screen, before the collection itself."
           }
         },
         {
@@ -978,6 +988,38 @@
           "caption": {
             "fr": "La collection filtrable et la fiche produit, sur ordinateur.",
             "en": "The filterable collection and a product page, on desktop."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Pensé pour le téléphone",
+            "en": "Built for the phone"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Navigation en bas de l’écran, filtres par type de bijou, prix sur demande et WhatsApp toujours à portée de pouce : on passe de la découverte à la conversation en un geste.",
+            "en": "Navigation at the bottom of the screen, filters by type of piece, prices on request and WhatsApp always within thumb’s reach: from discovery to conversation in one move."
+          }
+        },
+        {
+          "kind": "figure",
+          "images": [
+            {
+              "src": "/media/case-marnoa-mobile.jpg",
+              "small": "/media/case-marnoa-mobile-720.jpg",
+              "r": 1.6,
+              "alt": {
+                "fr": "Accueil, collection et fiche produit sur téléphone",
+                "en": "Home, collection and product page on a phone"
+              }
+            }
+          ],
+          "caption": {
+            "fr": "Pensé d’abord pour le téléphone : accueil, collection, fiche produit.",
+            "en": "Built for the phone first: home, collection, product page."
           }
         }
       ]
@@ -1378,6 +1420,20 @@
       ],
       "story": [
         {
+          "kind": "h",
+          "text": {
+            "fr": "Le point de départ",
+            "en": "The starting point"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Une entreprise de construction et d’immobilier qui avait besoin d’une identité aussi solide que ses chantiers, et assez claire pour être reconnue de loin, sur une palissade comme sur une portière.",
+            "en": "A construction and real-estate company that needed an identity as solid as its sites, and clear enough to be recognised from afar, on a hoarding as on a car door."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -1396,6 +1452,20 @@
           }
         },
         {
+          "kind": "h",
+          "text": {
+            "fr": "Le symbole",
+            "en": "The symbol"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Deux arcs qui se croisent pour former un X : deux forces qui avancent ensemble, comme le nom TANDEM. Le signe est construit sur une grille précise, pour rester net à toutes les tailles.",
+            "en": "Two arcs crossing into an X: two forces moving forward together, like the name TANDEM. The mark is built on a precise grid so it stays sharp at every size."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -1411,6 +1481,57 @@
           "caption": {
             "fr": "La construction du logo.",
             "en": "The logo construction."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Le système",
+            "en": "The system"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Un vert franc associé à l’anthracite, une typographie sobre et un motif d’immeubles stylisés qui se décline à l’infini, des objets de la marque jusqu’aux plus grands supports.",
+            "en": "A bold green paired with charcoal, a restrained typeface and a pattern of stylised buildings that extends endlessly, from branded objects to the largest formats."
+          }
+        },
+        {
+          "kind": "strip",
+          "images": [
+            {
+              "src": "/media/case-tandem-bag.jpg",
+              "small": "/media/case-tandem-bag-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Sac TANDEM",
+                "en": "TANDEM bag"
+              }
+            },
+            {
+              "src": "/media/case-tandem-umbrella.jpg",
+              "small": "/media/case-tandem-umbrella-720.jpg",
+              "r": 1.4141,
+              "alt": {
+                "fr": "Parapluie TANDEM",
+                "en": "TANDEM umbrella"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "En situation",
+            "en": "In use"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Devanture, véhicules, stands : l’identité tient sur tous les supports de l’entreprise, du plus petit au plus grand.",
+            "en": "Shopfront, vehicles, stands: the identity holds on every company touchpoint, from the smallest to the largest."
           }
         },
         {
@@ -1439,29 +1560,6 @@
             "fr": "Sur les véhicules et les stands.",
             "en": "On vehicles and stands."
           }
-        },
-        {
-          "kind": "strip",
-          "images": [
-            {
-              "src": "/media/case-tandem-bag.jpg",
-              "small": "/media/case-tandem-bag-720.jpg",
-              "r": 1.4141,
-              "alt": {
-                "fr": "Sac TANDEM",
-                "en": "TANDEM bag"
-              }
-            },
-            {
-              "src": "/media/case-tandem-umbrella.jpg",
-              "small": "/media/case-tandem-umbrella-720.jpg",
-              "r": 1.4141,
-              "alt": {
-                "fr": "Parapluie TANDEM",
-                "en": "TANDEM umbrella"
-              }
-            }
-          ]
         }
       ]
     },
@@ -1537,6 +1635,20 @@
       ],
       "story": [
         {
+          "kind": "h",
+          "text": {
+            "fr": "Le point de départ",
+            "en": "The starting point"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Dans la restauration rapide, l’envie se décide en une seconde. MIAM avait besoin d’une marque gourmande, reconnaissable au premier coup d’œil, et d’une campagne qui donne faim.",
+            "en": "In fast food, cravings are decided in a second. MIAM needed an appetising brand, recognisable at first glance, and a campaign that makes people hungry."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -1552,6 +1664,20 @@
           "caption": {
             "fr": "Les déclinaisons du logo.",
             "en": "The logo variations."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "L’idée",
+            "en": "The idea"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "« Le goût qui parle » : des visages en gros plan, saisis au moment de la première bouchée. L’émotion passe avant le produit, sur un fond orange qui fait le lien avec la marque.",
+            "en": "“Le goût qui parle” (the taste that speaks): close-up faces caught at the first bite. Emotion comes before the product, on an orange background that ties back to the brand."
           }
         },
         {
@@ -1582,6 +1708,20 @@
           }
         },
         {
+          "kind": "h",
+          "text": {
+            "fr": "Produite avec l’IA",
+            "en": "Produced with AI"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Les visuels ont été générés et retouchés avec l’IA, sous notre direction artistique : le casting, la lumière et le cadrage sont pensés comme pour un vrai shooting.",
+            "en": "The visuals were generated and retouched with AI under our art direction: casting, light and framing are planned as for a real photo shoot."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -1597,6 +1737,20 @@
           "caption": {
             "fr": "En affichage.",
             "en": "On posters."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "En situation",
+            "en": "In use"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Affiches, tenues des équipes, façade : la même énergie, du mur au comptoir.",
+            "en": "Posters, staff uniforms, storefront: the same energy, from the wall to the counter."
           }
         },
         {
@@ -1687,6 +1841,20 @@
       ],
       "story": [
         {
+          "kind": "h",
+          "text": {
+            "fr": "Le point de départ",
+            "en": "The starting point"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Katana Prestation s’adresse aussi bien aux particuliers qu’aux mécaniciens. Ses flyers devaient montrer toute l’offre d’un coup d’œil, sans rien perdre en impact.",
+            "en": "Katana Prestation serves private drivers and mechanics alike. Its flyers had to show the whole offer at a glance without losing any impact."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -1701,6 +1869,20 @@
           "caption": {
             "fr": "Le flyer principal.",
             "en": "The main flyer."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Le parti pris",
+            "en": "The approach"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Une ambiance d’atelier, des produits mis en lumière comme des héros et une liste claire de ce que propose la boutique : le flyer se lit en quelques secondes, au comptoir comme sur les réseaux.",
+            "en": "A workshop atmosphere, products lit like heroes and a clear list of what the shop offers: the flyer reads in seconds, at the counter or on social media."
           }
         },
         {
@@ -1815,6 +1997,20 @@
       ],
       "story": [
         {
+          "kind": "h",
+          "text": {
+            "fr": "Le point de départ",
+            "en": "The starting point"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Une académie de football qui voulait l’allure d’un grand club : une identité qui inspire les joueurs et donne confiance aux familles comme aux partenaires.",
+            "en": "A football academy that wanted the presence of a big club: an identity that inspires players and earns the trust of families and partners alike."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -1830,6 +2026,20 @@
           "caption": {
             "fr": "La présentation de la marque.",
             "en": "The brand introduction."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Le parti pris",
+            "en": "The approach"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Le noir et l’or, codes du prestige sportif, et un écusson dessiné pour rester lisible partout, brodé sur un maillot comme imprimé en petit.",
+            "en": "Black and gold, the codes of sporting prestige, and a crest drawn to stay legible anywhere, embroidered on a shirt or printed small."
           }
         },
         {
@@ -1857,6 +2067,20 @@
           "caption": {
             "fr": "Le logo et ses règles d’usage.",
             "en": "The logo and its usage rules."
+          }
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Sur le terrain",
+            "en": "On the pitch"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Les tenues reprennent la palette et l’écusson : l’académie est reconnaissable dès l’entrée sur la pelouse.",
+            "en": "The kits carry the palette and the crest: the academy is recognisable the moment it steps onto the pitch."
           }
         },
         {
@@ -1941,6 +2165,20 @@
       ],
       "story": [
         {
+          "kind": "h",
+          "text": {
+            "fr": "L’intention",
+            "en": "The intent"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "Rendre hommage à DJ Arafat avec une pochette qui célèbre son énergie et sa place dans la culture ivoirienne, comme un objet que ses fans voudraient garder.",
+            "en": "A tribute to DJ Arafat: a cover that celebrates his energy and his place in Ivorian culture, an object his fans would want to keep."
+          }
+        },
+        {
           "kind": "figure",
           "images": [
             {
@@ -1952,6 +2190,20 @@
               }
             }
           ]
+        },
+        {
+          "kind": "h",
+          "text": {
+            "fr": "Les déclinaisons",
+            "en": "The variations"
+          }
+        },
+        {
+          "kind": "p",
+          "text": {
+            "fr": "La même direction artistique se prolonge sur chaque format, de la pochette au vinyle.",
+            "en": "The same art direction carries through every format, from the sleeve to the vinyl."
+          }
         },
         {
           "kind": "figure",
