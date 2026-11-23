@@ -40,7 +40,6 @@ export const routes = [
   '/methode',
   '/projets',
   '/services',
-  '/blog',
   '/galerie',
   ...SERVICES.map((s) => `/services/${s.slug}`),
   ...PROJECTS.map((p) => `/projets/${p.slug}`),
