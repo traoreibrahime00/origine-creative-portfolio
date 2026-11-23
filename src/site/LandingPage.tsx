@@ -26,14 +26,18 @@ const FAQ = [
     a: 'Nous sommes basés à Abidjan et travaillons avec des entreprises dans toute la Côte d’Ivoire, en Afrique de l’Ouest et à l’international. Les échanges se font en rendez-vous ou à distance, selon ce qui vous convient.',
   },
   {
+    q: 'Utilisez-vous l’intelligence artificielle ?',
+    a: 'Oui, comme outil de production et d’efficacité : visuels et vidéos produits avec l’IA sous notre direction artistique, automatisation des tâches répétitives et agents IA qui répondent à vos clients sur WhatsApp ou sur votre site.',
+  },
+  {
     q: 'Pouvez-vous gérer nos réseaux sociaux ?',
-    a: 'Nous concevons votre présence en ligne : kits réseaux sociaux prêts à l’emploi, templates marketing, animations et landing pages. Vos équipes publient ensuite avec des supports cohérents et faciles à décliner.',
+    a: 'Nous concevons votre présence en ligne : site web, kits réseaux sociaux prêts à l’emploi, templates marketing, animations et landing pages. Vos équipes publient ensuite avec des supports cohérents et faciles à décliner.',
   },
 ];
 
 export function LandingCommunication() {
   const title = 'Agence de communication à Abidjan — Origine Creative';
-  const description = 'Origine Creative, agence de communication et de branding à Abidjan : stratégie de marque, identité visuelle, campagnes, motion design et communication digitale.';
+  const description = 'Origine Creative, agence de communication et de branding à Abidjan : identité de marque, campagnes, sites web, production IA et automatisation.';
   const url = SITE_URL + PATH;
 
   return (

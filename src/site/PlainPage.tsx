@@ -161,8 +161,8 @@ export function ContactPage() {
       seo={{
         title: lang === 'fr' ? 'Démarrer un projet — Origine Creative, agence de branding à Abidjan' : 'Start a project — Origine Creative, branding agency in Abidjan',
         description: lang === 'fr'
-          ? 'Décrivez votre projet de marque, de campagne ou de communication digitale en quatre étapes. Réponse sous 24h ouvrées. Origine Creative, Abidjan.'
-          : 'Describe your brand, campaign or digital communication project in four steps. Reply within one working day. Origine Creative, Abidjan.',
+          ? 'Décrivez votre projet de marque, de campagne, de site web ou d’IA en quatre étapes. Réponse sous 24h ouvrées. Origine Creative, Abidjan.'
+          : 'Describe your brand, campaign, website or AI project in four steps. Reply within one working day. Origine Creative, Abidjan.',
         path: '/contact',
       }}
     >
