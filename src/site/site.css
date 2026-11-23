@@ -288,6 +288,10 @@ body.oc[data-focus] .hero-statement .word {
   opacity: 0.8;
 }
 
+.hero-identity .title .nowrap {
+  white-space: nowrap;
+}
+
 .name-open {
   position: relative;
   padding: 0;

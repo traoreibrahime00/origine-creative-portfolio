@@ -174,7 +174,12 @@ export function OnePager() {
                     <Logo className="hero-logo" />
                   </button>
                 </div>
-                <span className="title">{SITE.identity.title[lang]}</span>
+                {/* A long list of disciplines wraps between items, never inside one */}
+                <span className="title">
+                  {SITE.identity.title[lang].split(/\s*[·•]\s*/).map((item, i, all) => (
+                    <Fragment key={i}><span className="nowrap">{item}{i < all.length - 1 && ' ·'}</span>{i < all.length - 1 && ' '}</Fragment>
+                  ))}
+                </span>
               </div>
               <div className="hero-tools">
                 <button

@@ -120,8 +120,8 @@
   },
   "identity": {
     "title": {
-      "fr": "Branding · Design · Digital",
-      "en": "Branding · Design · Digital"
+      "fr": "Branding · Creative Direction · Digital Experiences · AI Production",
+      "en": "Branding · Creative Direction · Digital Experiences · AI Production"
     }
   },
   "hero": {
@@ -130,29 +130,37 @@
       "en": "Branding & Art Direction Agency — Africa & International"
     },
     "text": {
-      "fr": "Nous bâtissons des marques singulières qui dominent leur marché.",
-      "en": "We build distinctive brands that lead their market."
+      "fr": "Creative thinking. Strategic impact.",
+      "en": "Creative thinking. Strategic impact."
     },
     "sub": {
-      "fr": "De la {strategie} au déploiement visuel haute précision, nous fusionnons rigueur conceptuelle, {culture} et technologies créatives pour donner à votre marque un temps d’avance.",
-      "en": "From {strategie} to high-precision visual rollout, we bring together conceptual rigour, {culture} and creative technology to keep your brand one step ahead."
+      "fr": "Nous accompagnons les marques et les entreprises dans la construction de leur {identite}, leur {communication} et leurs {digital}.",
+      "en": "We help brands and companies build their {identite}, their {communication} and their {digital}."
     },
     "links": [
       {
-        "key": "strategie",
+        "key": "identite",
         "label": {
-          "fr": "stratégie fondatrice",
-          "en": "founding strategy"
+          "fr": "identité",
+          "en": "identity"
         },
         "project": "agri-build"
       },
       {
-        "key": "culture",
+        "key": "communication",
         "label": {
-          "fr": "culture visuelle contemporaine",
-          "en": "contemporary visual culture"
+          "fr": "communication",
+          "en": "communication"
         },
-        "project": "dj-arafat"
+        "project": "miam"
+      },
+      {
+        "key": "digital",
+        "label": {
+          "fr": "expériences digitales",
+          "en": "digital experiences"
+        },
+        "project": "maison-marnoa"
       }
     ],
     "ctaProjects": {
