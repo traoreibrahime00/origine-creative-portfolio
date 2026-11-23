@@ -35,20 +35,24 @@
             "en": "A complete new brand (new company / new product)"
           },
           {
-            "fr": "Refonte globale d’identité de marque (rebranding)",
-            "en": "A full brand identity overhaul (rebranding)"
+            "fr": "Refonte d’identité de marque (rebranding)",
+            "en": "Brand identity overhaul (rebranding)"
           },
           {
-            "fr": "Stratégie & lancement de campagne visuelle / événement",
-            "en": "Strategy & launch of a visual campaign / event"
+            "fr": "Campagne, direction artistique ou motion design",
+            "en": "Campaign, art direction or motion design"
           },
           {
-            "fr": "Motion design & production de contenus digitaux",
-            "en": "Motion design & digital content production"
+            "fr": "Site web, boutique en ligne ou landing page",
+            "en": "Website, online shop or landing page"
           },
           {
-            "fr": "Conception de landing page / interface digitale",
-            "en": "Landing page / digital interface design"
+            "fr": "Production de visuels ou de vidéos avec l’IA",
+            "en": "AI-produced visuals or videos"
+          },
+          {
+            "fr": "Automatisation ou agent IA",
+            "en": "Automation or AI agent"
           }
         ]
       },
@@ -126,8 +130,8 @@
   },
   "hero": {
     "eyebrow": {
-      "fr": "Agence de Branding & Direction Artistique — Afrique & International",
-      "en": "Branding & Art Direction Agency — Africa & International"
+      "fr": "Agence créative à Abidjan — Afrique & International",
+      "en": "Creative agency in Abidjan — Africa & International"
     },
     "text": {
       "fr": "Creative thinking. Strategic impact.",
@@ -198,8 +202,8 @@
         "en": "In African and global markets that are changing fast, a brand can no longer settle for being seen: it has to be remembered, respected and wanted."
       },
       {
-        "fr": "Chez Origine Creative, nous refusons les identités interchangeables et le design décoratif sans intention. Nous croyons à la puissance des concepts radicaux, à la justesse typographique, à la discipline des systèmes graphiques et à la dynamique du mouvement.",
-        "en": "At Origine Creative, we turn down interchangeable identities and decoration without intent. We believe in the strength of radical concepts, precise typography, disciplined graphic systems and the energy of motion."
+        "fr": "Chez Origine Creative, nous refusons les identités interchangeables et le design décoratif sans intention. Nous croyons à la puissance des concepts radicaux, à la justesse typographique, à la discipline des systèmes graphiques, à la dynamique du mouvement et à l’intelligence des nouveaux outils.",
+        "en": "At Origine Creative, we turn down interchangeable identities and decoration without intent. We believe in the strength of radical concepts, precise typography, disciplined graphic systems, the energy of motion and the intelligence of new tools."
       },
       {
         "fr": "Nous donnons une voix, une posture et une armature visuelle durable aux leaders de demain.",
@@ -213,13 +217,13 @@
       "en": "The studio"
     },
     "line": {
-      "fr": "Studio créatif, marques et expériences",
-      "en": "Creative studio, brands and experiences"
+      "fr": "Creative thinking. Strategic impact.",
+      "en": "Creative thinking. Strategic impact."
     },
     "paragraphs": [
       {
-        "fr": "Origine Creative est un studio créatif spécialisé dans la construction de marques fortes et la création d'expériences visuelles et digitales.",
-        "en": "Origine Creative is a creative studio that builds strong brands and creates visual and digital experiences."
+        "fr": "Origine Creative est un studio créatif basé à Abidjan. Nous accompagnons les marques et les entreprises dans la construction de leur identité, de leur communication et de leurs expériences digitales.",
+        "en": "Origine Creative is a creative studio based in Abidjan. We help brands and companies build their identity, their communication and their digital experiences."
       },
       {
         "fr": "Née de la volonté de repenser la communication sur le continent africain, Origine Creative accompagne les marques ambitieuses comme partenaire stratégique.",
@@ -230,8 +234,8 @@
         "en": "Design is not only about looks, it is a lever for growth. We build competitive advantage, engagement and leadership for our clients."
       },
       {
-        "fr": "Nous allions une compréhension fine des contextes culturels locaux à une exigence internationale : l’excellence créative doit toujours servir une vision d’affaires claire.",
-        "en": "We pair a close understanding of local culture with international standards: creative excellence should always serve a clear business vision."
+        "fr": "Nous allions une compréhension fine des contextes culturels locaux, une exigence internationale et la maîtrise des outils d’intelligence artificielle : l’excellence créative doit toujours servir une vision d’affaires claire.",
+        "en": "We pair a close understanding of local culture with international standards and a command of artificial intelligence tools: creative excellence should always serve a clear business vision."
       }
     ],
     "facts": [
@@ -314,12 +318,12 @@
       },
       {
         "label": {
-          "fr": "Création & design",
-          "en": "Creation & design"
+          "fr": "Création & production",
+          "en": "Creation & production"
         },
         "text": {
-          "fr": "La stratégie devient une identité visuelle, un récit et des supports concrets.",
-          "en": "Strategy becomes a visual identity, a story and real-world materials."
+          "fr": "La stratégie devient une identité, des contenus et des outils concrets : supports, site, visuels et automatisations.",
+          "en": "Strategy becomes an identity, content and real tools: materials, website, visuals and automations."
         }
       },
       {
@@ -336,74 +340,67 @@
   },
   "expertise": {
     "text": {
-      "fr": "Nous travaillons en cinq pôles : {strategy}, {identity}, {art}, {motion} et {digital}.",
-      "en": "We work in five areas: {strategy}, {identity}, {art}, {motion} and {digital}."
+      "fr": "Nous travaillons en quatre pôles : {branding}, {direction}, {digital} et {ai}.",
+      "en": "We work across four practices: {branding}, {direction}, {digital} and {ai}."
     },
     "links": [
       {
-        "key": "strategy",
+        "key": "branding",
         "label": {
-          "fr": "stratégie de marque",
-          "en": "brand strategy"
+          "fr": "Branding",
+          "en": "Branding"
         }
       },
       {
-        "key": "identity",
+        "key": "direction",
         "label": {
-          "fr": "identité visuelle",
-          "en": "visual identity"
-        }
-      },
-      {
-        "key": "art",
-        "label": {
-          "fr": "direction artistique",
-          "en": "art direction"
-        }
-      },
-      {
-        "key": "motion",
-        "label": {
-          "fr": "motion design",
-          "en": "motion design"
+          "fr": "Creative Direction",
+          "en": "Creative Direction"
         }
       },
       {
         "key": "digital",
         "label": {
-          "fr": "communication digitale",
-          "en": "digital communication"
+          "fr": "Digital Experiences",
+          "en": "Digital Experiences"
+        }
+      },
+      {
+        "key": "ai",
+        "label": {
+          "fr": "AI Production & Automation",
+          "en": "AI Production & Automation"
         }
       }
     ]
   },
   "services": {
     "intro": {
-      "fr": "Notre travail se situe à l’intersection de la stratégie, du design et de l’artisanat. Nous partons de votre marché, de votre culture et de vos objectifs, puis nous construisons une image qui tient sur chaque support, du logo au panneau de chantier.",
-      "en": "Our work sits at the intersection of strategy, design and craft. We start from your market, your culture and your goals, then build an image that holds on every surface, from the logo to the site hoarding."
+      "fr": "Notre travail se situe à l’intersection de la stratégie, du design et de la technologie. Nous partons de votre marché, de votre culture et de vos objectifs, puis nous construisons une marque, des contenus et des outils qui tiennent sur chaque support : du logo au site web, jusqu’à l’agent IA qui répond à vos clients.",
+      "en": "Our work sits at the intersection of strategy, design and technology. We start from your market, your culture and your goals, then build a brand, content and tools that hold on every surface: from the logo to the website, all the way to the AI agent that answers your customers."
     },
     "items": [
       {
-        "slug": "strategie-de-marque",
+        "slug": "branding",
         "title": {
-          "fr": "Stratégie de Marque & Positionnement",
-          "en": "Brand Strategy & Positioning"
+          "fr": "Branding",
+          "en": "Branding"
         },
         "desc": {
-          "fr": "Définir ce qui vous rend incontournable avant même de poser le premier pixel.",
-          "en": "Define what makes you essential before the first pixel is drawn."
+          "fr": "Une marque claire, singulière et durable, de la stratégie au logo.",
+          "en": "A clear, distinctive and lasting brand, from strategy to logo."
         },
         "benefit": {
-          "fr": "Éliminer l’ambiguïté, clarifier votre discours et aligner votre vision d’entreprise avec les attentes réelles de vos cibles prioritaires.",
-          "en": "Remove ambiguity, sharpen what you say and align your business vision with what your priority audiences actually expect."
+          "fr": "Savoir précisément ce qui vous rend différent, et le montrer avec cohérence sur chaque support.",
+          "en": "Know exactly what sets you apart, and show it consistently on every touchpoint."
         },
         "seoTitle": {
-          "fr": "Stratégie de marque & positionnement à Abidjan — Origine Creative",
-          "en": "Brand strategy & positioning in Abidjan — Origine Creative"
+          "fr": "Branding à Abidjan : stratégie de marque, logo & identité visuelle — Origine Creative",
+          "en": "Branding in Abidjan: brand strategy, logo & visual identity — Origine Creative"
         },
         "seoDescription": {
-          "fr": "Plateforme de marque, proposition de valeur, ton éditorial et analyse concurrentielle : Origine Creative définit le positionnement des marques ambitieuses à Abidjan, en Afrique et à l’international.",
-          "en": "Brand platform, value proposition, tone of voice and competitor analysis: Origine Creative defines the positioning of ambitious brands in Abidjan, across Africa and internationally."
+          "fr": "Stratégie de marque, positionnement, naming, création de logo et identité visuelle complète à Abidjan. Une marque cohérente, du papier à en-tête au panneau de chantier.",
+          "en": "Brand strategy, positioning, naming, logo design and complete visual identity in Abidjan. A consistent brand, from letterhead to site hoarding."
         },
         "intro": [
           {
@@ -411,38 +408,44 @@
             "en": "A strong brand starts with a clear position. In Abidjan as in other African and international markets, the companies that lead are the ones that can say who they are, who they speak to and why they should be chosen."
           },
           {
-            "fr": "Nous construisons cette position avec vous : analyse du marché et de la concurrence, entretiens, puis une plateforme de marque qui fixe votre mission, votre promesse, votre ton et l’organisation de vos offres.",
-            "en": "We build that position with you: market and competitor analysis, interviews, then a brand platform that sets your mission, your promise, your tone and how your offers fit together."
+            "fr": "Nous construisons cette position avec vous, analyse du marché et de la concurrence, entretiens, plateforme de marque, puis nous la traduisons en identité visuelle : logo, couleurs, typographies et règles d’usage, réunis dans une charte que vos équipes appliquent sans approximation.",
+            "en": "We build that position with you, market and competitor analysis, interviews, brand platform, then turn it into a visual identity: logo, colours, typefaces and usage rules, gathered in guidelines your teams apply without guesswork."
           },
           {
-            "fr": "Ce socle guide ensuite tout le reste, de l’identité visuelle aux campagnes et au site : chaque choix a une raison, et vos équipes parlent enfin d’une seule voix.",
-            "en": "That foundation then guides everything else, from the visual identity to campaigns and the website: every choice has a reason, and your teams finally speak with one voice."
+            "fr": "C’est le travail mené pour AGRI BUILD, TANDEM et l’Infinity Football Academy : des entreprises très différentes, chacune avec une identité qui lui ressemble, déclinée sur tous ses supports.",
+            "en": "That is the work we did for AGRI BUILD, TANDEM and the Infinity Football Academy: very different companies, each with an identity that fits it, rolled out across all its touchpoints."
           }
         ],
         "deliverables": [
           {
-            "fr": "Plateforme de marque",
-            "en": "Brand platform"
+            "fr": "Audit & analyse concurrentielle",
+            "en": "Audit & competitor analysis"
           },
           {
-            "fr": "Proposition de valeur",
-            "en": "Value proposition"
+            "fr": "Plateforme de marque (mission, promesse, ton)",
+            "en": "Brand platform (mission, promise, tone)"
           },
           {
-            "fr": "Ton éditorial (tone of voice)",
-            "en": "Tone of voice"
+            "fr": "Naming & signature",
+            "en": "Naming & tagline"
           },
           {
-            "fr": "Architecture d’offre",
-            "en": "Offer architecture"
+            "fr": "Logo & système graphique",
+            "en": "Logo & graphic system"
           },
           {
-            "fr": "Analyse concurrentielle",
-            "en": "Competitor analysis"
+            "fr": "Palette, typographies & grilles",
+            "en": "Palette, typefaces & grids"
+          },
+          {
+            "fr": "Charte graphique (brand guidelines)",
+            "en": "Brand guidelines"
           }
         ],
         "projects": [
-          "agri-build"
+          "agri-build",
+          "tandem",
+          "ifa"
         ],
         "faq": [
           {
@@ -455,96 +458,6 @@
               "en": "Because a logo expresses a position. Without one, shapes and colours follow the taste of the moment; with one, every visual choice has a reason you can defend to your teams and your clients."
             }
           },
-          {
-            "q": {
-              "fr": "Notre entreprise existe déjà. Est-ce utile pour nous ?",
-              "en": "Our company already exists. Is this useful for us?"
-            },
-            "a": {
-              "fr": "Oui, en particulier avant une refonte, le lancement d’une offre ou une phase de croissance. Nous partons de ce qui fonctionne déjà pour clarifier votre discours sans repartir de zéro.",
-              "en": "Yes, especially before a rebrand, a new offer or a growth phase. We start from what already works to sharpen your message without starting over."
-            }
-          },
-          {
-            "q": {
-              "fr": "Combien de temps dure cette phase ?",
-              "en": "How long does this phase take?"
-            },
-            "a": {
-              "fr": "Cela dépend du nombre d’offres et d’interlocuteurs à rencontrer. Nous fixons le calendrier ensemble lors du premier échange.",
-              "en": "It depends on how many offers and people are involved. We set the schedule together in our first conversation."
-            }
-          }
-        ]
-      },
-      {
-        "slug": "identite-visuelle",
-        "title": {
-          "fr": "Identité Visuelle & Systèmes de Marque",
-          "en": "Visual Identity & Brand Systems"
-        },
-        "desc": {
-          "fr": "Un écosystème graphique cohérent, précis et taillé pour durer.",
-          "en": "A coherent, precise graphic ecosystem built to last."
-        },
-        "benefit": {
-          "fr": "Obtenir une reconnaissance instantanée sur tous vos points de contact grâce à des règles d’application millimétrées.",
-          "en": "Be recognised instantly at every touchpoint, thanks to precisely defined usage rules."
-        },
-        "seoTitle": {
-          "fr": "Création d’identité visuelle & logo à Abidjan — Agence de branding",
-          "en": "Visual identity & logo design in Abidjan — Branding agency"
-        },
-        "seoDescription": {
-          "fr": "Logotype, charte graphique, palette, typographies et brand guidelines : Origine Creative conçoit des identités visuelles et des systèmes de marque durables pour les entreprises à Abidjan et en Côte d’Ivoire.",
-          "en": "Logotype, colour palette, typography and brand guidelines: Origine Creative designs lasting visual identities and brand systems for companies in Abidjan and across Côte d’Ivoire."
-        },
-        "intro": [
-          {
-            "fr": "Une identité visuelle n’est pas un logo isolé : c’est un système. Logotype, couleurs, typographies, grilles et règles d’usage travaillent ensemble pour que votre marque soit reconnue au premier regard, sur un écran comme sur un panneau à Abidjan.",
-            "en": "A visual identity is not a logo on its own: it is a system. Logotype, colours, type, grids and usage rules work together so your brand is recognised at first glance, on a screen as on a billboard in Abidjan."
-          },
-          {
-            "fr": "Nous dessinons ce système, puis nous le documentons dans des brand guidelines complètes que vos équipes, vos imprimeurs et vos partenaires peuvent appliquer sans approximation.",
-            "en": "We design that system, then document it in complete brand guidelines your teams, printers and partners can apply without guesswork."
-          },
-          {
-            "fr": "C'est le travail que nous avons mené pour AGRI BUILD : une entreprise présente dans cinq secteurs, réunie sous une seule identité, déclinée du papier à en-tête au panneau de chantier.",
-            "en": "That is the work we did for AGRI BUILD: a company active in five sectors, brought together under one identity, carried from the letterhead to the site hoarding."
-          }
-        ],
-        "deliverables": [
-          {
-            "fr": "Logotype & logomarks",
-            "en": "Logotype & logomarks"
-          },
-          {
-            "fr": "Grilles de construction & zones de protection",
-            "en": "Construction grids & clear space"
-          },
-          {
-            "fr": "Palette colorimétrique normée (print & web)",
-            "en": "Specified colour palette (print & web)"
-          },
-          {
-            "fr": "Hiérarchie typographique",
-            "en": "Typographic hierarchy"
-          },
-          {
-            "fr": "Déclinaisons d’applications",
-            "en": "Applications"
-          },
-          {
-            "fr": "Brand guidelines complètes",
-            "en": "Complete brand guidelines"
-          }
-        ],
-        "projects": [
-          "agri-build",
-          "tandem",
-          "ifa"
-        ],
-        "faq": [
           {
             "q": {
               "fr": "Quelle est la différence entre un logo et une identité visuelle ?",
@@ -564,40 +477,30 @@
               "fr": "Oui. Nous partons d'un audit de ce qui fonctionne déjà, puis nous faisons évoluer l'identité sans perdre ce que vos clients reconnaissent.",
               "en": "Yes. We start with an audit of what already works, then evolve the identity without losing what your customers recognise."
             }
-          },
-          {
-            "q": {
-              "fr": "Combien de temps dure un projet d'identité ?",
-              "en": "How long does an identity project take?"
-            },
-            "a": {
-              "fr": "Cela dépend de l'étendue : un logo seul ou une plateforme de marque complète ne demandent pas le même travail. Nous fixons le calendrier ensemble à la fin de l'étape d'immersion.",
-              "en": "It depends on the scope: a logo alone and a full brand platform are not the same job. We set the schedule together at the end of the immersion step."
-            }
           }
         ]
       },
       {
         "slug": "direction-artistique",
         "title": {
-          "fr": "Direction Artistique & Production Visuelle",
-          "en": "Art Direction & Visual Production"
+          "fr": "Creative Direction",
+          "en": "Creative Direction"
         },
         "desc": {
-          "fr": "Donner une signature esthétique irréprochable à vos prises de parole.",
-          "en": "Give everything you say a flawless visual signature."
+          "fr": "Une signature visuelle forte pour chaque prise de parole, de la campagne au motion design.",
+          "en": "A strong visual signature for everything you say, from campaigns to motion design."
         },
         "benefit": {
-          "fr": "Assurer une cohérence visuelle haut de gamme sur vos campagnes corporate, salons professionnels et supports d’exception.",
-          "en": "Keep a premium, consistent look across corporate campaigns, trade shows and signature materials."
+          "fr": "Des campagnes qui arrêtent le regard et ressemblent toujours à votre marque.",
+          "en": "Campaigns that stop people in their tracks and always look like your brand."
         },
         "seoTitle": {
-          "fr": "Direction artistique & campagnes visuelles à Abidjan — Origine Creative",
-          "en": "Art direction & visual campaigns in Abidjan — Origine Creative"
+          "fr": "Direction artistique, campagnes & motion design à Abidjan — Origine Creative",
+          "en": "Art direction, campaigns & motion design in Abidjan — Origine Creative"
         },
         "seoDescription": {
-          "fr": "Moodboards, concepts de campagne, supervision photo et vidéo, scénographie d’événements : Origine Creative signe la direction artistique des marques à Abidjan et en Côte d’Ivoire.",
-          "en": "Moodboards, campaign concepts, photo and video supervision, event scenography: Origine Creative leads art direction for brands in Abidjan and across Côte d’Ivoire."
+          "fr": "Concepts de campagne, direction photo et vidéo, motion design et scénographie à Abidjan. Une direction artistique qui donne à chaque prise de parole la signature de votre marque.",
+          "en": "Campaign concepts, photo and video direction, motion design and set design in Abidjan. Art direction that gives everything you say your brand’s signature."
         },
         "intro": [
           {
@@ -605,36 +508,40 @@
             "en": "Once the brand is in place, every message has to look like it. Art direction makes sure a poster, a post or a campaign speak the same visual language."
           },
           {
-            "fr": "Nous concevons vos campagnes du moodboard à la production : concept, supervision des prises de vue photo et vidéo, y compris assistées par IA, et lignes directrices pour vos stands et vos événements.",
-            "en": "We take your campaigns from moodboard to production: concept, supervision of photo and video shoots, AI-assisted ones included, and guidelines for your stands and events."
+            "fr": "Nous concevons vos campagnes du concept à la production : moodboards, direction photo et vidéo, motion design pour les écrans et les réseaux, scénographie de vos stands et de vos événements.",
+            "en": "We design your campaigns from concept to production: moodboards, photo and video direction, motion design for screens and social media, set design for your stands and events."
           },
           {
-            "fr": "Pour KATANA, nous avons créé une série de flyers qui présente l'offre automobile clairement. Notre hommage à DJ Arafat montre la même exigence côté création artistique.",
-            "en": "For KATANA we designed a series of flyers that presents the car-care offer clearly. Our tribute to DJ Arafat shows the same care on the artistic side."
+            "fr": "Pour MIAM, la campagne « Le goût qui parle » ; pour KATANA, une série de flyers claire et percutante ; et, côté création artistique, notre hommage à DJ Arafat.",
+            "en": "For MIAM, the “Le goût qui parle” campaign; for KATANA, a clear and punchy flyer series; and, on the artistic side, our tribute to DJ Arafat."
           }
         ],
         "deliverables": [
           {
-            "fr": "Moodboards stratégiques",
-            "en": "Strategic moodboards"
+            "fr": "Concepts de campagne",
+            "en": "Campaign concepts"
           },
           {
-            "fr": "Concepts de campagnes visuelles",
-            "en": "Visual campaign concepts"
+            "fr": "Moodboards & direction photo/vidéo",
+            "en": "Moodboards & photo/video direction"
           },
           {
-            "fr": "Supervision photo/vidéo assistée par IA",
-            "en": "AI-assisted photo/video supervision"
+            "fr": "Motion design & logo animé",
+            "en": "Motion design & animated logo"
           },
           {
-            "fr": "Guidelines de scénographie & événementiel",
-            "en": "Scenography & event guidelines"
+            "fr": "Contenus pour les réseaux sociaux",
+            "en": "Social media content"
+          },
+          {
+            "fr": "Scénographie & événementiel",
+            "en": "Set design & events"
           }
         ],
         "projects": [
+          "miam",
           "katana",
-          "dj-arafat",
-          "miam"
+          "dj-arafat"
         ],
         "faq": [
           {
@@ -649,12 +556,12 @@
           },
           {
             "q": {
-              "fr": "Gérez-vous l'impression ?",
-              "en": "Do you handle printing?"
+              "fr": "Pouvez-vous animer notre logo existant ?",
+              "en": "Can you animate our existing logo?"
             },
             "a": {
-              "fr": "Nous livrons des fichiers prêts à imprimer et pouvons coordonner le suivi avec votre imprimeur.",
-              "en": "We deliver print-ready files and can coordinate with your printer."
+              "fr": "Oui, à partir de vos fichiers sources. Si besoin, nous les reconstruisons proprement avant de l'animer.",
+              "en": "Yes, from your source files. If needed, we rebuild them cleanly before animating."
             }
           },
           {
@@ -670,118 +577,26 @@
         ]
       },
       {
-        "slug": "motion-design",
+        "slug": "experiences-digitales",
         "title": {
-          "fr": "Motion Design & Identité Animée",
-          "en": "Motion Design & Animated Identity"
+          "fr": "Digital Experiences",
+          "en": "Digital Experiences"
         },
         "desc": {
-          "fr": "Donner du rythme et de la vie à votre identité de marque.",
-          "en": "Bring rhythm and life to your brand identity."
+          "fr": "Des sites et des expériences en ligne qui donnent envie et convertissent.",
+          "en": "Websites and online experiences that make people want more, and convert."
         },
         "benefit": {
-          "fr": "Capter l’attention en quelques secondes sur les canaux digitaux et renforcer la mémorisation de votre univers.",
-          "en": "Catch attention within seconds on digital channels and make your brand world easier to remember."
+          "fr": "Être trouvé, inspirer confiance et transformer chaque visite en prise de contact.",
+          "en": "Get found, earn trust and turn every visit into a conversation."
         },
         "seoTitle": {
-          "fr": "Motion design & animation de logo à Abidjan — Origine Creative",
-          "en": "Motion design & logo animation in Abidjan — Origine Creative"
+          "fr": "Création de site web & e-commerce à Abidjan — Digital Experiences | Origine Creative",
+          "en": "Website & e-commerce design in Abidjan — Digital Experiences | Origine Creative"
         },
         "seoDescription": {
-          "fr": "Animation de logo, boucles pour les réseaux sociaux, teasers de lancement et habillages d’écrans : Origine Creative met votre identité en mouvement à Abidjan, en Côte d’Ivoire.",
-          "en": "Logo animation, social media loops, launch teasers and event screen graphics: Origine Creative sets your identity in motion in Abidjan, Côte d’Ivoire."
-        },
-        "intro": [
-          {
-            "fr": "Sur les réseaux sociaux comme en affichage digital, l'image animée retient l'attention. Le motion design donne du rythme à votre marque et rend vos messages plus faciles à retenir.",
-            "en": "On social media and digital screens alike, moving images hold attention. Motion design gives your brand rhythm and makes your messages easier to remember."
-          },
-          {
-            "fr": "Nous animons votre logo et votre univers graphique, puis nous les déclinons en boucles pour les réseaux, en teasers de lancement et en habillages d’écrans pour vos événements, en restant fidèles à votre identité.",
-            "en": "We animate your logo and graphic world, then carry them into social loops, launch teasers and screen graphics for your events, always true to your identity."
-          },
-          {
-            "fr": "Nous utilisons aussi l'intelligence artificielle comme outil de production, pour explorer plus de pistes et produire plus vite, avec une direction artistique qui reste humaine.",
-            "en": "We also use AI as a production tool, to explore more directions and produce faster, with art direction that stays human."
-          }
-        ],
-        "deliverables": [
-          {
-            "fr": "Logo animations",
-            "en": "Logo animations"
-          },
-          {
-            "fr": "Boucles dynamiques pour les réseaux",
-            "en": "Social media loops"
-          },
-          {
-            "fr": "Teasers de lancement",
-            "en": "Launch teasers"
-          },
-          {
-            "fr": "Habillages d’écrans pour événements",
-            "en": "Event screen graphics"
-          },
-          {
-            "fr": "Micro-interactions UI",
-            "en": "UI micro-interactions"
-          }
-        ],
-        "projects": [],
-        "faq": [
-          {
-            "q": {
-              "fr": "Pouvez-vous animer notre logo existant ?",
-              "en": "Can you animate our existing logo?"
-            },
-            "a": {
-              "fr": "Oui, à partir de vos fichiers sources. Si besoin, nous les reconstruisons proprement avant de l'animer.",
-              "en": "Yes, from your source files. If needed, we rebuild them cleanly before animating."
-            }
-          },
-          {
-            "q": {
-              "fr": "Comment utilisez-vous l'IA ?",
-              "en": "How do you use AI?"
-            },
-            "a": {
-              "fr": "Comme un outil parmi d'autres, pour explorer des idées et accélérer certaines étapes. Les choix créatifs et la validation restent entre nos mains et les vôtres.",
-              "en": "As one tool among others, to explore ideas and speed up some steps. Creative choices and approval stay with us and with you."
-            }
-          },
-          {
-            "q": {
-              "fr": "Livrez-vous les formats pour chaque réseau ?",
-              "en": "Do you deliver formats for each network?"
-            },
-            "a": {
-              "fr": "Oui : vertical, carré ou horizontal selon l'usage, avec ou sans sous-titres.",
-              "en": "Yes: vertical, square or landscape depending on use, with or without subtitles."
-            }
-          }
-        ]
-      },
-      {
-        "slug": "communication-digitale",
-        "title": {
-          "fr": "Communication Digitale & Expérience de Marque",
-          "en": "Digital Communication & Brand Experience"
-        },
-        "desc": {
-          "fr": "Déployer votre réputation en ligne avec impact et clarté.",
-          "en": "Grow your reputation online with impact and clarity."
-        },
-        "benefit": {
-          "fr": "Convertir l’audience en clients fidèles grâce à des interfaces engageantes et des contenus ciblés.",
-          "en": "Turn your audience into loyal clients with engaging interfaces and targeted content."
-        },
-        "seoTitle": {
-          "fr": "Landing pages, site web & social media à Abidjan — Communication digitale",
-          "en": "Landing pages, websites & social media in Abidjan — Digital communication"
-        },
-        "seoDescription": {
-          "fr": "Landing pages à fort taux de conversion, kits social media et templates marketing : Origine Creative conçoit la communication digitale des marques à Abidjan et en Côte d’Ivoire.",
-          "en": "High-converting landing pages, social media kits and marketing templates: Origine Creative designs digital communication for brands in Abidjan and across Côte d’Ivoire."
+          "fr": "Sites vitrines, boutiques en ligne, landing pages et kits pour les réseaux sociaux à Abidjan, pensés d’abord pour le téléphone. Des expériences digitales qui inspirent confiance et convertissent.",
+          "en": "Showcase sites, online shops, landing pages and social media kits in Abidjan, designed for the phone first. Digital experiences that earn trust and convert."
         },
         "intro": [
           {
@@ -789,31 +604,38 @@
             "en": "Your website is often the first contact with your customers. It has to say quickly what you do, build trust and lead to action: a call, a message, a request for a quote."
           },
           {
-            "fr": "Nous concevons des landing pages pensées pour convertir, ainsi que des kits social media et des templates que vos équipes réutilisent au quotidien sans sortir de votre identité. Tout est pensé d’abord pour le mobile, là où la plupart de vos visiteurs arrivent.",
-            "en": "We design landing pages built to convert, along with social media kits and templates your teams reuse every day without stepping outside your identity. Everything is designed mobile first, where most of your visitors arrive."
+            "fr": "Nous concevons des sites vitrines et e-commerce, des landing pages et des kits pour vos réseaux, pensés d’abord pour le téléphone, avec un espace d’administration pour modifier vos contenus sans développeur.",
+            "en": "We design showcase and e-commerce sites, landing pages and social media kits, built for the phone first, with an admin area to update your content without a developer."
           },
           {
-            "fr": "Le site d'Origine Creative lui-même en est un exemple : une page claire, des animations discrètes et un espace d'administration pour modifier le contenu sans développeur.",
-            "en": "Origine Creative's own site is an example: one clear page, discreet motion and an admin area to edit content without a developer."
+            "fr": "Pour Maison Marnoa, une boutique de haute joaillerie en ligne ; le site d’Origine Creative lui-même en est un autre exemple.",
+            "en": "For Maison Marnoa, an online fine-jewellery boutique; the Origine Creative website itself is another example."
           }
         ],
         "deliverables": [
           {
-            "fr": "Design de landing pages à fort taux de conversion",
-            "en": "High-converting landing page design"
+            "fr": "Sites vitrines & e-commerce",
+            "en": "Showcase & e-commerce websites"
           },
           {
-            "fr": "Kits social media prêts à l’emploi",
-            "en": "Ready-to-use social media kits"
+            "fr": "Landing pages",
+            "en": "Landing pages"
           },
           {
-            "fr": "Templates marketing pour vos équipes",
-            "en": "Marketing templates for your teams"
+            "fr": "Design d’interface (UI) mobile-first",
+            "en": "Mobile-first interface (UI) design"
+          },
+          {
+            "fr": "Espace d’administration",
+            "en": "Admin area"
+          },
+          {
+            "fr": "Kits réseaux sociaux & templates",
+            "en": "Social media kits & templates"
           }
         ],
         "projects": [
-          "maison-marnoa",
-          "miam"
+          "maison-marnoa"
         ],
         "faq": [
           {
@@ -844,6 +666,100 @@
             "a": {
               "fr": "Oui : un kit de gabarits aux formats de chaque plateforme, que vos équipes complètent elles-mêmes, ou des visuels produits par nos soins.",
               "en": "Yes: a kit of templates in each platform’s formats that your teams fill in themselves, or visuals we produce for you."
+            }
+          }
+        ]
+      },
+      {
+        "slug": "production-ia",
+        "title": {
+          "fr": "AI Production & Automation",
+          "en": "AI Production & Automation"
+        },
+        "desc": {
+          "fr": "L’IA au service de votre marque : visuels, vidéos, automatisations et agents.",
+          "en": "AI working for your brand: visuals, videos, automations and agents."
+        },
+        "benefit": {
+          "fr": "Produire plus de contenus de qualité, plus vite, et libérer vos équipes des tâches répétitives.",
+          "en": "Produce more quality content, faster, and free your teams from repetitive work."
+        },
+        "seoTitle": {
+          "fr": "Production IA, automatisation & agents IA à Abidjan — Origine Creative",
+          "en": "AI production, automation & AI agents in Abidjan — Origine Creative"
+        },
+        "seoDescription": {
+          "fr": "Visuels et vidéos produits avec l’IA sous direction artistique, automatisation des tâches marketing et commerciales, agents IA pour WhatsApp et votre site. Origine Creative, Abidjan.",
+          "en": "AI-produced visuals and videos under art direction, automation of marketing and sales tasks, AI agents for WhatsApp and your website. Origine Creative, Abidjan."
+        },
+        "intro": [
+          {
+            "fr": "L’intelligence artificielle change la façon de produire et de travailler. Bien utilisée, elle permet de créer plus de contenus, de tester plus d’idées et de répondre plus vite à vos clients, sans perdre la qualité ni l’identité de votre marque.",
+            "en": "Artificial intelligence is changing how we produce and work. Used well, it lets you create more content, test more ideas and answer your customers faster, without losing quality or your brand’s identity."
+          },
+          {
+            "fr": "Nous produisons des visuels et des vidéos avec l’IA, sous une direction artistique humaine, comme pour la campagne MIAM. Nous mettons aussi en place des automatisations, par exemple pour les relances, les devis ou la publication de contenus, et des agents IA qui répondent à vos clients sur WhatsApp ou sur votre site.",
+            "en": "We produce visuals and videos with AI under human art direction, as for the MIAM campaign. We also set up automations, for follow-ups, quotes or content publishing for example, and AI agents that answer your customers on WhatsApp or on your website."
+          },
+          {
+            "fr": "Chaque outil est configuré pour votre activité et vos informations, puis expliqué à vos équipes pour qu’elles gardent la main sur le résultat.",
+            "en": "Every tool is set up for your business and your information, then explained to your teams so they stay in control of the result."
+          }
+        ],
+        "deliverables": [
+          {
+            "fr": "Visuels & campagnes produits avec l’IA",
+            "en": "AI-produced visuals & campaigns"
+          },
+          {
+            "fr": "Vidéos & contenus animés assistés par IA",
+            "en": "AI-assisted videos & animated content"
+          },
+          {
+            "fr": "Automatisation des tâches marketing et commerciales",
+            "en": "Marketing & sales task automation"
+          },
+          {
+            "fr": "Agents IA (WhatsApp, site web, service client)",
+            "en": "AI agents (WhatsApp, website, customer service)"
+          },
+          {
+            "fr": "Accompagnement de vos équipes",
+            "en": "Support for your teams"
+          }
+        ],
+        "projects": [
+          "miam"
+        ],
+        "faq": [
+          {
+            "q": {
+              "fr": "Les visuels IA respectent-ils notre identité ?",
+              "en": "Do AI visuals respect our identity?"
+            },
+            "a": {
+              "fr": "Oui : l’IA produit des propositions, la direction artistique choisit, corrige et retouche jusqu’à ce que chaque image soit conforme à votre charte.",
+              "en": "Yes: the AI produces options, and art direction picks, corrects and retouches until every image matches your guidelines."
+            }
+          },
+          {
+            "q": {
+              "fr": "Qu’est-ce qu’un agent IA ?",
+              "en": "What is an AI agent?"
+            },
+            "a": {
+              "fr": "Un assistant qui répond à vos clients ou à vos équipes, par écrit, à partir de vos informations : horaires, offres, questions fréquentes. Il peut passer la main à une personne quand c’est nécessaire.",
+              "en": "An assistant that answers your customers or your teams in writing, based on your information: opening hours, offers, frequent questions. It can hand over to a person when needed."
+            }
+          },
+          {
+            "q": {
+              "fr": "Quelles tâches peut-on automatiser ?",
+              "en": "Which tasks can be automated?"
+            },
+            "a": {
+              "fr": "Les tâches répétitives et bien définies : envoyer un devis, relancer un prospect, enregistrer une demande, publier un contenu. Nous partons de votre façon de travailler pour choisir ce qui vous fera vraiment gagner du temps.",
+              "en": "Repetitive, well-defined tasks: sending a quote, following up a lead, logging a request, publishing content. We start from the way you work to choose what will genuinely save you time."
             }
           }
         ]

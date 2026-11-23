@@ -725,7 +725,7 @@ function template(
 function metaFor(sheetId: string | null, pathname: string, lang: Lang) {
   const base = {
     title: 'Origine Creative — Agence de branding et de communication à Abidjan',
-    description: 'Agence de branding et de communication à Abidjan : stratégie de marque, création de logo et d’identité visuelle, direction artistique, motion design et communication digitale.',
+    description: 'Agence de branding et de communication à Abidjan : stratégie de marque et identité visuelle, direction artistique, sites web, production IA, automatisation et agents IA.',
     path: '/',
   };
   // The sections' own addresses (/services, /projets…) are the home page

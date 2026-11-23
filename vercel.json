@@ -8,8 +8,28 @@
   ],
   "redirects": [
     {
+      "source": "/services/strategie-de-marque",
+      "destination": "/services/branding",
+      "permanent": true
+    },
+    {
+      "source": "/services/identite-visuelle",
+      "destination": "/services/branding",
+      "permanent": true
+    },
+    {
+      "source": "/services/motion-design",
+      "destination": "/services/direction-artistique",
+      "permanent": true
+    },
+    {
+      "source": "/services/communication-digitale",
+      "destination": "/services/experiences-digitales",
+      "permanent": true
+    },
+    {
       "source": "/services/brand-strategy-identity",
-      "destination": "/services/identite-visuelle",
+      "destination": "/services/branding",
       "permanent": true
     },
     {
@@ -19,12 +39,12 @@
     },
     {
       "source": "/services/digital-experiences",
-      "destination": "/services/communication-digitale",
+      "destination": "/services/experiences-digitales",
       "permanent": true
     },
     {
       "source": "/services/motion-creative-production",
-      "destination": "/services/motion-design",
+      "destination": "/services/direction-artistique",
       "permanent": true
     }
   ]
