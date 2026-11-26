@@ -13,7 +13,7 @@ export function PolitiqueConfidentialite() {
                         <section>
                             <h2 className="text-xl font-bold text-white mb-4">1. Collecte des données</h2>
                             <p>
-                                Origine Creative collecte des données personnelles uniquement lorsque vous les fournissez volontairement via notre formulaire de contact ou notre assistant IA. Les données collectées peuvent inclure :
+                                Origine Creative collecte des données personnelles uniquement lorsque vous les fournissez volontairement via notre formulaire de contact, notre inscription à la newsletter ou notre assistant IA. Les données collectées peuvent inclure :
                             </p>
                             <ul className="space-y-1 mt-4">
                                 <li>Votre nom complet</li>
@@ -31,6 +31,7 @@ export function PolitiqueConfidentialite() {
                             <ul className="space-y-1 mt-4">
                                 <li>Répondre à vos demandes de contact</li>
                                 <li>Vous proposer un devis ou une collaboration</li>
+                                <li>Vous envoyer notre newsletter, uniquement si vous vous y êtes inscrit (au plus un email par mois, désinscription en un clic dans chaque envoi)</li>
                                 <li>Améliorer nos services et l'expérience utilisateur</li>
                             </ul>
                             <p className="mt-4">
@@ -70,12 +71,13 @@ export function PolitiqueConfidentialite() {
                             <ul className="space-y-1 mt-4">
                                 <li><strong className="text-white/90">Formspree</strong> — Traitement des formulaires de contact</li>
                                 <li><strong className="text-white/90">Google Gemini AI</strong> — Assistant conversationnel</li>
+                                <li><strong className="text-white/90">Brevo</strong> — Envoi de la newsletter et gestion des inscriptions</li>
                                 <li><strong className="text-white/90">Vercel</strong> — Hébergement du site</li>
                             </ul>
                         </section>
 
                         <p className="text-white/40 text-sm mt-12 border-t border-white/10 pt-8">
-                            Dernière mise à jour : Mars 2026
+                            Dernière mise à jour : Novembre 2026
                         </p>
                     </div>
                 </div>
