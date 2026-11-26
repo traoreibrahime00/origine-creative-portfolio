@@ -19,8 +19,8 @@
       "en": "Start a project"
     },
     "intro": {
-      "fr": "Quatre étapes, deux minutes. Plus votre brief est précis, plus notre première réponse le sera.",
-      "en": "Four steps, two minutes. The clearer your brief, the sharper our first answer."
+      "fr": "Trois étapes, deux minutes. Plus votre brief est précis, plus notre première réponse le sera.",
+      "en": "Three steps, two minutes. The clearer your brief, the sharper our first answer."
     },
     "steps": [
       {
@@ -78,31 +78,6 @@
           {
             "fr": "En réflexion (dans plus de 2 mois)",
             "en": "Still exploring (more than 2 months away)"
-          }
-        ]
-      },
-      {
-        "question": {
-          "fr": "Quelle enveloppe budgétaire allouez-vous à ce projet ?",
-          "en": "What budget have you set aside for this project?"
-        },
-        "multiple": false,
-        "options": [
-          {
-            "fr": "Moins de 1 500 000 FCFA",
-            "en": "Under 1,500,000 FCFA"
-          },
-          {
-            "fr": "1 500 000 – 4 000 000 FCFA",
-            "en": "1,500,000 – 4,000,000 FCFA"
-          },
-          {
-            "fr": "4 000 000 – 10 000 000 FCFA",
-            "en": "4,000,000 – 10,000,000 FCFA"
-          },
-          {
-            "fr": "10 000 000 FCFA et plus",
-            "en": "10,000,000 FCFA and above"
           }
         ]
       }
