@@ -19,6 +19,7 @@ import {
   initReveals, initTilt, reduceMotion, setSheetOpen,
 } from './behaviors';
 import { DepthGallery } from './DepthGallery';
+import { NewsletterForm } from './Newsletter';
 
 type Opener = HTMLElement & { _opener?: HTMLElement | null };
 
@@ -339,14 +340,17 @@ export function OnePager() {
           <p className="footer-in" style={style({ '--i': 3 })}>
             <button className="copy-email" type="button" onClick={copyEmail}>{EMAIL}</button>
           </p>
-          <p className="site-footer-links footer-in" style={style({ '--i': 4 })}>
+          <div id="newsletter" className="footer-in" style={style({ '--i': 4 })}>
+            <NewsletterForm lang={lang} />
+          </div>
+          <p className="site-footer-links footer-in" style={style({ '--i': 5 })}>
             <Link to="/contact">{COPY.start[lang]}</Link>
             <Link to="/agence-de-communication-abidjan">{lang === 'fr' ? 'Agence de communication à Abidjan' : 'Communication agency in Abidjan'}</Link>
             <a href="/a-propos" onClick={opener('/a-propos', 'sheet-studio')}>{STUDIO.title[lang]}</a>
             <Link to="/mentions-legales">{COPY.legal[lang]}</Link>
             <Link to="/politique-de-confidentialite">{COPY.privacy[lang]}</Link>
           </p>
-          <p className="site-footer-links footer-in" style={style({ '--i': 5 })}>
+          <p className="site-footer-links footer-in" style={style({ '--i': 6 })}>
             <span>{SITE.contact.location[lang]}</span>
             <span>© {new Date().getFullYear()}</span>
           </p>

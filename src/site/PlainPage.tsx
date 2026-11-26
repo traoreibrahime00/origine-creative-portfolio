@@ -6,6 +6,7 @@ import { COPY, EMAIL, PHONE_DISPLAY, SITE, whatsappLink, type Lang } from './con
 import { initInputModality } from './behaviors';
 import { BackLink } from './BackLink';
 import { SEO } from '../components/SEO';
+import { subscribe } from './Newsletter';
 
 function useLang(): Lang {
   const { i18n } = useTranslation();
@@ -66,6 +67,10 @@ const TEXT = {
     fr: 'Il s’est ouvert dans votre messagerie : il ne reste qu’à l’envoyer. Rien ne s’est ouvert ?',
     en: 'It opened in your mail app: just send it. Nothing opened?',
   },
+  optin: {
+    fr: 'Recevoir aussi nos réalisations et conseils, une fois par mois au plus (désinscription en un clic).',
+    en: 'Also send me your latest work and tips, at most once a month (one-click unsubscribe).',
+  },
   retry: { fr: 'Ouvrir à nouveau', en: 'Open it again' },
   edit: { fr: 'Modifier le brief', en: 'Edit the brief' },
 };
@@ -81,6 +86,7 @@ export function ContactPage() {
   const [answers, setAnswers] = useState<number[][]>(() => brief.steps.map(() => []));
   const [details, setDetails] = useState<Details>({ name: '', company: '', email: '', phone: '', link: '', challenge: '' });
   const [error, setError] = useState(false);
+  const [optin, setOptin] = useState(false);
   const [sent, setSent] = useState<null | { channel: 'whatsapp' | 'email'; href: string }>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const advance = useRef<number>();
@@ -136,6 +142,11 @@ export function ContactPage() {
     e.preventDefault();
     const channel = ((e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null)?.value === 'email' ? 'email' : 'whatsapp';
     const body = compose();
+    if (optin) {
+      // The brief still opens in WhatsApp or the mail app; the sign-up runs alongside
+      const [firstName, ...rest] = details.name.split(',')[0].trim().split(/\s+/);
+      void subscribe({ email: details.email.trim(), firstName, lastName: rest.join(' ') });
+    }
     let href: string;
     if (channel === 'email') {
       const subject = `Brief — ${details.company || details.name}`;
@@ -234,6 +245,10 @@ export function ContactPage() {
                 </div>
                 <label>{TEXT.link[lang]}<input {...field('link')} inputMode="url" autoComplete="url" /></label>
                 <label>{brief.challenge[lang]}<textarea {...field('challenge')} required /></label>
+                <label className="brief-optin">
+                  <input type="checkbox" name="newsletter" checked={optin} onChange={(e) => setOptin(e.target.checked)} />
+                  <span>{TEXT.optin[lang]}</span>
+                </label>
                 <div className="brief-submit">
                   <button className="pill-button" type="submit" value="whatsapp">{brief.submit[lang]}</button>
                   <ul className="brief-reassure">

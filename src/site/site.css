@@ -2321,6 +2321,108 @@ a.card.is-current:active {
   color: var(--color-text);
 }
 
+/* ---- Newsletter ---- */
+.newsletter {
+  width: min(26rem, 100%);
+  margin: var(--space-md) auto var(--space-sm);
+  text-align: center;
+}
+
+.newsletter-title {
+  color: var(--color-text);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.newsletter-lead,
+.newsletter-legal {
+  margin-top: 0.35rem !important;
+  color: var(--color-muted);
+}
+
+.newsletter-legal {
+  font-size: 0.75rem;
+}
+
+.newsletter-legal a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-top: var(--space-sm);
+}
+
+.newsletter-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.newsletter-field input {
+  width: 100%;
+  padding: 0.6rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 200ms ease;
+}
+
+.newsletter-field input:focus {
+  border-bottom-color: var(--color-text);
+}
+
+.newsletter-form .pill-button {
+  margin: 0;
+  flex: none;
+}
+
+.newsletter-form .pill-button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.newsletter-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.newsletter-done,
+.newsletter-error {
+  margin-top: var(--space-sm) !important;
+}
+
+.newsletter-error {
+  color: var(--color-brand);
+}
+
+/* The brief's opt-in sits under the project questions, quiet but readable */
+.contact-form .brief-optin {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.contact-form .brief-optin input {
+  width: auto;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--color-text);
+}
+
 /* ---- Quick contact ---- */
 .footer-actions {
   display: flex;
