@@ -15,7 +15,7 @@ const FAQ = [
   },
   {
     q: 'Combien coûte un projet de communication à Abidjan ?',
-    a: 'Le prix dépend du périmètre : une campagne ciblée ne demande pas le même travail qu’une création de marque complète. Décrivez votre projet dans notre brief en quatre étapes : nous répondons sous 24h ouvrées et le cadrage stratégique est offert.',
+    a: 'Le prix dépend du périmètre : une campagne ciblée ne demande pas le même travail qu’une création de marque complète. Décrivez votre projet dans notre brief en trois étapes : nous répondons sous 24h ouvrées et le cadrage stratégique est offert.',
   },
   {
     q: 'Combien de temps dure un projet ?',
@@ -145,7 +145,7 @@ export function LandingCommunication() {
 
         <section className="landing-cta">
           <h2 className="case-heading">Parlons de votre projet</h2>
-          <p>Décrivez votre projet en quatre étapes : réponse sous 24h ouvrées, cadrage stratégique offert.</p>
+          <p>Décrivez votre projet en trois étapes : réponse sous 24h ouvrées, cadrage stratégique offert.</p>
           <div className="contact-actions">
             <Link className="pill-button" to="/contact">{COPY.start.fr}</Link>
             <a className="pill-button is-quiet" href={whatsappLink(SITE.contact.whatsappMessage.fr)} target="_blank" rel="noopener">{COPY.whatsappCta.fr}</a>
