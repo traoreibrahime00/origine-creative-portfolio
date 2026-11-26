@@ -2711,6 +2711,17 @@ body.oc[data-focus] .quick-whatsapp {
   font-size: 0.9375rem;
 }
 
+.contact-pillars {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-muted);
+}
+
+.contact-pillars a {
+  white-space: nowrap;
+}
+
 .contact-actions {
   display: flex;
   flex-wrap: wrap;

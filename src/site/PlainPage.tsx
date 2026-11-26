@@ -1,8 +1,8 @@
 // Pages outside the one-pager (contact, legal) in the same quiet column.
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { COPY, EMAIL, PHONE_DISPLAY, SITE, whatsappLink, type Lang } from './content';
+import { COPY, EMAIL, PHONE_DISPLAY, SERVICES, SITE, whatsappLink, type Lang } from './content';
 import { initInputModality } from './behaviors';
 import { BackLink } from './BackLink';
 import { SEO } from '../components/SEO';
@@ -42,8 +42,8 @@ export function PlainPage({ children, className = '', seo }: {
 
 const TEXT = {
   quick: {
-    fr: 'Une question rapide ? Écrivez-nous sur WhatsApp. Pour un projet, le brief ci-dessous nous donne tout ce qu’il faut pour vous répondre précisément.',
-    en: 'A quick question? Message us on WhatsApp. For a project, the brief below gives us everything we need to answer precisely.',
+    fr: 'Une question rapide ? Écrivez-nous sur WhatsApp. Pour un projet de marque, de campagne, de site web, de production IA ou d’automatisation, le brief ci-dessous nous donne tout ce qu’il faut pour vous répondre précisément.',
+    en: 'A quick question? Message us on WhatsApp. For a brand, campaign, website, AI production or automation project, the brief below gives us everything we need to answer precisely.',
   },
   step: { fr: 'Étape', en: 'Step' },
   of: { fr: 'sur', en: 'of' },
@@ -170,7 +170,7 @@ export function ContactPage() {
   return (
     <PlainPage
       seo={{
-        title: lang === 'fr' ? 'Démarrer un projet — Origine Creative, agence de branding à Abidjan' : 'Start a project — Origine Creative, branding agency in Abidjan',
+        title: lang === 'fr' ? 'Démarrer un projet — Origine Creative, agence créative à Abidjan' : 'Start a project — Origine Creative, creative agency in Abidjan',
         description: lang === 'fr'
           ? 'Décrivez votre projet de marque, de campagne, de site web ou d’IA en quatre étapes. Réponse sous 24h ouvrées. Origine Creative, Abidjan.'
           : 'Describe your brand, campaign, website or AI project in four steps. Reply within one working day. Origine Creative, Abidjan.',
@@ -181,6 +181,15 @@ export function ContactPage() {
       <div className="prose-col">
         <p>{TEXT.quick[lang]}</p>
       </div>
+      {/* The four practices, each leading to its page */}
+      <p className="contact-pillars">
+        {SERVICES.map((sv, i) => (
+          <span key={sv.slug}>
+            <Link className="hand-link" to={`/services/${sv.slug}`}>{sv.title[lang]}</Link>
+            {i < SERVICES.length - 1 && ' ·'}{' '}
+          </span>
+        ))}
+      </p>
       <div className="contact-actions">
         <a className="pill-button is-quiet" href={whatsappLink(contact.whatsappMessage[lang])} target="_blank" rel="noopener">{COPY.whatsappCta[lang]}</a>
         {booking && <a className="pill-button is-quiet" href={booking} target="_blank" rel="noopener">{COPY.booking[lang]}</a>}

@@ -53,6 +53,10 @@
           {
             "fr": "Automatisation ou agent IA",
             "en": "Automation or AI agent"
+          },
+          {
+            "fr": "Je ne sais pas encore : conseillez-moi",
+            "en": "Not sure yet: advise me"
           }
         ]
       },
@@ -72,8 +76,8 @@
             "en": "Standard (1 to 2 months)"
           },
           {
-            "fr": "En phase d’exploration (T2 / T3)",
-            "en": "Still exploring (Q2 / Q3)"
+            "fr": "En réflexion (dans plus de 2 mois)",
+            "en": "Still exploring (more than 2 months away)"
           }
         ]
       },
@@ -104,8 +108,8 @@
       }
     ],
     "challenge": {
-      "fr": "En deux phrases, quel est le principal défi de votre marque aujourd’hui ?",
-      "en": "In two sentences, what is your brand’s main challenge today?"
+      "fr": "En deux phrases, quel est votre objectif ou votre principal défi aujourd’hui ?",
+      "en": "In two sentences, what is your goal or your main challenge today?"
     },
     "submit": {
       "fr": "Soumettre mon brief — Réponse sous 24h ouvrées",
